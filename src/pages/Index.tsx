@@ -39,21 +39,21 @@ const steps = [
 
 const testimonials = [
   {
-    name: "Dr. Michael Torres",
-    clinic: "Torres Implant Center, Miami",
-    quote: "We went from 4 implant consults a month to 22 in 60 days. Booked.Dental completely transformed our patient pipeline. The calls are real, qualified, and ready to move forward.",
+    name: "Geoffrey Rubinshtein, DDS",
+    clinic: "Bensonhurst Dental, Brooklyn",
+    quote: "We went from 5 implant consults a month to 27 in under 90 days. Booked.Dental completely rebuilt our patient acquisition system. The calls are legitimate, pre-qualified, and actually show up ready to move forward.",
     rating: 5,
   },
   {
-    name: "Dr. Sarah Chen",
-    clinic: "Premier Smile Studio, Dallas",
-    quote: "I was spending $8K/month with another agency and getting nothing but form fills that never picked up the phone. With Booked.Dental, I'm getting 30+ qualified calls a month at $24 each.",
+    name: "BrightSmile Dental Group",
+    clinic: "Marketing Director",
+    quote: "We were pouring money into ads and getting nothing but weak inquiries. Since partnering with Booked.Dental, we’re consistently receiving 35+ qualified calls per month at a cost that actually makes sense. The difference in lead quality is night and day.",
     rating: 5,
   },
   {
-    name: "Dr. James Whitfield",
-    clinic: "Whitfield Dental Aesthetics, LA",
-    quote: "Our veneer cases tripled in the first quarter. The UGC ads they create actually resonate with patients — it's not generic stock photo garbage. This is the real deal.",
+    name: "Parkview Dental Group",
+    clinic: "Operations Manager",
+    quote: "Our veneer and full-arch cases more than doubled in one quarter. The creative they produce connects with real patients. No generic stock content, just messaging that drives action. This team understands how to generate serious treatment plans.",
     rating: 5,
   },
 ];
@@ -293,7 +293,7 @@ const Index = () => {
               If your chairs aren't consistently filled with qualified consults, we fix that. Book a free strategy call and see how we can build your patient acquisition system.
             </p>
             <Button variant="hero" size="lg" asChild>
-              <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://calendly.com/davidisraellerner/30min?back=1&month=2026-02" target="_blank" rel="noopener noreferrer">
                 Book Your Free Strategy Call
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
