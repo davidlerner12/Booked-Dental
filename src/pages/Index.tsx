@@ -1,59 +1,48 @@
-import { Phone, TrendingUp, Target, DollarSign, ArrowRight, CheckCircle2, Zap, BarChart3, Users, Star, Quote } from "lucide-react";
+import { Phone, Target, DollarSign, ArrowRight, CheckCircle2, Zap, BarChart3, Users, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { trackBookingCTA } from "@/lib/analytics";
 
 const stats = [
-  { value: "$20–$30", label: "Cost Per Qualified Call" },
+  { value: "$1,000", label: "Monthly System Cost" },
   { value: "12x", label: "Average ROI" },
-  { value: "14 Days", label: "To First Booked Consult" },
-  { value: "100+", label: "Clinics Scaled" },
+  { value: "14 Days", label: "Typical Time to First Consult" },
+  { value: "10+", label: "Clinics Scaled" },
 ];
 
 const services = [
   {
     icon: Target,
-    title: "High-Converting Meta Ads",
-    description: "UGC-powered creatives engineered to stop the scroll and drive qualified implant & veneer inquiries — not likes.",
+    title: "Authentic UGC Ads That Convert",
+    description: "We use human-style ad creatives that feel real and relatable to patients. These ads stop the scroll and generate implant and cosmetic consult inquiries.",
   },
   {
     icon: Phone,
-    title: "Qualified Calls, Not Leads",
-    description: "We optimize for phone calls from patients ready to book, not form fills that ghost your front desk.",
+    title: "Qualified Calls, Not Weak Leads",
+    description: "Our campaigns focus on generating real consult calls from patients interested in treatment — not low-quality form leads.",
   },
   {
     icon: DollarSign,
     title: "Predictable Patient Acquisition",
-    description: "A system that fills your chairs with high-ticket cases — full-arch, no-prep veneers, and premium treatments.",
+    description: "A system designed to consistently fill your calendar with high-ticket consults such as full-arch implants and cosmetic veneers.",
   },
   {
     icon: BarChart3,
-    title: "Transparent Reporting",
-    description: "Real numbers. Cost per call, booked consults, revenue attributed. No vanity metrics, no fluff.",
+    title: "Transparent Performance Tracking",
+    description: "You see the numbers that matter: consult calls, booked appointments, and revenue potential.",
   },
 ];
 
 const steps = [
-  { number: "01", title: "Audit & Strategy", description: "We analyze your market, competition, and current patient flow to build a custom acquisition plan." },
-  { number: "02", title: "Creative & Launch", description: "UGC-powered ad creatives go live on Meta — designed to convert scrollers into callers." },
-  { number: "03", title: "Optimize & Scale", description: "We continuously refine targeting, creative, and landing pages to drive cost per call down." },
+  { number: "01", title: "Audit and Strategy", description: "We analyze your local market, competitors, and treatment focus to build the right acquisition strategy." },
+  { number: "02", title: "Creative Launch", description: "Our proven UGC-style ad creatives are deployed on Meta platforms to start generating implant and cosmetic consult inquiries." },
+  { number: "03", title: "Optimization and Scaling", description: "We continuously refine targeting and creatives to increase call quality and reduce acquisition costs." },
 ];
 
 const testimonials = [
   {
     name: "Geoffrey Rubinshtein, DDS",
     clinic: "Bensonhurst Dental, Brooklyn",
-    quote: "We went from 5 implant consults a month to 27 in under 90 days. Booked.Dental completely rebuilt our patient acquisition system. The calls are legitimate, pre-qualified, and actually show up ready to move forward.",
-    rating: 5,
-  },
-  {
-    name: "BrightSmile Dental Group",
-    clinic: "Marketing Director",
-    quote: "We were pouring money into ads and getting nothing but weak inquiries. Since partnering with Booked.Dental, we’re consistently receiving 35+ qualified calls per month at a cost that actually makes sense. The difference in lead quality is night and day.",
-    rating: 5,
-  },
-  {
-    name: "Parkview Dental Group",
-    clinic: "Operations Manager",
-    quote: "Our veneer and full-arch cases more than doubled in one quarter. The creative they produce connects with real patients. No generic stock content, just messaging that drives action. This team understands how to generate serious treatment plans.",
+    quote: "We went from 5 implant consults per month to 27 in under 90 days. The calls are legitimate and the patients are serious.",
     rating: 5,
   },
 ];
@@ -81,6 +70,7 @@ const caseStudies = [
   },
 ];
 
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -92,7 +82,7 @@ const Index = () => {
             <span className="text-foreground">.Dental</span>
           </div>
           <Button variant="hero" size="sm" asChild>
-            <a href="#cta">Book a Call</a>
+            <a href="#cta" onClick={trackBookingCTA}>Book a Call</a>
           </Button>
         </div>
       </nav>
@@ -107,16 +97,16 @@ const Index = () => {
               Meta Ads → Qualified Calls → Booked Cases
             </div>
             <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight opacity-0 animate-fade-up sm:text-5xl md:text-6xl lg:text-7xl" style={{ animationDelay: "0.1s" }}>
-              Stop Wasting Ad Spend.{" "}
-              <span className="text-gradient-gold">Start Booking Implant Cases.</span>
+              Affordable Growth for{" "}
+              <span className="text-gradient-gold">Implant and Cosmetic Dental Clinics</span>
             </h1>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground opacity-0 animate-fade-up sm:text-xl" style={{ animationDelay: "0.2s" }}>
-              We help implant and veneer-focused clinics generate qualified calls at $20–$30 per call using high-converting Meta ads powered by UGC. No vanity metrics. No bloated retainers.
+              Booked.Dental helps implant and veneer-focused dental clinics generate qualified consult calls using authentic UGC-style Meta ads that feel real and build patient trust. Unlike traditional agencies, we use a proven library of high-converting creatives — and we only work with up to 5 clinics per market. Just $1,000/month. No bloated retainers. No vanity metrics. Just qualified consult calls.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 opacity-0 animate-fade-up sm:flex-row" style={{ animationDelay: "0.3s" }}>
               <Button variant="hero" size="lg" asChild>
-                <a href="#cta">
-                  Get More Booked Cases
+                <a href="#cta" onClick={trackBookingCTA}>
+                  Book a Call
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
@@ -147,16 +137,16 @@ const Index = () => {
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-              Your Clinic Doesn't Have a <span className="text-gradient-gold">Lead Problem</span>
+              Most Dental Marketing <span className="text-gradient-gold">Doesn't Work</span>
             </h2>
             <p className="mb-8 text-lg text-muted-foreground">
-              It has a conversion problem. Boosted posts, generic agencies, and "brand awareness" campaigns don't fill chairs with high-ticket cases. You need a system built for patient acquisition — not impressions.
+              Many dental clinics waste money on boosted posts, generic agencies, and "brand awareness" campaigns that never turn into real treatment cases. High-ticket procedures require a different approach. Implants and cosmetic treatments depend on trust — patients need to see real stories, real people, and real outcomes before they book. Booked.Dental solves this by using authentic UGC-style advertising that creates real human connection before the patient ever contacts your clinic.
             </p>
             <div className="grid gap-4 text-left sm:grid-cols-3">
               {[
-                "No more \"boosted post\" guessing",
+                "No more boosted post guessing",
                 "No bloated marketing retainers",
-                "No vanity metrics or fluff reports",
+                "No vanity metrics or confusing reports",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3 rounded-lg border border-border bg-card p-4">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
@@ -173,10 +163,10 @@ const Index = () => {
         <div className="container">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
-              What We <span className="text-gradient-gold">Build For You</span>
+              What We <span className="text-gradient-gold">Build For Your Practice</span>
             </h2>
             <p className="mx-auto max-w-xl text-muted-foreground">
-              A complete patient acquisition system designed to book high-ticket cases — not generate vanity leads.
+              A patient acquisition system designed specifically for high-value treatments like implants and veneers.
             </p>
           </div>
           <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2">
@@ -187,6 +177,79 @@ const Index = () => {
                 <p className="text-sm leading-relaxed text-muted-foreground">{service.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Affordable by Design */}
+      <section className="py-24">
+        <div className="container">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+                Affordable <span className="text-gradient-gold">by Design</span>
+              </h2>
+              <p className="text-muted-foreground">
+                Most agencies charge large retainers because they build every campaign from scratch.
+              </p>
+            </div>
+
+            <div className="mb-8 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-border bg-card p-6">
+                <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Other Agencies</div>
+                <p className="text-sm leading-relaxed text-muted-foreground">Build every campaign from scratch — charging you for the time, the testing, and the guesswork.</p>
+              </div>
+              <div className="rounded-xl border border-primary/30 bg-primary/5 p-6">
+                <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Booked.Dental</div>
+                <p className="text-sm leading-relaxed text-muted-foreground">Works from a proven library of high-performing UGC ad creatives built specifically for implant and cosmetic dental clinics.</p>
+              </div>
+            </div>
+
+            <p className="mb-8 text-center text-sm leading-relaxed text-muted-foreground">
+              Because the creative foundation already exists, we launch campaigns quickly and operate efficiently — and that efficiency gets passed directly to you.
+            </p>
+
+            <div className="rounded-xl border border-primary/30 bg-primary/5 p-8 text-center shadow-gold">
+              <div className="font-display text-5xl font-bold text-gradient-gold md:text-6xl">$1,000<span className="text-2xl text-muted-foreground">/mo</span></div>
+              <p className="mt-3 text-sm text-muted-foreground">Far less than most dental marketing agencies — with no bloated retainers and no wasted spend.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why UGC Works */}
+      <section className="border-y border-border bg-card/50 py-24">
+        <div className="container">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+                Why UGC Works for <span className="text-gradient-gold">Dental Patients</span>
+              </h2>
+            </div>
+
+            <div className="mb-8 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-border bg-background p-6">
+                <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Polished Corporate Ads</div>
+                <p className="text-sm leading-relaxed text-muted-foreground">Feel like marketing. Patients recognize them instantly — and don't trust them. They scroll past.</p>
+              </div>
+              <div className="rounded-xl border border-primary/30 bg-primary/5 p-6">
+                <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Authentic UGC Ads</div>
+                <p className="text-sm leading-relaxed text-muted-foreground">Show real people, real experiences, and real outcomes — creating the human connection patients need before they commit to a high-ticket treatment.</p>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-xl border border-primary/20 bg-background p-8">
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(42_100%_55%/0.06),transparent_60%)]" />
+              <div className="relative z-10 flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10">
+                  <Users className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <p className="mb-1 font-display text-lg font-semibold text-foreground">Trust drives treatment decisions.</p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">When patients trust what they see, they are far more likely to call your clinic for a consultation. UGC is the most effective way to build that trust before they ever pick up the phone.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -217,13 +280,13 @@ const Index = () => {
         <div className="container">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
-              What Doctors Are <span className="text-gradient-gold">Saying</span>
+              What Clinics Are <span className="text-gradient-gold">Saying</span>
             </h2>
             <p className="mx-auto max-w-xl text-muted-foreground">
               Real results from real clinics. No fluff.
             </p>
           </div>
-          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+          <div className="mx-auto grid max-w-xl gap-6">
             {testimonials.map((t) => (
               <div key={t.name} className="flex flex-col rounded-xl border border-border bg-background p-8">
                 <div className="mb-4 flex gap-1">
@@ -239,6 +302,40 @@ const Index = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Creatives Video */}
+      <section className="relative border-y border-border bg-card/50 py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(42_100%_55%/0.04),transparent_70%)]" />
+        <div className="container relative z-10">
+          <div className="mb-12 text-center">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary">
+              <Zap className="h-4 w-4" />
+              Real Creatives. Real Results.
+            </div>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+              Have a Look at Our{" "}
+              <span className="text-gradient-gold">Creatives</span>
+            </h2>
+            <p className="mx-auto max-w-xl text-muted-foreground">
+              Real ad creatives engineered to stop the scroll and drive qualified implant &amp; veneer inquiries.            </p>
+          </div>
+          <div className="mx-auto max-w-3xl">
+            <div className="overflow-hidden rounded-xl border border-primary/20 bg-card shadow-gold transition-shadow hover:shadow-[0_0_40px_hsl(42_100%_55%/0.25)]">
+              <iframe
+                className="aspect-video w-full"
+                src="https://player.cloudinary.com/embed/?cloud_name=dlgykfmrf&public_id=Benson_Hurst_Dental_Care_video_final_440720_jom76d"
+                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+                title="Booked.Dental Ad Creative"
+              />
+            </div>
+            <p className="mt-4 text-center text-xs text-muted-foreground">
+              Example UGC-style ad creative that generated 27 qualified implant calls in under 90 days for Bensonhurst Dental in Brooklyn.
+            </p>
           </div>
         </div>
       </section>
@@ -287,18 +384,18 @@ const Index = () => {
           <div className="mx-auto max-w-2xl text-center">
             <Users className="mx-auto mb-6 h-12 w-12 text-primary" />
             <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
-              Ready to Fill Your Chairs With <span className="text-gradient-gold">Qualified Consults?</span>
+              Ready to Generate More <span className="text-gradient-gold">Implant and Cosmetic Consults?</span>
             </h2>
             <p className="mb-8 text-muted-foreground">
-              If your chairs aren't consistently filled with qualified consults, we fix that. Book a free strategy call and see how we can build your patient acquisition system.
+              If your practice has capacity for high-value cases but your consult calendar isn't consistently full, Booked.Dental can help. Book a free strategy call to see how our system can generate qualified consult inquiries for your clinic.
             </p>
             <Button variant="hero" size="lg" asChild>
-              <a href="https://calendly.com/davidisraellerner/30min?back=1&month=2026-02" target="_blank" rel="noopener noreferrer">
+              <a href="https://cal.com/david-israel-lerner/30min" target="_blank" rel="noopener noreferrer" onClick={trackBookingCTA}>
                 Book Your Free Strategy Call
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
-            <p className="mt-4 text-xs text-muted-foreground">No contracts. No obligation. Just a real conversation about growing your practice.</p>
+            <p className="mt-4 text-xs text-muted-foreground">No contracts. No obligation. Just a clear conversation about growing your practice.</p>
           </div>
         </div>
       </section>
