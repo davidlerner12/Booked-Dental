@@ -336,7 +336,7 @@ const Index = () => {
               If your chairs aren't consistently filled with qualified consults, we fix that. Book a free strategy call and see how we can build your patient acquisition system.
             </p>
             <Button variant="hero" size="lg" asChild>
-              <a href="https://calendly.com/davidisraellerner/30min?back=1&month=2026-02" target="_blank" rel="noopener noreferrer" onClick={trackConversion}>
+              <a href="https://cal.com/david-israel-lerner/30min" target="_blank" rel="noopener noreferrer" onClick={trackConversion}>
                 Book Your Free Strategy Call
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
