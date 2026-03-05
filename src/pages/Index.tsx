@@ -252,6 +252,33 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Creatives Video */}
+      <section className="py-24">
+        <div className="container">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+              Have a Look at Our{" "}
+              <span className="text-gradient-gold">Creatives</span>
+            </h2>
+            <p className="mx-auto max-w-xl text-muted-foreground">
+              Real ad creatives engineered to stop the scroll and drive qualified implant &amp; veneer inquiries.
+            </p>
+          </div>
+          <div className="mx-auto max-w-3xl">
+            <div className="overflow-hidden rounded-xl border border-border bg-card shadow-gold">
+              <iframe
+                className="aspect-video w-full"
+                src="https://player.cloudinary.com/embed/?cloud_name=dlgykfmrf&public_id=Benson_Hurst_Dental_Care_video_final_440720_jom76d"
+                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+                title="Booked.Dental Ad Creative"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Case Studies */}
       <section className="py-24">
         <div className="container">
