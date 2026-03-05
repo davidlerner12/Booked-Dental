@@ -18,12 +18,12 @@ const services = [
   {
     icon: Phone,
     title: "Qualified Calls, Not Weak Leads",
-    description: "Our campaigns focus on generating real consult calls from patients interested in treatment — not low-quality form leads.",
+    description: "Our campaigns focus on generating real consult calls from patients interested in treatment — not low quality form leads.",
   },
   {
     icon: DollarSign,
     title: "Predictable Patient Acquisition",
-    description: "A system designed to consistently fill your calendar with high-ticket consults such as full-arch implants and cosmetic veneers.",
+    description: "A system designed to consistently fill your calendar with high ticket consults such as full arch implants and cosmetic veneers.",
   },
   {
     icon: BarChart3,
@@ -34,7 +34,7 @@ const services = [
 
 const steps = [
   { number: "01", title: "Audit and Strategy", description: "We analyze your local market, competitors, and treatment focus to build the right acquisition strategy." },
-  { number: "02", title: "Creative Launch", description: "Our proven UGC-style ad creatives are deployed on Meta platforms to start generating implant and cosmetic consult inquiries." },
+  { number: "02", title: "Creative Launch", description: "Our proven UGC style ad creatives are deployed on Meta platforms to start generating implant and cosmetic consult inquiries." },
   { number: "03", title: "Optimization and Scaling", description: "We continuously refine targeting and creatives to increase call quality and reduce acquisition costs." },
 ];
 
@@ -49,9 +49,9 @@ const testimonials = [
 
 const caseStudies = [
   {
-    clinic: "Full-Arch Implant Clinic — Phoenix, AZ",
+    clinic: "Full Arch Implant Clinic — Phoenix, AZ",
     challenge: "Struggling to fill chairs despite $5K/mo in ad spend with a generic agency. Getting form leads that never converted.",
-    result: "67 qualified calls in 90 days at $22/call. 18 full-arch cases booked worth $540K+ in production.",
+    result: "67 qualified calls in 90 days at $22/call. 18 full arch cases booked worth $540K+ in production.",
     metrics: [
       { label: "Cost Per Call", value: "$22" },
       { label: "Cases Booked", value: "18" },
@@ -101,7 +101,7 @@ const Index = () => {
               <span className="text-gradient-gold">Implant and Cosmetic Dental Clinics</span>
             </h1>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground opacity-0 animate-fade-up sm:text-xl" style={{ animationDelay: "0.2s" }}>
-              Booked.Dental helps implant and veneer-focused dental clinics generate qualified consult calls using authentic UGC-style Meta ads that feel real and build patient trust. Unlike traditional agencies, we use a proven library of high-converting creatives — and we only work with up to 5 clinics per market. Just $1,000/month. No bloated retainers. No vanity metrics. Just qualified consult calls.
+              Booked.Dental helps implant and veneer clinics generate qualified consult calls using UGC-style ads designed to feel natural and trustworthy, deployed across Meta and Google. Built from a proven creative library, these ads connect with patients considering high-ticket treatments. Our model is market-exclusive, so we partner with only one clinic per market.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 opacity-0 animate-fade-up sm:flex-row" style={{ animationDelay: "0.3s" }}>
               <Button variant="hero" size="lg" asChild>
@@ -166,7 +166,7 @@ const Index = () => {
               What We <span className="text-gradient-gold">Build For Your Practice</span>
             </h2>
             <p className="mx-auto max-w-xl text-muted-foreground">
-              A patient acquisition system designed specifically for high-value treatments like implants and veneers.
+              A patient acquisition system designed specifically for high value treatments like implants and veneers.
             </p>
           </div>
           <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2">
@@ -201,7 +201,7 @@ const Index = () => {
               </div>
               <div className="rounded-xl border border-primary/30 bg-primary/5 p-6">
                 <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Booked.Dental</div>
-                <p className="text-sm leading-relaxed text-muted-foreground">Works from a proven library of high-performing UGC ad creatives built specifically for implant and cosmetic dental clinics.</p>
+                <p className="text-sm leading-relaxed text-muted-foreground">Works from a proven library of high performing UGC ad creatives built specifically for implant and cosmetic dental clinics.</p>
               </div>
             </div>
 
@@ -234,7 +234,7 @@ const Index = () => {
               </div>
               <div className="rounded-xl border border-primary/30 bg-primary/5 p-6">
                 <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Authentic UGC Ads</div>
-                <p className="text-sm leading-relaxed text-muted-foreground">Show real people, real experiences, and real outcomes — creating the human connection patients need before they commit to a high-ticket treatment.</p>
+                <p className="text-sm leading-relaxed text-muted-foreground">Show real people, real experiences, and real outcomes — creating the human connection patients need before they commit to a high ticket treatment.</p>
               </div>
             </div>
 
@@ -334,7 +334,7 @@ const Index = () => {
               />
             </div>
             <p className="mt-4 text-center text-xs text-muted-foreground">
-              Example UGC-style ad creative that generated 27 qualified implant calls in under 90 days for Bensonhurst Dental in Brooklyn.
+              Example UGC style ad creative that generated 27 qualified implant calls in under 90 days for Bensonhurst Dental in Brooklyn.
             </p>
           </div>
         </div>
@@ -387,7 +387,7 @@ const Index = () => {
               Ready to Generate More <span className="text-gradient-gold">Implant and Cosmetic Consults?</span>
             </h2>
             <p className="mb-8 text-muted-foreground">
-              If your practice has capacity for high-value cases but your consult calendar isn't consistently full, Booked.Dental can help. Book a free strategy call to see how our system can generate qualified consult inquiries for your clinic.
+              If your practice has capacity for high value cases but your consult calendar isn't consistently full, Booked.Dental can help. Book a free strategy call to see how our system can generate qualified consult inquiries for your clinic.
             </p>
             <Button variant="hero" size="lg" asChild>
               <a href="https://cal.com/david-israel-lerner/30min" target="_blank" rel="noopener noreferrer" onClick={trackBookingCTA}>
