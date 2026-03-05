@@ -45,18 +45,6 @@ const testimonials = [
     quote: "We went from 5 implant consults per month to 27 in under 90 days. The calls are legitimate and the patients are serious.",
     rating: 5,
   },
-  {
-    name: "BrightSmile Dental Group",
-    clinic: "Marketing Director",
-    quote: "We were pouring money into ads and getting nothing but weak inquiries. Since partnering with Booked.Dental, we’re consistently receiving 35+ qualified calls per month at a cost that actually makes sense. The difference in lead quality is night and day.",
-    rating: 5,
-  },
-  {
-    name: "Parkview Dental Group",
-    clinic: "Operations Manager",
-    quote: "Our veneer and full-arch cases more than doubled in one quarter. The creative they produce connects with real patients. No generic stock content, just messaging that drives action. This team understands how to generate serious treatment plans.",
-    rating: 5,
-  },
 ];
 
 const caseStudies = [
@@ -193,6 +181,79 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Affordable by Design */}
+      <section className="py-24">
+        <div className="container">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+                Affordable <span className="text-gradient-gold">by Design</span>
+              </h2>
+              <p className="text-muted-foreground">
+                Most agencies charge large retainers because they build every campaign from scratch.
+              </p>
+            </div>
+
+            <div className="mb-8 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-border bg-card p-6">
+                <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Other Agencies</div>
+                <p className="text-sm leading-relaxed text-muted-foreground">Build every campaign from scratch — charging you for the time, the testing, and the guesswork.</p>
+              </div>
+              <div className="rounded-xl border border-primary/30 bg-primary/5 p-6">
+                <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Booked.Dental</div>
+                <p className="text-sm leading-relaxed text-muted-foreground">Works from a proven library of high-performing UGC ad creatives built specifically for implant and cosmetic dental clinics.</p>
+              </div>
+            </div>
+
+            <p className="mb-8 text-center text-sm leading-relaxed text-muted-foreground">
+              Because the creative foundation already exists, we launch campaigns quickly and operate efficiently — and that efficiency gets passed directly to you.
+            </p>
+
+            <div className="rounded-xl border border-primary/30 bg-primary/5 p-8 text-center shadow-gold">
+              <div className="font-display text-5xl font-bold text-gradient-gold md:text-6xl">$1,000<span className="text-2xl text-muted-foreground">/mo</span></div>
+              <p className="mt-3 text-sm text-muted-foreground">Far less than most dental marketing agencies — with no bloated retainers and no wasted spend.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why UGC Works */}
+      <section className="border-y border-border bg-card/50 py-24">
+        <div className="container">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+                Why UGC Works for <span className="text-gradient-gold">Dental Patients</span>
+              </h2>
+            </div>
+
+            <div className="mb-8 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-border bg-background p-6">
+                <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Polished Corporate Ads</div>
+                <p className="text-sm leading-relaxed text-muted-foreground">Feel like marketing. Patients recognize them instantly — and don't trust them. They scroll past.</p>
+              </div>
+              <div className="rounded-xl border border-primary/30 bg-primary/5 p-6">
+                <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Authentic UGC Ads</div>
+                <p className="text-sm leading-relaxed text-muted-foreground">Show real people, real experiences, and real outcomes — creating the human connection patients need before they commit to a high-ticket treatment.</p>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-xl border border-primary/20 bg-background p-8">
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(42_100%_55%/0.06),transparent_60%)]" />
+              <div className="relative z-10 flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10">
+                  <Users className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <p className="mb-1 font-display text-lg font-semibold text-foreground">Trust drives treatment decisions.</p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">When patients trust what they see, they are far more likely to call your clinic for a consultation. UGC is the most effective way to build that trust before they ever pick up the phone.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* How It Works */}
       <section id="how" className="py-24">
         <div className="container">
@@ -225,7 +286,7 @@ const Index = () => {
               Real results from real clinics. No fluff.
             </p>
           </div>
-          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+          <div className="mx-auto grid max-w-xl gap-6">
             {testimonials.map((t) => (
               <div key={t.name} className="flex flex-col rounded-xl border border-border bg-background p-8">
                 <div className="mb-4 flex gap-1">
