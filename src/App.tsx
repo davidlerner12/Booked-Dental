@@ -4,18 +4,18 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import ReactGA from "react-ga4";
+import { initGA, trackPageView } from "@/lib/analytics";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
-ReactGA.initialize("G-DPRVM205R8");
+initGA();
 
 const queryClient = new QueryClient();
 
 function RouteTracker() {
   const location = useLocation();
   useEffect(() => {
-    ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });
+    trackPageView(location.pathname + location.search);
   }, [location]);
   return null;
 }

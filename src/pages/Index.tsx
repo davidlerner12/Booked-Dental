@@ -1,5 +1,6 @@
 import { Phone, TrendingUp, Target, DollarSign, ArrowRight, CheckCircle2, Zap, BarChart3, Users, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { trackBookingCTA } from "@/lib/analytics";
 
 const stats = [
   { value: "$20–$30", label: "Cost Per Qualified Call" },
@@ -81,14 +82,6 @@ const caseStudies = [
   },
 ];
 
-const trackConversion = () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (window as any).gtag?.('event', 'conversion', {
-    send_to: 'AW-17992910932/gQY4CP-D3IIcENSQ2IND',
-    value: 1.0,
-    currency: 'ILS',
-  });
-};
 
 const Index = () => {
   return (
@@ -101,7 +94,7 @@ const Index = () => {
             <span className="text-foreground">.Dental</span>
           </div>
           <Button variant="hero" size="sm" asChild>
-            <a href="#cta" onClick={trackConversion}>Book a Call</a>
+            <a href="#cta" onClick={trackBookingCTA}>Book a Call</a>
           </Button>
         </div>
       </nav>
@@ -124,7 +117,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col items-center justify-center gap-4 opacity-0 animate-fade-up sm:flex-row" style={{ animationDelay: "0.3s" }}>
               <Button variant="hero" size="lg" asChild>
-                <a href="#cta" onClick={trackConversion}>
+                <a href="#cta" onClick={trackBookingCTA}>
                   Get More Booked Cases
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
@@ -336,7 +329,7 @@ const Index = () => {
               If your chairs aren't consistently filled with qualified consults, we fix that. Book a free strategy call and see how we can build your patient acquisition system.
             </p>
             <Button variant="hero" size="lg" asChild>
-              <a href="https://cal.com/david-israel-lerner/30min" target="_blank" rel="noopener noreferrer" onClick={trackConversion}>
+              <a href="https://cal.com/david-israel-lerner/30min" target="_blank" rel="noopener noreferrer" onClick={trackBookingCTA}>
                 Book Your Free Strategy Call
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
