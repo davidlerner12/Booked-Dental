@@ -34,9 +34,9 @@ const services = [
 ];
 
 const steps = [
-  { number: "01", title: "Audit and Strategy", description: "We analyze your local market, competitors, and treatment focus to build the right acquisition strategy." },
-  { number: "02", title: "Creative Launch", description: "Our proven UGC style ad creatives are deployed on Meta platforms to start generating implant and cosmetic consult inquiries." },
-  { number: "03", title: "Optimization and Scaling", description: "We continuously refine targeting and creatives to increase call quality and reduce acquisition costs." },
+  { number: "01", title: "Market Availability Check & Strategy", description: "Before anything else, we confirm your market is open. We only work with one clinic per area, so your competitors can't access the same system. Once confirmed, we build a custom acquisition strategy around your treatments and local competition." },
+  { number: "02", title: "UGC Creative Deployment", description: "We launch from a proven library of high-converting UGC-style ad creatives built specifically for implant and cosmetic dental clinics. No guesswork. No building from scratch. Your campaigns go live fast, typically within 48 hours of onboarding." },
+  { number: "03", title: "Call Quality Optimization", description: "We optimize for one metric: qualified phone calls. Not clicks. Not impressions. We continuously refine targeting and creative to drive your cost per call down. You see the real numbers: calls, booked consults, revenue attributed. Nothing else." },
 ];
 
 const testimonials = [
