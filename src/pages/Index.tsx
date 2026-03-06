@@ -4,6 +4,7 @@ import Stats from "@/components/sections/Stats";
 import Problem from "@/components/sections/Problem";
 import CaseStudies from "@/components/sections/CaseStudies";
 import Services from "@/components/sections/Services";
+import BookedDentalDifference from "@/components/sections/BookedDentalDifference";
 import AffordableByDesign from "@/components/sections/AffordableByDesign";
 import ROICalculator from "@/components/sections/ROICalculator";
 import WhyUGCWorks from "@/components/sections/WhyUGCWorks";
@@ -25,6 +26,7 @@ const Index = () => {
       <Problem />
       <CaseStudies />
       <Services />
+      <BookedDentalDifference />
       <AffordableByDesign />
       <ROICalculator />
       <WhyUGCWorks />
