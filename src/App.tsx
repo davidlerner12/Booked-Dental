@@ -4,11 +4,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { initGA, trackPageView } from "@/lib/analytics";
+import { trackPageView } from "@/lib/analytics";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-
-initGA();
 
 const queryClient = new QueryClient();
 
