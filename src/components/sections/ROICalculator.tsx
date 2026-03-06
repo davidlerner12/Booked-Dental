@@ -101,7 +101,7 @@ const ROICalculator = () => {
           {/* Output */}
           <div className="flex flex-col gap-5">
             <div className="rounded-xl border border-border bg-background p-8">
-              <h3 className="mb-6 font-display text-xl font-semibold">Example Calculation</h3>
+              <h3 className="mb-6 font-display text-xl font-semibold">Calculation</h3>
               <div className="space-y-3">
                 <div className="rounded-lg border border-border bg-card p-4">
                   <p className="mb-1 text-xs text-muted-foreground">

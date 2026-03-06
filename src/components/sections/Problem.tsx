@@ -8,7 +8,7 @@ const Problem = () => (
           Most Dental Marketing <span className="text-gradient-gold">Doesn't Work</span>
         </h2>
         <p className="mb-8 text-lg text-muted-foreground">
-          Many dental clinics waste money on boosted posts, generic agencies, and "brand awareness" campaigns that never turn into real treatment cases. High-ticket procedures require a different approach. Implants and cosmetic treatments depend on trust — patients need to see real stories, real people, and real outcomes before they book. Booked.Dental solves this by using authentic UGC-style advertising that creates real human connection before the patient ever contacts your clinic.
+          Many dental clinics run ads but struggle to turn them into real treatment cases. High-ticket procedures like implants and veneers require trust before patients contact the clinic. Booked.Dental uses UGC-style ads that build that trust and drive consultation calls.
         </p>
         <div className="grid gap-4 text-left sm:grid-cols-3">
           {[

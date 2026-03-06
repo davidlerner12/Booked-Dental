@@ -16,8 +16,7 @@ const Hero = () => (
           <span className="text-gradient-gold">Implant and Cosmetic Dental Clinics</span>
         </h1>
         <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground opacity-0 animate-fade-up sm:text-xl" style={{ animationDelay: "0.2s" }}>
-          Booked.Dental helps implant and veneer clinics generate qualified consult calls using UGC-style ads designed to feel natural and trustworthy, deployed across Meta and Google. Built from a proven creative library, these ads connect with patients considering high-ticket treatments. Our model is market-exclusive, so we partner with only one clinic per market.
-        </p>
+          Booked.Dental helps implant and veneer clinics generate qualified consult calls using UGC-style ads deployed across Meta and Google. We partner with only one clinic per local market.        </p>
         <div className="flex flex-col items-center justify-center gap-4 opacity-0 animate-fade-up sm:flex-row" style={{ animationDelay: "0.3s" }}>
           <Button variant="hero" size="lg" asChild>
             <a href="#cta" onClick={trackBookingCTA}>
