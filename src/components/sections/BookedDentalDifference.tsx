@@ -21,10 +21,10 @@ const BookedDentalDifference = () => (
 
         <div className="mb-10 space-y-3 text-lg text-muted-foreground max-w-2xl">
           <p>
-            Most agencies start every campaign from scratch. That means higher retainers, longer testing phases, and more wasted ad spend.
+            Most agencies build campaigns from scratch, leading to higher retainers and long testing phases.
           </p>
           <p>
-            Booked.Dental works from a proven library of high-performing UGC creatives designed specifically for implant and cosmetic dentistry.
+            Booked.Dental uses a proven library of UGC creatives built specifically for implant and cosmetic dentistry.
           </p>
           <p className="font-medium text-foreground">
             Because the creative foundation already exists, campaigns launch faster and operate more efficiently.

@@ -28,13 +28,6 @@ const RiskFreeTrial = () => (
             <span className="font-semibold text-foreground">zero risk</span>.
           </p>
         </div>
-
-        <div className="rounded-xl border-l-2 border-l-primary/50 border border-border bg-card px-6 py-5">
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            <span className="font-display font-semibold text-foreground">If your clinic performs implant or cosmetic treatments and has capacity for more high-value cases,</span>
-            {" "}Booked.Dental can help you generate predictable consult flow.
-          </p>
-        </div>
       </div>
     </div>
   </section>

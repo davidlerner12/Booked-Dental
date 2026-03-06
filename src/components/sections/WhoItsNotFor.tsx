@@ -41,10 +41,6 @@ const WhoItsNotFor = () => (
             </div>
           ))}
         </div>
-
-        <p className="mt-10 text-sm text-muted-foreground/60 max-w-xl">
-          If your practice doesn't match the above, Booked.Dental may not be the right fit for you.
-        </p>
       </div>
     </div>
   </section>

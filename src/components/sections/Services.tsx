@@ -19,13 +19,8 @@ const services = [
   {
     icon: TrendingDown,
     title: "More Efficient Marketing Costs",
-    description: "Using proven creatives allows us to operate more efficiently than agencies that build campaigns from scratch, keeping costs lower for clinics.",
-  },
-  {
-    icon: CalendarCheck,
-    title: "Predictable Consult Flow",
-    description: "A system built to consistently generate consult inquiries for high-ticket procedures like full-arch implants and cosmetic veneers.",
-  },
+    description: "Using proven creatives allows us to operate more efficiently than agencies that build campaigns from scratch, allowing us to offer a powerful patient acquisition system for just $1,000 per month.",
+  }
 ];
 
 const Services = () => (
