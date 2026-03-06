@@ -8,7 +8,7 @@ const Problem = () => (
           Most Dental Marketing <span className="text-gradient-gold">Doesn't Work</span>
         </h2>
         <p className="mb-8 text-lg text-muted-foreground">
-          Many dental clinics run ads but struggle to turn them into real treatment cases. High-ticket procedures like implants and veneers require trust before patients contact the clinic. Booked.Dental uses UGC-style ads that build that trust and drive consultation calls.
+          Many dental clinics waste money on boosted posts, generic agencies, and “brand awareness” campaigns that never turn into real treatment cases. High-ticket procedures like implants and veneers require trust before patients ever contact the clinic. Patients need to see real people and real outcomes before they book.
         </p>
         <div className="grid gap-4 text-left sm:grid-cols-3">
           {[

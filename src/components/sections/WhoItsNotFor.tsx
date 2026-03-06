@@ -43,7 +43,7 @@ const WhoItsNotFor = () => (
         </div>
 
         <p className="mt-10 text-sm text-muted-foreground/60 max-w-xl">
-          If your practice doesn't match the above — this isn't the right fit. We only partner with clinics where we know we can deliver results.
+          If your practice doesn't match the above, Booked.Dental may not be the right fit for you.
         </p>
       </div>
     </div>

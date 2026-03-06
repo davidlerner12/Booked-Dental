@@ -17,8 +17,8 @@ const MarketExclusivity = () => (
           Market <span className="text-gradient-gold">Exclusivity</span>
         </h2>
         <p className="mb-8 text-lg text-muted-foreground">
-          Booked.Dental works with only one clinic per local market. Once a clinic secures a market, we do not work with competing practices in that area.
-        </p>
+Booked.Dental works with only one clinic per local market. Once a clinic secures a market, we do not work with competing practices in that area.
+Market availability is confirmed on the strategy call. If your market is open, you can secure it before another clinic does.</p>
         <div className="rounded-xl border border-primary/30 bg-primary/5 p-8 shadow-gold text-left">
           <div className="flex items-start gap-4">
             <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />

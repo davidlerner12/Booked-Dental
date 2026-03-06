@@ -60,8 +60,7 @@ const WhatYouCanExpect = () => (
 
         <div className="rounded-xl border-l-2 border-l-primary/50 border border-border bg-card px-6 py-5">
           <p className="text-sm leading-relaxed text-muted-foreground">
-            <span className="font-display font-semibold text-foreground">Even a few additional cases per month can significantly increase practice revenue.</span>
-            {" "}Use the calculator below to see the exact impact for your practice.
+            <span className="font-display font-semibold text-foreground">Use the calculator below to see the exact impact for your practice.</span>
           </p>
         </div>
       </div>
