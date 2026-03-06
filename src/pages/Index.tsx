@@ -29,7 +29,6 @@ const Index = () => {
       <CaseStudies />
       <Services />
       <BookedDentalDifference />
-      <AffordableByDesign />
       <WhatYouCanExpect />
       <ROICalculator />
       <WhyUGCWorks />
