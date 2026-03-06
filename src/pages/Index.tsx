@@ -75,8 +75,8 @@ const caseStudies = [
 const Index = () => {
   const [implantValue, setImplantValue] = useState(20000);
   const [veneerValue, setVeneerValue] = useState(12000);
-  const [implantCases, setImplantCases] = useState(3);
-  const [veneerCases, setVeneerCases] = useState(2);
+  const [implantCases, setImplantCases] = useState(1);
+  const [veneerCases, setVeneerCases] = useState(1);
 
   const implantRevenue = implantCases * implantValue;
   const veneerRevenue = veneerCases * veneerValue;
