@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Phone, Target, DollarSign, ArrowRight, CheckCircle2, Zap, BarChart3, Users, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackBookingCTA } from "@/lib/analytics";
@@ -72,6 +73,15 @@ const caseStudies = [
 
 
 const Index = () => {
+  const [implantValue, setImplantValue] = useState(20000);
+  const [veneerValue, setVeneerValue] = useState(12000);
+  const [implantCases, setImplantCases] = useState(3);
+  const [veneerCases, setVeneerCases] = useState(2);
+
+  const implantRevenue = implantCases * implantValue;
+  const veneerRevenue = veneerCases * veneerValue;
+  const totalRevenue = implantRevenue + veneerRevenue;
+
   return (
     <div className="min-h-screen bg-background">
       {/* Nav */}
@@ -212,6 +222,124 @@ const Index = () => {
             <div className="rounded-xl border border-primary/30 bg-primary/5 p-8 text-center shadow-gold">
               <div className="font-display text-5xl font-bold text-gradient-gold md:text-6xl">$1,000<span className="text-2xl text-muted-foreground">/mo</span></div>
               <p className="mt-3 text-sm text-muted-foreground">Far less than most dental marketing agencies — with no bloated retainers and no wasted spend.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ROI Calculator */}
+      <section className="border-y border-border bg-card/50 py-24">
+        <div className="container">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+              See the Economics of <span className="text-gradient-gold">Implant Marketing</span>
+            </h2>
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              Implant and cosmetic dentistry are high-value treatments. That means even a small increase in consults can dramatically impact your monthly production. Use the calculator below to estimate how additional cases could affect your practice.
+            </p>
+          </div>
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-2">
+            {/* Inputs */}
+            <div className="rounded-xl border border-border bg-background p-8">
+              <h3 className="mb-8 font-display text-xl font-semibold">Your Practice Numbers</h3>
+              <div className="space-y-8">
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-muted-foreground">Average Full-Arch Case Value</label>
+                  <div className="relative">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
+                    <input
+                      type="number"
+                      value={implantValue}
+                      onChange={(e) => setImplantValue(Number(e.target.value))}
+                      className="w-full rounded-lg border border-border bg-card py-3 pl-8 pr-4 font-display text-xl font-semibold text-foreground focus:border-primary/50 focus:outline-none"
+                      min={0}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-muted-foreground">Average Veneer Case Value</label>
+                  <div className="relative">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
+                    <input
+                      type="number"
+                      value={veneerValue}
+                      onChange={(e) => setVeneerValue(Number(e.target.value))}
+                      className="w-full rounded-lg border border-border bg-card py-3 pl-8 pr-4 font-display text-xl font-semibold text-foreground focus:border-primary/50 focus:outline-none"
+                      min={0}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-muted-foreground">
+                    New Implant Cases Per Month: <span className="font-semibold text-primary">{implantCases}</span>
+                  </label>
+                  <input
+                    type="range"
+                    min={1}
+                    max={10}
+                    value={implantCases}
+                    onChange={(e) => setImplantCases(Number(e.target.value))}
+                    className="w-full accent-[hsl(42_100%_55%)]"
+                  />
+                  <div className="mt-1 flex justify-between text-xs text-muted-foreground">
+                    <span>1</span><span>10</span>
+                  </div>
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-muted-foreground">
+                    New Veneer Cases Per Month: <span className="font-semibold text-primary">{veneerCases}</span>
+                  </label>
+                  <input
+                    type="range"
+                    min={1}
+                    max={10}
+                    value={veneerCases}
+                    onChange={(e) => setVeneerCases(Number(e.target.value))}
+                    className="w-full accent-[hsl(42_100%_55%)]"
+                  />
+                  <div className="mt-1 flex justify-between text-xs text-muted-foreground">
+                    <span>1</span><span>10</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Output */}
+            <div className="flex flex-col gap-6">
+              <div className="rounded-xl border border-border bg-background p-8">
+                <h3 className="mb-6 font-display text-xl font-semibold">Example Calculation</h3>
+                <div className="space-y-4">
+                  <div className="rounded-lg border border-border bg-card p-4">
+                    <p className="text-sm text-muted-foreground">
+                      <span className="font-display font-semibold text-foreground">{implantCases} Implant {implantCases === 1 ? "Case" : "Cases"}</span>
+                      {" × "}
+                      <span className="font-display font-semibold text-foreground">${implantValue.toLocaleString()}</span>
+                      {" = "}
+                      <span className="text-gradient-gold font-display font-bold">${implantRevenue.toLocaleString()}</span>
+                      {" in Additional Monthly Production"}
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-card p-4">
+                    <p className="text-sm text-muted-foreground">
+                      <span className="font-display font-semibold text-foreground">{veneerCases} Veneer {veneerCases === 1 ? "Case" : "Cases"}</span>
+                      {" × "}
+                      <span className="font-display font-semibold text-foreground">${veneerValue.toLocaleString()}</span>
+                      {" = "}
+                      <span className="text-gradient-gold font-display font-bold">${veneerRevenue.toLocaleString()}</span>
+                      {" in Additional Monthly Production"}
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-6 rounded-xl border border-primary/30 bg-primary/5 p-6 text-center shadow-gold">
+                  <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-primary">Total Estimated Monthly Production</div>
+                  <div className="font-display text-4xl font-bold text-gradient-gold">${totalRevenue.toLocaleString()}</div>
+                </div>
+              </div>
+              <div className="rounded-xl border border-border bg-background p-6">
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  <span className="font-display font-semibold text-foreground">Even one additional high-ticket case can justify months of marketing investment.</span>
+                  {" "}Booked.Dental focuses on generating qualified consult calls that can turn into these types of cases.
+                </p>
+              </div>
             </div>
           </div>
         </div>
