@@ -30,3 +30,9 @@ export const trackBookingCTA = () => {
   trackEvent('Conversion', 'booking_cta_clicked', 'Cal.com')
   trackMetaEvent('Lead')
 }
+
+export const trackBookingConfirmed = () => {
+  trackGAdsConversion()
+  trackEvent('Conversion', 'booking_confirmed', 'Cal.com')
+  trackMetaEvent('Schedule')
+}

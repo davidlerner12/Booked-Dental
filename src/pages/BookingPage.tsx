@@ -1,12 +1,16 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import Cal from "@calcom/embed-react";
+import Cal, { getCalApi } from "@calcom/embed-react";
 import { ArrowLeft, Shield, Clock, Users } from "lucide-react";
-import { trackBookingCTA } from "@/lib/analytics";
+import { trackBookingCTA, trackBookingConfirmed } from "@/lib/analytics";
 
 const BookingPage = () => {
   useEffect(() => {
     trackBookingCTA();
+    (async () => {
+      const cal = await getCalApi();
+      cal("on", { action: "bookingSuccessful", callback: () => trackBookingConfirmed() });
+    })();
   }, []);
 
   return (
@@ -52,7 +56,7 @@ const BookingPage = () => {
         <div className="mx-auto max-w-4xl rounded-2xl border border-border bg-card/60 p-2 shadow-gold">
           <Cal
             calLink="david-israel-lerner/30min"
-            style={{ width: "100%", minHeight: "660px", overflow: "scroll" }}
+style={{ width: "100%", minHeight: "660px", overflow: "scroll" }}
             config={{
               theme: "dark",
               brandColor: "#FFBA1A",
