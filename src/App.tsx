@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
 import Index from "./pages/Index";
+import BookingPage from "./pages/BookingPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
         <RouteTracker />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/book" element={<BookingPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

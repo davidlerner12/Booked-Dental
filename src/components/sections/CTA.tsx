@@ -1,6 +1,6 @@
 import { ArrowRight, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { trackBookingCTA } from "@/lib/analytics";
 
 const CTA = () => (
   <section id="cta" className="relative border-t border-border py-24">
@@ -15,10 +15,10 @@ const CTA = () => (
           If your practice has capacity for high value cases but your consult calendar isn't consistently full, Booked.Dental can help. Book a free strategy call to see how our system can generate qualified consult inquiries for your clinic.
         </p>
         <Button variant="hero" size="lg" asChild>
-          <a href="https://cal.com/david-israel-lerner/30min" target="_blank" rel="noopener noreferrer" onClick={trackBookingCTA}>
+          <Link to="/book">
             Book Your Free Strategy Call
             <ArrowRight className="ml-2 h-5 w-5" />
-          </a>
+          </Link>
         </Button>
         <p className="mt-4 text-xs text-muted-foreground">No contracts. No obligation. Just a clear conversation about growing your practice.</p>
       </div>
