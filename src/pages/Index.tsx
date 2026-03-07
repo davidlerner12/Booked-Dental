@@ -40,8 +40,8 @@ const Index = () => {
       <CreativesVideo />
       <MarketExclusivity />
       <RiskFreeTrial />
-      <FAQ />
       <CTA />
+      <FAQ />
       <Footer />
     </div>
   );
