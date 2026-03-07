@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
     <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- DNS Preconnect for performance -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://connect.facebook.net" />
+    <link rel="preconnect" href="https://player.cloudinary.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     <title>Booked.Dental — Affordable Dental Marketing for Implant &amp; Cosmetic Clinics</title>
 
     <!-- Core SEO -->
@@ -44,7 +49,40 @@
       "description": "Booked.Dental provides market-exclusive UGC ad campaigns for implant and cosmetic dental clinics, delivering qualified patient consultation calls at $1,000/month.",
       "foundingDate": "2024",
       "areaServed": "US",
-      "serviceType": ["Dental Marketing", "Patient Acquisition", "UGC Advertising"]
+      "serviceType": ["Dental Marketing", "Patient Acquisition", "UGC Advertising"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1",
+        "reviewCount": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Geoffrey Rubinshtein, DDS" },
+          "reviewBody": "We went from 5 implant consults per month to 27 in under 90 days. The calls are legitimate and the patients are serious.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "itemReviewed": { "@type": "Organization", "name": "Booked.Dental" }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Booked.Dental UGC Ad Creative — Bensonhurst Dental Case Study",
+      "description": "Example UGC-style ad creative that generated 27 qualified implant consultation calls in under 90 days for Bensonhurst Dental in Brooklyn, NY.",
+      "thumbnailUrl": "https://booked.dental/og-image.png",
+      "uploadDate": "2024-01-01",
+      "embedUrl": "https://player.cloudinary.com/embed/?cloud_name=dlgykfmrf&public_id=Benson_Hurst_Dental_Care_video_final_440720_jom76d",
+      "publisher": { "@type": "Organization", "name": "Booked.Dental", "url": "https://booked.dental" }
     }
     </script>
     <script type="application/ld+json">
