@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import emailjs from "@emailjs/browser";
 import { trackMarketAvailabilitySubmit } from "@/lib/analytics";
 
 const schema = z.object({
@@ -25,6 +26,12 @@ function MarketAvailabilitySection() {
 
   const onSubmit = (data: FormValues) => {
     trackMarketAvailabilitySubmit(data.cityState, data.email);
+    emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      { city_state: data.cityState, from_email: data.email },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+    ).catch(() => {});
     navigate("/book");
   };
 
