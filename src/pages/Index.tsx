@@ -17,6 +17,7 @@ import CreativesVideo from "@/components/sections/CreativesVideo";
 import MarketExclusivity from "@/components/sections/MarketExclusivity";
 import RiskFreeTrial from "@/components/sections/RiskFreeTrial";
 import FAQ from "@/components/sections/FAQ";
+import MarketAvailabilitySection from "@/components/sections/MarketAvailabilitySection";
 import CTA from "@/components/sections/CTA";
 import Footer from "@/components/sections/Footer";
 
@@ -39,10 +40,11 @@ const Index = () => {
       <WhoItsNotFor />
       <Testimonials />
       <CreativesVideo />
-      <MarketExclusivity />
       <RiskFreeTrial />
+      <MarketExclusivity />
       <CTA />
       <FAQ />
+      <MarketAvailabilitySection />
       <Footer />
     </div>
   );

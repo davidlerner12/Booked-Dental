@@ -1,12 +1,8 @@
-import { useState } from "react";
 import { ArrowRight, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import MarketAvailabilityModal from "@/components/sections/MarketAvailabilityModal";
 
 function Hero() {
-  const [open, setOpen] = useState(false);
-
   return (
     <section className="relative flex min-h-screen items-center pt-16">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(42_100%_55%/0.06),transparent_60%)]" />
@@ -28,9 +24,11 @@ function Hero() {
             <span className="text-primary font-medium">Check if your area is still available.</span>
           </p>
           <div className="flex flex-col items-center justify-center gap-4 opacity-0 animate-fade-up sm:flex-row" style={{ animationDelay: "0.3s" }}>
-            <Button variant="hero" size="lg" onClick={() => setOpen(true)}>
-              Check Market Availability
-              <ArrowRight className="ml-2 h-5 w-5" />
+            <Button variant="hero" size="lg" asChild>
+              <a href="#market-check">
+                Check Market Availability
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
             </Button>
             <Button variant="heroOutline" size="lg" asChild>
               <Link to="/book">Book a Call</Link>
@@ -45,7 +43,6 @@ function Hero() {
         </div>
       </div>
 
-      <MarketAvailabilityModal open={open} onOpenChange={setOpen} />
     </section>
   );
 }
