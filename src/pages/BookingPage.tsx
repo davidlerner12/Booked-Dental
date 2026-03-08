@@ -1,17 +1,19 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { ArrowLeft, Shield, Clock, Users } from "lucide-react";
 import { trackBookingCTA, trackBookingConfirmed } from "@/lib/analytics";
 
 const BookingPage = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     trackBookingCTA();
     (async () => {
       const cal = await getCalApi();
-      cal("on", { action: "bookingSuccessful", callback: () => trackBookingConfirmed() });
+      cal("on", { action: "bookingSuccessful", callback: () => { trackBookingConfirmed(); navigate("/"); } });
     })();
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="min-h-screen bg-background">
