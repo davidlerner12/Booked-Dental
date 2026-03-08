@@ -36,3 +36,8 @@ export const trackBookingConfirmed = () => {
   trackEvent('Conversion', 'booking_confirmed', 'Cal.com')
   trackMetaEvent('Schedule')
 }
+
+export const trackMarketAvailabilitySubmit = (cityState: string, email: string) => {
+  trackEvent('Form', 'market_availability_submitted', cityState)
+  trackMetaEvent('Lead', { city_state: cityState, email })
+}

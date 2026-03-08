@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { trackMarketAvailabilitySubmit } from "@/lib/analytics";
 
 const schema = z.object({
   cityState: z.string().min(2, "Please enter your city and state"),
@@ -22,7 +23,8 @@ function MarketAvailabilitySection() {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({ resolver: zodResolver(schema) });
 
-  const onSubmit = () => {
+  const onSubmit = (data: FormValues) => {
+    trackMarketAvailabilitySubmit(data.cityState, data.email);
     navigate("/book");
   };
 
