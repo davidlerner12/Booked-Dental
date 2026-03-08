@@ -17,7 +17,7 @@ function Hero() {
             <span className="text-gradient-gold">Implant and Cosmetic Dental Clinics</span>
           </h1>
           <p className="mx-auto mb-6 max-w-2xl text-lg text-muted-foreground opacity-0 animate-fade-up sm:text-xl" style={{ animationDelay: "0.2s" }}>
-            Booked.Dental helps implant and veneer clinics generate qualified consult calls using UGC-style ads deployed across Meta and Google. We partner with only one clinic per local market.
+            Booked.Dental helps implant and veneer clinics generate qualified consult calls from dental implant patients using UGC-style ads deployed across Meta and Google. We partner with only one clinic per local market.
           </p>
           <p className="mx-auto mb-8 max-w-xl text-sm text-muted-foreground opacity-0 animate-fade-up" style={{ animationDelay: "0.25s" }}>
             We only work with one implant or cosmetic clinic per local market.{" "}

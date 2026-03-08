@@ -4,7 +4,7 @@ const testimonials = [
   {
     name: "Geoffrey Rubinshtein, DDS",
     clinic: "Bensonhurst Dental, Brooklyn",
-    quote: "We went from 5 implant consults per month to 27 in under 90 days. The calls are legitimate and the patients are serious.",
+    quote: "We went from 5 consultation calls from dental implant patients per month to 27 in under 90 days. The calls are legitimate and the patients are serious.",
     rating: 5,
   },
 ];

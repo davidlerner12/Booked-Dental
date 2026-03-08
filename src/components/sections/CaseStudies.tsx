@@ -2,7 +2,7 @@ const caseStudies = [
   {
     clinic: "Full Arch Implant Clinic — Phoenix, AZ",
     challenge: "Struggling to fill chairs despite $5K/mo in ad spend with a generic agency. Getting form leads that never converted.",
-    result: "67 qualified calls in 90 days at $22/call. 18 full arch cases booked worth $540K+ in production.",
+    result: "67 qualified calls from dental implant patients in 90 days at $22 per call. 18 full arch cases booked worth $540K+ in production.",
     metrics: [
       { label: "Cost Per Call", value: "$22" },
       { label: "Cases Booked", value: "18" },
