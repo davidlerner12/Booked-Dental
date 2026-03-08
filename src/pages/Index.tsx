@@ -1,11 +1,11 @@
 import Nav from "@/components/sections/Nav";
 import Hero from "@/components/sections/Hero";
 import Stats from "@/components/sections/Stats";
+import FeaturedIn from "@/components/sections/FeaturedIn";
 import Problem from "@/components/sections/Problem";
 import CaseStudies from "@/components/sections/CaseStudies";
 import Services from "@/components/sections/Services";
 import BookedDentalDifference from "@/components/sections/BookedDentalDifference";
-import AffordableByDesign from "@/components/sections/AffordableByDesign";
 import WhatYouCanExpect from "@/components/sections/WhatYouCanExpect";
 import ROICalculator from "@/components/sections/ROICalculator";
 import WhyUGCWorks from "@/components/sections/WhyUGCWorks";
@@ -26,6 +26,7 @@ const Index = () => {
       <Nav />
       <Hero />
       <Stats />
+      <FeaturedIn />
       <Problem />
       <CaseStudies />
       <Services />
