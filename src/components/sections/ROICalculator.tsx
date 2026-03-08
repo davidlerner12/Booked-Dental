@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, TrendingUp } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { trackBookingCTA } from "@/lib/analytics";
 
 const ROICalculator = () => {
   const [implantValue, setImplantValue] = useState(20000);
@@ -133,10 +133,10 @@ const ROICalculator = () => {
               </p>
             </div>
             <Button variant="hero" size="lg" className="w-full" asChild>
-              <a href="#cta" onClick={trackBookingCTA}>
+              <Link to="/book">
                 Start Generating These Cases
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

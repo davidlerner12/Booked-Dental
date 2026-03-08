@@ -1,4 +1,5 @@
 import { HelpCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import {
   Accordion,
   AccordionContent,
@@ -84,14 +85,12 @@ const FAQ = () => (
         {/* Footer nudge */}
         <p className="mt-10 text-center text-sm text-muted-foreground">
           Still have questions?{" "}
-          <a
-            href="https://cal.com/david-israel-lerner/30min"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/book"
             className="font-medium text-primary underline-offset-4 hover:underline"
           >
             Book a free strategy call
-          </a>{" "}
+          </Link>{" "}
           and we'll walk you through everything.
         </p>
 

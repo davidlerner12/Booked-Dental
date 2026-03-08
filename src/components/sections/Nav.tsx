@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { trackBookingCTA } from "@/lib/analytics";
 
 const Nav = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
@@ -9,7 +8,7 @@ const Nav = () => (
         <span className="text-foreground">.Dental</span>
       </div>
       <Button variant="hero" size="sm" asChild>
-        <a href="#cta" onClick={trackBookingCTA}>Book a Call</a>
+        <a href="#cta">Book a Call</a>
       </Button>
     </div>
   </nav>

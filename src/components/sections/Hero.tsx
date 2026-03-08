@@ -1,6 +1,6 @@
 import { ArrowRight, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { trackBookingCTA } from "@/lib/analytics";
 
 const Hero = () => (
   <section className="relative flex min-h-screen items-center pt-16">
@@ -19,10 +19,10 @@ const Hero = () => (
           Booked.Dental helps implant and veneer clinics generate qualified consult calls using UGC-style ads deployed across Meta and Google. We partner with only one clinic per local market.        </p>
         <div className="flex flex-col items-center justify-center gap-4 opacity-0 animate-fade-up sm:flex-row" style={{ animationDelay: "0.3s" }}>
           <Button variant="hero" size="lg" asChild>
-            <a href="#cta" onClick={trackBookingCTA}>
+            <Link to="/book">
               Book a Call
               <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
+            </Link>
           </Button>
           <Button variant="heroOutline" size="lg" asChild>
             <a href="#how">See How It Works</a>
