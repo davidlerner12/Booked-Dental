@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const Nav = () => (
@@ -8,7 +9,7 @@ const Nav = () => (
         <span className="text-foreground">.Dental</span>
       </div>
       <Button variant="hero" size="sm" asChild>
-        <a href="#cta">Book a Call</a>
+        <Link to="/book">Book a Call</Link>
       </Button>
     </div>
   </nav>
