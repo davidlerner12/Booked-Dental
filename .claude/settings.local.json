@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install react-ga4)"
+      "Bash(npm install react-ga4)",
+      "Bash(npm run lint)"
     ]
   }
 }
