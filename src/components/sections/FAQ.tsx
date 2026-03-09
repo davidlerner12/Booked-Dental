@@ -11,7 +11,7 @@ const faqs = [
   {
     question: "How quickly can we start receiving consult calls?",
     answer:
-      "Most clinics begin receiving consult inquiries within about 14 days of campaign launch, depending on market conditions and ad approval timelines.",
+      "Most clinics begin receiving consult inquiries within about 7 days of campaign launch, depending on market conditions and ad approval timelines.",
   },
   {
     question: "How much ad spend should we expect?",

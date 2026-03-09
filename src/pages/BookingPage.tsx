@@ -1,11 +1,13 @@
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Cal, { getCalApi } from "@calcom/embed-react";
-import { ArrowLeft, Shield, Clock, Users } from "lucide-react";
+import { ArrowLeft, Shield, Clock, Users, MapPin } from "lucide-react";
 import { trackBookingCTA, trackBookingConfirmed } from "@/lib/analytics";
 
 const BookingPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isMarketCheck = location.state?.source === "market-check";
 
   useEffect(() => {
     trackBookingCTA();
@@ -41,14 +43,29 @@ const BookingPage = () => {
       <main className="container py-14">
         {/* Heading block */}
         <div className="mx-auto mb-12 max-w-2xl text-center">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary">
-            <Clock className="h-4 w-4" />
-            30-minute strategy call · Free
-          </div>
-          <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
-            Book Your{" "}
-            <span className="text-gradient-gold">Free Strategy Call</span>
-          </h1>
+          {isMarketCheck ? (
+            <>
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary">
+                <MapPin className="h-4 w-4" />
+                Market Availability Check · Free
+              </div>
+              <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+                Check If Your{" "}
+                <span className="text-gradient-gold">Market Is Available</span>
+              </h1>
+            </>
+          ) : (
+            <>
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary">
+                <Clock className="h-4 w-4" />
+                30-minute strategy call · Free
+              </div>
+              <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+                Book Your{" "}
+                <span className="text-gradient-gold">Free Strategy Call</span>
+              </h1>
+            </>
+          )}
           <p className="text-muted-foreground">
             Pick a time that works for you. We'll walk through your market, your goals, and whether Booked.Dental is the right fit — no pressure, no obligation.
           </p>
