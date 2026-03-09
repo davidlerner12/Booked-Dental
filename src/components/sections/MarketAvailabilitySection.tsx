@@ -37,7 +37,7 @@ function MarketAvailabilitySection() {
       mode: "no-cors",
       body: JSON.stringify({ city_state: data.cityState, from_email: data.email }),
     }).catch(() => {});
-    navigate("/book");
+    navigate("/book", { state: { source: "market-check" } });
   };
 
   return (
