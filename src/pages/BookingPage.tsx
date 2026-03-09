@@ -1,11 +1,10 @@
 import { useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { ArrowLeft, Shield, Clock, Users, MapPin } from "lucide-react";
 import { trackBookingCTA, trackBookingConfirmed } from "@/lib/analytics";
 
 const BookingPage = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const isMarketCheck = location.state?.source === "market-check";
 
@@ -13,9 +12,9 @@ const BookingPage = () => {
     trackBookingCTA();
     (async () => {
       const cal = await getCalApi();
-      cal("on", { action: "bookingSuccessful", callback: () => { trackBookingConfirmed(); navigate("/"); } });
+      cal("on", { action: "bookingSuccessful", callback: () => { trackBookingConfirmed(); } });
     })();
-  }, [navigate]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
