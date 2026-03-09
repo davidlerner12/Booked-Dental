@@ -45,8 +45,8 @@ const Index = () => {
       <MarketExclusivity />
       <CTA />
       <FAQ />
-      <BlogPreview />
       <MarketAvailabilitySection />
+      <BlogPreview />
       <Footer />
     </div>
   );
