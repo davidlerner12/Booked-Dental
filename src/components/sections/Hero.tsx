@@ -1,4 +1,4 @@
-import { ArrowRight, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -19,18 +19,8 @@ function Hero() {
           <p className="mx-auto mb-6 max-w-2xl text-lg text-muted-foreground opacity-0 animate-fade-up sm:text-xl" style={{ animationDelay: "0.2s" }}>
             Booked.Dental helps implant and veneer clinics generate qualified consult calls from dental implant patients using UGC-style ads deployed across Meta and Google. We partner with only one clinic per local market.
           </p>
-          <p className="mx-auto mb-8 max-w-xl text-sm text-muted-foreground opacity-0 animate-fade-up" style={{ animationDelay: "0.25s" }}>
-            We only work with one implant or cosmetic clinic per local market.{" "}
-            <span className="text-primary font-medium">Check if your area is still available.</span>
-          </p>
           <div className="flex flex-col items-center justify-center gap-4 opacity-0 animate-fade-up sm:flex-row" style={{ animationDelay: "0.3s" }}>
             <Button variant="hero" size="lg" asChild>
-              <a href="#market-check">
-                Check Market Availability
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
-            <Button variant="heroOutline" size="lg" asChild>
               <Link to="/book">Book a Call</Link>
             </Button>
             <Button variant="heroOutline" size="lg" asChild>

@@ -29,7 +29,7 @@ const CreativesVideo = () => (
           />
         </div>
         <p className="mt-4 text-center text-xs text-muted-foreground">
-          Example UGC-style ad creative that helped Bensonhurst Dental increase consultation calls from dental implant patients from 5 per month to 27 in under 90 days in Brooklyn.
+          Example UGC-style ad creative that helped Bensonhurst Dental increase consultation calls from dental implant patients from 5 per month to 27 in under 90 days.
         </p>
       </div>
     </div>

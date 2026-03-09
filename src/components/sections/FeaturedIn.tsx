@@ -13,15 +13,15 @@ const FeaturedIn = () => {
           {/* USA Today — left side, pushed toward center */}
           <div className="flex flex-1 justify-end pr-10 md:pr-16 items-center opacity-75 cursor-default select-none">
             <span className="mr-2 text-4xl text-[#009BFF]">●</span>
-            <span className="font-display text-5xl font-black uppercase text-foreground">
-              USA TODAY
+            <span className="font-display text-5xl font-black text-foreground">
+              USA Today
             </span>
           </div>
 
           {/* AP News — right side, pushed from center */}
           <div className="flex flex-1 justify-start pl-10 md:pl-16 opacity-75 cursor-default select-none">
             <span className="font-display text-5xl font-bold tracking-tight text-foreground">
-              AP NEWS
+              AP News
             </span>
           </div>
         </div>
