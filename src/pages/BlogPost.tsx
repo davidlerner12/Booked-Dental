@@ -10,18 +10,56 @@ export default function BlogPost() {
   useEffect(() => {
     if (!post) return;
 
-    // Update page title
-    const prevTitle = document.title;
-    document.title = `${post.title} | Booked.Dental`;
+    const postUrl = `https://booked.dental/blog/${post.slug}`;
+    const postTitle = `${post.title} | Booked.Dental`;
 
-    // Update meta description
+    // --- Title ---
+    const prevTitle = document.title;
+    document.title = postTitle;
+
+    // --- Meta description ---
     const metaDesc = document.querySelector('meta[name="description"]');
     const prevDesc = metaDesc?.getAttribute("content") ?? "";
-    if (metaDesc) {
-      metaDesc.setAttribute("content", post.metaDescription);
+    if (metaDesc) metaDesc.setAttribute("content", post.metaDescription);
+
+    // Helper: upsert a <meta> or <link> tag; returns a cleanup fn
+    type TagAttrs = Record<string, string>;
+    const createdTags: Element[] = [];
+    const restoredAttrs: { el: Element; attr: string; prev: string }[] = [];
+
+    function upsertMeta(selector: string, attrs: TagAttrs) {
+      let el = document.querySelector(selector);
+      if (el) {
+        // update each attribute, tracking old value for cleanup
+        Object.entries(attrs).forEach(([k, v]) => {
+          restoredAttrs.push({ el: el!, attr: k, prev: el!.getAttribute(k) ?? "" });
+          el!.setAttribute(k, v);
+        });
+      } else {
+        const tag = selector.startsWith("link") ? "link" : "meta";
+        el = document.createElement(tag);
+        Object.entries(attrs).forEach(([k, v]) => el!.setAttribute(k, v));
+        document.head.appendChild(el);
+        createdTags.push(el);
+      }
     }
 
-    // Inject Article JSON-LD structured data
+    // --- Canonical ---
+    upsertMeta('link[rel="canonical"]', { rel: "canonical", href: postUrl });
+
+    // --- Open Graph ---
+    upsertMeta('meta[property="og:title"]', { property: "og:title", content: postTitle });
+    upsertMeta('meta[property="og:description"]', { property: "og:description", content: post.metaDescription });
+    upsertMeta('meta[property="og:type"]', { property: "og:type", content: "article" });
+    upsertMeta('meta[property="og:url"]', { property: "og:url", content: postUrl });
+    upsertMeta('meta[property="og:image"]', { property: "og:image", content: "https://booked.dental/og-image.png" });
+
+    // --- Twitter / X ---
+    upsertMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" });
+    upsertMeta('meta[name="twitter:title"]', { name: "twitter:title", content: postTitle });
+    upsertMeta('meta[name="twitter:description"]', { name: "twitter:description", content: post.metaDescription });
+
+    // --- Article JSON-LD ---
     const script = document.createElement("script");
     script.id = "blog-post-jsonld";
     script.type = "application/ld+json";
@@ -32,26 +70,19 @@ export default function BlogPost() {
       description: post.metaDescription,
       datePublished: post.publishDate,
       dateModified: post.publishDate,
-      author: {
-        "@type": "Organization",
-        name: "Booked.Dental",
-        url: "https://booked.dental",
-      },
-      publisher: {
-        "@type": "Organization",
-        name: "Booked.Dental",
-        url: "https://booked.dental",
-      },
-      mainEntityOfPage: {
-        "@type": "WebPage",
-        "@id": `https://booked.dental/blog/${post.slug}`,
-      },
+      author: { "@type": "Organization", name: "Booked.Dental", url: "https://booked.dental" },
+      publisher: { "@type": "Organization", name: "Booked.Dental", url: "https://booked.dental" },
+      mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
     });
     document.head.appendChild(script);
 
     return () => {
       document.title = prevTitle;
       if (metaDesc) metaDesc.setAttribute("content", prevDesc);
+      // Remove tags we created
+      createdTags.forEach((el) => el.remove());
+      // Restore attributes we overwrote
+      restoredAttrs.forEach(({ el, attr, prev }) => el.setAttribute(attr, prev));
       document.getElementById("blog-post-jsonld")?.remove();
     };
   }, [post]);

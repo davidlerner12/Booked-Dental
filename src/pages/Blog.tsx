@@ -5,23 +5,77 @@ import { blogPosts } from "@/data/blog-posts";
 
 export default function Blog() {
   useEffect(() => {
-    document.title = "Dental Marketing Blog | Booked.Dental";
+    const pageTitle = "Dental Marketing Blog | Booked.Dental";
+    const pageDesc =
+      "Dental marketing strategies for implant and cosmetic clinics. Learn how to get more qualified consults with Google Ads, Meta ads, UGC creative, and better lead handling.";
+    const pageUrl = "https://booked.dental/blog";
+
+    const prevTitle = document.title;
+    document.title = pageTitle;
+
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        "content",
-        "Dental marketing strategies for implant and cosmetic clinics. Learn how to get more qualified consults with Google Ads, Meta ads, UGC creative, and better lead handling."
-      );
-    }
-    return () => {
-      document.title =
-        "Booked.Dental — Implant & Cosmetic Patient Acquisition";
-      if (metaDesc) {
-        metaDesc.setAttribute(
-          "content",
-          "Booked.Dental helps implant and cosmetic dental clinics get more qualified consultation calls through Meta and Google ads, UGC creative, and performance-focused patient acquisition."
-        );
+    const prevDesc = metaDesc?.getAttribute("content") ?? "";
+    if (metaDesc) metaDesc.setAttribute("content", pageDesc);
+
+    type TagAttrs = Record<string, string>;
+    const createdTags: Element[] = [];
+    const restoredAttrs: { el: Element; attr: string; prev: string }[] = [];
+
+    function upsertMeta(selector: string, attrs: TagAttrs) {
+      let el = document.querySelector(selector);
+      if (el) {
+        Object.entries(attrs).forEach(([k, v]) => {
+          restoredAttrs.push({ el: el!, attr: k, prev: el!.getAttribute(k) ?? "" });
+          el!.setAttribute(k, v);
+        });
+      } else {
+        const tag = selector.startsWith("link") ? "link" : "meta";
+        el = document.createElement(tag);
+        Object.entries(attrs).forEach(([k, v]) => el!.setAttribute(k, v));
+        document.head.appendChild(el);
+        createdTags.push(el);
       }
+    }
+
+    // Canonical
+    upsertMeta('link[rel="canonical"]', { rel: "canonical", href: pageUrl });
+
+    // Open Graph
+    upsertMeta('meta[property="og:title"]', { property: "og:title", content: pageTitle });
+    upsertMeta('meta[property="og:description"]', { property: "og:description", content: pageDesc });
+    upsertMeta('meta[property="og:type"]', { property: "og:type", content: "website" });
+    upsertMeta('meta[property="og:url"]', { property: "og:url", content: pageUrl });
+    upsertMeta('meta[property="og:image"]', { property: "og:image", content: "https://booked.dental/og-image.png" });
+
+    // Twitter / X
+    upsertMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" });
+    upsertMeta('meta[name="twitter:title"]', { name: "twitter:title", content: pageTitle });
+    upsertMeta('meta[name="twitter:description"]', { name: "twitter:description", content: pageDesc });
+
+    // Blog JSON-LD
+    const script = document.createElement("script");
+    script.id = "blog-listing-jsonld";
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: "Dental Marketing Blog",
+      url: pageUrl,
+      description: pageDesc,
+      publisher: {
+        "@type": "Organization",
+        name: "Booked.Dental",
+        url: "https://booked.dental",
+      },
+    });
+    document.head.appendChild(script);
+
+    return () => {
+      document.title = prevTitle;
+      if (metaDesc) metaDesc.setAttribute("content", prevDesc);
+      createdTags.forEach((el) => el.remove());
+      restoredAttrs.forEach(({ el, attr, prev }) => el.setAttribute(attr, prev));
+      document.getElementById("blog-listing-jsonld")?.remove();
     };
   }, []);
 
