@@ -11,7 +11,7 @@ const FeaturedIn = () => {
         </div>
         <div className="flex items-center">
           {/* USA Today — left side, pushed toward center */}
-          <div className="flex flex-1 justify-end pr-10 md:pr-16 items-center opacity-40 grayscale transition-all duration-300 hover:opacity-75 hover:grayscale-0 cursor-default select-none">
+          <div className="flex flex-1 justify-end pr-10 md:pr-16 items-center opacity-75 cursor-default select-none">
             <span className="mr-2 text-4xl text-[#009BFF]">●</span>
             <span className="font-display text-5xl font-black uppercase text-foreground">
               USA TODAY
@@ -19,7 +19,7 @@ const FeaturedIn = () => {
           </div>
 
           {/* AP News — right side, pushed from center */}
-          <div className="flex flex-1 justify-start pl-10 md:pl-16 opacity-40 grayscale transition-all duration-300 hover:opacity-75 hover:grayscale-0 cursor-default select-none">
+          <div className="flex flex-1 justify-start pl-10 md:pl-16 opacity-75 cursor-default select-none">
             <span className="font-display text-5xl font-bold tracking-tight text-foreground">
               AP NEWS
             </span>
