@@ -10,6 +10,9 @@ export interface BlogPost {
   excerpt: string;
   publishDate: string;
   readTime: string;
+  image: string;
+  imageAlt: string;
+  caption: string;
   sections: BlogSection[];
 }
 
@@ -23,6 +26,9 @@ export const blogPosts: BlogPost[] = [
       "Most implant marketing fails because practices ask low-intent patients to make a high-ticket decision too early. Here's the focused system that changes that.",
     publishDate: "2026-03-09",
     readTime: "7 min read",
+    image: "/blog/images/1.png",
+    imageAlt: "Dental implant consultation in a modern clinic as a dentist explains treatment options to a patient using a 3D jaw model.",
+    caption: "Dental implant consultation in a modern clinic as a dentist explains treatment options to a patient using a 3D jaw model.",
     sections: [
       {
         heading: "",
@@ -113,6 +119,9 @@ export const blogPosts: BlogPost[] = [
       "UGC dental ads work because they feel like recommendations, not campaigns. These 9 formats lower resistance and get the right patients to raise their hand.",
     publishDate: "2026-03-09",
     readTime: "8 min read",
+    image: "/blog/images/3.png",
+    imageAlt: "Conceptual depiction of a patient's transformation before and after dental implant treatment, illustrating improved confidence and smile.",
+    caption: "Conceptual depiction of a patient's transformation before and after dental implant treatment, illustrating improved confidence and smile.",
     sections: [
       {
         heading: "What makes UGC dental ads work",
@@ -230,6 +239,9 @@ export const blogPosts: BlogPost[] = [
       "A practice spends $4,000 on ads, gets a pile of leads, and books almost no high-value cases. The problem usually isn't that ads don't work — it's that the campaign was built wrong.",
     publishDate: "2026-03-09",
     readTime: "7 min read",
+    image: "/blog/images/2.png",
+    imageAlt: "Dentist presenting a digital dental implant simulation to a patient during a consultation in a technology-equipped treatment room.",
+    caption: "Dentist presenting a digital dental implant simulation to a patient during a consultation in a technology-equipped treatment room.",
     sections: [
       {
         heading: "",
@@ -327,6 +339,9 @@ export const blogPosts: BlogPost[] = [
       "A full consult calendar can still underperform if the wrong patients are booking. Here are the lead sources that actually produce qualified implant and cosmetic cases.",
     publishDate: "2026-03-09",
     readTime: "8 min read",
+    image: "/blog/images/5.png",
+    imageAlt: "Dentist and patient discussing a dental implant treatment plan and financing options during a consultation.",
+    caption: "Dentist and patient discussing a dental implant treatment plan and financing options during a consultation.",
     sections: [
       {
         heading: "",
@@ -429,6 +444,9 @@ export const blogPosts: BlogPost[] = [
       "Which channel puts qualified consults on the schedule fast enough to justify the spend? The answer depends on what you're selling and how your team handles leads.",
     publishDate: "2026-03-09",
     readTime: "9 min read",
+    image: "/blog/images/7.png",
+    imageAlt: "Dentist demonstrating the dental implant procedure using a physical implant model during a consultation.",
+    caption: "Dentist demonstrating the dental implant procedure using a physical implant model during a consultation.",
     sections: [
       {
         heading: "",
@@ -515,6 +533,9 @@ export const blogPosts: BlogPost[] = [
       "Cosmetic patients don't book because they stumbled across a generic dental ad. They book when the offer is clear, the before-and-after feels believable, and the path to consultation is easy.",
     publishDate: "2026-03-09",
     readTime: "8 min read",
+    image: "/blog/images/6.png",
+    imageAlt: "Patient smiling after receiving guidance during a dental implant consultation in a welcoming clinic environment.",
+    caption: "Patient smiling after receiving guidance during a dental implant consultation in a welcoming clinic environment.",
     sections: [
       {
         heading: "",
@@ -599,6 +620,9 @@ export const blogPosts: BlogPost[] = [
       "Most agencies selling to dentists talk about visibility and branding. A real growth partner is responsible for pipeline — not just promotion.",
     publishDate: "2026-03-09",
     readTime: "9 min read",
+    image: "/blog/images/4.png",
+    imageAlt: "Dentist reviewing a 3D CT scan on a monitor for dental implant treatment planning in a modern dental office.",
+    caption: "Dentist reviewing a 3D CT scan on a monitor for dental implant treatment planning in a modern dental office.",
     sections: [
       {
         heading: "",
@@ -689,6 +713,9 @@ export const blogPosts: BlogPost[] = [
       "Real dentist patient growth happens when the clinic builds a system that consistently turns interest into consultations and consultations into treatment starts.",
     publishDate: "2026-03-09",
     readTime: "8 min read",
+    image: "/blog/images/8.png",
+    imageAlt: "Patient leaving a dental clinic after a successful dental implant consultation, representing the start of the treatment journey.",
+    caption: "Patient leaving a dental clinic after a successful dental implant consultation, representing the start of the treatment journey.",
     sections: [
       {
         heading: "",
@@ -780,6 +807,9 @@ export const blogPosts: BlogPost[] = [
       "Most dental office marketing creates activity, not growth. If your goal is more implant and cosmetic consults, you need a system built around qualified patient acquisition.",
     publishDate: "2026-03-09",
     readTime: "9 min read",
+    image: "/blog/images/9.png",
+    imageAlt: "Dentist and dental assistant reviewing implant treatment planning on clinical software in a collaborative dental office setting.",
+    caption: "Dentist and dental assistant reviewing implant treatment planning on clinical software in a collaborative dental office setting.",
     sections: [
       {
         heading: "",

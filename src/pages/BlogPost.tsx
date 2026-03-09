@@ -52,7 +52,7 @@ export default function BlogPost() {
     upsertMeta('meta[property="og:description"]', { property: "og:description", content: post.metaDescription });
     upsertMeta('meta[property="og:type"]', { property: "og:type", content: "article" });
     upsertMeta('meta[property="og:url"]', { property: "og:url", content: postUrl });
-    upsertMeta('meta[property="og:image"]', { property: "og:image", content: "https://booked.dental/og-image.png" });
+    upsertMeta('meta[property="og:image"]', { property: "og:image", content: `https://booked.dental${post.image}` });
 
     // --- Twitter / X ---
     upsertMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" });
@@ -68,6 +68,7 @@ export default function BlogPost() {
       "@type": "Article",
       headline: post.title,
       description: post.metaDescription,
+      image: `https://booked.dental${post.image}`,
       datePublished: post.publishDate,
       dateModified: post.publishDate,
       author: { "@type": "Organization", name: "Booked.Dental", url: "https://booked.dental" },
@@ -168,6 +169,20 @@ export default function BlogPost() {
         <article className="py-12 md:py-16">
           <div className="container">
             <div className="mx-auto max-w-3xl">
+              {post.image && (
+                <figure className="mb-10">
+                  <img
+                    src={post.image}
+                    alt={post.imageAlt}
+                    className="w-full rounded-xl object-cover"
+                    width={896}
+                    height={504}
+                  />
+                  <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+                    {post.caption}
+                  </figcaption>
+                </figure>
+              )}
               {post.sections.map((section, i) => (
                 <div key={i} className="mb-10">
                   {section.heading && (
