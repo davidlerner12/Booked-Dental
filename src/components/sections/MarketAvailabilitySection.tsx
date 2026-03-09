@@ -32,6 +32,11 @@ function MarketAvailabilitySection() {
       { city_state: data.cityState, from_email: data.email },
       import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
     ).catch(() => {});
+    fetch(import.meta.env.VITE_GOOGLE_SHEET_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify({ city_state: data.cityState, from_email: data.email }),
+    }).catch(() => {});
     navigate("/book");
   };
 
