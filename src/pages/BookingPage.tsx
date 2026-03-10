@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Cal, { getCalApi } from "@calcom/embed-react";
+import Cal from "@calcom/embed-react";
 import { ArrowLeft, Shield, Clock, Users, MapPin } from "lucide-react";
-import { trackBookingCTA, trackBookingConfirmed } from "@/lib/analytics";
+import { trackBookingCTA } from "@/lib/analytics";
 
 const BookingPage = () => {
   const location = useLocation();
@@ -10,10 +10,6 @@ const BookingPage = () => {
 
   useEffect(() => {
     trackBookingCTA();
-    (async () => {
-      const cal = await getCalApi();
-      cal("on", { action: "bookingSuccessful", callback: () => { trackBookingConfirmed(); } });
-    })();
   }, []);
 
   return (
@@ -79,6 +75,7 @@ style={{ width: "100%", minHeight: "660px", overflow: "scroll" }}
               theme: "dark",
               brandColor: "#FFBA1A",
               layout: "month_view",
+              redirectUrl: window.location.origin + "/thank-you",
             }}
           />
         </div>
