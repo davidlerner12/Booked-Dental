@@ -14,7 +14,7 @@ const BookingPage = () => {
       const cal = await getCalApi();
       cal("on", {
         action: "bookingSuccessful",
-        callback: () => { window.location.href = "/thank-you"; },
+        callback: () => { setTimeout(() => { window.location.href = "/thank-you"; }, 1500); },
       });
     })();
   }, []);
