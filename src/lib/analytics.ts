@@ -37,6 +37,10 @@ export const trackBookingConfirmed = () => {
 }
 
 export const trackMarketAvailabilitySubmit = (cityState: string, email: string) => {
-  trackEvent('Form', 'market_availability_submitted', cityState)
+  window.gtag?.('event', 'market_availability_submitted', {
+    event_category: 'Form',
+    event_label: cityState,
+    email,
+  })
   trackMetaEvent('Lead', { city_state: cityState, email })
 }
