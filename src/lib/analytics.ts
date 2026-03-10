@@ -26,7 +26,6 @@ export const trackMetaEvent = (event: string, params?: Record<string, unknown>) 
 
 // ─── Composite events ─────────────────────────────────────────────────────────
 export const trackBookingCTA = () => {
-  trackGAdsConversion()
   trackEvent('Conversion', 'booking_cta_clicked', 'Cal.com')
   trackMetaEvent('Lead')
 }
