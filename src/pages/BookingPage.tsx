@@ -62,16 +62,17 @@ const BookingPage = () => {
             <>
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary">
                 <Clock className="h-4 w-4" />
-                30-minute strategy call · Free
+                Market Availability Check · Free
               </div>
               <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
-                Book Your{" "}
-                <span className="text-gradient-gold">Free Strategy Call</span>
+                Check Your{" "}
+                <span className="text-gradient-gold">Market</span>
               </h1>
             </>
           )}
           <p className="text-muted-foreground">
-            Pick a time that works for you. We'll walk through your market, your goals, and whether Booked.Dental is the right fit — no pressure, no obligation.
+          Check If Your Market Is Available
+          Pick a time to confirm whether your city is still open. Booked.Dental works with only one implant or cosmetic clinic per local market. If your market is available, you can secure it before another clinic does.
           </p>
         </div>
 
