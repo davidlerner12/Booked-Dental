@@ -1,86 +1,92 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
-import { blogPosts } from "@/data/blog-posts";
+import { Link, useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import { ArrowLeft, ArrowRight, CalendarDays } from "lucide-react";
+import type { BlogPostListItem } from "@/lib/blog";
+import { urlFor } from "@/lib/sanity";
+
+const BLOG_SEO_KEYWORDS = [
+  "dental implant marketing",
+  "dental marketing agency",
+  "dental implant lead generation",
+  "get dental implant patients",
+  "implant patient acquisition",
+  "dental patient acquisition",
+  "dental marketing for implants",
+  "cosmetic dentistry marketing",
+  "veneer patient leads",
+  "dental implant advertising",
+  "meta ads for dentists",
+  "google ads for dentists",
+  "dental clinic lead generation",
+  "implant patient marketing",
+  "dental practice marketing",
+  "dental marketing services",
+  "dental marketing system",
+  "dental patient lead generation",
+  "implant clinic marketing",
+  "cosmetic dental marketing",
+];
 
 export default function Blog() {
-  useEffect(() => {
-    const pageTitle = "Dental Marketing Blog | Booked.Dental";
-    const pageDesc =
-      "Dental marketing strategies for implant and cosmetic clinics. Learn how to get more qualified consults with Google Ads, Meta ads, UGC creative, and better lead handling.";
-    const pageUrl = "https://booked.dental/blog";
-
-    const prevTitle = document.title;
-    document.title = pageTitle;
-
-    const metaDesc = document.querySelector('meta[name="description"]');
-    const prevDesc = metaDesc?.getAttribute("content") ?? "";
-    if (metaDesc) metaDesc.setAttribute("content", pageDesc);
-
-    type TagAttrs = Record<string, string>;
-    const createdTags: Element[] = [];
-    const restoredAttrs: { el: Element; attr: string; prev: string }[] = [];
-
-    function upsertMeta(selector: string, attrs: TagAttrs) {
-      let el = document.querySelector(selector);
-      if (el) {
-        Object.entries(attrs).forEach(([k, v]) => {
-          restoredAttrs.push({ el: el!, attr: k, prev: el!.getAttribute(k) ?? "" });
-          el!.setAttribute(k, v);
-        });
-      } else {
-        const tag = selector.startsWith("link") ? "link" : "meta";
-        el = document.createElement(tag);
-        Object.entries(attrs).forEach(([k, v]) => el!.setAttribute(k, v));
-        document.head.appendChild(el);
-        createdTags.push(el);
-      }
-    }
-
-    // Canonical
-    upsertMeta('link[rel="canonical"]', { rel: "canonical", href: pageUrl });
-
-    // Open Graph
-    upsertMeta('meta[property="og:title"]', { property: "og:title", content: pageTitle });
-    upsertMeta('meta[property="og:description"]', { property: "og:description", content: pageDesc });
-    upsertMeta('meta[property="og:type"]', { property: "og:type", content: "website" });
-    upsertMeta('meta[property="og:url"]', { property: "og:url", content: pageUrl });
-    upsertMeta('meta[property="og:image"]', { property: "og:image", content: "https://booked.dental/og-image.png" });
-
-    // Twitter / X
-    upsertMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" });
-    upsertMeta('meta[name="twitter:title"]', { name: "twitter:title", content: pageTitle });
-    upsertMeta('meta[name="twitter:description"]', { name: "twitter:description", content: pageDesc });
-
-    // Blog JSON-LD
-    const script = document.createElement("script");
-    script.id = "blog-listing-jsonld";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      name: "Dental Marketing Blog",
-      url: pageUrl,
-      description: pageDesc,
-      publisher: {
-        "@type": "Organization",
-        name: "Booked.Dental",
-        url: "https://booked.dental",
-      },
-    });
-    document.head.appendChild(script);
-
-    return () => {
-      document.title = prevTitle;
-      if (metaDesc) metaDesc.setAttribute("content", prevDesc);
-      createdTags.forEach((el) => el.remove());
-      restoredAttrs.forEach(({ el, attr, prev }) => el.setAttribute(attr, prev));
-      document.getElementById("blog-listing-jsonld")?.remove();
-    };
-  }, []);
+  const data = useLoaderData() as BlogPostListItem[];
+  const pageTitle = "Dental Marketing Blog | Booked.Dental";
+  const pageDescription =
+    "Dental marketing strategies for implant and cosmetic clinics. Learn how to get more qualified consults with Google Ads, Meta ads, UGC creative, and better lead handling.";
+  const pageUrl = "https://booked.dental/blog";
+  const pageImage = "https://booked.dental/og-image.png";
+  const blogListStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Booked.Dental Marketing Blog",
+    url: pageUrl,
+    description: pageDescription,
+    inLanguage: "en-US",
+    publisher: {
+      "@type": "Organization",
+      name: "Booked.Dental",
+      url: "https://booked.dental",
+    },
+    blogPost: data.slice(0, 20).map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      datePublished: post.publishedAt,
+      url: `${pageUrl}/${post.slug}`,
+    })),
+  };
+  const itemListStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: data.map((post, idx) => ({
+      "@type": "ListItem",
+      position: idx + 1,
+      url: `${pageUrl}/${post.slug}`,
+      name: post.title,
+    })),
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={BLOG_SEO_KEYWORDS.join(", ")} />
+        <meta name="robots" content="index,follow,max-image-preview:large" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Booked.Dental" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:image" content={pageImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={pageImage} />
+        <link rel="canonical" href={pageUrl} />
+        <script type="application/ld+json">{JSON.stringify(blogListStructuredData)}</script>
+        <script type="application/ld+json">{JSON.stringify(itemListStructuredData)}</script>
+      </Helmet>
+
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
         <div className="container flex h-16 items-center justify-between">
@@ -126,30 +132,52 @@ export default function Blog() {
 
       {/* Posts grid */}
       <main className="container py-16 md:py-24">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post) => (
-            <Link
-              key={post.slug}
-              to={`/blog/${post.slug}`}
-              className="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:border-primary/40 hover:bg-primary/5"
-            >
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <Clock className="h-3.5 w-3.5" />
-                <span>{post.readTime}</span>
-              </div>
-              <h2 className="mt-3 font-display text-lg font-semibold leading-snug text-foreground transition-colors group-hover:text-primary">
-                {post.title}
-              </h2>
-              <p className="mt-2 flex-1 text-sm text-muted-foreground leading-relaxed">
-                {post.excerpt}
-              </p>
-              <div className="mt-4 flex items-center gap-1 text-sm font-medium text-primary">
-                Read article
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </div>
-            </Link>
-          ))}
-        </div>
+        {data.length === 0 ? (
+          <div className="mx-auto max-w-2xl rounded-xl border border-border bg-card p-10 text-center">
+            <p className="text-muted-foreground">No posts published yet.</p>
+          </div>
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {data.map((post) => (
+              <Link
+                key={post._id}
+                to={`/blog/${post.slug}`}
+                className="group overflow-hidden rounded-xl border border-border bg-card transition-all duration-200 hover:border-primary/40 hover:bg-primary/5"
+              >
+                {post.mainImage ? (
+                  <img
+                    src={urlFor(post.mainImage).width(900).height(506).fit("crop").auto("format").url()}
+                    alt={post.mainImageAlt || post.title}
+                    className="h-44 w-full object-cover"
+                    loading="lazy"
+                  />
+                ) : null}
+                <div className="p-6">
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <CalendarDays className="h-3.5 w-3.5" />
+                    <time dateTime={post.publishedAt}>
+                      {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </time>
+                  </div>
+                  <h2 className="mt-3 font-display text-lg font-semibold leading-snug text-foreground transition-colors group-hover:text-primary">
+                    {post.title}
+                  </h2>
+                  <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                    {post.excerpt}
+                  </p>
+                  <div className="mt-4 flex items-center gap-1 text-sm font-medium text-primary">
+                    Read article
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </main>
 
       {/* CTA */}

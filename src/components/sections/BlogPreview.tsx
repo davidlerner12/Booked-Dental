@@ -1,10 +1,21 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpen, Clock } from "lucide-react";
-import { blogPosts } from "@/data/blog-posts";
-
-const featured = blogPosts.slice(0, 3);
+import { ArrowRight, BookOpen, CalendarDays } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { getAllBlogPosts } from "@/lib/blog";
+import { urlFor } from "@/lib/sanity";
 
 export default function BlogPreview() {
+  const {
+    data = [],
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["blog-preview-posts"],
+    queryFn: getAllBlogPosts,
+  });
+
+  const featured = data.slice(0, 3);
+
   return (
     <section className="relative border-y border-border py-24 overflow-hidden">
       {/* Background glow */}
@@ -38,30 +49,68 @@ export default function BlogPreview() {
         </div>
 
         {/* Cards */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((post) => (
-            <Link
-              key={post.slug}
-              to={`/blog/${post.slug}`}
-              className="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:border-primary/40 hover:bg-primary/5"
-            >
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                <Clock className="h-3.5 w-3.5" />
-                <span>{post.readTime}</span>
-              </div>
-              <h3 className="mt-3 font-display text-base font-semibold leading-snug text-foreground transition-colors group-hover:text-primary md:text-lg">
-                {post.title}
-              </h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                {post.excerpt}
-              </p>
-              <div className="mt-4 flex items-center gap-1 text-sm font-medium text-primary">
-                Read article
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </div>
-            </Link>
-          ))}
-        </div>
+        {isLoading ? (
+          <div className="rounded-xl border border-border bg-card p-8 text-center text-sm text-muted-foreground">
+            Loading latest blog posts...
+          </div>
+        ) : isError ? (
+          <div className="rounded-xl border border-border bg-card p-8 text-center">
+            <p className="text-sm text-muted-foreground">
+              Unable to load blog posts right now.
+            </p>
+            <p className="mt-2 text-xs text-muted-foreground">
+              If this continues, make sure Sanity dataset read access is enabled.
+            </p>
+          </div>
+        ) : featured.length === 0 ? (
+          <div className="rounded-xl border border-border bg-card p-8 text-center">
+            <p className="text-sm text-muted-foreground">No blog posts published yet.</p>
+            <p className="mt-2 text-xs text-muted-foreground">
+              Publish your first post in Sanity and it will appear here.
+            </p>
+          </div>
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {featured.map((post) => (
+              <Link
+                key={post._id}
+                to={`/blog/${post.slug}`}
+                className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-200 hover:border-primary/40 hover:bg-primary/5"
+              >
+                {post.mainImage ? (
+                  <img
+                    src={urlFor(post.mainImage).width(900).height(506).fit("crop").auto("format").url()}
+                    alt={post.title}
+                    className="h-40 w-full object-cover"
+                    loading="lazy"
+                  />
+                ) : null}
+                <div className="p-6">
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <CalendarDays className="h-3.5 w-3.5" />
+                    <time dateTime={post.publishedAt}>
+                      {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </time>
+                  </div>
+                  <h3 className="mt-3 font-display text-base font-semibold leading-snug text-foreground transition-colors group-hover:text-primary md:text-lg">
+                    {post.title}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  <div className="mt-4 flex items-center gap-1 text-sm font-medium text-primary">
+                    Read article
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
 
         {/* View all */}
         <div className="mt-10 text-center">
