@@ -320,9 +320,9 @@ export default function BlogPost() {
           </Link>
           <Link
             to="/book"
-            className="rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            className="hidden rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:inline-flex"
           >
-            Book a call
+            Check Your Market
           </Link>
         </div>
       </header>
@@ -389,19 +389,19 @@ export default function BlogPost() {
               <PortableText value={post.body || []} components={portableTextComponents} />
 
               {/* In-article CTA */}
-              <div className="mt-12 rounded-xl border border-primary/20 bg-primary/5 p-8 text-center">
+              <div className="mt-12 rounded-xl border border-primary/20 bg-primary/5 p-6 text-center sm:p-8">
                 <h3 className="font-display text-xl font-semibold md:text-2xl">
-                  Ready to book more implant &amp; cosmetic consults?
+                  Ready to check if your market is available?
                 </h3>
                 <p className="mt-2 text-muted-foreground">
-                  See how Booked.Dental turns Meta and Google into a reliable
-                  pipeline of qualified consultation calls.
+                  Pick a time to confirm whether your city is still open. Booked.Dental
+                  works with only one implant or cosmetic clinic per local market.
                 </p>
                 <Link
                   to="/book"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                  className="mt-6 inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:px-6 sm:py-3 sm:text-base"
                 >
-                  Book a strategy call
+                  Check Your Market
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>

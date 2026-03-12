@@ -102,9 +102,9 @@ export default function Blog() {
           </Link>
           <Link
             to="/book"
-            className="rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            className="hidden rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:inline-flex"
           >
-            Book a call
+            Check Your Market
           </Link>
         </div>
       </header>
@@ -184,13 +184,13 @@ export default function Blog() {
       <section className="border-t border-border py-16">
         <div className="container text-center">
           <p className="text-muted-foreground">
-            Ready to turn your marketing into a qualified consult pipeline?
+            Ready to see if your market is still available?
           </p>
           <Link
             to="/book"
-            className="mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            className="mt-4 inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:px-6 sm:py-3 sm:text-base"
           >
-            Book a strategy call
+            Check Your Market
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
