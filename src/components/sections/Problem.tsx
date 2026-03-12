@@ -5,10 +5,17 @@ const Problem = () => (
     <div className="container">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-          Most Dental Marketing <span className="text-gradient-gold">Doesn't Work</span>
+          Most Implant Clinics{" "}
+          <span className="text-gradient-gold">
+            Don't Have a Consistent Flow of Consult Calls
+          </span>
         </h2>
         <p className="mb-8 text-lg text-muted-foreground">
-          Many dental clinics waste money on boosted posts, generic agencies, and “brand awareness” campaigns that never turn into real treatment cases or attract real dental implant patients. High-ticket procedures like implants and veneers require trust. Patients need to see real people and real outcomes before they book        </p>
+          Great clinics often rely on referrals or inconsistent marketing, leaving
+          their implant and veneer consult calendars half full. Booked.Dental
+          focuses on generating qualified consultation calls from patients already
+          considering treatment.
+        </p>
         <div className="grid gap-4 text-left sm:grid-cols-3">
           {[
             "No more boosted post guessing",

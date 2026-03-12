@@ -12,11 +12,16 @@ const CTA = () => (
           Ready to Generate More <span className="text-gradient-gold">Implant and Cosmetic Consults?</span>
         </h2>
         <p className="mb-8 text-muted-foreground">
-          If your practice has capacity for high value cases but your consult calendar isn't consistently full, Booked.Dental can help. Book a free strategy call to see how our system can generate qualified consult inquiries for your clinic.
+          If your clinic has capacity for more implant or veneer cases, check if your market is still available. Booked.Dental partners with only one clinic per local market.
         </p>
-        <Button variant="hero" size="lg" asChild>
+        <Button
+          variant="hero"
+          size="lg"
+          asChild
+          className="h-auto w-full max-w-full whitespace-normal px-4 py-3 text-center sm:w-auto sm:whitespace-nowrap"
+        >
           <Link to="/book">
-            Book Your Free Strategy Call
+            Check Your Market
             <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </Button>

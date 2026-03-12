@@ -2,7 +2,7 @@ const stats = [
   { value: "$1,000", label: "Monthly System Cost" },
   { value: "12x", label: "Average ROI" },
   { value: "7 Days", label: "Typical Time to First Consult" },
-  { value: "10+", label: "Clinics Scaled" },
+  { value: "50+", label: "Clinics Scaled" },
 ];
 
 const Stats = () => (
