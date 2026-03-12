@@ -17,9 +17,9 @@ const slides = [
       "High-converting ad creative built for implant and cosmetic dental clinics.",
   },
   {
-    src: "https://player.cloudinary.com/embed/?cloud_name=do6gwyitk&public_id=916dentures_vp4scc",
+    src: "https://player.cloudinary.com/embed/?cloud_name=do6gwyitk&public_id=916veneers_datfik",
     thumbnail:
-      "https://res.cloudinary.com/do6gwyitk/video/upload/so_0/916dentures_vp4scc.jpg",
+      "https://res.cloudinary.com/do6gwyitk/video/upload/so_0/916veneers_datfik.jpg",
     caption:
       "Scroll-stopping creatives designed to drive qualified patient inquiries.",
   },
