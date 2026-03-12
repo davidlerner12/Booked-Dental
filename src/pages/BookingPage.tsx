@@ -65,14 +65,15 @@ const BookingPage = () => {
                 Market Availability Check · Free
               </div>
               <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
-                Check Your{" "}
-                <span className="text-gradient-gold">Market</span>
+                Check If Your{" "}
+                <span className="text-gradient-gold">Market Is Available</span>
               </h1>
             </>
           )}
           <p className="text-muted-foreground">
-          Check If Your Market Is Available
-          Pick a time to confirm whether your city is still open. Booked.Dental works with only one implant or cosmetic clinic per local market. If your market is available, you can secure it before another clinic does.
+            Pick a time to confirm whether your city is still open. Booked.Dental
+            works with only one implant or cosmetic clinic per local market. If
+            your market is available, you can secure it before another clinic does.
           </p>
         </div>
 
