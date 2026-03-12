@@ -18,9 +18,9 @@ const MarketExclusivity = () => (
         <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
           Market <span className="text-gradient-gold">Exclusivity</span>
         </h2>
-        <p className="mb-8 text-lg text-muted-foreground">
-Booked.Dental works with only one clinic per local market. Once a clinic secures a market, we do not work with competing practices in that area.
-Market availability is confirmed on the strategy call. If your market is open, you can secure it before another clinic does.</p>
+        <p className="mb-8 text-md text-muted-foreground">
+          Booked.Dental works with only one implant or cosmetic dental clinic per local market. Once a clinic secures a market, we do not work with competing practices in that area. Market availability is confirmed during the strategy call. If your city is still open, you can secure it before another clinic does. When your market is secured, no competing practice in your area gains access to our system, creatives, or campaigns.
+        </p>
         <div className="rounded-xl border border-primary/30 bg-primary/5 p-8 shadow-gold text-left">
           <div className="flex items-start gap-4">
             <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
@@ -40,7 +40,7 @@ Market availability is confirmed on the strategy call. If your market is open, y
         </div>
         <Button asChild size="lg" className="mt-10 bg-gradient-gold text-primary-foreground hover:opacity-90 shadow-gold">
           <Link to="/book">
-            Check If Your Market Is Available
+            Check Your Market
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>

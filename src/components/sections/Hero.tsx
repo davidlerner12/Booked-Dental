@@ -10,18 +10,21 @@ function Hero() {
         <div className="mx-auto max-w-4xl text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary opacity-0 animate-fade-up">
             <Zap className="h-4 w-4" />
-            Meta Ads → Qualified Calls → Booked Cases
+            <span className="sm:hidden">Meta Ads → Booked Cases</span>
+            <span className="hidden sm:inline">
+              Meta Ads → Qualified Calls → Booked Cases
+            </span>
           </div>
-          <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight opacity-0 animate-fade-up sm:text-5xl md:text-6xl lg:text-7xl" style={{ animationDelay: "0.1s" }}>
+          <h1 className="mb-6 text-2xl font-bold leading-tight tracking-tight opacity-0 animate-fade-up md:text-6xl lg:text-7xl" style={{ animationDelay: "0.1s" }}>
             Predictable Implant and{" "}
             <span className="text-gradient-gold">Veneer Consultation Calls for Your Clinic</span>
           </h1>
-          <p className="mx-auto mb-6 max-w-2xl text-lg text-muted-foreground opacity-0 animate-fade-up sm:text-xl" style={{ animationDelay: "0.2s" }}>
+          <p className="mx-auto mb-6 max-w-2xl text-md text-muted-foreground opacity-0 animate-fade-up md:text-xl" style={{ animationDelay: "0.2s" }}>
             Booked.Dental helps implant and veneer clinics generate qualified consultation calls through paid campaigns across Meta and Google. We partner with only one clinic per local market.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 opacity-0 animate-fade-up sm:flex-row" style={{ animationDelay: "0.3s" }}>
             <Button variant="hero" size="lg" asChild>
-              <Link to="/book">Check If Your Market Is Available
+              <Link to="/book">Check Your Market
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>

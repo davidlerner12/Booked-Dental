@@ -12,13 +12,13 @@ const FloatingCTA = () => {
       <div className="fixed bottom-6 right-6 z-50 hidden md:block">
         <Link
           to="/book"
-          className="flex items-center gap-3 rounded-xl border border-white/10 bg-background/10 px-5 py-3 shadow-gold backdrop-blur-sm transition-colors hover:border-primary/40"
+          className="flex items-center gap-3 rounded-xl border border-white/10 bg-background/10 px-6 py-4 shadow-gold backdrop-blur-sm transition-colors hover:border-primary/40"
         >
           <div>
-            <div className="font-display text-sm font-semibold text-foreground">
+            <div className="font-display text-md font-semibold text-foreground">
               Check Your Market
             </div>
-            <div className="text-xs text-muted-foreground">
+            <div className="text-sm text-muted-foreground">
               One clinic per city.
             </div>
           </div>
@@ -28,7 +28,7 @@ const FloatingCTA = () => {
 
       {/* Mobile: sticky bottom bar */}
       <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/40 bg-background/10 backdrop-blur-sm md:hidden">
-        <div className="container flex items-center justify-between gap-3 py-3">
+        <div className="flex items-center justify-between gap-3 py-3 px-2">
           <div className="min-w-0">
             <div className="font-display text-sm font-semibold text-foreground">
               Check Your Market

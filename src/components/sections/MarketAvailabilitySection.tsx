@@ -67,7 +67,7 @@ function MarketAvailabilitySection() {
               )}
             </div>
             <Button type="submit" variant="hero" size="lg" className="mt-2 w-full" disabled={isSubmitting}>
-              {isSubmitting ? "Checking..." : "Check If Your Market Is Available"}
+              {isSubmitting ? "Checking..." : "Check Your Market"}
               {!isSubmitting && <ArrowRight className="ml-2 h-5 w-5" />}
             </Button>
           </form>

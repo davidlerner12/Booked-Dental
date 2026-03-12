@@ -27,7 +27,25 @@ const slides = [
 
 const TRANSITION = "all 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
 
-function getCardStyle(offset: number): React.CSSProperties {
+function getCardStyle(offset: number, isMobile: boolean): React.CSSProperties {
+  if (isMobile) {
+    if (offset === 0) {
+      return {
+        transform: "translateX(0) scale(1)",
+        zIndex: 3,
+        opacity: 1,
+        transition: TRANSITION,
+      };
+    }
+    return {
+      transform: "translateX(0) scale(0.96)",
+      zIndex: 0,
+      opacity: 0,
+      pointerEvents: "none",
+      transition: TRANSITION,
+    };
+  }
+
   if (offset === 0) {
     return {
       transform: "translateX(0) scale(1.08) rotateY(0deg)",
@@ -64,7 +82,8 @@ function getCardStyle(offset: number): React.CSSProperties {
 }
 
 const CreativesVideo = () => {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
   const paused = useRef(false);
   const timerRef = useRef<ReturnType<typeof setInterval>>();
 
@@ -76,6 +95,14 @@ const CreativesVideo = () => {
       if (!paused.current) next();
     }, 5000);
     return () => clearInterval(timerRef.current);
+  }, []);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const updateMobile = () => setIsMobile(mediaQuery.matches);
+    updateMobile();
+    mediaQuery.addEventListener("change", updateMobile);
+    return () => mediaQuery.removeEventListener("change", updateMobile);
   }, []);
 
   return (
@@ -99,7 +126,7 @@ const CreativesVideo = () => {
 
         {/* Slider */}
         <div
-          className="relative mx-auto max-w-4xl"
+          className="relative mx-auto max-w-4xl overflow-hidden"
           onMouseEnter={() => (paused.current = true)}
           onMouseLeave={() => (paused.current = false)}
         >
@@ -107,14 +134,14 @@ const CreativesVideo = () => {
           <button
             onClick={prev}
             aria-label="Previous slide"
-            className="absolute left-0 top-1/2 z-10 -translate-x-4 -translate-y-1/2 text-muted-foreground transition-colors hover:text-primary md:-translate-x-10"
+            className="absolute left-2 top-1/2 z-10 -translate-y-1/2 text-muted-foreground transition-colors hover:text-primary md:left-0 md:-translate-x-10"
           >
             <ChevronLeft className="h-8 w-8" />
           </button>
           <button
             onClick={next}
             aria-label="Next slide"
-            className="absolute right-0 top-1/2 z-10 translate-x-4 -translate-y-1/2 text-muted-foreground transition-colors hover:text-primary md:translate-x-10"
+            className="absolute right-2 top-1/2 z-10 -translate-y-1/2 text-muted-foreground transition-colors hover:text-primary md:right-0 md:translate-x-10"
           >
             <ChevronRight className="h-8 w-8" />
           </button>
@@ -122,11 +149,16 @@ const CreativesVideo = () => {
           {/* Cards */}
           <div
             className="relative mx-auto"
-            style={{ perspective: "1200px", height: "clamp(220px, 42vw, 420px)" }}
+            style={{
+              perspective: isMobile ? "none" : "1200px",
+              height: isMobile
+                ? "clamp(220px, 72vw, 340px)"
+                : "clamp(220px, 42vw, 420px)",
+            }}
           >
             {slides.map((slide, i) => {
               const offset = i - active;
-              const style = getCardStyle(offset);
+              const style = getCardStyle(offset, isMobile);
               const isActive = offset === 0;
               const isLeft = offset === -1 || offset === slides.length - 1;
               const isRight = offset === 1 || offset === -(slides.length - 1);
@@ -138,7 +170,7 @@ const CreativesVideo = () => {
                     if (isLeft) prev();
                     if (isRight) next();
                   }}
-                  className="absolute inset-0 mx-auto w-[75%]"
+                  className="absolute inset-0 mx-auto w-[86%] md:w-[75%]"
                   style={{
                     ...style,
                     transformStyle: "preserve-3d",

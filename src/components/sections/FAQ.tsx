@@ -60,7 +60,7 @@ const FAQ = () => (
             Common Questions <span className="text-gradient-gold">Answered</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-            Everything you need to know about how Booked.Dental works before booking your strategy call.
+          Everything you need to know about how Booked.Dental works before checking if your market is available.
           </p>
         </div>
 

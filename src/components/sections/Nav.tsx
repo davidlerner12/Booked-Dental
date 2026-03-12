@@ -9,7 +9,7 @@ const Nav = () => (
         <span className="text-foreground">.Dental</span>
       </div>
       {/* <Button variant="hero" size="sm" asChild>
-        <Link to="/book">Check If Your Market Is Available</Link>
+        <Link to="/book">Check Your Market</Link>
       </Button> */}
     </div>
   </nav>
