@@ -126,7 +126,7 @@ const CreativesVideo = () => {
 
         {/* Slider */}
         <div
-          className="relative mx-auto max-w-4xl overflow-hidden"
+          className="relative mx-auto max-w-4xl overflow-hidden md:overflow-visible"
           onMouseEnter={() => (paused.current = true)}
           onMouseLeave={() => (paused.current = false)}
         >
