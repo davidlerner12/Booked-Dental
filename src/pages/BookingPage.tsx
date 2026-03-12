@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { ArrowLeft, Shield, Clock, Users, MapPin } from "lucide-react";
-import { trackBookingCTA } from "@/lib/analytics";
+import { trackBookingCTA, trackBookingConfirmed } from "@/lib/analytics";
 
 const BookingPage = () => {
   const location = useLocation();
@@ -14,7 +14,9 @@ const BookingPage = () => {
       const cal = await getCalApi();
       cal("on", {
         action: "bookingSuccessful",
-        callback: () => { setTimeout(() => { window.location.href = "/thank-you"; }, 1500); },
+        callback: () => {
+          trackBookingConfirmed();
+        },
       });
     })();
   }, []);

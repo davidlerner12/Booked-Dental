@@ -1,4 +1,6 @@
-import { Shield, CheckCircle2 } from "lucide-react";
+import { Shield, CheckCircle2, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const MarketExclusivity = () => (
   <section className="relative border-y border-border py-24 overflow-hidden">
@@ -36,6 +38,12 @@ Market availability is confirmed on the strategy call. If your market is open, y
             </div>
           </div>
         </div>
+        <Button asChild size="lg" className="mt-10 bg-gradient-gold text-primary-foreground hover:opacity-90 shadow-gold">
+          <Link to="/book">
+            Check If Your Market Is Available
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
       </div>
     </div>
   </section>

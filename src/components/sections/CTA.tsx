@@ -16,7 +16,7 @@ const CTA = () => (
         </p>
         <Button variant="hero" size="lg" asChild>
           <Link to="/book">
-            Book Your Free Strategy Call
+            Check If Your Market Is Available
             <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </Button>

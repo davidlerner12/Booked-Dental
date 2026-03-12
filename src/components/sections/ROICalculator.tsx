@@ -134,7 +134,7 @@ const ROICalculator = () => {
             </div>
             <Button variant="hero" size="lg" className="w-full" asChild>
               <Link to="/book">
-                Start Generating These Cases
+                Check If Your Market Is Available
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
