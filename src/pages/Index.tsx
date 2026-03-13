@@ -9,7 +9,7 @@ import ROICalculator from "@/components/sections/ROICalculator";
 import HowItWorks from "@/components/sections/HowItWorks";
 import WhoItsFor from "@/components/sections/WhoItsFor";
 import WhoItsNotFor from "@/components/sections/WhoItsNotFor";
-import Testimonials from "@/components/sections/Testimonials";
+// import Testimonials from "@/components/sections/Testimonials";
 import CreativesVideo from "@/components/sections/CreativesVideo";
 import MarketExclusivity from "@/components/sections/MarketExclusivity";
 import RiskFreeTrial from "@/components/sections/RiskFreeTrial";
@@ -33,7 +33,7 @@ const Index = () => {
       <HowItWorks />
       <WhoItsFor />
       <WhoItsNotFor />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <CreativesVideo />
       <RiskFreeTrial />
       <CTA />
