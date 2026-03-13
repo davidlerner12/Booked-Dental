@@ -223,7 +223,7 @@ export default function BlogPost() {
   const metaTitle = `${post.title} | Booked.Dental`;
   const ogImage = post.mainImage
     ? urlFor(post.mainImage).width(1200).height(630).fit("crop").auto("format").url()
-    : "https://booked.dental/og-image.png";
+    : "https://booked.dental/social-preview.png";
   const prioritizedKeywords = BLOG_SEO_KEYWORDS.slice(0, 4);
   const readingMinutes = estimateReadingMinutes(post.body);
   const articleStructuredData = {
@@ -245,7 +245,7 @@ export default function BlogPost() {
       url: "https://booked.dental",
       logo: {
         "@type": "ImageObject",
-        url: "https://booked.dental/og-image.png",
+        url: "https://booked.dental/social-preview.png",
       },
     },
     keywords: BLOG_SEO_KEYWORDS.join(", "),
