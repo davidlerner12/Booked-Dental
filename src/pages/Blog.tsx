@@ -33,7 +33,7 @@ export default function Blog() {
   const pageDescription =
     "Dental marketing strategies for implant and cosmetic clinics. Learn how to get more qualified consults with Google Ads, Meta ads, UGC creative, and better lead handling.";
   const pageUrl = "https://booked.dental/blog";
-  const pageImage = "https://booked.dental/og-image.png";
+  const pageImage = "https://booked.dental/social-preview.png";
   const blogListStructuredData = {
     "@context": "https://schema.org",
     "@type": "Blog",

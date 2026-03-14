@@ -1,9 +1,5 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
 
     <!-- DNS Preconnect for performance -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -38,8 +34,15 @@
     <meta name="twitter:description" content="Booked.Dental helps implant and veneer clinics get qualified consultation calls with targeted ads and call tracking optimized for 2+ minute calls." />
     <meta name="twitter:image" content="https://booked.dental/og-image.png" />
 
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Booked.Dental — Affordable Growth for Dental Clinics" />
+  <meta name="twitter:description"
+    content="Market-exclusive UGC ad campaigns for implant and cosmetic dental clinics. 12x average ROI. Starting at $1,000/month." />
+  <meta name="twitter:image" content="https://booked.dental/social-preview.png" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -72,19 +75,19 @@
       ]
     }
     </script>
-    <script type="application/ld+json">
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "VideoObject",
       "name": "Booked.Dental UGC Ad Creative — Bensonhurst Dental Case Study",
       "description": "Example UGC-style ad creative that generated 27 qualified implant consultation calls in under 90 days for Bensonhurst Dental in Brooklyn, NY.",
-      "thumbnailUrl": "https://booked.dental/og-image.png",
+      "thumbnailUrl": "https://booked.dental/social-preview.png",
       "uploadDate": "2024-01-01T00:00:00+00:00",
       "embedUrl": "https://player.cloudinary.com/embed/?cloud_name=dlgykfmrf&public_id=Benson_Hurst_Dental_Care_video_final_440720_jom76d",
       "publisher": { "@type": "Organization", "name": "Booked.Dental", "url": "https://booked.dental" }
     }
     </script>
-    <script type="application/ld+json">
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -93,7 +96,7 @@
       "description": "Affordable, market-exclusive dental patient acquisition through UGC Meta and Google ads."
     }
     </script>
-    <script type="application/ld+json">
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -113,7 +116,7 @@
       }
     }
     </script>
-    <script type="application/ld+json">
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -245,11 +248,47 @@
     </script>
   </head>
 
-  <body>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=932696116124868&ev=PageView&noscript=1"
-    /></noscript>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+      // GA4 + Google Ads
+      var ga = document.createElement('script');
+      ga.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17992910932';
+      ga.async = true;
+      document.head.appendChild(ga);
+      ga.onload = function () {
+        gtag('js', new Date());
+        gtag('config', 'G-DPRVM205R8');
+        gtag('config', 'AW-17992910932');
+      };
+
+      // Meta Pixel
+      !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () {
+          n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+        n.queue = []; t = b.createElement(e); t.async = !0;
+        t.src = v; s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+      }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '932696116124868');
+      fbq('track', 'PageView');
+    }
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(_loadAnalytics);
+    } else {
+      setTimeout(_loadAnalytics, 2000);
+    }
+  </script>
+  <!-- End Deferred Analytics -->
+</head>
+
+<body>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=932696116124868&ev=PageView&noscript=1" /></noscript>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>
