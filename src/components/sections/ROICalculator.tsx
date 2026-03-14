@@ -34,10 +34,11 @@ const ROICalculator = () => {
             <h3 className="mb-8 font-display text-xl font-semibold">Your Practice Numbers</h3>
             <div className="space-y-8">
               <div>
-                <label className="mb-2 block text-sm font-medium text-muted-foreground">Average Full-Arch Case Value</label>
+                <label htmlFor="implant-value" className="mb-2 block text-sm font-medium text-muted-foreground">Average Full-Arch Case Value</label>
                 <div className="relative">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 font-semibold text-muted-foreground">$</span>
                   <input
+                    id="implant-value"
                     type="number"
                     value={implantValue}
                     onChange={(e) => setImplantValue(Number(e.target.value))}
@@ -47,10 +48,11 @@ const ROICalculator = () => {
                 </div>
               </div>
               <div>
-                <label className="mb-2 block text-sm font-medium text-muted-foreground">Average Veneer Case Value</label>
+                <label htmlFor="veneer-value" className="mb-2 block text-sm font-medium text-muted-foreground">Average Veneer Case Value</label>
                 <div className="relative">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 font-semibold text-muted-foreground">$</span>
                   <input
+                    id="veneer-value"
                     type="number"
                     value={veneerValue}
                     onChange={(e) => setVeneerValue(Number(e.target.value))}
@@ -61,10 +63,11 @@ const ROICalculator = () => {
               </div>
               <div>
                 <div className="mb-3 flex items-center justify-between">
-                  <label className="text-sm font-medium text-muted-foreground">New Implant Cases Per Month</label>
+                  <label htmlFor="implant-cases" className="text-sm font-medium text-muted-foreground">New Implant Cases Per Month</label>
                   <span className="rounded-md border border-primary/30 bg-primary/10 px-2.5 py-0.5 font-display text-sm font-bold text-primary">{implantCases}</span>
                 </div>
                 <input
+                  id="implant-cases"
                   type="range"
                   min={1}
                   max={10}
@@ -79,10 +82,11 @@ const ROICalculator = () => {
               </div>
               <div>
                 <div className="mb-3 flex items-center justify-between">
-                  <label className="text-sm font-medium text-muted-foreground">New Veneer Cases Per Month</label>
+                  <label htmlFor="veneer-cases" className="text-sm font-medium text-muted-foreground">New Veneer Cases Per Month</label>
                   <span className="rounded-md border border-primary/30 bg-primary/10 px-2.5 py-0.5 font-display text-sm font-bold text-primary">{veneerCases}</span>
                 </div>
                 <input
+                  id="veneer-cases"
                   type="range"
                   min={1}
                   max={10}

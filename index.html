@@ -1,43 +1,38 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0e1117" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <!-- DNS Preconnect for performance -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://connect.facebook.net" />
+    <link rel="preconnect" href="https://player.cloudinary.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+    <title>Get Dental Implant Patients | Implant Marketing | Booked.Dental</title>
 
-  <!-- DNS Preconnect for performance -->
-  <link rel="preconnect" href="https://www.googletagmanager.com" />
-  <link rel="preconnect" href="https://connect.facebook.net" />
-  <link rel="preconnect" href="https://player.cloudinary.com" />
-  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <link rel="dns-prefetch" href="https://cdn.sanity.io" />
-  <title>Booked.Dental — Affordable Dental Marketing for Implant &amp; Cosmetic Clinics</title>
+    <!-- Core SEO (title 30-60 chars, description 50-160 for SERPs) -->
+    <meta name="description" content="Booked.Dental helps implant and veneer clinics get qualified consultation calls with targeted ads and call tracking optimized for 2+ minute calls." />
+    <meta name="keywords" content="dental marketing, implant marketing, cosmetic dentistry marketing, dental patient leads, UGC ads for dentists, Meta ads dentist, dental clinic growth" />
+    <link rel="canonical" href="https://booked.dental/" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="author" content="Booked.Dental" />
+    <meta name="language" content="en" />
+    <meta http-equiv="content-language" content="en-us" />
 
-  <!-- Core SEO -->
-  <meta name="description"
-    content="Booked.Dental helps implant and cosmetic dental clinics get qualified patient consultation calls through proven UGC Meta &amp; Google ads — starting at $1,000/month. 12x average ROI, 14 days to first consult." />
-  <meta name="keywords"
-    content="dental marketing, implant marketing, cosmetic dentistry marketing, dental patient leads, UGC ads for dentists, Meta ads dentist, dental clinic growth" />
-  <link rel="canonical" href="https://booked.dental/" />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <meta name="author" content="Booked.Dental" />
-  <meta name="language" content="en" />
-  <meta http-equiv="content-language" content="en-us" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://booked.dental/" />
+    <meta property="og:title" content="Get Dental Implant Patients | Implant Marketing | Booked.Dental" />
+    <meta property="og:description" content="Booked.Dental helps implant and veneer clinics get qualified consultation calls with targeted ads and call tracking optimized for 2+ minute calls." />
+    <meta property="og:image" content="https://booked.dental/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Booked.Dental" />
+    <meta property="og:locale" content="en_US" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://booked.dental/" />
-  <meta property="og:title" content="Booked.Dental — Affordable Growth for Dental Clinics" />
-  <meta property="og:description"
-    content="Market-exclusive UGC ad campaigns for implant and cosmetic dental clinics. 12x average ROI. 14 days to your first booked consultation. Starting at $1,000/month." />
-  <meta property="og:image" content="https://booked.dental/social-preview.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:site_name" content="Booked.Dental" />
-  <meta property="og:locale" content="en_US" />
+    <!-- Twitter/X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Get Dental Implant Patients | Implant Marketing | Booked.Dental" />
+    <meta name="twitter:description" content="Booked.Dental helps implant and veneer clinics get qualified consultation calls with targeted ads and call tracking optimized for 2+ minute calls." />
+    <meta name="twitter:image" content="https://booked.dental/og-image.png" />
 
   <!-- Twitter/X Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -178,15 +173,80 @@
     }
     </script>
 
-  <!-- Deferred Analytics & Tracking (non-render-blocking) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    window.gtag = gtag;
+    <!-- Deferred analytics to reduce initial render/main-thread pressure -->
+    <script>
+      (function () {
+        const GA4_ID = "G-DPRVM205R8";
+        const GADS_ID = "AW-17992910932";
+        const FB_PIXEL_ID = "932696116124868";
 
-    function _loadAnalytics() {
-      if (window.__analyticsLoaded) return;
-      window.__analyticsLoaded = true;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () {
+          window.dataLayer.push(arguments);
+        };
+
+        if (!window.fbq) {
+          const fbq = function () {
+            (fbq.q = fbq.q || []).push(arguments);
+          };
+          fbq.loaded = false;
+          fbq.version = "2.0";
+          fbq.q = [];
+          window.fbq = fbq;
+        }
+
+        const loadScript = (src, attrs) =>
+          new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = src;
+            Object.entries(attrs || {}).forEach(([key, value]) => {
+              if (value === true) {
+                script.setAttribute(key, "");
+                return;
+              }
+              if (value !== false && value != null) {
+                script.setAttribute(key, String(value));
+              }
+            });
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+          });
+
+        let trackingLoaded = false;
+        const initTracking = () => {
+          if (trackingLoaded) return;
+          trackingLoaded = true;
+
+          loadScript(`https://www.googletagmanager.com/gtag/js?id=${GADS_ID}`, { async: true }).finally(() => {
+            window.gtag("js", new Date());
+            window.gtag("config", GA4_ID);
+            window.gtag("config", GADS_ID);
+          });
+
+          loadScript("https://connect.facebook.net/en_US/fbevents.js", { async: true }).finally(() => {
+            window.fbq("init", FB_PIXEL_ID);
+            window.fbq("track", "PageView");
+          });
+        };
+
+        const onInteraction = () => {
+          initTracking();
+          ["pointerdown", "scroll", "keydown", "touchstart"].forEach((eventName) => {
+            window.removeEventListener(eventName, onInteraction);
+          });
+        };
+
+        ["pointerdown", "scroll", "keydown", "touchstart"].forEach((eventName) => {
+          window.addEventListener(eventName, onInteraction, { passive: true, once: true });
+        });
+
+        window.addEventListener("load", () => {
+          window.setTimeout(initTracking, 4000);
+        }, { once: true });
+      })();
+    </script>
+  </head>
 
       // GA4 + Google Ads
       var ga = document.createElement('script');

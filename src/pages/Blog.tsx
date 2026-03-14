@@ -130,6 +130,8 @@ export default function Blog() {
         </div>
       </section>
 
+      
+
       {/* Posts grid */}
       <main className="container py-16 md:py-24">
         {data.length === 0 ? (
