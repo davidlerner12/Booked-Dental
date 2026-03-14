@@ -34,6 +34,16 @@ const faqs = [
       "We use call tracking and campaign attribution to monitor incoming consult calls and campaign performance so you can see exactly how many inquiries your campaigns generate.",
   },
   {
+    question: "How do you measure call quality?",
+    answer:
+      "Booked.Dental uses advanced call tracking to measure consultation conversations and optimize campaigns toward calls lasting two minutes or longer.",
+  },
+  {
+    question: "What happens when a patient calls?",
+    answer:
+      "AI phone agents answer incoming calls, respond instantly to missed calls, and can automatically book consultation appointments for your practice.",
+  },
+  {
     question: "Is there a long-term contract?",
     answer:
       "No. Qualified clinics can start with a trial period to evaluate the system before committing long term.",
@@ -89,7 +99,7 @@ const FAQ = () => (
             to="/book"
             className="font-medium text-primary underline-offset-4 hover:underline"
           >
-            Book a free strategy call
+            Check your market
           </Link>{" "}
           and we'll walk you through everything.
         </p>

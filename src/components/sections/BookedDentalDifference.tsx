@@ -37,6 +37,11 @@ const BookedDentalDifference = () => (
             That efficiency allows us to offer our system for just $1,000 per month — far less than most dental marketing agencies.
           </p>
         </div>
+        <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+          Booked.Dental also includes advanced call tracking and AI phone agents
+          that help convert incoming calls into booked consultation appointments
+          automatically.
+        </p>
       </div>
     </div>
   </section>

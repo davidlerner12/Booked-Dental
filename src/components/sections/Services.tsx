@@ -1,4 +1,11 @@
-import { Library, Rocket, Users, TrendingDown, CalendarCheck } from "lucide-react";
+import {
+  Library,
+  Rocket,
+  Users,
+  TrendingDown,
+  PhoneCall,
+  Bot,
+} from "lucide-react";
 
 const services = [
   {
@@ -20,7 +27,19 @@ const services = [
     icon: TrendingDown,
     title: "More Efficient Marketing Costs",
     description: "Using proven creatives allows us to operate more efficiently than agencies that build campaigns from scratch, allowing us to offer a powerful patient acquisition system for just $1,000 per month.",
-  }
+  },
+  {
+    icon: PhoneCall,
+    title: "Advanced Call Tracking",
+    description:
+      "Campaigns are optimized for consultation calls lasting two minutes or longer — focusing on real treatment discussions instead of low-quality leads.",
+  },
+  {
+    icon: Bot,
+    title: "AI Consultation Booking",
+    description:
+      "AI phone agents answer incoming calls and automatically book consultation appointments so your staff can focus on patient care.",
+  },
 ];
 
 const Services = () => (
