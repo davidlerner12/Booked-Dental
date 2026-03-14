@@ -106,7 +106,7 @@ const CreativesVideo = () => {
   }, []);
 
   return (
-    <section className="relative border-y border-border bg-card/50 py-24">
+    <section className="relative overflow-x-hidden border-y border-border bg-card/50 py-24">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(42_100%_55%/0.04),transparent_70%)]" />
       <div className="container relative z-10">
         <div className="mb-12 text-center">
@@ -124,9 +124,9 @@ const CreativesVideo = () => {
           </p>
         </div>
 
-        {/* Slider */}
+        {/* Slider: one full slide on mobile, carousel on desktop */}
         <div
-          className="relative mx-auto max-w-3xl overflow-hidden md:overflow-visible"
+          className="relative mx-auto w-full max-w-full overflow-hidden px-2 md:max-w-3xl md:overflow-visible md:px-0"
           onMouseEnter={() => (paused.current = true)}
           onMouseLeave={() => (paused.current = false)}
         >
@@ -134,25 +134,25 @@ const CreativesVideo = () => {
           <button
             onClick={prev}
             aria-label="Previous slide"
-            className="absolute left-2 top-1/2 z-10 -translate-y-1/2 text-muted-foreground transition-colors hover:text-primary md:left-0 md:-translate-x-10"
+            className="absolute left-1 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-1.5 text-muted-foreground shadow-md transition-colors hover:bg-background hover:text-primary md:left-0 md:-translate-x-10 md:bg-transparent md:p-0 md:shadow-none"
           >
-            <ChevronLeft className="h-8 w-8" />
+            <ChevronLeft className="h-7 w-7 md:h-8 md:w-8" />
           </button>
           <button
             onClick={next}
             aria-label="Next slide"
-            className="absolute right-2 top-1/2 z-10 -translate-y-1/2 text-muted-foreground transition-colors hover:text-primary md:right-0 md:translate-x-10"
+            className="absolute right-1 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-1.5 text-muted-foreground shadow-md transition-colors hover:bg-background hover:text-primary md:right-0 md:translate-x-10 md:bg-transparent md:p-0 md:shadow-none"
           >
-            <ChevronRight className="h-8 w-8" />
+            <ChevronRight className="h-7 w-7 md:h-8 md:w-8" />
           </button>
 
           {/* Cards */}
           <div
-            className="relative mx-auto"
+            className="relative mx-auto w-full max-w-full md:max-w-none"
             style={{
               perspective: isMobile ? "none" : "1200px",
               height: isMobile
-                ? "clamp(220px, 72vw, 340px)"
+                ? "clamp(200px, 52vh, 320px)"
                 : "clamp(220px, 42vw, 420px)",
             }}
           >
@@ -170,7 +170,7 @@ const CreativesVideo = () => {
                     if (isLeft) prev();
                     if (isRight) next();
                   }}
-                  className="absolute inset-0 mx-auto w-[86%] md:w-[75%]"
+                  className={`absolute inset-0 mx-auto overflow-hidden md:w-[75%] ${isMobile ? "w-full" : "w-[86%]"}`}
                   style={{
                     ...style,
                     transformStyle: "preserve-3d",
@@ -196,7 +196,6 @@ const CreativesVideo = () => {
                         style={{ display: "block", width: "100%", height: "100%" }}
                         src={slide.src}
                         allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-                        allowFullScreen
                         loading="lazy"
                         title={`Booked.Dental Ad Creative ${i + 1}`}
                       />

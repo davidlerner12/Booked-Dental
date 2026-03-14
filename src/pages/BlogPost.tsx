@@ -157,7 +157,6 @@ const portableTextComponents = {
                 className="h-[320px] w-full md:h-[420px]"
                 loading="lazy"
                 allow="autoplay; fullscreen; encrypted-media; picture-in-picture; accelerometer; clipboard-write; gyroscope"
-                allowFullScreen
               />
             ) : (
               <video
