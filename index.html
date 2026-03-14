@@ -10,10 +10,10 @@
     <link rel="preconnect" href="https://connect.facebook.net" />
     <link rel="preconnect" href="https://player.cloudinary.com" />
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-    <title>Booked.Dental — Affordable Dental Marketing for Implant &amp; Cosmetic Clinics</title>
+    <title>Get Dental Implant Patients | Implant Marketing | Booked.Dental</title>
 
-    <!-- Core SEO -->
-    <meta name="description" content="Booked.Dental helps implant and cosmetic dental clinics get qualified patient consultation calls through proven UGC Meta &amp; Google ads — starting at $1,000/month. 12x average ROI, 14 days to first consult." />
+    <!-- Core SEO (title 30-60 chars, description 50-160 for SERPs) -->
+    <meta name="description" content="Booked.Dental helps implant and veneer clinics get qualified consultation calls with targeted ads and call tracking optimized for 2+ minute calls." />
     <meta name="keywords" content="dental marketing, implant marketing, cosmetic dentistry marketing, dental patient leads, UGC ads for dentists, Meta ads dentist, dental clinic growth" />
     <link rel="canonical" href="https://booked.dental/" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -24,8 +24,8 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://booked.dental/" />
-    <meta property="og:title" content="Booked.Dental — Affordable Growth for Dental Clinics" />
-    <meta property="og:description" content="Market-exclusive UGC ad campaigns for implant and cosmetic dental clinics. 12x average ROI. 14 days to your first booked consultation. Starting at $1,000/month." />
+    <meta property="og:title" content="Get Dental Implant Patients | Implant Marketing | Booked.Dental" />
+    <meta property="og:description" content="Booked.Dental helps implant and veneer clinics get qualified consultation calls with targeted ads and call tracking optimized for 2+ minute calls." />
     <meta property="og:image" content="https://booked.dental/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -34,8 +34,8 @@
 
     <!-- Twitter/X Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Booked.Dental — Affordable Growth for Dental Clinics" />
-    <meta name="twitter:description" content="Market-exclusive UGC ad campaigns for implant and cosmetic dental clinics. 12x average ROI. Starting at $1,000/month." />
+    <meta name="twitter:title" content="Get Dental Implant Patients | Implant Marketing | Booked.Dental" />
+    <meta name="twitter:description" content="Booked.Dental helps implant and veneer clinics get qualified consultation calls with targeted ads and call tracking optimized for 2+ minute calls." />
     <meta name="twitter:image" content="https://booked.dental/og-image.png" />
 
     <!-- Structured Data (JSON-LD) -->
@@ -170,31 +170,79 @@
     }
     </script>
 
-    <!-- Google Analytics 4 + Google Ads Tag -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17992910932"></script>
+    <!-- Deferred analytics to reduce initial render/main-thread pressure -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-DPRVM205R8');
-      gtag('config', 'AW-17992910932');
-    </script>
-    <!-- End Google Analytics 4 + Google Ads Tag -->
+      (function () {
+        const GA4_ID = "G-DPRVM205R8";
+        const GADS_ID = "AW-17992910932";
+        const FB_PIXEL_ID = "932696116124868";
 
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '932696116124868');
-    fbq('track', 'PageView');
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () {
+          window.dataLayer.push(arguments);
+        };
+
+        if (!window.fbq) {
+          const fbq = function () {
+            (fbq.q = fbq.q || []).push(arguments);
+          };
+          fbq.loaded = false;
+          fbq.version = "2.0";
+          fbq.q = [];
+          window.fbq = fbq;
+        }
+
+        const loadScript = (src, attrs) =>
+          new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = src;
+            Object.entries(attrs || {}).forEach(([key, value]) => {
+              if (value === true) {
+                script.setAttribute(key, "");
+                return;
+              }
+              if (value !== false && value != null) {
+                script.setAttribute(key, String(value));
+              }
+            });
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+          });
+
+        let trackingLoaded = false;
+        const initTracking = () => {
+          if (trackingLoaded) return;
+          trackingLoaded = true;
+
+          loadScript(`https://www.googletagmanager.com/gtag/js?id=${GADS_ID}`, { async: true }).finally(() => {
+            window.gtag("js", new Date());
+            window.gtag("config", GA4_ID);
+            window.gtag("config", GADS_ID);
+          });
+
+          loadScript("https://connect.facebook.net/en_US/fbevents.js", { async: true }).finally(() => {
+            window.fbq("init", FB_PIXEL_ID);
+            window.fbq("track", "PageView");
+          });
+        };
+
+        const onInteraction = () => {
+          initTracking();
+          ["pointerdown", "scroll", "keydown", "touchstart"].forEach((eventName) => {
+            window.removeEventListener(eventName, onInteraction);
+          });
+        };
+
+        ["pointerdown", "scroll", "keydown", "touchstart"].forEach((eventName) => {
+          window.addEventListener(eventName, onInteraction, { passive: true, once: true });
+        });
+
+        window.addEventListener("load", () => {
+          window.setTimeout(initTracking, 4000);
+        }, { once: true });
+      })();
     </script>
-    <!-- End Meta Pixel Code -->
   </head>
 
   <body>

@@ -126,7 +126,7 @@ const CreativesVideo = () => {
 
         {/* Slider */}
         <div
-          className="relative mx-auto max-w-4xl overflow-hidden md:overflow-visible"
+          className="relative mx-auto max-w-3xl overflow-hidden md:overflow-visible"
           onMouseEnter={() => (paused.current = true)}
           onMouseLeave={() => (paused.current = false)}
         >
@@ -227,23 +227,30 @@ const CreativesVideo = () => {
           </div>
 
           {/* Dots */}
-          <div className="mt-6 flex items-center justify-center gap-2">
+          <div className="mt-6 flex items-center justify-center gap-1.5">
             {slides.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActive(i)}
                 aria-label={`Go to slide ${i + 1}`}
-                className="transition-all duration-300"
+                className="flex h-8 w-8 items-center justify-center rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
                 style={{
-                  width: i === active ? 10 : 7,
-                  height: i === active ? 10 : 7,
-                  borderRadius: "50%",
-                  background:
-                    i === active
-                      ? "hsl(42 100% 55%)"
-                      : "hsl(220 10% 40%)",
+                  background: "transparent",
                 }}
-              />
+              >
+                <span
+                  aria-hidden
+                  style={{
+                    width: i === active ? 10 : 7,
+                    height: i === active ? 10 : 7,
+                    borderRadius: "50%",
+                    background:
+                      i === active
+                        ? "hsl(42 100% 55%)"
+                        : "hsl(220 12% 58%)",
+                  }}
+                />
+              </button>
             ))}
           </div>
 
