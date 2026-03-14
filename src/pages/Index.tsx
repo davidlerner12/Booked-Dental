@@ -8,11 +8,13 @@ const Problem = lazy(() => import("@/components/sections/Problem"));
 const CaseStudies = lazy(() => import("@/components/sections/CaseStudies"));
 const Services = lazy(() => import("@/components/sections/Services"));
 const BookedDentalDifference = lazy(() => import("@/components/sections/BookedDentalDifference"));
+const AdvancedCallTracking = lazy(() => import("@/components/sections/AdvancedCallTracking"));
 const ROICalculator = lazy(() => import("@/components/sections/ROICalculator"));
 const HowItWorks = lazy(() => import("@/components/sections/HowItWorks"));
 const WhoItsFor = lazy(() => import("@/components/sections/WhoItsFor"));
 const WhoItsNotFor = lazy(() => import("@/components/sections/WhoItsNotFor"));
 const CreativesVideo = lazy(() => import("@/components/sections/CreativesVideo"));
+const Testimonials = lazy(() => import("@/components/sections/Testimonials"));
 const MarketExclusivity = lazy(() => import("@/components/sections/MarketExclusivity"));
 const RiskFreeTrial = lazy(() => import("@/components/sections/RiskFreeTrial"));
 const FAQ = lazy(() => import("@/components/sections/FAQ"));
@@ -33,11 +35,13 @@ const Index = () => {
         <MarketExclusivity />
         <Services />
         <BookedDentalDifference />
+        <AdvancedCallTracking />
         <ROICalculator />
         <HowItWorks />
         <WhoItsFor />
         <WhoItsNotFor />
         <CreativesVideo />
+        <Testimonials />
         <RiskFreeTrial />
         <CTA />
         <FAQ />

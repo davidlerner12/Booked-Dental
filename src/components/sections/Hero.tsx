@@ -20,7 +20,7 @@ function Hero() {
             <span className="text-gradient-gold">Veneer Consultation Calls for Your Clinic</span>
           </h1>
           <p className="mx-auto mb-6 max-w-2xl text-md text-muted-foreground opacity-0 animate-fade-up md:text-xl" style={{ animationDelay: "0.2s" }}>
-            Booked.Dental helps implant and veneer clinics generate qualified consultation calls through paid campaigns across Meta and Google. We partner with only one clinic per local market.
+            Booked.Dental helps implant and veneer clinics generate qualified consultation calls using targeted ads and advanced call tracking optimized for real 2+ minute patient conversations.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 opacity-0 animate-fade-up sm:flex-row" style={{ animationDelay: "0.3s" }}>
             <Button variant="hero" size="lg" asChild>
