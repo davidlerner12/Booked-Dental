@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+/* Self-hosted fonts — Latin subset only for performance */
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@import '@fontsource/space-grotesk/latin-500.css';
+@import '@fontsource/space-grotesk/latin-600.css';
+@import '@fontsource/space-grotesk/latin-700.css';
 
 @tailwind base;
 @tailwind components;
@@ -60,7 +66,12 @@
     @apply bg-background text-foreground font-body antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display;
   }
 }
