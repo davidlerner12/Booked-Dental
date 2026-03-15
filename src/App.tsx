@@ -17,7 +17,7 @@ import {
 } from "./pages/blog-loaders";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-import FloatingCTA from "./components/FloatingCTA";
+import ChatWidget from "./components/ChatWidget";
 
 const queryClient = new QueryClient();
 
@@ -45,7 +45,7 @@ const AppLayout = () => (
       <RouteTracker />
       <ScrollToTop />
       <Outlet />
-      <FloatingCTA />
+      <ChatWidget />
     </TooltipProvider>
   </QueryClientProvider>
 );
