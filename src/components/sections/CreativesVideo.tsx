@@ -3,23 +3,20 @@ import { Zap, ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    src: "https://player.cloudinary.com/embed/?cloud_name=dlgykfmrf&public_id=Benson_Hurst_Dental_Care_video_final_440720_jom76d",
-    thumbnail:
-      "https://res.cloudinary.com/dlgykfmrf/video/upload/so_0/Benson_Hurst_Dental_Care_video_final_440720_jom76d.jpg",
+    src: "https://www.youtube.com/embed/26Z26z8kcFA?si=n3yzTsCZZVloi9hd",
+    thumbnail: "/images/video-thumb-1.jpg",
     caption:
       "Bensonhurst Dental — increased consultation calls from 5/mo to 27 in under 90 days.",
   },
   {
-    src: "https://player.cloudinary.com/embed/?cloud_name=do6gwyitk&public_id=916dentures_vp4scc",
-    thumbnail:
-      "https://res.cloudinary.com/do6gwyitk/video/upload/so_0/916dentures_vp4scc.jpg",
+    src: "https://www.youtube.com/embed/6ywdF4ruKeQ?si=zJE-AuaRE7UBPv8n",
+    thumbnail: "/images/video-thumb-2.jpg",
     caption:
       "High-converting ad creative built for implant and cosmetic dental clinics.",
   },
   {
-    src: "https://player.cloudinary.com/embed/?cloud_name=do6gwyitk&public_id=916veneers_datfik",
-    thumbnail:
-      "https://res.cloudinary.com/do6gwyitk/video/upload/so_0/916veneers_datfik.jpg",
+    src: "https://www.youtube.com/embed/qMZOpnaFIRA",
+    thumbnail: "/images/video-thumb-3.jpg",
     caption:
       "Scroll-stopping creatives designed to drive qualified patient inquiries.",
   },
@@ -195,7 +192,7 @@ const CreativesVideo = () => {
                         className="aspect-video w-full"
                         style={{ display: "block", width: "100%", height: "100%" }}
                         src={slide.src}
-                        allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                        allow="autoplay; fullscreen; encrypted-media; picture-in-picture; clipboard-write"
                         loading="lazy"
                         title={`Booked.Dental Ad Creative ${i + 1}`}
                       />
