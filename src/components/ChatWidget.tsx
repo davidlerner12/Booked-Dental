@@ -123,7 +123,7 @@ export default function ChatWidget() {
     if (pathname === "/book") return;
     const timer = setTimeout(() => {
       if (!openedOnce.current) handleOpen();
-    }, 10000);
+    }, 25000);
     return () => clearTimeout(timer);
   }, [pathname]);
 
