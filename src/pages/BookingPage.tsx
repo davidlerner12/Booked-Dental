@@ -1,24 +1,87 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Cal, { getCalApi } from "@calcom/embed-react";
 import { ArrowLeft, Shield, Clock, Users, MapPin } from "lucide-react";
 import { trackBookingCTA, trackBookingConfirmed } from "@/lib/analytics";
+
+declare global {
+  interface Window {
+    Cal?: ((...args: unknown[]) => void) & {
+      loaded?: boolean;
+      ns?: Record<string, ((...args: unknown[]) => void) & { q?: unknown[][] }>;
+      q?: unknown[][];
+    };
+  }
+}
 
 const BookingPage = () => {
   const location = useLocation();
   const isMarketCheck = location.state?.source === "market-check";
+  const calInitialized = useRef(false);
 
   useEffect(() => {
     trackBookingCTA();
-    (async () => {
-      const cal = await getCalApi();
-      cal("on", {
-        action: "bookingSuccessful",
-        callback: () => {
-          trackBookingConfirmed();
-        },
-      });
-    })();
+
+    // Prevent double-init in React strict mode
+    if (calInitialized.current) return;
+    calInitialized.current = true;
+
+    // --- Cal.com vanilla embed (bookeddental/15min) ---
+    (function (C: Window, A: string, L: string) {
+      const p = function (a: { q: unknown[][] }, ar: unknown[]) {
+        a.q.push(ar);
+      };
+      const d = C.document;
+      C.Cal =
+        C.Cal ||
+        (function () {
+          const cal = C.Cal!;
+          const ar = arguments;
+          if (!cal.loaded) {
+            cal.ns = {};
+            cal.q = cal.q || [];
+            const s = d.head.appendChild(d.createElement("script"));
+            (s as HTMLScriptElement).src = A;
+            cal.loaded = true;
+          }
+          if (ar[0] === L) {
+            const api = function () {
+              p(api as unknown as { q: unknown[][] }, Array.from(arguments));
+            } as unknown as ((...a: unknown[]) => void) & { q: unknown[][] };
+            const namespace = ar[1] as string;
+            api.q = api.q || [];
+            if (typeof namespace === "string") {
+              cal.ns![namespace] = cal.ns![namespace] || api;
+              p(cal.ns![namespace] as unknown as { q: unknown[][] }, Array.from(ar));
+              p(cal as unknown as { q: unknown[][] }, ["initNamespace", namespace]);
+            } else {
+              p(cal as unknown as { q: unknown[][] }, Array.from(ar));
+            }
+            return;
+          }
+          p(cal as unknown as { q: unknown[][] }, Array.from(ar));
+        } as unknown as typeof C.Cal);
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    window.Cal!("init", "15min", { origin: "https://app.cal.com" });
+
+    window.Cal!.ns!["15min"]("inline", {
+      elementOrSelector: "#my-cal-inline-15min",
+      config: { layout: "month_view", useSlotsViewOnSmallScreen: "true" },
+      calLink: "bookeddental/15min",
+    });
+
+    window.Cal!.ns!["15min"]("ui", {
+      hideEventTypeDetails: false,
+      layout: "month_view",
+    });
+
+    // Listen for booking success
+    window.Cal!.ns!["15min"]("on", {
+      action: "bookingSuccessful",
+      callback: () => {
+        trackBookingConfirmed();
+      },
+    });
   }, []);
 
   return (
@@ -79,14 +142,9 @@ const BookingPage = () => {
 
         {/* Calendar card */}
         <div className="mx-auto max-w-4xl rounded-2xl border border-border bg-card/60 p-2 shadow-gold">
-          <Cal
-            calLink="david-israel-lerner/30min"
-style={{ width: "100%", minHeight: "660px", overflow: "scroll" }}
-            config={{
-              theme: "dark",
-              brandColor: "#FFBA1A",
-              layout: "month_view",
-            }}
+          <div
+            id="my-cal-inline-15min"
+            style={{ width: "100%", minHeight: "660px", overflow: "scroll" }}
           />
         </div>
 
@@ -99,7 +157,7 @@ style={{ width: "100%", minHeight: "660px", overflow: "scroll" }}
           <div className="hidden h-4 w-px bg-border sm:block" />
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Clock className="h-4 w-4 text-primary" />
-            30 minutes, fully focused on your practice
+            15 minutes, fully focused on your practice
           </div>
           <div className="hidden h-4 w-px bg-border sm:block" />
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
