@@ -41,9 +41,11 @@ async function getSanityBlogPosts() {
     .filter((item) => item.slug.length > 0);
 }
 
+const SUPPORTED_LANGS = ["en", "he"];
+
 async function getBlogStaticRoutes() {
   const posts = await getSanityBlogPosts();
-  return posts.map((post) => `/blog/${post.slug}`);
+  return posts.flatMap((post) => SUPPORTED_LANGS.map((lang) => `/${lang}/blog/${post.slug}`));
 }
 
 function toIsoDate(value?: string) {
@@ -84,20 +86,22 @@ async function generateSitemap(outDir: string) {
   const now = new Date().toISOString();
   const posts = await getSanityBlogPosts();
 
-  const staticUrls = [
-    urlNode({ loc: `${siteUrl}/`, lastmod: now, changefreq: "weekly", priority: "1.0" }),
-    urlNode({ loc: `${siteUrl}/book`, lastmod: now, changefreq: "monthly", priority: "0.8" }),
-    urlNode({ loc: `${siteUrl}/privacy`, lastmod: now, changefreq: "monthly", priority: "0.3" }),
-    urlNode({ loc: `${siteUrl}/blog`, lastmod: now, changefreq: "weekly", priority: "0.9" }),
-  ];
+  const staticUrls = SUPPORTED_LANGS.flatMap(lang => [
+    urlNode({ loc: `${siteUrl}/${lang}`, lastmod: now, changefreq: "weekly", priority: "1.0" }),
+    urlNode({ loc: `${siteUrl}/${lang}/book`, lastmod: now, changefreq: "monthly", priority: "0.8" }),
+    urlNode({ loc: `${siteUrl}/${lang}/privacy`, lastmod: now, changefreq: "monthly", priority: "0.3" }),
+    urlNode({ loc: `${siteUrl}/${lang}/blog`, lastmod: now, changefreq: "weekly", priority: "0.9" }),
+  ]);
 
-  const blogUrls = posts.map((post) =>
-    urlNode({
-      loc: `${siteUrl}/blog/${post.slug}`,
-      lastmod: toIsoDate(post.publishedAt),
-      changefreq: "monthly",
-      priority: "0.8",
-    }),
+  const blogUrls = posts.flatMap((post) =>
+    SUPPORTED_LANGS.map(lang => 
+      urlNode({
+        loc: `${siteUrl}/${lang}/blog/${post.slug}`,
+        lastmod: toIsoDate(post.publishedAt),
+        changefreq: "monthly",
+        priority: "0.8",
+      })
+    )
   );
 
   const sitemapXml = [
@@ -130,9 +134,12 @@ export default defineConfig(({ mode }) => ({
   ssgOptions: {
     dirStyle: "nested",
     includedRoutes: async (paths: string[]) => {
-      const staticRoutes = paths.filter((route) => !route.includes(":"));
+      const baseStaticRoutes = paths.filter((route) => !route.includes(":"));
+      const staticRoutes = baseStaticRoutes.flatMap(route => 
+        route === "/" ? SUPPORTED_LANGS.map(lang => `/${lang}`) : SUPPORTED_LANGS.map(lang => `/${lang}${route}`)
+      );
       const blogPostRoutes = await getBlogStaticRoutes();
-      return Array.from(new Set([...staticRoutes, ...blogPostRoutes]));
+      return Array.from(new Set(["/", ...staticRoutes, ...blogPostRoutes]));
     },
     onFinished: async (outDir: string) => {
       await generateSitemap(outDir);
