@@ -2,8 +2,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useParams, Navigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import type { RouteRecord } from "vite-react-ssg";
 import { trackPageView } from "@/lib/analytics";
 import Index from "./pages/Index";
@@ -37,6 +38,23 @@ function ScrollToTop() {
   return null;
 }
 
+/** Syncs i18n language + <html> dir/lang from the :lang URL param */
+function LanguageSync() {
+  const { lang } = useParams<{ lang: string }>();
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    const validLang = lang === "he" ? "he" : "en";
+    if (i18n.language !== validLang) {
+      i18n.changeLanguage(validLang);
+    }
+    document.documentElement.lang = validLang;
+    document.documentElement.dir = validLang === "he" ? "rtl" : "ltr";
+  }, [lang, i18n]);
+
+  return null;
+}
+
 const AppLayout = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -44,28 +62,37 @@ const AppLayout = () => (
       <Sonner />
       <RouteTracker />
       <ScrollToTop />
+      <LanguageSync />
       <Outlet />
       <ChatWidget />
     </TooltipProvider>
   </QueryClientProvider>
 );
 
-export const routes: RouteRecord[] = [
+/** Redirect bare "/" to "/en" */
+function RootRedirect() {
+  return <Navigate to="/en" replace />;
+}
+
+const langChildren: RouteRecord[] = [
+  { index: true, element: <Index /> },
+  { path: "book", element: <BookingPage /> },
+  { path: "blog", element: <Blog />, loader: blogListLoader },
   {
-    path: "/",
+    path: "blog/:slug",
+    element: <BlogPost />,
+    loader: blogPostLoader,
+    getStaticPaths: blogPostStaticPaths,
+  },
+  { path: "privacy", element: <PrivacyPolicy /> },
+  { path: "*", element: <NotFound /> },
+];
+
+export const routes: RouteRecord[] = [
+  { path: "/", element: <RootRedirect /> },
+  {
+    path: "/:lang",
     element: <AppLayout />,
-    children: [
-      { index: true, element: <Index /> },
-      { path: "book", element: <BookingPage /> },
-      { path: "blog", element: <Blog />, loader: blogListLoader },
-      {
-        path: "blog/:slug",
-        element: <BlogPost />,
-        loader: blogPostLoader,
-        getStaticPaths: blogPostStaticPaths,
-      },
-      { path: "privacy", element: <PrivacyPolicy /> },
-      { path: "*", element: <NotFound /> },
-    ],
+    children: langChildren,
   },
 ];

@@ -1,10 +1,12 @@
 import { PortableText } from "@portabletext/react";
 import { Helmet } from "react-helmet";
-import { Link, Navigate, useLoaderData } from "react-router-dom";
+import { Link, Navigate, useLoaderData, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CalendarDays, ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 import type { BlogPostLoaderData } from "./blog-loaders";
 import { urlFor } from "@/lib/sanity";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const BLOG_SEO_KEYWORDS = [
   "dental implant marketing",
@@ -215,8 +217,11 @@ const portableTextComponents = {
 
 export default function BlogPost() {
   const { post, related } = useLoaderData() as BlogPostLoaderData;
+  const { t, i18n } = useTranslation();
+  const { lang } = useParams();
+  const dateLocale = i18n.language === "he" ? "he-IL" : "en-US";
 
-  if (!post) return <Navigate to="/blog" replace />;
+  if (!post) return <Navigate to={`/${lang}/blog`} replace />;
 
   const postUrl = `https://booked.dental/blog/${post.slug}`;
   const metaTitle = `${post.title} | Booked.Dental`;
@@ -233,7 +238,7 @@ export default function BlogPost() {
     image: [ogImage],
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
-    inLanguage: "en-US",
+    inLanguage: i18n.language === "he" ? "he" : "en-US",
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": postUrl,
@@ -283,7 +288,7 @@ export default function BlogPost() {
         <meta name="keywords" content={BLOG_SEO_KEYWORDS.join(", ")} />
         <meta name="robots" content="index,follow,max-image-preview:large" />
         <meta property="og:site_name" content="Booked.Dental" />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content={i18n.language === "he" ? "he_IL" : "en_US"} />
         <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={ogImage} />
@@ -308,21 +313,24 @@ export default function BlogPost() {
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
         <div className="container flex h-16 items-center justify-between">
           <Link
-            to="/blog"
+            to={`/${lang}/blog`}
             className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
-            All articles
+            {t("blog_post.all_articles")}
           </Link>
-          <Link to="/" className="font-display text-lg font-semibold">
-            <span className="text-gradient-gold">Booked</span>.Dental
+          <Link to={`/${lang}`} className="font-display text-lg font-semibold">
+            <span className="text-gradient-gold">{t("nav.booked")}</span>{t("nav.dental")}
           </Link>
-          <Link
-            to="/book"
-            className="hidden rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:inline-flex"
-          >
-            Check Your Market
-          </Link>
+          <div className="flex items-center gap-3">
+            <LanguageSwitcher />
+            <Link
+              to={`/${lang}/book`}
+              className="hidden rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:inline-flex"
+            >
+              {t("blog_post.check_market")}
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -336,15 +344,15 @@ export default function BlogPost() {
                 aria-label="Breadcrumb"
                 className="mb-6 flex items-center gap-1.5 text-xs text-muted-foreground"
               >
-                <Link to="/" className="transition-colors hover:text-foreground">
-                  Home
+                <Link to={`/${lang}`} className="transition-colors hover:text-foreground">
+                  {t("blog_post.home")}
                 </Link>
                 <ChevronRight className="h-3 w-3" />
                 <Link
-                  to="/blog"
+                  to={`/${lang}/blog`}
                   className="transition-colors hover:text-foreground"
                 >
-                  Blog
+                  {t("blog_post.blog")}
                 </Link>
                 <ChevronRight className="h-3 w-3" />
                 <span className="line-clamp-1 text-foreground">{post.title}</span>
@@ -354,7 +362,7 @@ export default function BlogPost() {
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <CalendarDays className="h-4 w-4" />
                 <time dateTime={post.publishedAt}>
-                  {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                  {new Date(post.publishedAt).toLocaleDateString(dateLocale, {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
@@ -390,17 +398,16 @@ export default function BlogPost() {
               {/* In-article CTA */}
               <div className="mt-12 rounded-xl border border-primary/20 bg-primary/5 p-6 text-center sm:p-8">
                 <h3 className="font-display text-xl font-semibold md:text-2xl">
-                  Ready to check if your market is available?
+                  {t("blog_post.ready_title")}
                 </h3>
                 <p className="mt-2 text-muted-foreground">
-                  Pick a time to confirm whether your city is still open. Booked.Dental
-                  works with only one implant or cosmetic clinic per local market.
+                  {t("blog_post.ready_subtitle")}
                 </p>
                 <Link
-                  to="/book"
+                  to={`/${lang}/book`}
                   className="mt-6 inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:px-6 sm:py-3 sm:text-base"
                 >
-                  Check Your Market
+                  {t("blog_post.check_market")}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -414,26 +421,26 @@ export default function BlogPost() {
             <div className="container">
               <div className="mx-auto max-w-3xl">
                 <h2 className="mb-6 font-display text-lg font-semibold">
-                  More articles
+                  {t("blog_post.more_articles")}
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {related.map((rp) => (
                     <Link
                       key={rp._id}
-                      to={`/blog/${rp.slug}`}
+                      to={`/${lang}/blog/${rp.slug}`}
                       className="group rounded-xl border border-border bg-card p-5 transition-all duration-200 hover:border-primary/40 hover:bg-primary/5"
                     >
                       <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <CalendarDays className="h-3 w-3" />
                         <time dateTime={rp.publishedAt}>
-                          {new Date(rp.publishedAt).toLocaleDateString("en-US")}
+                          {new Date(rp.publishedAt).toLocaleDateString(dateLocale)}
                         </time>
                       </div>
                       <p className="mt-2 font-display text-sm font-semibold leading-snug text-foreground transition-colors group-hover:text-primary">
                         {rp.title}
                       </p>
                       <div className="mt-3 flex items-center gap-1 text-xs font-medium text-primary">
-                        Read
+                        {t("blog_post.read")}
                         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                       </div>
                     </Link>
@@ -441,10 +448,10 @@ export default function BlogPost() {
                 </div>
                 <div className="mt-6 text-center">
                   <Link
-                    to="/blog"
+                    to={`/${lang}/blog`}
                     className="text-sm text-muted-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
                   >
-                    View all articles →
+                    {t("blog_post.view_all")}
                   </Link>
                 </div>
               </div>
@@ -457,10 +464,10 @@ export default function BlogPost() {
       <footer className="border-t border-border py-8">
         <div className="container flex flex-col items-center justify-between gap-4 sm:flex-row">
           <span className="font-display text-sm font-semibold">
-            <span className="text-gradient-gold">Booked</span>.Dental
+            <span className="text-gradient-gold">{t("nav.booked")}</span>{t("nav.dental")}
           </span>
           <p className="text-xs text-muted-foreground">
-            Turning Meta ads into booked treatment plans.
+            {t("footer.tagline")}
           </p>
         </div>
       </footer>
