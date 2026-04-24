@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { useTranslation } from "react-i18next";
 import Nav from "@/components/sections/Nav";
 import Hero from "@/components/sections/Hero";
 import Stats from "@/components/sections/Stats";
@@ -23,30 +24,51 @@ const CTA = lazy(() => import("@/components/sections/CTA"));
 const Footer = lazy(() => import("@/components/sections/Footer"));
 
 const Index = () => {
+  const { i18n } = useTranslation();
+  const isHe = i18n.language === "he";
+
   return (
     <div className="min-h-screen bg-background">
       <Nav />
       <Hero />
-      <Stats />
+      {!isHe && <Stats />}
 
       <Suspense fallback={<div className="min-h-screen" />}>
         <Problem />
-        <CaseStudies />
-        <MarketExclusivity />
-        <Services />
-        <BookedDentalDifference />
-        <AdvancedCallTracking />
-        <ROICalculator />
-        <HowItWorks />
-        <WhoItsFor />
-        <WhoItsNotFor />
-        <CreativesVideo />
-        <Testimonials />
-        <RiskFreeTrial />
-        <CTA />
-        <FAQ />
-        <BlogPreview />
-        <Footer />
+        {isHe ? (
+          <>
+            {/* Hebrew section order matches the reference site */}
+            <MarketExclusivity />
+            <CaseStudies />
+            <Services />
+            <ROICalculator />
+            <WhoItsFor />
+            <RiskFreeTrial />
+            <CTA />
+            <FAQ />
+            <Footer />
+          </>
+        ) : (
+          <>
+            {/* English section order (unchanged) */}
+            <CaseStudies />
+            <MarketExclusivity />
+            <Services />
+            <BookedDentalDifference />
+            <AdvancedCallTracking />
+            <ROICalculator />
+            <HowItWorks />
+            <WhoItsFor />
+            <WhoItsNotFor />
+            <CreativesVideo />
+            <Testimonials />
+            <RiskFreeTrial />
+            <CTA />
+            <FAQ />
+            <BlogPreview />
+            <Footer />
+          </>
+        )}
       </Suspense>
     </div>
   );

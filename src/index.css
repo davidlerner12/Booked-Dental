@@ -96,3 +96,14 @@
     border-color: hsl(42 100% 55% / 0.2);
   }
 }
+
+/* Hebrew (RTL) font override */
+html[dir="rtl"] body,
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] h5,
+html[dir="rtl"] h6 {
+  font-family: 'Heebo', sans-serif;
+}
