@@ -1,15 +1,14 @@
-import { useState } from "react";
 import { ShieldCheck } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 const RiskFreeTrial = () => {
   const { t, i18n } = useTranslation();
+  const { lang } = useParams();
   const isHe = i18n.language === "he";
-
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [city, setCity] = useState("");
 
   if (isHe) {
     return (
@@ -26,41 +25,35 @@ const RiskFreeTrial = () => {
             </h2>
             <p className="mb-8 text-muted-foreground">{t("risk_free_trial.para1")}</p>
 
-            <div className="space-y-4 text-start">
-              <div>
-                <label className="mb-2 block text-sm font-medium text-foreground">{t("risk_free_trial.form_name_label")}</label>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder={t("risk_free_trial.form_name_placeholder")}
-                  className="w-full rounded-lg border border-border bg-card py-3 px-4 text-foreground placeholder:text-muted-foreground/50 transition-colors focus:border-primary/50 focus:outline-none"
-                />
+            <form action="https://formsubmit.co/David@Booked.Dental" method="POST" className="space-y-6">
+              <input type="hidden" name="_next" value={`${window.location.origin}/${lang}/thank-you`} />
+              <input type="hidden" name="_subject" value="New Market Check Submission!" />
+              <input type="hidden" name="_captcha" value="false" />
+              
+              <div className="space-y-2 text-start">
+                <Label htmlFor="name">{t("booking.form_name_label")}</Label>
+                <Input id="name" name="name" required placeholder={t("booking.form_name_placeholder")} className="bg-card" />
               </div>
-              <div>
-                <label className="mb-2 block text-sm font-medium text-foreground">{t("risk_free_trial.form_phone_label")}</label>
-                <input
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder={t("risk_free_trial.form_phone_placeholder")}
-                  className="w-full rounded-lg border border-border bg-card py-3 px-4 text-foreground placeholder:text-muted-foreground/50 transition-colors focus:border-primary/50 focus:outline-none"
-                />
+              
+              <div className="space-y-2 text-start">
+                <Label htmlFor="email">{t("booking.form_email_label")}</Label>
+                <Input id="email" name="email" type="email" required placeholder={t("booking.form_email_placeholder")} className="bg-card" />
               </div>
-              <div>
-                <label className="mb-2 block text-sm font-medium text-foreground">{t("risk_free_trial.form_city_label")}</label>
-                <input
-                  type="text"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                  placeholder={t("risk_free_trial.form_city_placeholder")}
-                  className="w-full rounded-lg border border-border bg-card py-3 px-4 text-foreground placeholder:text-muted-foreground/50 transition-colors focus:border-primary/50 focus:outline-none"
-                />
+              
+              <div className="space-y-2 text-start">
+                <Label htmlFor="phone">{t("booking.form_phone_label")}</Label>
+                <Input id="phone" name="phone" type="tel" required placeholder={t("booking.form_phone_placeholder")} className="bg-card" dir="ltr" />
               </div>
-              <Button variant="hero" size="lg" className="w-full mt-2">
-                {t("risk_free_trial.form_submit")}
+              
+              <div className="space-y-2 text-start">
+                <Label htmlFor="city">{t("booking.form_city_label")}</Label>
+                <Input id="city" name="city" required placeholder={t("booking.form_city_placeholder")} className="bg-card" />
+              </div>
+
+              <Button type="submit" variant="hero" size="lg" className="w-full mt-2">
+                {t("booking.form_submit")}
               </Button>
-            </div>
+            </form>
           </div>
         </div>
       </section>
