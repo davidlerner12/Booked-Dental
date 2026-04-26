@@ -290,7 +290,20 @@
         "subtitle": "בחרו זמן לאישור האם העיר שלכם עדיין פתוחה. Booked.Dental עובדת עם מרפאה אחת בלבד בכל עיר.",
         "trust_no_contracts": "ללא חוזים או התחייבות",
         "trust_15min": "15 דקות, ממוקדות לחלוטין במרפאה שלכם",
-        "trust_one_clinic": "מרפאה אחת לכל עיר"
+        "trust_one_clinic": "מרפאה אחת לכל עיר",
+        "prefer_to_call": "מעדיפים להתקשר?",
+        "form_name_label": "שם מלא",
+        "form_name_placeholder": "ד\"ר ישראל ישראלי",
+        "form_email_label": "כתובת דוא\"ל",
+        "form_email_placeholder": "doctor@clinic.com",
+        "form_phone_label": "מספר טלפון",
+        "form_phone_placeholder": "050-123-4567",
+        "form_city_label": "עיר / אזור",
+        "form_city_placeholder": "תל אביב",
+        "form_submit": "שלח פרטים",
+        "thankyou_title": "תודה רבה",
+        "thankyou_subtitle": "קיבלנו את הפרטים שלך וניצור איתך קשר בהקדם.",
+        "return_home": "חזרה לדף הבית"
     },
     "blog_page": {
         "back": "חזרה לדף הבית",

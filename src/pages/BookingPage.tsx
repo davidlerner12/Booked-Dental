@@ -1,71 +1,25 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { ArrowLeft, Shield, Clock, Users, MapPin } from "lucide-react";
+import { ArrowLeft, Shield, Clock, Users, MapPin, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { trackBookingCTA, trackBookingConfirmed } from "@/lib/analytics";
+import { trackBookingCTA } from "@/lib/analytics";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-
-declare global {
-  interface Window {
-    Cal?: ((...args: unknown[]) => void) & {
-      loaded?: boolean;
-      ns?: Record<string, ((...args: unknown[]) => void) & { q?: unknown[][] }>;
-      q?: unknown[][];
-    };
-  }
-}
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 const BookingPage = () => {
   const { t } = useTranslation();
   const { lang } = useParams();
   const location = useLocation();
   const isMarketCheck = location.state?.source === "market-check";
-  const calInitialized = useRef(false);
 
   useEffect(() => {
     trackBookingCTA();
-    if (calInitialized.current) return;
-    calInitialized.current = true;
-
-    (function (C: Window, A: string, L: string) {
-      const p = function (a: { q: unknown[][] }, ar: unknown[]) { a.q.push(ar); };
-      const d = C.document;
-      C.Cal = C.Cal || (function () {
-        const cal = C.Cal!;
-        const ar = arguments;
-        if (!cal.loaded) {
-          cal.ns = {};
-          cal.q = cal.q || [];
-          const s = d.head.appendChild(d.createElement("script"));
-          (s as HTMLScriptElement).src = A;
-          cal.loaded = true;
-        }
-        if (ar[0] === L) {
-          const api = function () { p(api as unknown as { q: unknown[][] }, Array.from(arguments)); } as unknown as ((...a: unknown[]) => void) & { q: unknown[][] };
-          const namespace = ar[1] as string;
-          api.q = api.q || [];
-          if (typeof namespace === "string") {
-            cal.ns![namespace] = cal.ns![namespace] || api;
-            p(cal.ns![namespace] as unknown as { q: unknown[][] }, Array.from(ar));
-            p(cal as unknown as { q: unknown[][] }, ["initNamespace", namespace]);
-          } else {
-            p(cal as unknown as { q: unknown[][] }, Array.from(ar));
-          }
-          return;
-        }
-        p(cal as unknown as { q: unknown[][] }, Array.from(ar));
-      } as unknown as typeof C.Cal);
-    })(window, "https://app.cal.com/embed/embed.js", "init");
-
-    window.Cal!("init", "15min", { origin: "https://app.cal.com" });
-    window.Cal!.ns!["15min"]("inline", {
-      elementOrSelector: "#my-cal-inline-15min",
-      config: { layout: "month_view", useSlotsViewOnSmallScreen: "true" },
-      calLink: "bookeddental/15min",
-    });
-    window.Cal!.ns!["15min"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
-    window.Cal!.ns!["15min"]("on", { action: "bookingSuccessful", callback: () => { trackBookingConfirmed(); } });
   }, []);
+
+  // Formsubmit requires full URL for redirect
+  const redirectUrl = `${window.location.origin}/${lang}/thank-you`;
 
   return (
     <div className="min-h-screen bg-background">
@@ -84,7 +38,7 @@ const BookingPage = () => {
         </div>
       </header>
       <main className="container py-14">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
+        <div className="mx-auto mb-12 max-w-2xl text-center relative z-10">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary">
             {isMarketCheck ? <MapPin className="h-4 w-4" /> : <Clock className="h-4 w-4" />}
             {t("booking.badge_market")}
@@ -92,20 +46,51 @@ const BookingPage = () => {
           <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
             {t("booking.title_prefix")}<span className="text-gradient-gold">{t("booking.title_highlight")}</span>
           </h1>
-          <p className="text-muted-foreground">{t("booking.subtitle")}</p>
+          <p className="text-muted-foreground mb-6">{t("booking.subtitle")}</p>
+          
+          <div className="inline-flex items-center gap-2 text-lg font-medium text-foreground bg-secondary/50 px-6 py-3 rounded-full border border-border shadow-sm">
+            <Phone className="h-5 w-5 text-primary" />
+            {t("booking.prefer_to_call")} <a href="tel:0546790378" className="text-gradient-gold hover:underline" dir="ltr">0546790378</a>
+          </div>
         </div>
-        <div className="mx-auto max-w-4xl rounded-2xl border border-border bg-card/60 p-2 shadow-gold">
-          <div id="my-cal-inline-15min" style={{ width: "100%", minHeight: "660px", overflow: "scroll" }} />
+
+        <div className="mx-auto max-w-xl rounded-2xl border border-border bg-card/60 p-8 shadow-gold relative z-10 backdrop-blur-sm">
+          {/* Use formsubmit.co for no-backend email sending. Change action URL to your actual email. */}
+          <form action="https://formsubmit.co/David@Booked.Dental" method="POST" className="space-y-6">
+            <input type="hidden" name="_next" value={redirectUrl} />
+            <input type="hidden" name="_subject" value="New Market Check Submission!" />
+            <input type="hidden" name="_captcha" value="false" />
+            
+            <div className="space-y-2 text-start">
+              <Label htmlFor="name">{t("booking.form_name_label")}</Label>
+              <Input id="name" name="name" required placeholder={t("booking.form_name_placeholder")} className="bg-background" />
+            </div>
+            
+            <div className="space-y-2 text-start">
+              <Label htmlFor="email">{t("booking.form_email_label")}</Label>
+              <Input id="email" name="email" type="email" required placeholder={t("booking.form_email_placeholder")} className="bg-background" />
+            </div>
+            
+            <div className="space-y-2 text-start">
+              <Label htmlFor="phone">{t("booking.form_phone_label")}</Label>
+              <Input id="phone" name="phone" type="tel" required placeholder={t("booking.form_phone_placeholder")} className="bg-background" dir="ltr" />
+            </div>
+            
+            <div className="space-y-2 text-start">
+              <Label htmlFor="city">{t("booking.form_city_label")}</Label>
+              <Input id="city" name="city" required placeholder={t("booking.form_city_placeholder")} className="bg-background" />
+            </div>
+
+            <Button type="submit" size="lg" className="w-full bg-gradient-gold text-primary-foreground hover:opacity-90 shadow-gold mt-4">
+              {t("booking.form_submit")}
+            </Button>
+          </form>
         </div>
-        <div className="mx-auto mt-10 flex max-w-2xl flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
+
+        <div className="mx-auto mt-10 flex max-w-2xl flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8 relative z-10">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Shield className="h-4 w-4 text-primary" />
             {t("booking.trust_no_contracts")}
-          </div>
-          <div className="hidden h-4 w-px bg-border sm:block" />
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Clock className="h-4 w-4 text-primary" />
-            {t("booking.trust_15min")}
           </div>
           <div className="hidden h-4 w-px bg-border sm:block" />
           <div className="flex items-center gap-2 text-sm text-muted-foreground">

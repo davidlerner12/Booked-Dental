@@ -18,6 +18,7 @@ import {
 } from "./pages/blog-loaders";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import ThankYouPage from "./pages/ThankYouPage";
 import ChatWidget from "./components/ChatWidget";
 
 const queryClient = new QueryClient();
@@ -85,6 +86,7 @@ const langChildren: RouteRecord[] = [
     getStaticPaths: blogPostStaticPaths,
   },
   { path: "privacy", element: <PrivacyPolicy /> },
+  { path: "thank-you", element: <ThankYouPage /> },
   { path: "*", element: <NotFound /> },
 ];
 
