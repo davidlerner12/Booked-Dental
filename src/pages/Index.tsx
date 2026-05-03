@@ -6,7 +6,7 @@ import Stats from "@/components/sections/Stats";
 
 // Lazy load below-the-fold sections for better initial load performance
 const Problem = lazy(() => import("@/components/sections/Problem"));
-const CaseStudies = lazy(() => import("@/components/sections/CaseStudies"));
+
 const Services = lazy(() => import("@/components/sections/Services"));
 const BookedDentalDifference = lazy(() => import("@/components/sections/BookedDentalDifference"));
 const AdvancedCallTracking = lazy(() => import("@/components/sections/AdvancedCallTracking"));
@@ -39,7 +39,6 @@ const Index = () => {
           <>
             {/* Hebrew section order matches the reference site */}
             <MarketExclusivity />
-            <CaseStudies />
             <Services />
             <ROICalculator />
             <WhoItsFor />
@@ -51,7 +50,6 @@ const Index = () => {
         ) : (
           <>
             {/* English section order (unchanged) */}
-            <CaseStudies />
             <MarketExclusivity />
             <Services />
             <BookedDentalDifference />
