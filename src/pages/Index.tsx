@@ -45,6 +45,7 @@ const Index = () => {
             <RiskFreeTrial />
             <CTA />
             <FAQ />
+            <BlogPreview />
             <Footer />
           </>
         ) : (
