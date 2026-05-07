@@ -39,26 +39,21 @@ function ScrollToTop() {
   return null;
 }
 
-/** Syncs i18n language + <html> dir/lang — forced to Hebrew */
+/** Syncs i18n language + <html> dir/lang from the :lang URL param */
 function LanguageSync() {
+  const { lang } = useParams<{ lang: string }>();
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    if (i18n.language !== "he") {
-      i18n.changeLanguage("he");
+    const validLang = lang === "he" ? "he" : "en";
+    if (i18n.language !== validLang) {
+      i18n.changeLanguage(validLang);
     }
-    document.documentElement.lang = "he";
-    document.documentElement.dir = "rtl";
-  }, [i18n]);
+    document.documentElement.lang = validLang;
+    document.documentElement.dir = validLang === "he" ? "rtl" : "ltr";
+  }, [lang, i18n]);
 
   return null;
-}
-
-/** Redirects any /en/* path to /he/* */
-function EnglishRedirect() {
-  const location = useLocation();
-  const pathWithoutLang = location.pathname.replace(/^\/en/, "") || "";
-  return <Navigate to={`/he${pathWithoutLang}${location.search}`} replace />;
 }
 
 const AppLayout = () => (
@@ -75,9 +70,9 @@ const AppLayout = () => (
   </QueryClientProvider>
 );
 
-/** Redirect bare "/" to "/he" */
+/** Redirect bare "/" to "/en" */
 function RootRedirect() {
-  return <Navigate to="/he" replace />;
+  return <Navigate to="/en" replace />;
 }
 
 const langChildren: RouteRecord[] = [
@@ -97,7 +92,6 @@ const langChildren: RouteRecord[] = [
 
 export const routes: RouteRecord[] = [
   { path: "/", element: <RootRedirect /> },
-  { path: "/en/*", element: <EnglishRedirect /> },
   {
     path: "/:lang",
     element: <AppLayout />,

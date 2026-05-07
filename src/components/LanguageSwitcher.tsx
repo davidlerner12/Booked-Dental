@@ -3,10 +3,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Globe } from "lucide-react";
 
 export default function LanguageSwitcher() {
-  // English version is currently hidden — return null to hide the switcher.
-  // To re-enable, remove this early return.
-  return null;
-
   const { i18n, t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
@@ -32,4 +28,3 @@ export default function LanguageSwitcher() {
     </button>
   );
 }
-
