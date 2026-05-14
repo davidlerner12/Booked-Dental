@@ -19,7 +19,7 @@ const BLOG_SEO_KEYWORDS = [
 export default function Blog() {
   const { t, i18n } = useTranslation();
   const { lang } = useParams();
-  const data = useLoaderData() as BlogPostListItem[];
+  const data = (useLoaderData() as BlogPostListItem[]) || [];
   const dateLocale = i18n.language === "he" ? "he-IL" : "en-US";
   const pageTitle = "Dental Marketing Blog | Booked.Dental";
   const pageDescription = "Dental marketing strategies for implant and cosmetic clinics. Learn how to get more qualified consults with Google Ads, Meta ads, UGC creative, and better lead handling.";
