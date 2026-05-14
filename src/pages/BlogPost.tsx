@@ -4,7 +4,9 @@ import { Link, Navigate, useLoaderData, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CalendarDays, ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
+import { useQuery } from "@tanstack/react-query";
 import type { BlogPostLoaderData } from "./blog-loaders";
+import { getBlogPostBySlug, getAllBlogPosts } from "@/lib/blog";
 import { urlFor } from "@/lib/sanity";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
@@ -216,10 +218,41 @@ const portableTextComponents = {
 };
 
 export default function BlogPost() {
-  const { post, related } = useLoaderData() as BlogPostLoaderData;
+  const loaderData = useLoaderData() as BlogPostLoaderData | null;
   const { t, i18n } = useTranslation();
-  const { lang } = useParams();
+  const { lang, slug } = useParams();
   const dateLocale = i18n.language === "he" ? "he-IL" : "en-US";
+
+  // SSG loaders embed data at build time; on client-side navigation
+  // useLoaderData() returns null, so we fall back to fetching directly.
+  const needsClientFetch = !loaderData;
+
+  const { data: clientPost, isLoading: postLoading } = useQuery({
+    queryKey: ["blog-post", slug],
+    queryFn: () => getBlogPostBySlug(slug!),
+    enabled: needsClientFetch && !!slug,
+  });
+
+  const { data: clientAllPosts } = useQuery({
+    queryKey: ["blog-all-posts"],
+    queryFn: getAllBlogPosts,
+    enabled: needsClientFetch && !!slug,
+  });
+
+  const post = loaderData?.post ?? clientPost ?? null;
+  const related = loaderData?.related ?? (
+    post && clientAllPosts
+      ? clientAllPosts.filter((item) => item.slug !== post.slug).slice(0, 2)
+      : []
+  );
+
+  if (postLoading && needsClientFetch) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background">
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+      </div>
+    );
+  }
 
   if (!post) return <Navigate to={`/${lang}/blog`} replace />;
 

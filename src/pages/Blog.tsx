@@ -2,7 +2,9 @@ import { Link, useLoaderData, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { ArrowLeft, ArrowRight, CalendarDays } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useQuery } from "@tanstack/react-query";
 import type { BlogPostListItem } from "@/lib/blog";
+import { getAllBlogPosts } from "@/lib/blog";
 import { urlFor } from "@/lib/sanity";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
@@ -19,7 +21,17 @@ const BLOG_SEO_KEYWORDS = [
 export default function Blog() {
   const { t, i18n } = useTranslation();
   const { lang } = useParams();
-  const data = (useLoaderData() as BlogPostListItem[]) || [];
+  const loaderData = useLoaderData() as BlogPostListItem[] | null;
+
+  // SSG loaders embed data at build time; on client-side navigation
+  // useLoaderData() returns null, so we fall back to fetching directly.
+  const { data: clientData, isLoading } = useQuery({
+    queryKey: ["blog-list-posts"],
+    queryFn: getAllBlogPosts,
+    enabled: !loaderData,
+  });
+
+  const data = loaderData ?? clientData ?? [];
   const dateLocale = i18n.language === "he" ? "he-IL" : "en-US";
   const pageTitle = "Dental Marketing Blog | Booked.Dental";
   const pageDescription = "Dental marketing strategies for implant and cosmetic clinics. Learn how to get more qualified consults with Google Ads, Meta ads, UGC creative, and better lead handling.";
@@ -86,7 +98,11 @@ export default function Blog() {
         </div>
       </section>
       <main className="container py-16 md:py-24">
-        {data.length === 0 ? (
+        {isLoading && !loaderData ? (
+          <div className="flex justify-center py-12">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+          </div>
+        ) : data.length === 0 ? (
           <div className="mx-auto max-w-2xl rounded-xl border border-border bg-card p-10 text-center">
             <p className="text-muted-foreground">{t("blog_page.no_posts")}</p>
           </div>
