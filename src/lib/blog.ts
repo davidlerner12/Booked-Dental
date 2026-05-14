@@ -54,7 +54,8 @@ export const BLOG_SLUGS_QUERY = groq`*[
 
 export async function getAllBlogPosts() {
   assertSanityConfig();
-  return sanityClient.fetch<BlogPostListItem[]>(BLOG_LIST_QUERY);
+  const posts = await sanityClient.fetch<BlogPostListItem[]>(BLOG_LIST_QUERY);
+  return posts || [];
 }
 
 export async function getBlogPostBySlug(slug: string) {

@@ -8,8 +8,8 @@ import { urlFor } from "@/lib/sanity";
 export default function BlogPreview() {
   const { t, i18n } = useTranslation();
   const { lang } = useParams();
-  const { data = [], isLoading, isError } = useQuery({ queryKey: ["blog-preview-posts"], queryFn: getAllBlogPosts });
-  const featured = data.slice(0, 3);
+  const { data, isLoading, isError } = useQuery({ queryKey: ["blog-preview-posts"], queryFn: getAllBlogPosts });
+  const featured = (data || []).slice(0, 3);
   const dateLocale = i18n.language === "he" ? "he-IL" : "en-US";
 
   return (
