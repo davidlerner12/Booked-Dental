@@ -2,9 +2,8 @@ import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Footer = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { lang } = useParams();
-  const isHe = i18n.language === "he";
 
   return (
     <footer className="border-t border-border py-8 pb-20 md:pb-8">
@@ -14,17 +13,11 @@ const Footer = () => {
           <span className="text-foreground">{t("nav.dental")}</span>
         </div>
         <div className="flex items-center gap-4">
-          {isHe ? (
-            <p className="text-xs text-muted-foreground">{t("footer.copyright")}</p>
-          ) : (
-            <>
-              <p className="text-xs text-muted-foreground">{t("footer.tagline")}</p>
-              <span className="hidden h-3 w-px bg-border sm:block" />
-              <Link to={`/${lang}/privacy`} className="text-xs text-muted-foreground transition-colors hover:text-foreground">
-                {t("footer.privacy")}
-              </Link>
-            </>
-          )}
+          <p className="text-xs text-muted-foreground">{t("footer.tagline")}</p>
+          <span className="hidden h-3 w-px bg-border sm:block" />
+          <Link to={`/${lang}/privacy`} className="text-xs text-muted-foreground transition-colors hover:text-foreground">
+            {t("footer.privacy")}
+          </Link>
         </div>
       </div>
     </footer>
