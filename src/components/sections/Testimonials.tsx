@@ -17,7 +17,7 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
@@ -33,8 +33,6 @@ const Testimonials = () => {
     return () => clearInterval(interval);
   }, [api]);
 
-  if (i18n.language === 'he') return null;
-
   return (
     <section className="relative border-y border-border bg-secondary py-24">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(42_100%_55%/0.04),transparent_55%)]" />
@@ -49,7 +47,7 @@ const Testimonials = () => {
           </h2>
           <p className="mx-auto max-w-xl text-muted-foreground">{t("testimonials.subtitle")}</p>
         </div>
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-3xl" dir="ltr">
           <Carousel setApi={setApi} opts={{ loop: true, align: "center" }}>
             <CarouselContent className="-ml-2 md:-ml-4">
               {testimonials.map((item, i) => (

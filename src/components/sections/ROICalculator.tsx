@@ -12,6 +12,7 @@ const ROICalculator = () => {
   const defaultImplant = isHe ? 40000 : 20000;
   const defaultVeneer = isHe ? 20000 : 12000;
   const currencySymbol = isHe ? "₪" : "$";
+  const monthlyCost = isHe ? 2500 : 1000;
 
   const [implantValue] = useState(defaultImplant);
   const [veneerValue] = useState(defaultVeneer);
@@ -27,61 +28,6 @@ const ROICalculator = () => {
     return `$${val.toLocaleString()}`;
   };
 
-  if (isHe) {
-    const roiMultiplier = Math.round(totalRevenue / 3000);
-    return (
-      <section className="border-y border-border bg-card/50 py-24">
-        <div className="container">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
-              <span className="text-gradient-gold">{t("roi_calculator.title_highlight")}</span>
-            </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">{t("roi_calculator.subtitle")}</p>
-          </div>
-          <div className="mx-auto max-w-3xl rounded-xl border border-border bg-background p-8">
-            {/* Sliders row */}
-            <div className="grid gap-8 md:grid-cols-2 mb-8">
-              <div>
-                <div className="mb-3 flex items-center justify-between">
-                  <label className="text-sm font-medium text-primary">{t("roi_calculator.implant_cases_label")}: <span className="font-bold">{implantCases}</span></label>
-                </div>
-                <input type="range" min={1} max={10} value={implantCases} onChange={(e) => setImplantCases(Number(e.target.value))} className="h-1.5 w-full cursor-pointer appearance-none rounded-full [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary [&::-webkit-slider-thumb]:shadow-gold" style={{ background: `linear-gradient(to right, hsl(42 100% 55%) ${((implantCases - 1) / 9) * 100}%, hsl(220 15% 18%) ${((implantCases - 1) / 9) * 100}%)` }} />
-                <p className="mt-2 text-xs text-muted-foreground text-center">ערך ממוצע לתיק: {formatCurrency(implantValue)}</p>
-              </div>
-              <div>
-                <div className="mb-3 flex items-center justify-between">
-                  <label className="text-sm font-medium text-primary">{t("roi_calculator.veneer_cases_label")}: <span className="font-bold">{veneerCases}</span></label>
-                </div>
-                <input type="range" min={1} max={10} value={veneerCases} onChange={(e) => setVeneerCases(Number(e.target.value))} className="h-1.5 w-full cursor-pointer appearance-none rounded-full [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary [&::-webkit-slider-thumb]:shadow-gold" style={{ background: `linear-gradient(to right, hsl(42 100% 55%) ${((veneerCases - 1) / 9) * 100}%, hsl(220 15% 18%) ${((veneerCases - 1) / 9) * 100}%)` }} />
-                <p className="mt-2 text-xs text-muted-foreground text-center">ערך ממוצע לתיק: {formatCurrency(veneerValue)}</p>
-              </div>
-            </div>
-            {/* Results row */}
-            <div className="grid gap-4 md:grid-cols-3 mb-6">
-              <div className="rounded-lg border border-border bg-card p-5 text-center">
-                <div className="font-display text-2xl font-bold text-gradient-gold">{formatCurrency(implantRevenue)}</div>
-                <p className="mt-1 text-xs text-muted-foreground">{implantCases} {t("roi_calculator.implant")} × {formatCurrency(implantValue)}</p>
-              </div>
-              <div className="rounded-lg border border-primary/30 bg-primary/5 p-5 text-center">
-                <div className="font-display text-2xl font-bold text-gradient-gold">{formatCurrency(veneerRevenue)}</div>
-                <p className="mt-1 text-xs text-muted-foreground">{veneerCases} {t("roi_calculator.veneer")} × {formatCurrency(veneerValue)}</p>
-              </div>
-              <div className="rounded-lg border border-primary/30 bg-primary/10 p-5 text-center">
-                <div className="font-display text-2xl font-bold text-gradient-gold">{formatCurrency(totalRevenue)}</div>
-                <p className="mt-1 text-xs text-muted-foreground">{t("roi_calculator.additional_monthly")}</p>
-              </div>
-            </div>
-            {/* ROI line */}
-            <p className="text-center text-sm text-muted-foreground">
-              {t("roi_calculator.investment_prefix")}<span className="font-bold text-primary">{roiMultiplier}x</span>{t("roi_calculator.investment_suffix")}
-            </p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // English version (unchanged)
   return (
     <section className="border-y border-border bg-card/50 py-24">
       <div className="container">
@@ -102,14 +48,14 @@ const ROICalculator = () => {
               <div>
                 <label htmlFor="implant-value" className="mb-2 block text-sm font-medium text-muted-foreground">{t("roi_calculator.implant_value_label")}</label>
                 <div className="relative">
-                  <span className="absolute start-4 top-1/2 -translate-y-1/2 font-semibold text-muted-foreground">$</span>
+                  <span className="absolute start-4 top-1/2 -translate-y-1/2 font-semibold text-muted-foreground">{currencySymbol}</span>
                   <input id="implant-value" type="number" value={implantValue} readOnly className="w-full rounded-lg border border-border bg-card py-3 ps-8 pe-4 font-display text-xl font-semibold text-foreground transition-colors focus:border-primary/50 focus:outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" min={0} />
                 </div>
               </div>
               <div>
                 <label htmlFor="veneer-value" className="mb-2 block text-sm font-medium text-muted-foreground">{t("roi_calculator.veneer_value_label")}</label>
                 <div className="relative">
-                  <span className="absolute start-4 top-1/2 -translate-y-1/2 font-semibold text-muted-foreground">$</span>
+                  <span className="absolute start-4 top-1/2 -translate-y-1/2 font-semibold text-muted-foreground">{currencySymbol}</span>
                   <input id="veneer-value" type="number" value={veneerValue} readOnly className="w-full rounded-lg border border-border bg-card py-3 ps-8 pe-4 font-display text-xl font-semibold text-foreground transition-colors focus:border-primary/50 focus:outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" min={0} />
                 </div>
               </div>
@@ -141,24 +87,24 @@ const ROICalculator = () => {
               <div className="space-y-3">
                 <div className="rounded-lg border border-border bg-card p-4">
                   <p className="mb-1 text-xs text-muted-foreground">
-                    {implantCases} {t("roi_calculator.implant")} {implantCases === 1 ? t("roi_calculator.case_label_singular") : t("roi_calculator.case_label_plural")} × ${implantValue.toLocaleString()}
+                    {implantCases} {t("roi_calculator.implant")} {implantCases === 1 ? t("roi_calculator.case_label_singular") : t("roi_calculator.case_label_plural")} × {formatCurrency(implantValue)}
                   </p>
-                  <div className="font-display text-2xl font-bold text-gradient-gold">${implantRevenue.toLocaleString()}</div>
+                  <div className="font-display text-2xl font-bold text-gradient-gold">{formatCurrency(implantRevenue)}</div>
                   <p className="mt-0.5 text-xs text-muted-foreground">{t("roi_calculator.additional_monthly")}</p>
                 </div>
                 <div className="rounded-lg border border-border bg-card p-4">
                   <p className="mb-1 text-xs text-muted-foreground">
-                    {veneerCases} {t("roi_calculator.veneer")} {veneerCases === 1 ? t("roi_calculator.case_label_singular") : t("roi_calculator.case_label_plural")} × ${veneerValue.toLocaleString()}
+                    {veneerCases} {t("roi_calculator.veneer")} {veneerCases === 1 ? t("roi_calculator.case_label_singular") : t("roi_calculator.case_label_plural")} × {formatCurrency(veneerValue)}
                   </p>
-                  <div className="font-display text-2xl font-bold text-gradient-gold">${veneerRevenue.toLocaleString()}</div>
+                  <div className="font-display text-2xl font-bold text-gradient-gold">{formatCurrency(veneerRevenue)}</div>
                   <p className="mt-0.5 text-xs text-muted-foreground">{t("roi_calculator.additional_monthly")}</p>
                 </div>
               </div>
               <div className="mt-5 rounded-xl border border-primary/30 bg-primary/5 p-6 text-center shadow-gold">
                 <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-primary">{t("roi_calculator.total_label")}</div>
-                <div className="font-display text-4xl font-bold text-gradient-gold">${totalRevenue.toLocaleString()}</div>
+                <div className="font-display text-4xl font-bold text-gradient-gold">{formatCurrency(totalRevenue)}</div>
                 <div className="mt-2 text-xs text-muted-foreground">
-                  {t("roi_calculator.investment_prefix")}<span className="font-semibold text-foreground">{Math.round(totalRevenue / 1000)}×</span>{t("roi_calculator.investment_suffix")}
+                  {t("roi_calculator.investment_prefix")}<span className="font-semibold text-foreground">{Math.round(totalRevenue / monthlyCost)}×</span>{t("roi_calculator.investment_suffix")}
                 </div>
               </div>
             </div>

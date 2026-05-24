@@ -1,42 +1,8 @@
-import { CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const CaseStudies = () => {
-  const { t, i18n } = useTranslation();
-  const isHe = i18n.language === "he";
+  const { t } = useTranslation();
 
-  if (isHe) {
-    return (
-      <section className="border-t border-border bg-card/50 py-24">
-        <div className="container">
-          <div className="mb-16 text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary">
-              {t("case_studies.badge")}
-            </div>
-            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
-              <span className="text-gradient-gold">{t("case_studies.title_highlight")}</span>
-            </h2>
-            <p className="mx-auto max-w-xl text-muted-foreground">{t("case_studies.subtitle")}</p>
-          </div>
-          {/* Single clinic banner */}
-          <div className="mx-auto max-w-4xl">
-            <div className="rounded-xl border border-primary/30 bg-card/80 p-8 flex items-center gap-6">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10">
-                <CheckCircle2 className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <span className="font-display text-lg font-bold text-foreground">{t("case_studies.clinic1_name")}</span>
-                <span className="mx-3 text-muted-foreground">—</span>
-                <span className="text-muted-foreground">{t("case_studies.clinic1_desc")}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // English version (unchanged)
   const caseStudies = [
     {
       clinic: t("case_studies.clinic1_name"),

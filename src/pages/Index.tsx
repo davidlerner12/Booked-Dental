@@ -6,7 +6,6 @@ import Stats from "@/components/sections/Stats";
 
 // Lazy load below-the-fold sections for better initial load performance
 const Problem = lazy(() => import("@/components/sections/Problem"));
-
 const Services = lazy(() => import("@/components/sections/Services"));
 const BookedDentalDifference = lazy(() => import("@/components/sections/BookedDentalDifference"));
 const AdvancedCallTracking = lazy(() => import("@/components/sections/AdvancedCallTracking"));
@@ -25,49 +24,30 @@ const Footer = lazy(() => import("@/components/sections/Footer"));
 
 const Index = () => {
   const { i18n } = useTranslation();
-  const isHe = i18n.language === "he";
 
   return (
     <div className="min-h-screen bg-background">
       <Nav />
       <Hero />
-      {!isHe && <Stats />}
+      <Stats />
 
       <Suspense fallback={<div className="min-h-screen" />}>
         <Problem />
-        {isHe ? (
-          <>
-            {/* Hebrew section order matches the reference site */}
-            <MarketExclusivity />
-            <Services />
-            <ROICalculator />
-            <WhoItsFor />
-            <RiskFreeTrial />
-            <CTA />
-            <FAQ />
-            <BlogPreview />
-            <Footer />
-          </>
-        ) : (
-          <>
-            {/* English section order (unchanged) */}
-            <MarketExclusivity />
-            <Services />
-            <BookedDentalDifference />
-            <AdvancedCallTracking />
-            <ROICalculator />
-            <HowItWorks />
-            <WhoItsFor />
-            <WhoItsNotFor />
-            <CreativesVideo />
-            <Testimonials />
-            <RiskFreeTrial />
-            <CTA />
-            <FAQ />
-            <BlogPreview />
-            <Footer />
-          </>
-        )}
+        <MarketExclusivity />
+        <Services />
+        <BookedDentalDifference />
+        <AdvancedCallTracking />
+        <ROICalculator />
+        <HowItWorks />
+        <WhoItsFor />
+        <WhoItsNotFor />
+        {i18n.language !== "he" && <CreativesVideo />}
+        <Testimonials />
+        <RiskFreeTrial />
+        <CTA />
+        <FAQ />
+        <BlogPreview />
+        <Footer />
       </Suspense>
     </div>
   );
