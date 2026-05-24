@@ -1,56 +1,10 @@
-import { CheckCircle2, XCircle, Target, Ban } from "lucide-react";
+import { CheckCircle2, Target } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const WhoItsFor = () => {
-  const { t, i18n } = useTranslation();
-  const isHe = i18n.language === "he";
+  const { t } = useTranslation();
   const bullets = [t("who_its_for.bullet1"), t("who_its_for.bullet2"), t("who_its_for.bullet3"), t("who_its_for.bullet4")];
 
-  if (isHe) {
-    const forBullets = bullets.filter(b => b);
-    const notForBullets = [
-      t("who_its_not_for.bullet1"),
-      t("who_its_not_for.bullet2"),
-      t("who_its_not_for.bullet3"),
-      t("who_its_not_for.bullet4"),
-    ].filter(b => b);
-
-    return (
-      <section className="relative border-t border-border py-24 overflow-hidden bg-card/50">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,hsl(42_100%_55%/0.07),transparent_60%)]" />
-        <div className="container relative z-10">
-          <div className="mx-auto max-w-5xl grid gap-6 md:grid-cols-2">
-            {/* Who it's for - green */}
-            <div className="rounded-xl border border-green-500/30 bg-green-500/5 p-8">
-              <h3 className="mb-6 font-display text-xl font-bold text-foreground">{t("who_its_for.badge")}</h3>
-              <div className="space-y-4">
-                {forBullets.map((bullet) => (
-                  <div key={bullet} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-500" />
-                    <p className="text-sm leading-relaxed text-foreground">{bullet}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {/* Who it's not for - red */}
-            <div className="rounded-xl border border-red-500/30 bg-red-500/5 p-8">
-              <h3 className="mb-6 font-display text-xl font-bold text-foreground">{t("who_its_not_for.badge")}</h3>
-              <div className="space-y-4">
-                {notForBullets.map((bullet) => (
-                  <div key={bullet} className="flex items-start gap-3">
-                    <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
-                    <p className="text-sm leading-relaxed text-muted-foreground">{bullet}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // English version (unchanged)
   return (
     <section className="relative border-t border-border py-24 overflow-hidden bg-card/50">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,hsl(42_100%_55%/0.07),transparent_60%)]" />

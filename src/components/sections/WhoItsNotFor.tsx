@@ -2,11 +2,7 @@ import { XCircle, Ban } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const WhoItsNotFor = () => {
-  const { t, i18n } = useTranslation();
-
-  // In Hebrew, this section is merged into WhoItsFor component
-  if (i18n.language === "he") return null;
-
+  const { t } = useTranslation();
   const bullets = [t("who_its_not_for.bullet1"), t("who_its_not_for.bullet2"), t("who_its_not_for.bullet3"), t("who_its_not_for.bullet4")];
 
   return (
