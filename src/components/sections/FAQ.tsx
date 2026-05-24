@@ -4,13 +4,11 @@ import { useTranslation } from "react-i18next";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const FAQ = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { lang } = useParams();
-  const isHe = i18n.language === "he";
 
-  // Hebrew has 5 FAQs, English has 8
-  const count = isHe ? 5 : 8;
-  const faqs = Array.from({ length: count }, (_, i) => ({
+  // Both languages now have 8 FAQs
+  const faqs = Array.from({ length: 8 }, (_, i) => ({
     question: t(`faq.q${i + 1}`),
     answer: t(`faq.a${i + 1}`),
   })).filter(f => f.question && f.answer);
@@ -21,13 +19,11 @@ const FAQ = () => {
       <div className="container relative z-10">
         <div className="mx-auto max-w-3xl">
           <div className="mb-12 text-center">
-            {!isHe && (
-              <div className="mb-5 flex justify-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-primary/30 bg-primary/10 shadow-gold">
-                  <HelpCircle className="h-7 w-7 text-primary" />
-                </div>
+            <div className="mb-5 flex justify-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-primary/30 bg-primary/10 shadow-gold">
+                <HelpCircle className="h-7 w-7 text-primary" />
               </div>
-            )}
+            </div>
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1 text-sm text-primary">
               {t("faq.badge")}
             </div>
