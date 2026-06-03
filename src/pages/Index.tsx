@@ -1,5 +1,6 @@
-import { lazy, Suspense } from "react";
+﻿import { lazy, Suspense } from "react";
 import { useTranslation } from "react-i18next";
+import SEO from "@/components/SEO";
 import Nav from "@/components/sections/Nav";
 import Hero from "@/components/sections/Hero";
 import Stats from "@/components/sections/Stats";
@@ -23,10 +24,78 @@ const CTA = lazy(() => import("@/components/sections/CTA"));
 const Footer = lazy(() => import("@/components/sections/Footer"));
 
 const Index = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isHebrew = i18n.language === "he";
+  const faqs = Array.from({ length: 8 }, (_, i) => ({
+    question: t(`faq.q${i + 1}`),
+    answer: t(`faq.a${i + 1}`),
+  })).filter((faq) => faq.question && faq.answer);
+  const organizationStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Booked.Dental",
+    url: "https://booked.dental",
+    logo: "https://booked.dental/favicon.png",
+    description:
+      "Booked.Dental provides market-exclusive UGC ad campaigns, lead filtering, and AI learning loops for implant and cosmetic dental clinics.",
+    areaServed: "US",
+    serviceType: ["Dental Marketing", "Patient Acquisition", "UGC Advertising"],
+  };
+  const serviceStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Dental patient acquisition for implant and cosmetic clinics",
+    provider: { "@type": "Organization", name: "Booked.Dental", url: "https://booked.dental" },
+    description:
+      "Market-exclusive Meta and Google ad campaigns, UGC creative, lead filtering, and AI learning loops for implant and cosmetic dental clinics.",
+    areaServed: "US",
+    audience: {
+      "@type": "Audience",
+      audienceType: "Implant dental clinics and cosmetic dental practices",
+    },
+  };
+  const websiteStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Booked.Dental",
+    url: "https://booked.dental",
+    inLanguage: isHebrew ? "he" : "en-US",
+  };
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: isHebrew ? "he" : "en-US",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        lang={i18n.language}
+        title={
+          isHebrew
+            ? "שיווק חכם למרפאות שתלים וציפויים | Booked.Dental"
+            : "Dental Marketing That Finds Customers, Not Clicks | Booked.Dental"
+        }
+        description={
+          isHebrew
+            ? "Booked.Dental עוזרת למרפאות שתלים וציפויים להפוך פרסום להזדמנויות מטופלים מסוננות, כך שה-AI לומד למצוא לקוחות ולא קליקים."
+            : "Booked.Dental helps implant and veneer clinics turn ad traffic into filtered patient opportunities, so the AI learns to find customers instead of clicks."
+        }
+        structuredData={[
+          organizationStructuredData,
+          serviceStructuredData,
+          websiteStructuredData,
+          faqStructuredData,
+        ]}
+      />
       <Nav />
       <Hero />
       <Stats />

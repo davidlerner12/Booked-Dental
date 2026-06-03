@@ -68,16 +68,33 @@ function urlNode(options: {
   lastmod: string;
   changefreq: "daily" | "weekly" | "monthly";
   priority: string;
+  alternates?: Record<string, string>;
 }) {
-  const { loc, lastmod, changefreq, priority } = options;
+  const { loc, lastmod, changefreq, priority, alternates } = options;
+  const alternateNodes = alternates
+    ? Object.entries(alternates).map(
+        ([lang, href]) =>
+          `    <xhtml:link rel="alternate" hreflang="${xmlEscape(lang)}" href="${xmlEscape(href)}" />`,
+      )
+    : [];
   return [
     "  <url>",
     `    <loc>${xmlEscape(loc)}</loc>`,
     `    <lastmod>${xmlEscape(lastmod)}</lastmod>`,
     `    <changefreq>${changefreq}</changefreq>`,
     `    <priority>${priority}</priority>`,
+    ...alternateNodes,
     "  </url>",
   ].join("\n");
+}
+
+function localizedAlternates(siteUrl: string, path: string) {
+  const cleanPath = path === "/" ? "" : path;
+  return {
+    en: `${siteUrl}/en${cleanPath}`,
+    he: `${siteUrl}/he${cleanPath}`,
+    "x-default": `${siteUrl}/en${cleanPath}`,
+  };
 }
 
 async function generateSitemap(outDir: string) {
@@ -87,10 +104,9 @@ async function generateSitemap(outDir: string) {
   const posts = await getSanityBlogPosts();
 
   const staticUrls = SUPPORTED_LANGS.flatMap(lang => [
-    urlNode({ loc: `${siteUrl}/${lang}`, lastmod: now, changefreq: "weekly", priority: "1.0" }),
-    urlNode({ loc: `${siteUrl}/${lang}/book`, lastmod: now, changefreq: "monthly", priority: "0.8" }),
-    urlNode({ loc: `${siteUrl}/${lang}/privacy`, lastmod: now, changefreq: "monthly", priority: "0.3" }),
-    urlNode({ loc: `${siteUrl}/${lang}/blog`, lastmod: now, changefreq: "weekly", priority: "0.9" }),
+    urlNode({ loc: `${siteUrl}/${lang}`, lastmod: now, changefreq: "weekly", priority: "1.0", alternates: localizedAlternates(siteUrl, "/") }),
+    urlNode({ loc: `${siteUrl}/${lang}/book`, lastmod: now, changefreq: "monthly", priority: "0.8", alternates: localizedAlternates(siteUrl, "/book") }),
+    urlNode({ loc: `${siteUrl}/${lang}/blog`, lastmod: now, changefreq: "weekly", priority: "0.9", alternates: localizedAlternates(siteUrl, "/blog") }),
   ]);
 
   const blogUrls = posts.flatMap((post) =>
@@ -100,13 +116,14 @@ async function generateSitemap(outDir: string) {
         lastmod: toIsoDate(post.publishedAt),
         changefreq: "monthly",
         priority: "0.8",
+        alternates: localizedAlternates(siteUrl, `/blog/${post.slug}`),
       })
     )
   );
 
   const sitemapXml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
     ...staticUrls,
     ...blogUrls,
     "</urlset>",

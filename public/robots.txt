@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /en/thank-you
+Disallow: /he/thank-you
 
 User-agent: Googlebot
 Allow: /

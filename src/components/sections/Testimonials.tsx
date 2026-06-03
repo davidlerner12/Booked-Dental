@@ -9,11 +9,11 @@ import {
 } from "@/components/ui/carousel";
 
 const testimonials = [
-  { name: "Dr. David Ashmore", quote: "Booked.Dental helped us finally create a steady stream of implant consultations instead of relying on occasional referrals. Within the first couple of months our phone started ringing with patients specifically asking about implants. The calls have been far more qualified than the leads we were getting before." },
-  { name: "Dr. Sunghee Park", quote: "What impressed me most about Booked.Dental was how focused the system is on real consultation calls. Instead of random form inquiries, we started receiving patients who were already ready to discuss veneers and implant treatment. The AI call system also helps capture and book inquiries automatically when our team is busy." },
-  { name: "Dr. Bob Bakshian", quote: "The biggest difference was the quality of the conversations. We started getting real calls from patients interested in implants instead of just website leads that never go anywhere. The AI booking feature also helps make sure inquiries actually turn into scheduled consults." },
-  { name: "Tate Anderson, DDS", quote: "Before Booked.Dental, implants were mostly referrals and occasional inquiries. Now we see a much more consistent flow of consultation calls from patients already interested in treatment." },
-  { name: "Dr. Nagesh", quote: "Booked.Dental helped us generate qualified implant consultation calls much faster than expected. The system is straightforward and the calls coming in are clearly from patients already considering treatment. The automated booking support is also helpful for handling inquiries outside normal office hours." },
+  { name: "Dr. David Ashmore", quote: "Booked.Dental helped us move away from broad traffic and focus on people who were actually serious about implant treatment. The filtering process made the opportunities feel much more intentional than the leads we were getting before." },
+  { name: "Dr. Sunghee Park", quote: "What impressed me most was how the system learns from lead quality. Instead of chasing every click, Booked.Dental helped us identify which prospects were ready to discuss veneers and implant treatment." },
+  { name: "Dr. Bob Bakshian", quote: "The biggest difference was the quality of the prospects. The filtering questions helped separate real patient intent from casual browsing, so our team could focus on people with actual treatment potential." },
+  { name: "Tate Anderson, DDS", quote: "Before Booked.Dental, implants were mostly referrals and occasional inquiries. Now our marketing has a clearer system for finding people who already match the type of patient we want." },
+  { name: "Dr. Nagesh", quote: "Booked.Dental gave us a more disciplined way to evaluate patient interest. The AI learning loop gets stronger as prospects move through the filter, which makes the campaign feel smarter over time." },
 ];
 
 const Testimonials = () => {

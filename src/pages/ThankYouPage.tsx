@@ -3,6 +3,7 @@ import { CheckCircle2, ArrowLeft } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import SEO from "@/components/SEO";
 
 const ThankYouPage = () => {
   const { t } = useTranslation();
@@ -10,6 +11,13 @@ const ThankYouPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        lang={lang}
+        path="/thank-you"
+        title="Thank You | Booked.Dental"
+        description="Thank you for contacting Booked.Dental."
+        noindex
+      />
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_at_top,hsl(42_100%_55%/0.06),transparent_55%)]" />
       <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="container flex h-16 items-center justify-between">

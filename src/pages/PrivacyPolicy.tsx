@@ -1,14 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import SEO from "@/components/SEO";
 
-const PrivacyPolicy = () => (
-  <div className="min-h-screen bg-background">
+const PrivacyPolicy = () => {
+  const { lang } = useParams();
+
+  return (
+    <div className="min-h-screen bg-background">
+      <SEO
+        lang={lang}
+        path="/privacy"
+        title="Privacy Policy | Booked.Dental"
+        description="Read the Booked.Dental privacy policy, including how website visitor, form submission, analytics, and advertising data may be collected and used."
+        noindex
+      />
     <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_at_top,hsl(42_100%_55%/0.04),transparent_55%)]" />
 
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
         <Link
-          to="/"
+          to={`/${lang === "he" ? "he" : "en"}`}
           className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" />
@@ -31,14 +42,14 @@ const PrivacyPolicy = () => (
 
         <div className="space-y-10 text-[0.9375rem] leading-relaxed text-muted-foreground">
           <p>
-            Booked.Dental ("we", "our", or "us") operates the Booked.Dental website and provides marketing services designed to help dental clinics generate consultation calls and patient inquiries. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
+            Booked.Dental ("we", "our", or "us") operates the Booked.Dental website and provides marketing services designed to help dental clinics generate filtered patient inquiries. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
           </p>
           <p>By using our website, you consent to the practices described in this policy.</p>
 
           <section>
             <h2 className="mb-4 font-display text-xl font-semibold text-foreground">Information We Collect</h2>
             <p className="mb-4">
-              We may collect personal information that you voluntarily provide when interacting with our website, including when you fill out forms, schedule a call, or contact us.
+              We may collect personal information that you voluntarily provide when interacting with our website, including when you fill out forms, request information, or contact us.
             </p>
             <p className="mb-3">The types of information we may collect include:</p>
             <ul className="list-disc space-y-1 pl-6">
@@ -71,7 +82,7 @@ const PrivacyPolicy = () => (
             <p className="mb-3">We use the information we collect to:</p>
             <ul className="list-disc space-y-1 pl-6">
               <li>Respond to inquiries and requests</li>
-              <li>Schedule and conduct strategy calls</li>
+              <li>Review market availability and service fit</li>
               <li>Provide information about our services</li>
               <li>Improve our website and marketing systems</li>
               <li>Analyze website usage and performance</li>
@@ -167,7 +178,8 @@ const PrivacyPolicy = () => (
         </div>
       </div>
     </main>
-  </div>
-);
+    </div>
+  );
+};
 
 export default PrivacyPolicy;

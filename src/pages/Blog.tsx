@@ -1,12 +1,13 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
-import { Helmet } from "react-helmet";
+﻿import { Link, useLoaderData, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CalendarDays } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import type { BlogPostListItem } from "@/lib/blog";
 import { getAllBlogPosts } from "@/lib/blog";
 import { urlFor } from "@/lib/sanity";
+import { buildLocalizedUrl } from "@/lib/seo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import SEO from "@/components/SEO";
 
 const BLOG_SEO_KEYWORDS = [
   "dental implant marketing", "dental marketing agency", "dental implant lead generation",
@@ -33,9 +34,14 @@ export default function Blog() {
 
   const data = loaderData ?? clientData ?? [];
   const dateLocale = i18n.language === "he" ? "he-IL" : "en-US";
-  const pageTitle = "Dental Marketing Blog | Booked.Dental";
-  const pageDescription = "Dental marketing strategies for implant and cosmetic clinics. Learn how to get more qualified consults with Google Ads, Meta ads, UGC creative, and better lead handling.";
-  const pageUrl = "https://booked.dental/blog";
+  const isHebrew = i18n.language === "he";
+  const pageTitle = isHebrew
+    ? "בלוג שיווק דנטלי | Booked.Dental"
+    : "Dental Marketing Blog | Booked.Dental";
+  const pageDescription = isHebrew
+    ? "מדריכים מעשיים על Google Ads, קמפיינים ב-Meta, קריאייטיב UGC, סינון לידים ומערכות גיוס מטופלים שנבנות סביב כוונת לקוח אמיתית."
+    : "Practical guides on Google Ads, Meta campaigns, UGC creative, lead filtering, and patient acquisition systems built around real customer intent.";
+  const pageUrl = buildLocalizedUrl(lang, "/blog");
   const pageImage = "https://booked.dental/social-preview.png";
   const blogListStructuredData = {
     "@context": "https://schema.org", "@type": "Blog", name: "Booked.Dental Marketing Blog", url: pageUrl, description: pageDescription, inLanguage: i18n.language === "he" ? "he" : "en-US",
@@ -46,29 +52,35 @@ export default function Blog() {
     "@context": "https://schema.org", "@type": "ItemList",
     itemListElement: data.map((post, idx) => ({ "@type": "ListItem", position: idx + 1, url: `${pageUrl}/${post.slug}`, name: post.title })),
   };
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: buildLocalizedUrl(lang),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: pageUrl,
+      },
+    ],
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta name="keywords" content={BLOG_SEO_KEYWORDS.join(", ")} />
-        <meta name="robots" content="index,follow,max-image-preview:large" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Booked.Dental" />
-        <meta property="og:locale" content={i18n.language === "he" ? "he_IL" : "en_US"} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:url" content={pageUrl} />
-        <meta property="og:image" content={pageImage} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta name="twitter:image" content={pageImage} />
-        <link rel="canonical" href={pageUrl} />
-        <script type="application/ld+json">{JSON.stringify(blogListStructuredData)}</script>
-        <script type="application/ld+json">{JSON.stringify(itemListStructuredData)}</script>
-      </Helmet>
+      <SEO
+        lang={lang}
+        path="/blog"
+        title={pageTitle}
+        description={pageDescription}
+        image={pageImage}
+        structuredData={[blogListStructuredData, itemListStructuredData, breadcrumbStructuredData]}
+      />
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
         <div className="container flex h-16 items-center justify-between">
           <Link to={`/${lang}`} className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">

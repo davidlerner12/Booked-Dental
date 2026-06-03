@@ -1,18 +1,43 @@
-import { useEffect } from "react";
+﻿import { useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { ArrowLeft, Shield, Clock, Users, MapPin, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { trackBookingCTA } from "@/lib/analytics";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 const BookingPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { lang } = useParams();
   const location = useLocation();
   const isMarketCheck = location.state?.source === "market-check";
+  const isHebrew = i18n.language === "he";
+  const bookingStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: isHebrew
+      ? "בדיקת זמינות אזור למרפאת שיניים"
+      : "Dental marketing territory availability check",
+    url: `https://booked.dental/${lang === "he" ? "he" : "en"}/book`,
+    inLanguage: isHebrew ? "he" : "en-US",
+    about: {
+      "@type": "Service",
+      name: "Dental patient acquisition for implant and cosmetic clinics",
+      provider: {
+        "@type": "Organization",
+        name: "Booked.Dental",
+        url: "https://booked.dental",
+      },
+    },
+    potentialAction: {
+      "@type": "ContactAction",
+      target: `https://booked.dental/${lang === "he" ? "he" : "en"}/book`,
+      name: isHebrew ? "בדקו זמינות אזור" : "Check territory availability",
+    },
+  };
 
   useEffect(() => {
     trackBookingCTA();
@@ -23,6 +48,21 @@ const BookingPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        lang={lang}
+        path="/book"
+        title={
+          isHebrew
+            ? "בדיקת זמינות אזור למרפאת שיניים | Booked.Dental"
+            : "Check Your Dental Marketing Territory | Booked.Dental"
+        }
+        description={
+          isHebrew
+            ? "בדקו אם האזור שלכם פנוי למערכת גיוס מטופלים בלעדית שמסננת לידים ומלמדת את ה-AI למצוא לקוחות, לא קליקים."
+            : "Check whether your market is available for an exclusive patient acquisition system that filters leads and teaches AI to find customers, not clicks."
+        }
+        structuredData={bookingStructuredData}
+      />
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_at_top,hsl(42_100%_55%/0.06),transparent_55%)]" />
       <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="container flex h-16 items-center justify-between">

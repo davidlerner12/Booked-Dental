@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import type { BlogPostLoaderData } from "./blog-loaders";
 import { getBlogPostBySlug, getAllBlogPosts } from "@/lib/blog";
 import { urlFor } from "@/lib/sanity";
+import { buildLocalizedUrl } from "@/lib/seo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const BLOG_SEO_KEYWORDS = [
@@ -256,7 +257,8 @@ export default function BlogPost() {
 
   if (!post) return <Navigate to={`/${lang}/blog`} replace />;
 
-  const postUrl = `https://booked.dental/blog/${post.slug}`;
+  const postPath = `/blog/${post.slug}`;
+  const postUrl = buildLocalizedUrl(lang, postPath);
   const metaTitle = `${post.title} | Booked.Dental`;
   const ogImage = post.mainImage
     ? urlFor(post.mainImage).width(1200).height(630).fit("crop").auto("format").url()
@@ -296,13 +298,13 @@ export default function BlogPost() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://booked.dental/",
+        item: buildLocalizedUrl(lang),
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://booked.dental/blog",
+        item: buildLocalizedUrl(lang, "/blog"),
       },
       {
         "@type": "ListItem",
@@ -338,6 +340,9 @@ export default function BlogPost() {
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image" content={ogImage} />
         <link rel="canonical" href={postUrl} />
+        <link rel="alternate" hrefLang="en" href={buildLocalizedUrl("en", postPath)} />
+        <link rel="alternate" hrefLang="he" href={buildLocalizedUrl("he", postPath)} />
+        <link rel="alternate" hrefLang="x-default" href={buildLocalizedUrl("en", postPath)} />
         <script type="application/ld+json">{JSON.stringify(articleStructuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbStructuredData)}</script>
       </Helmet>

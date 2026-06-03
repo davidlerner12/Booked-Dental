@@ -56,19 +56,27 @@ function LanguageSync() {
   return null;
 }
 
-const AppLayout = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <RouteTracker />
-      <ScrollToTop />
-      <LanguageSync />
-      <Outlet />
-      <ChatWidget />
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const AppLayout = () => {
+  const { lang } = useParams<{ lang: string }>();
+
+  if (lang !== "en" && lang !== "he") {
+    return <Navigate to="/en" replace />;
+  }
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <RouteTracker />
+        <ScrollToTop />
+        <LanguageSync />
+        <Outlet />
+        <ChatWidget />
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 /** Redirect bare "/" to "/en" */
 function RootRedirect() {

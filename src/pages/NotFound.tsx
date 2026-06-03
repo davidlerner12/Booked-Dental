@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import SEO from "@/components/SEO";
 
 const NotFound = () => {
   const location = useLocation();
@@ -13,6 +14,12 @@ const NotFound = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted">
+      <SEO
+        lang={lang}
+        title="Page Not Found | Booked.Dental"
+        description="The requested Booked.Dental page could not be found."
+        noindex
+      />
       <div className="text-center">
         <h1 className="mb-4 text-4xl font-bold">{t("not_found.title")}</h1>
         <p className="mb-4 text-xl text-muted-foreground">{t("not_found.subtitle")}</p>
