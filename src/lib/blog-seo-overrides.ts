@@ -401,6 +401,36 @@ export function getInternalBlogLinks(slug: string) {
       "google-ads-vs-facebook-ads-dentists",
       "dental-implant-lead-generation-that-pays",
     ],
+    "dental-implant-seo": [
+      "how-to-get-more-dental-implant-patients",
+      "google-business-profile-for-dentists",
+      "dental-implant-landing-page",
+    ],
+    "dental-implant-landing-page": [
+      "google-ads-for-dental-implants",
+      "dental-implant-lead-generation-that-pays",
+      "dental-marketing-roi",
+    ],
+    "dental-marketing-roi": [
+      "why-dental-ads-fail",
+      "best-dental-lead-sources",
+      "dentist-patient-growth",
+    ],
+    "google-business-profile-for-dentists": [
+      "dental-reviews-seo",
+      "dental-implant-seo",
+      "best-dental-lead-sources",
+    ],
+    "veneers-vs-invisalign-marketing": [
+      "cosmetic-dentists-high-intent-patients",
+      "meta-ads-for-cosmetic-dentists",
+      "dental-marketing-roi",
+    ],
+    "dental-reviews-seo": [
+      "google-business-profile-for-dentists",
+      "dental-marketing-roi",
+      "dentist-growth-agency",
+    ],
     "best-implant-ad-creatives": [
       "ugc-dental-ads-examples",
       "meta-ads-for-cosmetic-dentists",

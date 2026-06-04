@@ -1,6 +1,7 @@
 import groq from "groq";
 import type { PortableTextBlock } from "@portabletext/types";
 import { assertSanityConfig, sanityClient } from "@/lib/sanity";
+import { supplementalBlogPosts } from "@/data/supplemental-blog-posts";
 import {
   applyBlogSeoListOverrides,
   applyBlogSeoOverrides,
@@ -77,11 +78,20 @@ export const BLOG_SLUGS_QUERY = groq`*[
 export async function getAllBlogPosts(lang?: string) {
   assertSanityConfig();
   const posts = await sanityClient.fetch<BlogPostListItem[]>(BLOG_LIST_QUERY);
-  return filterPostsByLanguage(applyBlogSeoListOverrides(posts || []), lang);
+  const combinedPosts = [
+    ...applyBlogSeoListOverrides(posts || []),
+    ...supplementalBlogPosts,
+  ].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+  return filterPostsByLanguage(combinedPosts, lang);
 }
 
 export async function getBlogPostBySlug(slug: string, lang?: string) {
   assertSanityConfig();
+  const supplementalPost = supplementalBlogPosts.find((post) => post.slug === slug);
+  if (supplementalPost && (!lang || getPostLanguage(supplementalPost) === lang)) {
+    return supplementalPost;
+  }
+
   const posts = await sanityClient.fetch<BlogPostDetail[]>(BLOG_POST_QUERY, {
     slug: resolveSourceBlogSlug(slug),
   });
@@ -95,7 +105,11 @@ export async function getBlogPostBySlug(slug: string, lang?: string) {
 export async function getAllBlogSlugs(lang?: string) {
   assertSanityConfig();
   const posts = await sanityClient.fetch<BlogPostListItem[]>(BLOG_LIST_QUERY);
-  return filterPostsByLanguage(applyBlogSeoListOverrides(posts || []), lang).map((item) =>
+  const combinedPosts = [
+    ...applyBlogSeoListOverrides(posts || []),
+    ...supplementalBlogPosts,
+  ];
+  return filterPostsByLanguage(combinedPosts, lang).map((item) =>
     toCanonicalBlogSlug(item.slug),
   );
 }

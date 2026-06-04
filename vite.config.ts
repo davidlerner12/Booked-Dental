@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { writeFile } from "node:fs/promises";
 import { componentTagger } from "lovable-tagger";
+import { supplementalBlogPosts } from "./src/data/supplemental-blog-posts";
 
 interface SanityPostMeta {
   slug: string;
@@ -95,7 +96,10 @@ function postLanguage(post: SanityPostMeta) {
 
 async function getBlogStaticRoutes() {
   const posts = await getSanityBlogPosts();
-  return posts.map((post) => `/${postLanguage(post)}/blog/${canonicalBlogSlug(post.slug)}`);
+  return [
+    ...posts.map((post) => `/${postLanguage(post)}/blog/${canonicalBlogSlug(post.slug)}`),
+    ...supplementalBlogPosts.map((post) => `/en/blog/${post.slug}`),
+  ];
 }
 
 function toIsoDate(value?: string) {
@@ -211,12 +215,28 @@ async function generateSitemap(outDir: string) {
         : undefined,
     });
   });
+  const supplementalBlogUrls = supplementalBlogPosts.map((post) =>
+    urlNode({
+      loc: `${siteUrl}/en/blog/${post.slug}`,
+      lastmod: toIsoDate(post.publishedAt),
+      changefreq: "monthly",
+      priority: "0.8",
+      image: post.seoImage
+        ? {
+            loc: post.seoImage.startsWith("http") ? post.seoImage : `${siteUrl}${post.seoImage}`,
+            title: post.title,
+            caption: post.mainImageAlt,
+          }
+        : undefined,
+    }),
+  );
 
   const sitemapXml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
     ...staticUrls,
     ...blogUrls,
+    ...supplementalBlogUrls,
     "</urlset>",
     "",
   ].join("\n");

@@ -152,6 +152,36 @@ const SERVICE_LINKS_BY_BLOG_SLUG: Record<string, string[]> = {
     "roi-methodology",
     "qualified-opportunity-methodology",
   ],
+  "dental-implant-seo": [
+    "dental-implant-marketing",
+    "dental-implant-lead-generation",
+    "full-arch-implant-marketing",
+  ],
+  "dental-implant-landing-page": [
+    "dental-implant-marketing",
+    "google-ads-for-dental-implants",
+    "qualified-opportunity-methodology",
+  ],
+  "dental-marketing-roi": [
+    "roi-methodology",
+    "qualified-opportunity-methodology",
+    "dental-lead-generation-vs-patient-acquisition",
+  ],
+  "google-business-profile-for-dentists": [
+    "dental-lead-generation",
+    "dental-implant-marketing",
+    "cosmetic-dentistry-marketing",
+  ],
+  "veneers-vs-invisalign-marketing": [
+    "veneers-marketing",
+    "cosmetic-dentistry-marketing",
+    "cosmetic-dentist-marketing-agency",
+  ],
+  "dental-reviews-seo": [
+    "qualified-opportunity-methodology",
+    "dental-lead-generation",
+    "booked-dental-vs-dental-marketing-agency",
+  ],
 };
 
 const AUTHOR_COPY = {
