@@ -49,21 +49,6 @@ const BLOG_SEO_KEYWORDS = [
   "cosmetic dental marketing",
 ];
 
-const TRUST_SOURCES = [
-  {
-    name: "Google Search Central: Helpful, reliable, people-first content",
-    url: "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
-  },
-  {
-    name: "Google Search Central: E-E-A-T and quality rater guidance",
-    url: "https://developers.google.com/search/blog/2022/12/google-raters-guidelines-e-e-a-t",
-  },
-  {
-    name: "Google Search Central: Structured data guidelines",
-    url: "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
-  },
-];
-
 const AUTHOR_IMAGE = "https://www.booked.dental/images/david-lerner-headshot.jpg";
 
 const SERVICE_LINKS_BY_BLOG_SLUG: Record<string, string[]> = {
@@ -382,34 +367,6 @@ function getArticleEnhancements(post: { title: string; excerpt: string; body?: u
   };
 }
 
-function getTrustCopy(isHebrew: boolean) {
-  return isHebrew
-    ? {
-        label: "נבדק לפי עקרונות E-E-A-T",
-        title: "איך המדריך הזה נכתב ונבדק",
-        experience:
-          "מבוסס על ניסיון מעשי בבניית מערכות גיוס מטופלים למרפאות שתלים ואסתטיקה דנטלית.",
-        expertise:
-          "נכתב על ידי Booked.Dental, עם מומחיות בפרסום דנטלי, סינון לידים ומדידת כוונת לקוח.",
-        trust:
-          "התוכן מיועד לקבלת החלטות שיווקיות. הוא אינו ייעוץ רפואי, משפטי או פיננסי.",
-        updated: "עודכן ונבדק",
-        sources: "מקורות ושקיפות",
-      }
-    : {
-        label: "Reviewed for E-E-A-T signals",
-        title: "How this guide was written and checked",
-        experience:
-          "Based on hands-on patient acquisition work for implant and cosmetic dental clinics.",
-        expertise:
-          "Written by David Lerner and Booked.Dental, focused on dental ads, lead filtering, and customer-intent measurement.",
-        trust:
-          "This is marketing guidance for clinic owners. It is not medical, legal, or financial advice.",
-        updated: "Updated and reviewed",
-        sources: "Sources and transparency",
-      };
-}
-
 const portableTextComponents = {
   types: {
     inlineImage: ({
@@ -630,7 +587,6 @@ export default function BlogPost() {
       image: AUTHOR_IMAGE,
     },
     isAccessibleForFree: true,
-    citation: TRUST_SOURCES.map((source) => source.url),
     articleSection: "Dental marketing",
     about: prioritizedKeywords.map((keyword) => ({
       "@type": "Thing",
@@ -653,7 +609,6 @@ export default function BlogPost() {
         })),
       }
     : null;
-  const trustCopy = getTrustCopy(isHebrew);
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -803,11 +758,11 @@ export default function BlogPost() {
               </h1>
               <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-primary">
-                  <ShieldCheck className="h-3.5 w-3.5" />
-                  {trustCopy.label}
+                  <UserRound className="h-3.5 w-3.5" />
+                  {authorCopy.name}
                 </span>
                 <span>
-                  {trustCopy.updated}:{" "}
+                  {isHebrew ? "עודכן" : "Updated"}:{" "}
                   {new Date(post.publishedAt).toLocaleDateString(dateLocale, {
                     year: "numeric",
                     month: "long",
@@ -832,45 +787,6 @@ export default function BlogPost() {
                   height={504}
                 />
               </figure>
-              <aside className="mb-10 rounded-xl border border-border bg-card p-5 sm:p-6">
-                <div className="flex items-start gap-3">
-                  <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <ShieldCheck className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h2 className="font-display text-lg font-semibold text-foreground">
-                      {trustCopy.title}
-                    </h2>
-                    <div className="mt-4 grid gap-3 text-sm leading-relaxed text-muted-foreground sm:grid-cols-3">
-                      {[trustCopy.experience, trustCopy.expertise, trustCopy.trust].map((item) => (
-                        <div key={item} className="flex gap-2">
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                          <p>{item}</p>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-4 border-t border-border pt-4">
-                      <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
-                        {trustCopy.sources}
-                      </p>
-                      <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
-                        {TRUST_SOURCES.map((source) => (
-                          <li key={source.url}>
-                            <a
-                              href={source.url}
-                              target="_blank"
-                              rel="noreferrer noopener"
-                              className="underline-offset-4 transition-colors hover:text-primary hover:underline"
-                            >
-                              {source.name}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </aside>
               {internalLinkPosts.length > 0 && (
                 <aside className="mb-10 rounded-xl border border-primary/20 bg-primary/5 p-5 sm:p-6">
                   <p className="text-xs font-medium uppercase tracking-[0.14em] text-primary">
