@@ -57,7 +57,7 @@ async function getSanityBlogPosts() {
 }
 
 const SUPPORTED_LANGS = ["en", "he"];
-const LOCALIZED_STATIC_PATHS = ["", "/book", "/blog", "/privacy", "/thank-you"];
+const LOCALIZED_STATIC_PATHS = ["", "/book", "/blog", "/about", "/privacy", "/thank-you"];
 const BLOG_CANONICAL_SLUGS: Record<string, string> = {
   "how-cosmetic-dentists-get-more-consults": "cosmetic-dentists-high-intent-patients",
   "how-to-get-more-cosmetic-consults-fast": "cosmetic-dentistry-patient-acquisition-fast",
@@ -109,7 +109,7 @@ function sanityImageUrl(assetRef?: string) {
 function urlNode(options: {
   loc: string;
   lastmod: string;
-  changefreq: "daily" | "weekly" | "monthly";
+  changefreq: "daily" | "weekly" | "monthly" | "yearly";
   priority: string;
   alternates?: Record<string, string>;
   image?: { loc: string; title?: string; caption?: string };
@@ -161,6 +161,8 @@ async function generateSitemap(outDir: string) {
     urlNode({ loc: `${siteUrl}/${lang}`, lastmod: now, changefreq: "weekly", priority: "1.0", alternates: localizedAlternates(siteUrl, "/") }),
     urlNode({ loc: `${siteUrl}/${lang}/book`, lastmod: now, changefreq: "monthly", priority: "0.8", alternates: localizedAlternates(siteUrl, "/book") }),
     urlNode({ loc: `${siteUrl}/${lang}/blog`, lastmod: now, changefreq: "weekly", priority: "0.9", alternates: localizedAlternates(siteUrl, "/blog") }),
+    urlNode({ loc: `${siteUrl}/${lang}/about`, lastmod: now, changefreq: "monthly", priority: "0.6", alternates: localizedAlternates(siteUrl, "/about") }),
+    urlNode({ loc: `${siteUrl}/${lang}/privacy`, lastmod: now, changefreq: "yearly", priority: "0.2", alternates: localizedAlternates(siteUrl, "/privacy") }),
   ]);
 
   const blogUrls = posts.map((post) => {

@@ -11,6 +11,7 @@ import Index from "./pages/Index";
 import BookingPage from "./pages/BookingPage";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import AboutPage from "./pages/AboutPage";
 import {
   blogListLoader,
   blogPostLoader,
@@ -91,6 +92,7 @@ const langChildren: RouteRecord[] = [
     element: <BlogPost />,
     loader: blogPostLoader,
   },
+  { path: "about", element: <AboutPage /> },
   { path: "privacy", element: <PrivacyPolicy /> },
   { path: "thank-you", element: <ThankYouPage /> },
   { path: "*", element: <NotFound /> },

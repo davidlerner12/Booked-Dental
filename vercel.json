@@ -14,6 +14,26 @@
       "source": "/privacy",
       "destination": "/en/privacy",
       "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/en/about",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/how-cosmetic-dentists-get-more-consults",
+      "destination": "/en/blog/cosmetic-dentists-high-intent-patients",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/how-to-get-more-cosmetic-consults-fast",
+      "destination": "/en/blog/cosmetic-dentistry-patient-acquisition-fast",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/generate-consultation-calls-for-dentists",
+      "destination": "/en/blog/dental-lead-filtering-for-dentists",
+      "permanent": true
     }
   ],
   "headers": [

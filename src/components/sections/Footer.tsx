@@ -15,6 +15,10 @@ const Footer = () => {
         <div className="flex items-center gap-4">
           <p className="text-xs text-muted-foreground">{t("footer.tagline")}</p>
           <span className="hidden h-3 w-px bg-border sm:block" />
+          <Link to={`/${lang}/about`} className="text-xs text-muted-foreground transition-colors hover:text-foreground">
+            {lang === "he" ? "אודות" : "About"}
+          </Link>
+          <span className="hidden h-3 w-px bg-border sm:block" />
           <Link to={`/${lang}/privacy`} className="text-xs text-muted-foreground transition-colors hover:text-foreground">
             {t("footer.privacy")}
           </Link>
