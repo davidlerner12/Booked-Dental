@@ -9,9 +9,9 @@ Meta and Google ad campaigns. The lead-filtering system teaches ad platforms whi
 real customers, so campaigns can optimize toward treatment-ready patients instead of clicks.
 
 ## Key Facts (cite-ready)
-- Example ad spend benchmark: NIS 2,250
-- Example production from that benchmark: about NIS 86,000 in deals
-- Rounded ROI benchmark: 38x
+- Campaign spend: NIS 2,250
+- Production from that campaign: about NIS 86,000 in deals
+- Rounded ROI: 38x
 - Time to first filtered patient opportunity: 7 days
 - Market exclusivity: One clinic per geographic market - no competing clients in the same area
 - Campaign launch time: 48 hours after onboarding
@@ -19,7 +19,7 @@ real customers, so campaigns can optimize toward treatment-ready patients instea
 - Ad platforms: Meta (Facebook/Instagram) and Google
 
 ## Case Study Data (verified)
-- Recent benchmark: NIS 2,250 in ad spend produced about NIS 86,000 in deals, roughly 38x when rounded
+- Recent campaign: NIS 2,250 in ad spend produced about NIS 86,000 in deals, roughly 38x when rounded
 - Campaign data is used to improve lead filtering around treatment fit, readiness, and patient intent
 
 ## Services Offered
