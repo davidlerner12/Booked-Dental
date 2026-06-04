@@ -195,6 +195,20 @@ const TEXT_REPLACEMENTS: Array<[RegExp, string]> = [
   [/\bcalls\b/gi, "opportunities"],
   [/\bcall\b/gi, "contact"],
   [/cheap clicks/gi, "low-quality clicks"],
+  [/cheap leads/gi, "unqualified leads"],
+  [/more leads/gi, "better-filtered patient opportunities"],
+  [/lead generation agency/gi, "patient acquisition partner"],
+  [/digital marketing agency/gi, "patient acquisition partner"],
+  [/book a strategy contact/gi, "check market availability"],
+  [/book a strategy opportunity/gi, "check market availability"],
+  [/schedule a contact/gi, "check market availability"],
+  [/schedule a opportunity/gi, "check market availability"],
+  [/פניות מוכשרות/g, "פניות מסוננות"],
+  [/הזדמנויות מטופלים/g, "פניות מסוננות ממטופלים"],
+  [/לידים זולים/g, "לידים לא מסוננים"],
+  [/קליקים זולים/g, "קליקים באיכות נמוכה"],
+  [/מדדי אגו/g, "מדדים שלא משקפים הכנסות"],
+  [/משרד פרסום דיגיטלי/g, "שותף לגיוס מטופלים"],
 ];
 
 function replaceText(value: string) {
@@ -206,9 +220,82 @@ function replaceText(value: string) {
     .replace(/Booked Dental/g, "Booked.Dental");
 }
 
+function blockText(block: PortableTextBlock) {
+  const children = (block as { children?: Array<{ text?: string }> }).children;
+  if (!Array.isArray(children)) return "";
+  return children.map((child) => child.text || "").join("").trim();
+}
+
+function normalizeForDeduplication(value: string) {
+  return replaceText(value)
+    .toLowerCase()
+    .replace(/[\u0591-\u05C7]/g, "")
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function isHeadingBlock(block: PortableTextBlock) {
+  return block._type === "block" && /^h[2-4]$/.test(String(block.style || ""));
+}
+
+function isDuplicateBoilerplate(text: string) {
+  const normalized = normalizeForDeduplication(text);
+  if (normalized.length < 20) return false;
+  return [
+    /ready to.*market.*available/i,
+    /schedule.*strategy/i,
+    /book.*strategy/i,
+    /contact.*today/i,
+    /check.*availability.*today/i,
+    /בדקו.*האזור.*פנוי/,
+    /בדיקת.*זמינות.*אזור/,
+    /השאירו.*פרטים.*אזור/,
+    /קבעו.*שיחה/,
+  ].some((pattern) => pattern.test(text) || pattern.test(normalized));
+}
+
+function cleanupPortableText(blocks: PortableTextBlock[]) {
+  const seenHeadings = new Set<string>();
+  const seenParagraphs = new Set<string>();
+  const cleaned: PortableTextBlock[] = [];
+  let skippingDuplicateSection = false;
+
+  for (const block of blocks) {
+    if (!block || typeof block !== "object") continue;
+
+    if (isHeadingBlock(block)) {
+      const headingKey = normalizeForDeduplication(blockText(block));
+      if (headingKey && seenHeadings.has(headingKey)) {
+        skippingDuplicateSection = true;
+        continue;
+      }
+      if (headingKey) seenHeadings.add(headingKey);
+      skippingDuplicateSection = false;
+    } else if (skippingDuplicateSection) {
+      continue;
+    }
+
+    if (block._type === "block") {
+      const text = blockText(block);
+      const paragraphKey = normalizeForDeduplication(text);
+      if (paragraphKey.length > 50) {
+        if (seenParagraphs.has(paragraphKey) || isDuplicateBoilerplate(text)) {
+          continue;
+        }
+        seenParagraphs.add(paragraphKey);
+      }
+    }
+
+    cleaned.push(block);
+  }
+
+  return cleaned;
+}
+
 function mapPortableText(blocks?: PortableTextBlock[]) {
   if (!Array.isArray(blocks)) return blocks;
-  return blocks.map((block) => {
+  const mapped = blocks.map((block) => {
     if (!block || typeof block !== "object") return block;
     const clone = { ...block } as PortableTextBlock & { children?: unknown[] };
     if (Array.isArray(clone.children)) {
@@ -221,6 +308,7 @@ function mapPortableText(blocks?: PortableTextBlock[]) {
     }
     return clone;
   });
+  return cleanupPortableText(mapped);
 }
 
 function findExplicitOverride(slug: string) {

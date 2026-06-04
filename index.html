@@ -8,6 +8,15 @@
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-MRMFCCWR');</script>
         <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPB5TF9QTG"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PPB5TF9QTG');
+          gtag('config', 'AW-18212559239');
+        </script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/png" href="/favicon.png" />
@@ -61,8 +70,6 @@
     <!-- Deferred analytics to reduce initial render/main-thread pressure -->
     <script>
       (function () {
-        const GA4_ID = "G-PPB5TF9QTG";
-        const GADS_ID = "AW-17992910932";
         const FB_PIXEL_ID = "932696116124868";
 
         window.dataLayer = window.dataLayer || [];
@@ -104,12 +111,6 @@
         const initTracking = () => {
           if (trackingLoaded) return;
           trackingLoaded = true;
-
-          loadScript(`https://www.googletagmanager.com/gtag/js?id=${GADS_ID}`, { async: true }).finally(() => {
-            window.gtag("js", new Date());
-            window.gtag("config", GA4_ID);
-            window.gtag("config", GADS_ID);
-          });
 
           loadScript("https://connect.facebook.net/en_US/fbevents.js", { async: true }).finally(() => {
             window.fbq("init", FB_PIXEL_ID);

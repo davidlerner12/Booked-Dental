@@ -1,46 +1,40 @@
-// ─── IDs ─────────────────────────────────────────────────────────────────────
-const GADS_TAG = 'AW-17992910932/gQY4CP-D3IIcENSQ2IND'
+const LEAD_FORM_CONVERSION_TAG = "AW-18212559239/ksECCPr16LgcEIeztuxD";
 
-// ─── Type declarations ────────────────────────────────────────────────────────
 declare global {
   interface Window {
-    gtag?: (...args: unknown[]) => void
-    fbq?: (...args: unknown[]) => void
+    gtag?: (...args: unknown[]) => void;
+    fbq?: (...args: unknown[]) => void;
   }
 }
 
-// ─── GA4 ─────────────────────────────────────────────────────────────────────
 export const trackPageView = (page: string) =>
-  window.gtag?.('event', 'page_view', { page_path: page })
+  window.gtag?.("event", "page_view", { page_path: page });
 
 export const trackEvent = (category: string, action: string, label?: string) =>
-  window.gtag?.('event', action, { event_category: category, event_label: label })
+  window.gtag?.("event", action, { event_category: category, event_label: label });
 
-// ─── Google Ads ───────────────────────────────────────────────────────────────
-export const trackGAdsConversion = (value = 1.0, currency = 'ILS') =>
-  window.gtag?.('event', 'conversion', { send_to: GADS_TAG, value, currency })
+export const trackLeadFormConversion = () =>
+  window.gtag?.("event", "conversion", { send_to: LEAD_FORM_CONVERSION_TAG });
 
-// ─── Meta Pixel ───────────────────────────────────────────────────────────────
 export const trackMetaEvent = (event: string, params?: Record<string, unknown>) =>
-  window.fbq?.('track', event, params)
+  window.fbq?.("track", event, params);
 
-// ─── Composite events ─────────────────────────────────────────────────────────
 export const trackBookingCTA = () => {
-  trackEvent('Conversion', 'booking_cta_clicked', 'Cal.com')
-  trackMetaEvent('Lead')
-}
+  trackEvent("Conversion", "booking_cta_clicked", "Market availability");
+  trackMetaEvent("Lead");
+};
 
 export const trackBookingConfirmed = () => {
-  trackGAdsConversion()
-  trackEvent('Conversion', 'booking_confirmed', 'Cal.com')
-  trackMetaEvent('Schedule')
-}
+  trackLeadFormConversion();
+  trackEvent("Conversion", "booking_confirmed", "Market availability");
+  trackMetaEvent("Schedule");
+};
 
 export const trackMarketAvailabilitySubmit = (cityState: string, email: string) => {
-  window.gtag?.('event', 'market_availability_submitted', {
-    event_category: 'Form',
+  window.gtag?.("event", "market_availability_submitted", {
+    event_category: "Form",
     event_label: cityState,
     email,
-  })
-  trackMetaEvent('Lead', { city_state: cityState, email })
-}
+  });
+  trackMetaEvent("Lead", { city_state: cityState, email });
+};

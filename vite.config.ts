@@ -46,6 +46,7 @@ async function getSanityBlogPosts() {
 }
 
 const SUPPORTED_LANGS = ["en", "he"];
+const LOCALIZED_STATIC_PATHS = ["", "/book", "/blog", "/privacy", "/thank-you"];
 const BLOG_CANONICAL_SLUGS: Record<string, string> = {
   "how-cosmetic-dentists-get-more-consults": "cosmetic-dentists-high-intent-patients",
   "how-to-get-more-cosmetic-consults-fast": "cosmetic-dentistry-patient-acquisition-fast",
@@ -168,10 +169,9 @@ export default defineConfig(({ mode }) => ({
   },
   ssgOptions: {
     dirStyle: "nested",
-    includedRoutes: async (paths: string[]) => {
-      const baseStaticRoutes = paths.filter((route) => !route.includes(":"));
-      const staticRoutes = baseStaticRoutes.flatMap(route => 
-        route === "/" ? SUPPORTED_LANGS.map(lang => `/${lang}`) : SUPPORTED_LANGS.map(lang => `/${lang}${route}`)
+    includedRoutes: async () => {
+      const staticRoutes = SUPPORTED_LANGS.flatMap((lang) =>
+        LOCALIZED_STATIC_PATHS.map((route) => `/${lang}${route}`),
       );
       const blogPostRoutes = await getBlogStaticRoutes();
       return Array.from(new Set(["/", ...staticRoutes, ...blogPostRoutes]));

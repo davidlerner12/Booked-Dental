@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { CheckCircle2, ArrowLeft } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { trackBookingConfirmed } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SEO from "@/components/SEO";
@@ -8,6 +10,10 @@ import SEO from "@/components/SEO";
 const ThankYouPage = () => {
   const { t } = useTranslation();
   const { lang } = useParams();
+
+  useEffect(() => {
+    trackBookingConfirmed();
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
