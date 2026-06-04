@@ -39,6 +39,131 @@
       "source": "/en/blog/generate-consultation-calls-for-dentists",
       "destination": "/en/blog/dental-lead-filtering-for-dentists",
       "permanent": true
+    },
+    {
+      "source": "/en/blog/generate-consultation-calls-for-dentist",
+      "destination": "/en/blog/dental-lead-filtering-for-dentists",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/implant-consult-booking-system",
+      "destination": "/en/blog/dental-implant-lead-generation-that-pays",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/affordable-dental-ads-that-book-consults",
+      "destination": "/en/blog/why-dental-ads-fail",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/dental-consultation-funnel",
+      "destination": "/en/blog/dental-lead-filtering-for-dentists",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/how-to-reduce-no-show-consults",
+      "destination": "/en/blog/dental-lead-filtering-for-dentists",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/implant-consultation-funnel",
+      "destination": "/en/blog/dental-implant-lead-generation-that-pays",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/cosmetic-consult-follow-up-scripts-that-book",
+      "destination": "/en/blog/cosmetic-dentistry-patient-acquisition-fast",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/dentist-facebook-ads-that-book-consults",
+      "destination": "/en/blog/meta-ads-for-cosmetic-dentists",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/how-dental-clinics-get-more-implant-consultations-2026",
+      "destination": "/en/blog/how-to-get-more-dental-implant-patients",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/קידום-בגוגל-לרופאי-שיניים-תוצאות-מהירות",
+      "destination": "/he/blog/פרסום-בגוגל-לרופאי-שיניים-מטופלים-חדשים",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/פרסום-בגוגל-לרופאי-שיניים-לידים-חדשים",
+      "destination": "/he/blog/פרסום-בגוגל-לרופאי-שיניים-מטופלים-חדשים",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/סוכנות-שיווק-לרופאי-שיניים-בחירת-חברה-מקצועית",
+      "destination": "/he/blog/משרד-פרסום-לרופאי-שיניים-בחירת-שותף",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/משרד-פרסום-לרופאי-שיניים-אסטרטגיה-דיגיטלית",
+      "destination": "/he/blog/משרד-פרסום-לרופאי-שיניים-בחירת-שותף",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/אורגני-לרופאי-שיניים-בגוגל",
+      "destination": "/he/blog/למה-seo-לרופאי-שיניים-חשוב-לעסק",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/קידום-אתרים-לרופאי-שיניים-עמוד-ראשון",
+      "destination": "/he/blog/למה-seo-לרופאי-שיניים-חשוב-לעסק",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/מרפאות-שיניים-חייבות-אתר-מקצועי",
+      "destination": "/he/blog/אתר-ליצירת-לידים-לרופאי-שיניים",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/אתר-למרפאת-שיניים-המרת-מטופלים",
+      "destination": "/he/blog/אתר-ליצירת-לידים-לרופאי-שיניים",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/בניית-אתרים-לרופאי-שיניים-הגדלת-מטופלים",
+      "destination": "/he/blog/אתר-ליצירת-לידים-לרופאי-שיניים",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/שיווק-לרופאי-שיניים-בניית-אמון-דיגיטלי",
+      "destination": "/he/blog/בניית-מותג-למרפאת-שיניים-בדיגיטל",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/שיווק-מרפאות-שיניים-בניית-מותג-דיגיטלי",
+      "destination": "/he/blog/בניית-מותג-למרפאת-שיניים-בדיגיטל",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/שיווק-דיגיטלי-לרופאי-שיניים-אסטרטגיית-צמיחה",
+      "destination": "/he/blog/שיווק-מרפאות-שיניים-אסטרטגיה-דיגיטלית",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/שיווק-קליניקת-שיניים-בדיגיטל",
+      "destination": "/he/blog/שיווק-מרפאות-שיניים-אסטרטגיה-דיגיטלית",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/פרסום-מרפאת-שיניים-משיכת-מטופלים",
+      "destination": "/he/blog/פרסום-לרופאי-שיניים-מטופלים-איכותיים",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/פרסום-ממומן-לרופאי-שיניים-המרת-לידים",
+      "destination": "/he/blog/פרסום-ממומן-לרופאי-שיניים-לידים-איכותיים",
+      "permanent": true
+    },
+    {
+      "source": "/he/blog/ניהול-פרסום-לרופאי-שיניים-תוצאות-אמיתיות",
+      "destination": "/he/blog/ניהול-פרסום-לרופאי-שיניים-מערכת-לידים",
+      "permanent": true
     }
   ],
   "headers": [
