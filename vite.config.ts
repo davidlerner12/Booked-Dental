@@ -9,6 +9,8 @@ interface SanityPostMeta {
   title?: string;
   excerpt?: string;
   publishedAt?: string;
+  mainImageAlt?: string;
+  mainImageRef?: string;
 }
 
 async function getSanityBlogPosts() {
@@ -21,7 +23,7 @@ async function getSanityBlogPosts() {
   if (!projectId || !dataset) return [] as SanityPostMeta[];
 
   const query = encodeURIComponent(
-    '*[_type == "post" && defined(slug.current)] | order(publishedAt desc){"slug": slug.current, title, excerpt, publishedAt}',
+    '*[_type == "post" && defined(slug.current)] | order(publishedAt desc){"slug": slug.current, title, excerpt, publishedAt, "mainImageAlt": mainImage.alt, "mainImageRef": mainImage.asset._ref}',
   );
   const endpoint = `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=${query}`;
   const response = await fetch(endpoint, {
@@ -33,7 +35,14 @@ async function getSanityBlogPosts() {
   }
 
   const payload = (await response.json()) as {
-    result?: Array<{ slug?: string; title?: string; excerpt?: string; publishedAt?: string }>;
+    result?: Array<{
+      slug?: string;
+      title?: string;
+      excerpt?: string;
+      publishedAt?: string;
+      mainImageAlt?: string;
+      mainImageRef?: string;
+    }>;
   };
   return (payload.result || [])
     .map((item) => ({
@@ -41,6 +50,8 @@ async function getSanityBlogPosts() {
       title: item.title,
       excerpt: item.excerpt,
       publishedAt: item.publishedAt,
+      mainImageAlt: item.mainImageAlt,
+      mainImageRef: item.mainImageRef,
     }))
     .filter((item) => item.slug.length > 0);
 }
@@ -83,19 +94,41 @@ function xmlEscape(value: string) {
     .replaceAll("'", "&apos;");
 }
 
+function sanityImageUrl(assetRef?: string) {
+  if (!assetRef) return null;
+  const match = assetRef.match(/^image-([a-f0-9]+)-(\d+)x(\d+)-([a-z0-9]+)$/i);
+  if (!match) return null;
+  const [, id, width, height, extension] = match;
+  const env = loadEnv(process.env.NODE_ENV || "production", process.cwd(), "");
+  const projectId = env.VITE_SANITY_PROJECT_ID;
+  const dataset = env.VITE_SANITY_DATASET;
+  if (!projectId || !dataset) return null;
+  return `https://cdn.sanity.io/images/${projectId}/${dataset}/${id}-${width}x${height}.${extension}`;
+}
+
 function urlNode(options: {
   loc: string;
   lastmod: string;
   changefreq: "daily" | "weekly" | "monthly";
   priority: string;
   alternates?: Record<string, string>;
+  image?: { loc: string; title?: string; caption?: string };
 }) {
-  const { loc, lastmod, changefreq, priority, alternates } = options;
+  const { loc, lastmod, changefreq, priority, alternates, image } = options;
   const alternateNodes = alternates
     ? Object.entries(alternates).map(
         ([lang, href]) =>
           `    <xhtml:link rel="alternate" hreflang="${xmlEscape(lang)}" href="${xmlEscape(href)}" />`,
       )
+    : [];
+  const imageNodes = image
+    ? [
+        "    <image:image>",
+        `      <image:loc>${xmlEscape(image.loc)}</image:loc>`,
+        image.title ? `      <image:title>${xmlEscape(image.title)}</image:title>` : "",
+        image.caption ? `      <image:caption>${xmlEscape(image.caption)}</image:caption>` : "",
+        "    </image:image>",
+      ].filter(Boolean)
     : [];
   return [
     "  <url>",
@@ -104,6 +137,7 @@ function urlNode(options: {
     `    <changefreq>${changefreq}</changefreq>`,
     `    <priority>${priority}</priority>`,
     ...alternateNodes,
+    ...imageNodes,
     "  </url>",
   ].join("\n");
 }
@@ -132,17 +166,25 @@ async function generateSitemap(outDir: string) {
   const blogUrls = posts.map((post) => {
     const lang = postLanguage(post);
     const slug = canonicalBlogSlug(post.slug);
+    const imageUrl = sanityImageUrl(post.mainImageRef);
     return urlNode({
       loc: `${siteUrl}/${lang}/blog/${slug}`,
       lastmod: toIsoDate(post.publishedAt),
       changefreq: "monthly",
       priority: "0.8",
+      image: imageUrl
+        ? {
+            loc: imageUrl,
+            title: post.title,
+            caption: post.mainImageAlt,
+          }
+        : undefined,
     });
   });
 
   const sitemapXml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
     ...staticUrls,
     ...blogUrls,
     "</urlset>",

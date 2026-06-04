@@ -1,4 +1,21 @@
 {
+  "redirects": [
+    {
+      "source": "/blog",
+      "destination": "/en/blog",
+      "permanent": true
+    },
+    {
+      "source": "/book",
+      "destination": "/en/book",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "/en/privacy",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
