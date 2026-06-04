@@ -20,6 +20,8 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ThankYouPage from "./pages/ThankYouPage";
 import ChatWidget from "./components/ChatWidget";
+import StickyMarketCTA from "./components/StickyMarketCTA";
+import ServicePage from "./pages/ServicePage";
 
 const queryClient = new QueryClient();
 
@@ -72,6 +74,7 @@ const AppLayout = () => {
         <ScrollToTop />
         <LanguageSync />
         <Outlet />
+        <StickyMarketCTA />
         <ChatWidget />
       </TooltipProvider>
     </QueryClientProvider>
@@ -86,6 +89,7 @@ function RootRedirect() {
 const langChildren: RouteRecord[] = [
   { index: true, element: <Index /> },
   { path: "book", element: <BookingPage /> },
+  { path: "services/:serviceSlug", element: <ServicePage /> },
   { path: "blog", element: <Blog />, loader: blogListLoader },
   {
     path: "blog/:slug",

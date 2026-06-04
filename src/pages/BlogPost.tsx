@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   ChevronRight,
   ShieldCheck,
+  UserRound,
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
@@ -61,6 +62,25 @@ const TRUST_SOURCES = [
     url: "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
   },
 ];
+
+const AUTHOR_IMAGE = "https://booked.dental/images/david-lerner-headshot.jpg";
+
+const AUTHOR_COPY = {
+  en: {
+    name: "David Lerner",
+    role: "Founder of Booked.Dental",
+    bio:
+      "David builds patient acquisition systems for implant and cosmetic dental clinics, combining performance marketing, lead filtering, patient psychology, and AI-assisted intake.",
+    cta: "About David and Booked.Dental",
+  },
+  he: {
+    name: "דיוויד לרנר",
+    role: "מייסד Booked.Dental",
+    bio:
+      "דיוויד בונה מערכות גיוס מטופלים למרפאות שתלים ואסתטיקה דנטלית, עם שילוב של שיווק ביצועים, סינון לידים, פסיכולוגיית מטופלים ותהליך קליטה נתמך AI.",
+    cta: "על דיוויד ועל Booked.Dental",
+  },
+} as const;
 
 function toEmbedUrl(url: string) {
   if (url.includes("youtube.com/watch?v=")) {
@@ -142,7 +162,7 @@ function getTrustCopy(isHebrew: boolean) {
         experience:
           "מבוסס על ניסיון מעשי בבניית מערכות גיוס מטופלים למרפאות שתלים ואסתטיקה דנטלית.",
         expertise:
-          "נכתב על ידי צוות Booked.Dental, שמתמקד בפרסום דנטלי, סינון לידים ומדידת כוונת לקוח.",
+          "נכתב על ידי Booked.Dental, עם מומחיות בפרסום דנטלי, סינון לידים ומדידת כוונת לקוח.",
         trust:
           "התוכן מיועד לקבלת החלטות שיווקיות. הוא אינו ייעוץ רפואי, משפטי או פיננסי.",
         updated: "עודכן ונבדק",
@@ -154,7 +174,7 @@ function getTrustCopy(isHebrew: boolean) {
         experience:
           "Based on hands-on patient acquisition work for implant and cosmetic dental clinics.",
         expertise:
-          "Written by the Booked.Dental growth team, focused on dental ads, lead filtering, and customer-intent measurement.",
+          "Written by David Lerner and Booked.Dental, focused on dental ads, lead filtering, and customer-intent measurement.",
         trust:
           "This is marketing guidance for clinic owners. It is not medical, legal, or financial advice.",
         updated: "Updated and reviewed",
@@ -327,6 +347,7 @@ export default function BlogPost() {
     .map((linkSlug) => related.find((item) => item.slug === linkSlug))
     .filter(Boolean)
     .slice(0, 3);
+  const authorCopy = isHebrew ? AUTHOR_COPY.he : AUTHOR_COPY.en;
   const articleStructuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -350,16 +371,22 @@ export default function BlogPost() {
       },
     },
     author: {
-      "@type": "Organization",
-      name: "Booked.Dental",
-      url: "https://booked.dental",
-      description:
-        "Dental marketing team specializing in implant and cosmetic patient acquisition, lead filtering, UGC creative, Google Ads, and Meta Ads.",
+      "@type": "Person",
+      name: "David Lerner",
+      url: buildLocalizedUrl(lang, "/about"),
+      image: AUTHOR_IMAGE,
+      jobTitle: "Founder, Booked.Dental",
+      worksFor: {
+        "@type": "Organization",
+        name: "Booked.Dental",
+        url: "https://booked.dental",
+      },
     },
     reviewedBy: {
-      "@type": "Organization",
-      name: "Booked.Dental",
-      url: "https://booked.dental",
+      "@type": "Person",
+      name: "David Lerner",
+      url: buildLocalizedUrl(lang, "/about"),
+      image: AUTHOR_IMAGE,
     },
     isAccessibleForFree: true,
     citation: TRUST_SOURCES.map((source) => source.url),
@@ -603,6 +630,37 @@ export default function BlogPost() {
                 </aside>
               )}
               <PortableText value={post.body || []} components={portableTextComponents} />
+
+              <aside className="mt-12 rounded-xl border border-border bg-card p-5 sm:p-6">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                  <img
+                    src="/images/david-lerner-headshot.jpg"
+                    alt={authorCopy.name}
+                    className="h-20 w-20 shrink-0 rounded-full border border-border object-cover object-top"
+                    loading="lazy"
+                    width={80}
+                    height={80}
+                  />
+                  <div>
+                    <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-primary">
+                      <UserRound className="h-3.5 w-3.5" />
+                      {isHebrew ? "נכתב ונבדק על ידי" : "Written and reviewed by"}
+                    </div>
+                    <h2 className="mt-2 font-display text-xl font-semibold text-foreground">
+                      {authorCopy.name}
+                    </h2>
+                    <p className="text-sm font-medium text-muted-foreground">{authorCopy.role}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{authorCopy.bio}</p>
+                    <Link
+                      to={`/${lang}/about`}
+                      className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                    >
+                      {authorCopy.cta}
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+              </aside>
 
               {/* In-article CTA */}
               <div className="mt-12 rounded-xl border border-primary/20 bg-primary/5 p-6 text-center sm:p-8">

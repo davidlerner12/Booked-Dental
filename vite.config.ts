@@ -58,6 +58,12 @@ async function getSanityBlogPosts() {
 
 const SUPPORTED_LANGS = ["en", "he"];
 const LOCALIZED_STATIC_PATHS = ["", "/book", "/blog", "/about", "/privacy", "/thank-you"];
+const SERVICE_STATIC_PATHS = [
+  "/services/dental-implant-marketing",
+  "/services/cosmetic-dentistry-marketing",
+  "/services/dental-lead-filtering",
+  "/services/ugc-dental-ads",
+];
 const BLOG_CANONICAL_SLUGS: Record<string, string> = {
   "how-cosmetic-dentists-get-more-consults": "cosmetic-dentists-high-intent-patients",
   "how-to-get-more-cosmetic-consults-fast": "cosmetic-dentistry-patient-acquisition-fast",
@@ -163,6 +169,15 @@ async function generateSitemap(outDir: string) {
     urlNode({ loc: `${siteUrl}/${lang}/blog`, lastmod: now, changefreq: "weekly", priority: "0.9", alternates: localizedAlternates(siteUrl, "/blog") }),
     urlNode({ loc: `${siteUrl}/${lang}/about`, lastmod: now, changefreq: "monthly", priority: "0.6", alternates: localizedAlternates(siteUrl, "/about") }),
     urlNode({ loc: `${siteUrl}/${lang}/privacy`, lastmod: now, changefreq: "yearly", priority: "0.2", alternates: localizedAlternates(siteUrl, "/privacy") }),
+    ...SERVICE_STATIC_PATHS.map((servicePath) =>
+      urlNode({
+        loc: `${siteUrl}/${lang}${servicePath}`,
+        lastmod: now,
+        changefreq: "monthly",
+        priority: "0.75",
+        alternates: localizedAlternates(siteUrl, servicePath),
+      }),
+    ),
   ]);
 
   const blogUrls = posts.map((post) => {
@@ -215,7 +230,7 @@ export default defineConfig(({ mode }) => ({
     dirStyle: "nested",
     includedRoutes: async () => {
       const staticRoutes = SUPPORTED_LANGS.flatMap((lang) =>
-        LOCALIZED_STATIC_PATHS.map((route) => `/${lang}${route}`),
+        [...LOCALIZED_STATIC_PATHS, ...SERVICE_STATIC_PATHS].map((route) => `/${lang}${route}`),
       );
       const blogPostRoutes = await getBlogStaticRoutes();
       return Array.from(new Set(["/", ...staticRoutes, ...blogPostRoutes]));

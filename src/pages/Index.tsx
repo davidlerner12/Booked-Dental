@@ -7,6 +7,7 @@ import Stats from "@/components/sections/Stats";
 
 // Lazy load below-the-fold sections for better initial load performance
 const Problem = lazy(() => import("@/components/sections/Problem"));
+const FounderTrustBlock = lazy(() => import("@/components/sections/FounderTrustBlock"));
 const Services = lazy(() => import("@/components/sections/Services"));
 const BookedDentalDifference = lazy(() => import("@/components/sections/BookedDentalDifference"));
 const AdvancedCallTracking = lazy(() => import("@/components/sections/AdvancedCallTracking"));
@@ -20,6 +21,7 @@ const MarketExclusivity = lazy(() => import("@/components/sections/MarketExclusi
 const RiskFreeTrial = lazy(() => import("@/components/sections/RiskFreeTrial"));
 const FAQ = lazy(() => import("@/components/sections/FAQ"));
 const BlogPreview = lazy(() => import("@/components/sections/BlogPreview"));
+const ServiceLinks = lazy(() => import("@/components/sections/ServiceLinks"));
 const CTA = lazy(() => import("@/components/sections/CTA"));
 const Footer = lazy(() => import("@/components/sections/Footer"));
 
@@ -103,6 +105,7 @@ const Index = () => {
       <Suspense fallback={<div className="min-h-screen" />}>
         <Problem />
         <ROICalculator />
+        <FounderTrustBlock />
         <HowItWorks />
         <BookedDentalDifference />
         <AdvancedCallTracking />
@@ -115,6 +118,7 @@ const Index = () => {
         <RiskFreeTrial />
         <FAQ />
         <CTA />
+        <ServiceLinks />
         <BlogPreview />
         <Footer />
       </Suspense>

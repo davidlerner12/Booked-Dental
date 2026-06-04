@@ -1,6 +1,6 @@
-﻿import { useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { ArrowLeft, Shield, Clock, Users, MapPin, Phone } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Clock, MapPin, SearchCheck, Shield, Users } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { trackBookingCTA } from "@/lib/analytics";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
@@ -9,41 +9,110 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
+const BOOKING_COPY = {
+  en: {
+    proofTitle: "What happens after you submit",
+    proofItems: [
+      "We check whether your market is still open.",
+      "We review whether your clinic is a fit for implant or cosmetic patient acquisition.",
+      "If there is a match, we map the fastest path to filtered patient opportunities.",
+    ],
+    fitTitle: "This is for clinics that want quality over volume.",
+    fitBody:
+      "The goal is not more cheap forms. The goal is to identify which prospects look like real future patients, then use that feedback to help campaigns find customers instead of clicks.",
+    faq: [
+      {
+        q: "Is this a sales call request?",
+        a: "No. The form starts with a market and fit check. Booked.Dental works with one clinic per local market, so availability matters before anything else.",
+      },
+      {
+        q: "What makes a clinic a good fit?",
+        a: "The best fit is an implant or cosmetic clinic with capacity for more high-value treatment plans and a team willing to track lead quality, patient intent, and ROI.",
+      },
+      {
+        q: "Why do you ask for the city?",
+        a: "Market exclusivity is part of the offer. We need the city or local market to confirm whether another clinic has already taken that area.",
+      },
+    ],
+  },
+  he: {
+    proofTitle: "מה קורה אחרי השארת הפרטים",
+    proofItems: [
+      "אנחנו בודקים אם האזור שלכם עדיין פתוח.",
+      "אנחנו בודקים אם המרפאה מתאימה למערכת גיוס מטופלים לשתלים או אסתטיקה.",
+      "אם יש התאמה, נבנה את הדרך המהירה ביותר להזדמנויות מטופלים מסוננות.",
+    ],
+    fitTitle: "זה מיועד למרפאות שרוצות איכות, לא נפח.",
+    fitBody:
+      "המטרה היא לא עוד טפסים זולים. המטרה היא לזהות אילו מתעניינים נראים כמו מטופלים עתידיים אמיתיים, ואז להשתמש בפידבק הזה כדי לעזור לקמפיינים למצוא לקוחות במקום קליקים.",
+    faq: [
+      {
+        q: "האם זו בקשה לשיחת מכירה?",
+        a: "לא. הטופס מתחיל בבדיקת אזור והתאמה. Booked.Dental עובדת עם מרפאה אחת בלבד בכל אזור, ולכן זמינות האזור חשובה לפני הכול.",
+      },
+      {
+        q: "איזו מרפאה מתאימה למערכת?",
+        a: "ההתאמה הטובה ביותר היא מרפאת שתלים או אסתטיקה עם קיבולת לעוד תוכניות טיפול בעלות ערך גבוה, וצוות שמוכן למדוד איכות לידים, כוונת מטופל ו-ROI.",
+      },
+      {
+        q: "למה צריך לציין עיר?",
+        a: "בלעדיות אזורית היא חלק מההצעה. אנחנו צריכים את העיר או האזור כדי לוודא שמרפאה אחרת לא כבר תפסה את השוק הזה.",
+      },
+    ],
+  },
+} as const;
+
 const BookingPage = () => {
   const { t, i18n } = useTranslation();
   const { lang } = useParams();
   const location = useLocation();
   const isMarketCheck = location.state?.source === "market-check";
   const isHebrew = i18n.language === "he";
-  const bookingStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    name: isHebrew
-      ? "בדיקת זמינות אזור למרפאת שיניים"
-      : "Dental marketing territory availability check",
-    url: `https://booked.dental/${lang === "he" ? "he" : "en"}/book`,
-    inLanguage: isHebrew ? "he" : "en-US",
-    about: {
-      "@type": "Service",
-      name: "Dental patient acquisition for implant and cosmetic clinics",
-      provider: {
-        "@type": "Organization",
-        name: "Booked.Dental",
-        url: "https://booked.dental",
+  const copy = isHebrew ? BOOKING_COPY.he : BOOKING_COPY.en;
+  const bookingUrl = `https://booked.dental/${lang === "he" ? "he" : "en"}/book`;
+  const bookingStructuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      name: isHebrew
+        ? "בדיקת זמינות אזור למרפאת שיניים"
+        : "Dental marketing territory availability check",
+      url: bookingUrl,
+      inLanguage: isHebrew ? "he" : "en-US",
+      about: {
+        "@type": "Service",
+        name: "Dental patient acquisition for implant and cosmetic clinics",
+        provider: {
+          "@type": "Organization",
+          name: "Booked.Dental",
+          url: "https://booked.dental",
+        },
+      },
+      potentialAction: {
+        "@type": "ContactAction",
+        target: bookingUrl,
+        name: isHebrew ? "בדקו זמינות אזור" : "Check territory availability",
       },
     },
-    potentialAction: {
-      "@type": "ContactAction",
-      target: `https://booked.dental/${lang === "he" ? "he" : "en"}/book`,
-      name: isHebrew ? "בדקו זמינות אזור" : "Check territory availability",
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: isHebrew ? "he" : "en-US",
+      mainEntity: copy.faq.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
     },
-  };
+  ];
 
   useEffect(() => {
     trackBookingCTA();
   }, []);
 
-  // Formsubmit requires full URL for redirect
   const redirectUrl = `${window.location.origin}/${lang}/thank-you`;
 
   return (
@@ -87,44 +156,61 @@ const BookingPage = () => {
             {t("booking.title_prefix")}<span className="text-gradient-gold">{t("booking.title_highlight")}</span>
           </h1>
           <p className="text-muted-foreground mb-6">{t("booking.subtitle")}</p>
-          
-          <div className="inline-flex items-center gap-2 text-lg font-medium text-foreground bg-secondary/50 px-6 py-3 rounded-full border border-border shadow-sm">
-            <Phone className="h-5 w-5 text-primary" />
-            {t("booking.prefer_to_call")} <a href="tel:0546790378" className="text-gradient-gold hover:underline" dir="ltr">0546790378</a>
-          </div>
         </div>
 
-        <div className="mx-auto max-w-xl rounded-2xl border border-border bg-card/60 p-8 shadow-gold relative z-10 backdrop-blur-sm">
-          {/* Use formsubmit.co for no-backend email sending. Change action URL to your actual email. */}
-          <form action="https://formsubmit.co/David@Booked.Dental" method="POST" className="space-y-6">
-            <input type="hidden" name="_next" value={redirectUrl} />
-            <input type="hidden" name="_subject" value="New Market Check Submission!" />
-            <input type="hidden" name="_captcha" value="false" />
-            
-            <div className="space-y-2 text-start">
-              <Label htmlFor="name">{t("booking.form_name_label")}</Label>
-              <Input id="name" name="name" required placeholder={t("booking.form_name_placeholder")} className="bg-background" />
+        <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <aside className="relative z-10 space-y-5">
+            <div className="rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <SearchCheck className="h-5 w-5" />
+              </div>
+              <h2 className="font-display text-2xl font-semibold">{copy.proofTitle}</h2>
+              <ul className="mt-5 space-y-4">
+                {copy.proofItems.map((item) => (
+                  <li key={item} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            
-            <div className="space-y-2 text-start">
-              <Label htmlFor="email">{t("booking.form_email_label")}</Label>
-              <Input id="email" name="email" type="email" required placeholder={t("booking.form_email_placeholder")} className="bg-background" />
+            <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6">
+              <h2 className="font-display text-xl font-semibold">{copy.fitTitle}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{copy.fitBody}</p>
             </div>
-            
-            <div className="space-y-2 text-start">
-              <Label htmlFor="phone">{t("booking.form_phone_label")}</Label>
-              <Input id="phone" name="phone" type="tel" required placeholder={t("booking.form_phone_placeholder")} className="bg-background" dir="ltr" />
-            </div>
-            
-            <div className="space-y-2 text-start">
-              <Label htmlFor="city">{t("booking.form_city_label")}</Label>
-              <Input id="city" name="city" required placeholder={t("booking.form_city_placeholder")} className="bg-background" />
-            </div>
+          </aside>
 
-            <Button type="submit" size="lg" className="w-full bg-gradient-gold text-primary-foreground hover:opacity-90 shadow-gold mt-4">
-              {t("booking.form_submit")}
-            </Button>
-          </form>
+          <div className="rounded-2xl border border-border bg-card/60 p-8 shadow-gold relative z-10 backdrop-blur-sm">
+            <form action="https://formsubmit.co/David@Booked.Dental" method="POST" className="space-y-6">
+              <input type="hidden" name="_next" value={redirectUrl} />
+              <input type="hidden" name="_subject" value="New Market Check Submission!" />
+              <input type="hidden" name="_captcha" value="false" />
+
+              <div className="space-y-2 text-start">
+                <Label htmlFor="name">{t("booking.form_name_label")}</Label>
+                <Input id="name" name="name" required placeholder={t("booking.form_name_placeholder")} className="bg-background" />
+              </div>
+
+              <div className="space-y-2 text-start">
+                <Label htmlFor="email">{t("booking.form_email_label")}</Label>
+                <Input id="email" name="email" type="email" required placeholder={t("booking.form_email_placeholder")} className="bg-background" />
+              </div>
+
+              <div className="space-y-2 text-start">
+                <Label htmlFor="phone">{t("booking.form_phone_label")}</Label>
+                <Input id="phone" name="phone" type="tel" required placeholder={t("booking.form_phone_placeholder")} className="bg-background" dir="ltr" />
+              </div>
+
+              <div className="space-y-2 text-start">
+                <Label htmlFor="city">{t("booking.form_city_label")}</Label>
+                <Input id="city" name="city" required placeholder={t("booking.form_city_placeholder")} className="bg-background" />
+              </div>
+
+              <Button type="submit" size="lg" className="w-full bg-gradient-gold text-primary-foreground hover:opacity-90 shadow-gold mt-4">
+                {t("booking.form_submit")}
+              </Button>
+            </form>
+          </div>
         </div>
 
         <div className="mx-auto mt-10 flex max-w-2xl flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8 relative z-10">
