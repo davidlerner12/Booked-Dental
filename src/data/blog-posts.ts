@@ -233,7 +233,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "why-dental-ads-fail",
     metaDescription:
-      "Learn why dental ads fail, from weak offers to poor targeting, and how implant and cosmetic clinics can turn campaign investment into filtered opportunities.",
+      "Learn why dental ads fail, from weak offers to poor targeting, and how implant and cosmetic clinics can turn better filtering into more qualified opportunities.",
     title: "Why Dental Ads Fail and How to Fix Them",
     excerpt:
       "A practice spends $4,000 on ads, gets a pile of leads, and books almost no high-value cases. The problem usually isn't that ads don't work — it's that the campaign was built wrong.",
@@ -317,7 +317,7 @@ export const blogPosts: BlogPost[] = [
           "Then the channel has to match the goal. Google is often best for intercepting intent that already exists. Meta is often best for creating intent and retargeting interested prospects. Most clinics do not need every platform at once. They need the right one, executed well, with enough budget to gather signal.",
           "Creative should be simple, believable, and patient-centered. In many markets, low-friction UGC-style video will outperform expensive brand pieces because it feels more trustworthy.",
           "The landing page should remove doubt, not create homework. Clear treatment focus, proof, financing cues, simple forms, and one obvious next step. Anything that distracts from booking should be questioned.",
-          "And finally, reporting needs to track the numbers that matter. Not impressions. Not vanity engagement. Not raw leads. Booked filtered patient inquiries, show rates, case acceptance, and return on campaign investment.",
+          "And finally, reporting needs to track the numbers that matter. Not impressions. Not vanity engagement. Not raw leads. Booked filtered patient inquiries, show rates, case acceptance, and ROI from qualified opportunities.",
         ],
       },
       {
@@ -519,7 +519,7 @@ export const blogPosts: BlogPost[] = [
         paragraphs: [
           "The best-performing implant and cosmetic practices rarely treat channels like ideology. They treat them like tools.",
           "Google handles the bottom of the funnel. Meta fills the pipeline higher up with compelling creative and strong offers. The landing pages stay focused on filtered patient inquiries, not generic website traffic. Intake follows up fast. Financing is presented clearly. The team measures filtered opportunities, show rates, and treatment starts instead of celebrating vanity metrics.",
-          "If you are deciding where to put the next dollar, do not ask which platform is more popular. Ask which one is more likely to produce filtered opportunities for the treatments you actually want to sell. The right answer is the one that turns campaign investment into booked patients, fast enough and profitably enough that you want to keep going.",
+          "If you are deciding where to put the next dollar, do not ask which platform is more popular. Ask which one is more likely to produce filtered opportunities for the treatments you actually want to sell. The right answer is the one that turns qualified demand into booked patients, fast enough and profitably enough that you want to keep going.",
         ],
       },
     ],
@@ -831,7 +831,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Dental office marketing should start with the highest-value services",
         paragraphs: [
           "The smartest clinics do not try to market everything equally.",
-          "If implants, veneers, or smile makeovers are where the real margin lives, then your marketing should reflect that. Start with the services that can support meaningful campaign investment and justify focused conversion work. That usually means building campaigns, landing pages, and follow-up systems around one high-value treatment category at a time.",
+          "If implants, veneers, or smile makeovers are where the real margin lives, then your marketing should reflect that. Start with the services that can justify focused conversion work. That usually means building campaigns, landing pages, and follow-up systems around one high-value treatment category at a time.",
           "For example, a full-arch implant campaign should not feel like general office advertising. It should speak directly to missing teeth, denture frustration, confidence, function, and the emotional weight of delaying treatment. A cosmetic campaign should do something different. It should speak to appearance, confidence, photos, social life, and visible transformation.",
           "Once the marketing is built around the right service line, the economics become much easier to manage. You can track cost per qualified opportunity, show rate, acceptance rate, and revenue per case instead of guessing whether a vague increase in leads is actually helping the business.",
         ],
@@ -868,7 +868,7 @@ export const blogPosts: BlogPost[] = [
         paragraphs: [
           "A lead form is not the finish line. It is the handoff.",
           "If your team takes too long to respond, even good campaigns will look weak. Implant and cosmetic patients often contact more than one office. The practice that responds first, answers clearly, and makes the opportunity feel easy often wins.",
-          "That is why strong dental office marketing should include more than media buying. It should account for lead handling, speed to lead, scheduling flow, and the way front-desk staff speak to elective patients. These are not small details. They directly affect return on campaign investment.",
+          "That is why strong dental office marketing should include more than media buying. It should account for lead handling, speed to lead, scheduling flow, and the way front-desk staff speak to elective patients. These are not small details. They directly affect ROI from qualified opportunities.",
           "Many clinics blame lead quality when the real problem is what happened after the lead came in. If no one followed up for two hours, if the team sounded uncertain, or if the patient did not feel guided toward a real appointment, the system broke after the click. The clinics that grow fastest usually have tighter follow-up than their competitors, not just better ads.",
         ],
       },
