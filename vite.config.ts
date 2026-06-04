@@ -83,10 +83,45 @@ const BLOG_CANONICAL_SLUGS: Record<string, string> = {
   "how-cosmetic-dentists-get-more-consults": "cosmetic-dentists-high-intent-patients",
   "how-to-get-more-cosmetic-consults-fast": "cosmetic-dentistry-patient-acquisition-fast",
   "generate-consultation-calls-for-dentists": "dental-lead-filtering-for-dentists",
+  "how-dental-clinics-get-more-implant-consultations-2026": "how-to-get-more-dental-implant-patients",
 };
+const CONSOLIDATED_BLOG_DUPLICATES = new Set([
+  "generate-consultation-calls-for-dentist",
+  "implant-consult-booking-system",
+  "affordable-dental-ads-that-book-consults",
+  "dental-consultation-funnel",
+  "how-to-reduce-no-show-consults",
+  "implant-consultation-funnel",
+  "cosmetic-consult-follow-up-scripts-that-book",
+  "dentist-facebook-ads-that-book-consults",
+  "קידום-בגוגל-לרופאי-שיניים-תוצאות-מהירות",
+  "פרסום-בגוגל-לרופאי-שיניים-לידים-חדשים",
+  "סוכנות-שיווק-לרופאי-שיניים-בחירת-חברה-מקצועית",
+  "משרד-פרסום-לרופאי-שיניים-אסטרטגיה-דיגיטלית",
+  "אורגני-לרופאי-שיניים-בגוגל",
+  "קידום-אתרים-לרופאי-שיניים-עמוד-ראשון",
+  "מרפאות-שיניים-חייבות-אתר-מקצועי",
+  "אתר-למרפאת-שיניים-המרת-מטופלים",
+  "בניית-אתרים-לרופאי-שיניים-הגדלת-מטופלים",
+  "שיווק-לרופאי-שיניים-בניית-אמון-דיגיטלי",
+  "שיווק-מרפאות-שיניים-בניית-מותג-דיגיטלי",
+  "שיווק-דיגיטלי-לרופאי-שיניים-אסטרטגיית-צמיחה",
+  "שיווק-קליניקת-שיניים-בדיגיטל",
+  "פרסום-מרפאת-שיניים-משיכת-מטופלים",
+  "פרסום-ממומן-לרופאי-שיניים-המרת-לידים",
+  "ניהול-פרסום-לרופאי-שיניים-תוצאות-אמיתיות",
+]);
 
 function canonicalBlogSlug(slug: string) {
   return BLOG_CANONICAL_SLUGS[slug] || slug;
+}
+
+function isConsolidatedBlogDuplicate(slug: string) {
+  return CONSOLIDATED_BLOG_DUPLICATES.has(slug);
+}
+
+function uniqueValues(values: string[]) {
+  return Array.from(new Set(values));
 }
 
 function postLanguage(post: SanityPostMeta) {
@@ -97,10 +132,12 @@ function postLanguage(post: SanityPostMeta) {
 
 async function getBlogStaticRoutes() {
   const posts = await getSanityBlogPosts();
-  return [
-    ...posts.map((post) => `/${postLanguage(post)}/blog/${canonicalBlogSlug(post.slug)}`),
+  return uniqueValues([
+    ...posts
+      .filter((post) => !isConsolidatedBlogDuplicate(post.slug))
+      .map((post) => `/${postLanguage(post)}/blog/${canonicalBlogSlug(post.slug)}`),
     ...supplementalBlogPosts.map((post) => `/${postLanguage(post)}/blog/${post.slug}`),
-  ];
+  ]);
 }
 
 function toIsoDate(value?: string) {
@@ -198,12 +235,18 @@ async function generateSitemap(outDir: string) {
     ),
   ]);
 
-  const blogUrls = posts.map((post) => {
+  const seenBlogUrls = new Set<string>();
+  const blogUrls = posts
+    .filter((post) => !isConsolidatedBlogDuplicate(post.slug))
+    .map((post) => {
     const lang = postLanguage(post);
     const slug = canonicalBlogSlug(post.slug);
     const imageUrl = sanityImageUrl(post.mainImageRef);
+    const loc = `${siteUrl}/${lang}/blog/${slug}`;
+    if (seenBlogUrls.has(loc)) return "";
+    seenBlogUrls.add(loc);
     return urlNode({
-      loc: `${siteUrl}/${lang}/blog/${slug}`,
+      loc,
       lastmod: toIsoDate(post.publishedAt),
       changefreq: "monthly",
       priority: "0.8",
@@ -215,7 +258,7 @@ async function generateSitemap(outDir: string) {
           }
         : undefined,
     });
-  });
+  }).filter(Boolean);
   const supplementalBlogUrls = supplementalBlogPosts.map((post) =>
     urlNode({
       loc: `${siteUrl}/${postLanguage(post)}/blog/${post.slug}`,

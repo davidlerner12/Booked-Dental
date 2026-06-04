@@ -39,6 +39,7 @@ const OVERRIDES: Record<string, BlogOverride> = {
     keywords: ["dental implant marketing", "implant patient acquisition", "lead filtering"],
   },
   "how-dental-clinics-get-more-implant-consultations-2026": {
+    canonicalSlug: "how-to-get-more-dental-implant-patients",
     title: "How Dental Clinics Get More Implant Patients in 2026",
     excerpt:
       "A practical 2026 guide to implant patient acquisition, lead filtering, campaign quality, and ROI for dental clinics.",
@@ -177,6 +178,34 @@ const OVERRIDES: Record<string, BlogOverride> = {
     alt: "Meta ads dashboard for cosmetic dentists showing lead quality signals",
     keywords: ["Meta ads for cosmetic dentists", "cosmetic dental ads", "lead filtering"],
   },
+};
+
+const CONSOLIDATED_BLOG_CANONICALS: Record<string, string> = {
+  "generate-consultation-calls-for-dentist": "dental-lead-filtering-for-dentists",
+  "implant-consult-booking-system": "dental-implant-lead-generation-that-pays",
+  "affordable-dental-ads-that-book-consults": "why-dental-ads-fail",
+  "dental-consultation-funnel": "dental-lead-filtering-for-dentists",
+  "how-to-reduce-no-show-consults": "dental-lead-filtering-for-dentists",
+  "implant-consultation-funnel": "dental-implant-lead-generation-that-pays",
+  "cosmetic-consult-follow-up-scripts-that-book": "cosmetic-dentistry-patient-acquisition-fast",
+  "dentist-facebook-ads-that-book-consults": "meta-ads-for-cosmetic-dentists",
+
+  "קידום-בגוגל-לרופאי-שיניים-תוצאות-מהירות": "פרסום-בגוגל-לרופאי-שיניים-מטופלים-חדשים",
+  "פרסום-בגוגל-לרופאי-שיניים-לידים-חדשים": "פרסום-בגוגל-לרופאי-שיניים-מטופלים-חדשים",
+  "סוכנות-שיווק-לרופאי-שיניים-בחירת-חברה-מקצועית": "משרד-פרסום-לרופאי-שיניים-בחירת-שותף",
+  "משרד-פרסום-לרופאי-שיניים-אסטרטגיה-דיגיטלית": "משרד-פרסום-לרופאי-שיניים-בחירת-שותף",
+  "אורגני-לרופאי-שיניים-בגוגל": "למה-seo-לרופאי-שיניים-חשוב-לעסק",
+  "קידום-אתרים-לרופאי-שיניים-עמוד-ראשון": "למה-seo-לרופאי-שיניים-חשוב-לעסק",
+  "מרפאות-שיניים-חייבות-אתר-מקצועי": "אתר-ליצירת-לידים-לרופאי-שיניים",
+  "אתר-למרפאת-שיניים-המרת-מטופלים": "אתר-ליצירת-לידים-לרופאי-שיניים",
+  "בניית-אתרים-לרופאי-שיניים-הגדלת-מטופלים": "אתר-ליצירת-לידים-לרופאי-שיניים",
+  "שיווק-לרופאי-שיניים-בניית-אמון-דיגיטלי": "בניית-מותג-למרפאת-שיניים-בדיגיטל",
+  "שיווק-מרפאות-שיניים-בניית-מותג-דיגיטלי": "בניית-מותג-למרפאת-שיניים-בדיגיטל",
+  "שיווק-דיגיטלי-לרופאי-שיניים-אסטרטגיית-צמיחה": "שיווק-מרפאות-שיניים-אסטרטגיה-דיגיטלית",
+  "שיווק-קליניקת-שיניים-בדיגיטל": "שיווק-מרפאות-שיניים-אסטרטגיה-דיגיטלית",
+  "פרסום-מרפאת-שיניים-משיכת-מטופלים": "פרסום-לרופאי-שיניים-מטופלים-איכותיים",
+  "פרסום-ממומן-לרופאי-שיניים-המרת-לידים": "פרסום-ממומן-לרופאי-שיניים-לידים-איכותיים",
+  "ניהול-פרסום-לרופאי-שיניים-תוצאות-אמיתיות": "ניהול-פרסום-לרופאי-שיניים-מערכת-לידים",
 };
 
 const SOURCE_SLUG_BY_CANONICAL = Object.entries(OVERRIDES).reduce<Record<string, string>>(
@@ -333,7 +362,13 @@ function findExplicitOverride(slug: string) {
     };
   }
   const sourceSlug = SOURCE_SLUG_BY_CANONICAL[slug] || slug;
-  return OVERRIDES[sourceSlug];
+  const override = OVERRIDES[sourceSlug];
+  const consolidatedCanonical = CONSOLIDATED_BLOG_CANONICALS[sourceSlug];
+  if (!consolidatedCanonical) return override;
+  return {
+    ...override,
+    canonicalSlug: consolidatedCanonical,
+  };
 }
 
 function findOverride(slug: string) {
@@ -525,5 +560,9 @@ export function resolveSourceBlogSlug(slug: string) {
 }
 
 export function toCanonicalBlogSlug(slug: string) {
-  return findExplicitOverride(slug)?.canonicalSlug || slug;
+  return CONSOLIDATED_BLOG_CANONICALS[slug] || findExplicitOverride(slug)?.canonicalSlug || slug;
+}
+
+export function isConsolidatedBlogDuplicate(slug: string) {
+  return Object.prototype.hasOwnProperty.call(CONSOLIDATED_BLOG_CANONICALS, slug);
 }

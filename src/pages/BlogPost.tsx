@@ -519,6 +519,9 @@ export default function BlogPost() {
   }
 
   if (!post) return <Navigate to={`/${lang}/blog`} replace />;
+  if (slug && post.slug !== slug) {
+    return <Navigate to={`/${lang}/blog/${post.slug}`} replace />;
+  }
 
   const postPath = `/blog/${post.slug}`;
   const postUrl = buildLocalizedUrl(lang, postPath);

@@ -5,6 +5,7 @@ import { supplementalBlogPosts } from "@/data/supplemental-blog-posts";
 import {
   applyBlogSeoListOverrides,
   applyBlogSeoOverrides,
+  isConsolidatedBlogDuplicate,
   resolveSourceBlogSlug,
   toCanonicalBlogSlug,
 } from "@/lib/blog-seo-overrides";
@@ -37,6 +38,15 @@ function getPostLanguage(post: Pick<BlogPostListItem, "title" | "slug" | "excerp
 function filterPostsByLanguage<T extends BlogPostListItem>(posts: T[], lang?: string) {
   if (lang !== "en" && lang !== "he") return posts;
   return posts.filter((post) => getPostLanguage(post) === lang);
+}
+
+function dedupePostsBySlug<T extends BlogPostListItem>(posts: T[]) {
+  const seen = new Set<string>();
+  return posts.filter((post) => {
+    if (seen.has(post.slug)) return false;
+    seen.add(post.slug);
+    return true;
+  });
 }
 
 export const BLOG_LIST_QUERY = groq`*[
@@ -79,10 +89,10 @@ export async function getAllBlogPosts(lang?: string) {
   assertSanityConfig();
   const posts = await sanityClient.fetch<BlogPostListItem[]>(BLOG_LIST_QUERY);
   const combinedPosts = [
-    ...applyBlogSeoListOverrides(posts || []),
+    ...applyBlogSeoListOverrides((posts || []).filter((post) => !isConsolidatedBlogDuplicate(post.slug))),
     ...supplementalBlogPosts,
   ].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
-  return filterPostsByLanguage(combinedPosts, lang);
+  return dedupePostsBySlug(filterPostsByLanguage(combinedPosts, lang));
 }
 
 export async function getBlogPostBySlug(slug: string, lang?: string) {
@@ -106,10 +116,10 @@ export async function getAllBlogSlugs(lang?: string) {
   assertSanityConfig();
   const posts = await sanityClient.fetch<BlogPostListItem[]>(BLOG_LIST_QUERY);
   const combinedPosts = [
-    ...applyBlogSeoListOverrides(posts || []),
+    ...applyBlogSeoListOverrides((posts || []).filter((post) => !isConsolidatedBlogDuplicate(post.slug))),
     ...supplementalBlogPosts,
   ];
-  return filterPostsByLanguage(combinedPosts, lang).map((item) =>
+  return dedupePostsBySlug(filterPostsByLanguage(combinedPosts, lang)).map((item) =>
     toCanonicalBlogSlug(item.slug),
   );
 }
