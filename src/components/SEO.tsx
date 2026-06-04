@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Head } from "vite-react-ssg";
 import {
   DEFAULT_SOCIAL_IMAGE,
   SITE_NAME,
@@ -40,7 +40,7 @@ export default function SEO({
       : [];
 
   return (
-    <Helmet>
+    <Head>
       <html lang={currentLang} dir={currentLang === "he" ? "rtl" : "ltr"} />
       <title>{title}</title>
       <meta name="description" content={description} />
@@ -83,6 +83,6 @@ export default function SEO({
           {JSON.stringify(data)}
         </script>
       ))}
-    </Helmet>
+    </Head>
   );
 }

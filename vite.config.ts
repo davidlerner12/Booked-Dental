@@ -60,7 +60,10 @@ const SUPPORTED_LANGS = ["en", "he"];
 const LOCALIZED_STATIC_PATHS = ["", "/book", "/blog", "/about", "/privacy", "/thank-you"];
 const SERVICE_STATIC_PATHS = [
   "/services/dental-implant-marketing",
+  "/services/all-on-4-dental-implant-marketing",
   "/services/cosmetic-dentistry-marketing",
+  "/services/veneers-marketing",
+  "/services/dental-lead-generation",
   "/services/dental-lead-filtering",
   "/services/ugc-dental-ads",
 ];

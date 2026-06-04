@@ -1,5 +1,5 @@
 import { PortableText } from "@portabletext/react";
-import { Helmet } from "react-helmet";
+import { Head } from "vite-react-ssg";
 import { Link, Navigate, useLoaderData, useParams } from "react-router-dom";
 import {
   ArrowLeft,
@@ -436,7 +436,7 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
-      <Helmet>
+      <Head>
         <title>{metaTitle}</title>
         <meta name="description" content={post.excerpt} />
         <meta name="keywords" content={seoKeywords.join(", ")} />
@@ -464,7 +464,7 @@ export default function BlogPost() {
         <script type="application/ld+json">{JSON.stringify(articleStructuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbStructuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(internalLinksStructuredData)}</script>
-      </Helmet>
+      </Head>
 
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
