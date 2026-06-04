@@ -61,11 +61,21 @@ const LOCALIZED_STATIC_PATHS = ["", "/book", "/blog", "/about", "/privacy", "/th
 const SERVICE_STATIC_PATHS = [
   "/services/dental-implant-marketing",
   "/services/all-on-4-dental-implant-marketing",
+  "/services/dental-implant-lead-generation",
+  "/services/all-on-4-lead-generation",
+  "/services/full-arch-implant-marketing",
+  "/services/google-ads-for-dental-implants",
+  "/services/facebook-ads-for-dentists",
   "/services/cosmetic-dentistry-marketing",
   "/services/veneers-marketing",
+  "/services/cosmetic-dentist-marketing-agency",
   "/services/dental-lead-generation",
   "/services/dental-lead-filtering",
   "/services/ugc-dental-ads",
+  "/services/roi-methodology",
+  "/services/qualified-opportunity-methodology",
+  "/services/booked-dental-vs-dental-marketing-agency",
+  "/services/dental-lead-generation-vs-patient-acquisition",
 ];
 const BLOG_CANONICAL_SLUGS: Record<string, string> = {
   "how-cosmetic-dentists-get-more-consults": "cosmetic-dentists-high-intent-patients",

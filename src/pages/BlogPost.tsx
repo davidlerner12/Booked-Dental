@@ -23,6 +23,7 @@ import {
   getBlogSeoKeywords,
   getInternalBlogLinks,
 } from "@/lib/blog-seo-overrides";
+import { SERVICE_PAGES } from "@/lib/service-pages";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const BLOG_SEO_KEYWORDS = [
@@ -64,6 +65,94 @@ const TRUST_SOURCES = [
 ];
 
 const AUTHOR_IMAGE = "https://booked.dental/images/david-lerner-headshot.jpg";
+
+const SERVICE_LINKS_BY_BLOG_SLUG: Record<string, string[]> = {
+  "how-to-get-more-dental-implant-patients": [
+    "dental-implant-marketing",
+    "dental-implant-lead-generation",
+    "full-arch-implant-marketing",
+  ],
+  "dental-implant-lead-generation-that-pays": [
+    "dental-implant-lead-generation",
+    "all-on-4-lead-generation",
+    "roi-methodology",
+  ],
+  "google-ads-for-dental-implants": [
+    "google-ads-for-dental-implants",
+    "dental-implant-lead-generation",
+    "qualified-opportunity-methodology",
+  ],
+  "google-ads-vs-facebook-ads-dentists": [
+    "google-ads-for-dental-implants",
+    "facebook-ads-for-dentists",
+    "dental-lead-generation-vs-patient-acquisition",
+  ],
+  "meta-ads-for-cosmetic-dentists": [
+    "facebook-ads-for-dentists",
+    "cosmetic-dentistry-marketing",
+    "veneers-marketing",
+  ],
+  "ugc-dental-ads-examples": [
+    "ugc-dental-ads",
+    "facebook-ads-for-dentists",
+    "qualified-opportunity-methodology",
+  ],
+  "best-implant-ad-creatives": [
+    "ugc-dental-ads",
+    "full-arch-implant-marketing",
+    "all-on-4-dental-implant-marketing",
+  ],
+  "cosmetic-dentists-high-intent-patients": [
+    "cosmetic-dentistry-marketing",
+    "veneers-marketing",
+    "cosmetic-dentist-marketing-agency",
+  ],
+  "cosmetic-dentistry-patient-acquisition-fast": [
+    "cosmetic-dentistry-marketing",
+    "veneers-marketing",
+    "dental-lead-generation-vs-patient-acquisition",
+  ],
+  "dental-lead-filtering-for-dentists": [
+    "dental-lead-filtering",
+    "qualified-opportunity-methodology",
+    "dental-lead-generation",
+  ],
+  "best-dental-lead-sources": [
+    "dental-lead-generation",
+    "dental-lead-generation-vs-patient-acquisition",
+    "roi-methodology",
+  ],
+  "why-dental-ads-fail": [
+    "dental-lead-filtering",
+    "qualified-opportunity-methodology",
+    "booked-dental-vs-dental-marketing-agency",
+  ],
+  "dentist-growth-agency": [
+    "booked-dental-vs-dental-marketing-agency",
+    "cosmetic-dentist-marketing-agency",
+    "roi-methodology",
+  ],
+  "affordable-dental-marketing-agency": [
+    "booked-dental-vs-dental-marketing-agency",
+    "dental-lead-generation-vs-patient-acquisition",
+    "qualified-opportunity-methodology",
+  ],
+  "in-house-vs-agency-marketing-for-dentists": [
+    "booked-dental-vs-dental-marketing-agency",
+    "roi-methodology",
+    "qualified-opportunity-methodology",
+  ],
+  "dental-office-marketing": [
+    "dental-lead-generation",
+    "facebook-ads-for-dentists",
+    "dental-lead-filtering",
+  ],
+  "dentist-patient-growth": [
+    "dental-lead-generation-vs-patient-acquisition",
+    "roi-methodology",
+    "qualified-opportunity-methodology",
+  ],
+};
 
 const AUTHOR_COPY = {
   en: {
@@ -298,8 +387,9 @@ export default function BlogPost() {
   const loaderData = useLoaderData() as BlogPostLoaderData | null;
   const { t, i18n } = useTranslation();
   const { lang, slug } = useParams();
-  const dateLocale = i18n.language === "he" ? "he-IL" : "en-US";
-  const isHebrew = i18n.language === "he";
+  const pageLang = lang === "he" ? "he" : "en";
+  const dateLocale = pageLang === "he" ? "he-IL" : "en-US";
+  const isHebrew = pageLang === "he";
 
   // SSG loaders embed data at build time; on client-side navigation
   // useLoaderData() returns null, so we fall back to fetching directly.
@@ -345,6 +435,15 @@ export default function BlogPost() {
   const internalLinkSlugs = getInternalBlogLinks(post.slug).filter((linkSlug) => linkSlug !== post.slug);
   const internalLinkPosts = internalLinkSlugs
     .map((linkSlug) => related.find((item) => item.slug === linkSlug))
+    .filter(Boolean)
+    .slice(0, 3);
+  const serviceSlugs = SERVICE_LINKS_BY_BLOG_SLUG[post.slug] || [
+    "dental-lead-filtering",
+    "qualified-opportunity-methodology",
+    "dental-lead-generation-vs-patient-acquisition",
+  ];
+  const serviceLinks = serviceSlugs
+    .map((serviceSlug) => SERVICE_PAGES[pageLang].find((service) => service.slug === serviceSlug))
     .filter(Boolean)
     .slice(0, 3);
   const authorCopy = isHebrew ? AUTHOR_COPY.he : AUTHOR_COPY.en;
@@ -433,6 +532,17 @@ export default function BlogPost() {
       url: buildLocalizedUrl(lang, `/blog/${linkSlug}`),
     })),
   };
+  const serviceLinksStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: isHebrew ? "עמודי שירות קשורים" : "Related service pages",
+    itemListElement: serviceLinks.map((service, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: service.title,
+      url: buildLocalizedUrl(lang, `/services/${service.slug}`),
+    })),
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
@@ -464,6 +574,7 @@ export default function BlogPost() {
         <script type="application/ld+json">{JSON.stringify(articleStructuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbStructuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(internalLinksStructuredData)}</script>
+        <script type="application/ld+json">{JSON.stringify(serviceLinksStructuredData)}</script>
       </Head>
 
       {/* Header */}
@@ -623,6 +734,34 @@ export default function BlogPost() {
                         </p>
                         <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
                           {item.excerpt}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </aside>
+              )}
+              {serviceLinks.length > 0 && (
+                <aside className="mb-10 rounded-xl border border-border bg-card p-5 sm:p-6">
+                  <p className="text-xs font-medium uppercase tracking-[0.14em] text-primary">
+                    {isHebrew ? "עמודי עומק קשורים" : "Related service pages"}
+                  </p>
+                  <h2 className="mt-2 font-display text-xl font-semibold text-foreground">
+                    {isHebrew
+                      ? "העמודים שמרחיבים את האסטרטגיה מאחורי המאמר"
+                      : "Go deeper on the system behind this article"}
+                  </h2>
+                  <div className="mt-4 grid gap-3">
+                    {serviceLinks.map((service) => (
+                      <Link
+                        key={service.slug}
+                        to={`/${lang}/services/${service.slug}`}
+                        className="group rounded-lg border border-border bg-background/70 p-4 transition-colors hover:border-primary/40 hover:bg-background"
+                      >
+                        <p className="font-display text-sm font-semibold text-foreground transition-colors group-hover:text-primary">
+                          {service.title}
+                        </p>
+                        <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
+                          {service.description}
                         </p>
                       </Link>
                     ))}
