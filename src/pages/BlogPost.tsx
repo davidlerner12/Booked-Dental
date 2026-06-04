@@ -467,7 +467,8 @@ export default function BlogPost() {
     .map((linkSlug) => related.find((item) => item.slug === linkSlug))
     .filter(Boolean)
     .slice(0, 3);
-  const serviceSlugs = SERVICE_LINKS_BY_BLOG_SLUG[post.slug] || [
+  const postServiceLinks = (post as { serviceLinks?: string[] }).serviceLinks;
+  const serviceSlugs = postServiceLinks || SERVICE_LINKS_BY_BLOG_SLUG[post.slug] || [
     "dental-lead-filtering",
     "qualified-opportunity-methodology",
     "dental-lead-generation-vs-patient-acquisition",

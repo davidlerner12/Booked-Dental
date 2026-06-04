@@ -99,7 +99,7 @@ async function getBlogStaticRoutes() {
   const posts = await getSanityBlogPosts();
   return [
     ...posts.map((post) => `/${postLanguage(post)}/blog/${canonicalBlogSlug(post.slug)}`),
-    ...supplementalBlogPosts.map((post) => `/en/blog/${post.slug}`),
+    ...supplementalBlogPosts.map((post) => `/${postLanguage(post)}/blog/${post.slug}`),
   ];
 }
 
@@ -218,7 +218,7 @@ async function generateSitemap(outDir: string) {
   });
   const supplementalBlogUrls = supplementalBlogPosts.map((post) =>
     urlNode({
-      loc: `${siteUrl}/en/blog/${post.slug}`,
+      loc: `${siteUrl}/${postLanguage(post)}/blog/${post.slug}`,
       lastmod: toIsoDate(post.publishedAt),
       changefreq: "monthly",
       priority: "0.8",

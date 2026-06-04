@@ -283,6 +283,498 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
       ["Do reviews improve paid ad conversion? Often yes. Patients frequently research the clinic after seeing an ad, so reputation can influence whether paid traffic becomes a qualified opportunity."],
     ]),
   },
+  {
+    _id: "supplemental-all-on-4-marketing",
+    slug: "all-on-4-marketing",
+    title: "All-on-4 Marketing: How to Attract Full-Arch Implant Patients",
+    excerpt:
+      "All-on-4 marketing works best when campaigns filter for treatment intent, financing readiness, and full-arch case fit instead of chasing cheap leads.",
+    publishedAt: "2026-06-04T16:00:00.000Z",
+    seoImage: "/blog/images/implant-marketing.png",
+    mainImageAlt: "All-on-4 marketing funnel for full-arch implant patient acquisition",
+    serviceLinks: [
+      "all-on-4-lead-generation",
+      "full-arch-implant-marketing",
+      "dental-lead-quality-checklist",
+    ],
+    body: body([
+      [
+        "All-on-4 marketing is not regular dental advertising with a more expensive procedure attached. Full-arch implant patients usually carry fear, urgency, financial hesitation, and a long research path. The campaign has to respect that reality from the first ad to the first qualified conversation.",
+      ],
+      ["Start with full-arch intent", "h2"],
+      [
+        "The strongest All-on-4 campaigns speak directly to people dealing with failing teeth, loose dentures, missing teeth, embarrassment, or a treatment plan they are unsure about. Generic implant messaging is too broad because single-tooth implant shoppers and full-arch candidates are not the same audience.",
+      ],
+      [
+        "Your ad, landing page, and follow-up questions should all clarify whether the person is exploring a full-arch solution, has already been quoted, needs financing, or is still at the early research stage. That gives the campaign cleaner learning data.",
+      ],
+      ["Filter for case fit, not just form fills", "h2"],
+      [
+        "A full-arch lead is only useful if the clinic can understand urgency, budget reality, location, treatment interest, and whether the patient is reachable. A high form volume with no qualification process usually teaches the ad platform to find easy clicks and casual inquiries.",
+      ],
+      ["All-on-4 marketing FAQ", "h2"],
+      [
+        "What keywords matter for All-on-4 marketing? Strong angles include All-on-4 cost, full mouth dental implants, implant dentures, fixed teeth, and dental implants near me, but each needs filtering so budget does not go to low-fit shoppers.",
+      ],
+      [
+        "Should All-on-4 ads mention financing? Usually yes. Financing language can reduce hesitation for serious patients, but it should be framed around eligibility and fit instead of sounding like a discount offer.",
+      ],
+      [
+        "What makes an All-on-4 campaign profitable? Profit comes from qualified opportunities, show rate, acceptance rate, and case value, not from the lowest possible cost per lead.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-he-all-on-4-marketing",
+    slug: "all-on-4-marketing-he",
+    title: "שיווק All-on-4: איך למשוך מטופלי שתלים רציניים",
+    excerpt:
+      "שיווק All-on-4 עובד טוב יותר כשמסננים כוונת טיפול, התאמה כלכלית והתאמה למקרה מלא, במקום לרדוף אחרי לידים זולים.",
+    publishedAt: "2026-06-04T16:01:00.000Z",
+    seoImage: "/blog/images/implant-marketing.png",
+    mainImageAlt: "מערכת שיווק All-on-4 למשיכת מטופלי שתלים רציניים",
+    serviceLinks: [
+      "all-on-4-lead-generation",
+      "full-arch-implant-marketing",
+      "dental-lead-quality-checklist",
+    ],
+    body: body([
+      [
+        "שיווק All-on-4 הוא לא עוד קמפיין דנטלי רגיל עם טיפול יקר יותר. מטופלים שמתעניינים בשיקום פה מלא מגיעים עם חששות, דחיפות, שאלות על מימון ותהליך קבלת החלטה ארוך יותר. הקמפיין צריך להתייחס לזה כבר מהמודעה הראשונה.",
+      ],
+      ["להתחיל מכוונת טיפול אמיתית", "h2"],
+      [
+        "הקמפיינים החזקים ביותר מדברים לאנשים עם שיניים קורסות, תותבות לא נוחות, שיניים חסרות, מבוכה או הצעת טיפול שהם עדיין לא בטוחים לגביה. מסר כללי על שתלים רחב מדי, כי מטופל לשתל בודד ומטופל לשיקום מלא הם לא אותו קהל.",
+      ],
+      [
+        "המודעה, עמוד הנחיתה ושאלות הסינון צריכים לברר האם האדם בוחן פתרון מלא, כבר קיבל הצעת מחיר, צריך מימון או נמצא רק בשלב מחקר ראשוני. כך המערכת לומדת למצוא אנשים רלוונטיים יותר.",
+      ],
+      ["לסנן התאמה, לא רק טפסים", "h2"],
+      [
+        "ליד לשיקום מלא שווה משהו רק אם המרפאה מבינה דחיפות, התאמה כלכלית, מיקום, עניין טיפולי והאם אפשר להשיג את האדם. נפח גבוה בלי סינון מלמד את המערכת למצוא מילוי טפסים קל, לא בהכרח מטופלים רציניים.",
+      ],
+      ["שאלות נפוצות על שיווק All-on-4", "h2"],
+      [
+        "אילו מילות מפתח חשובות? מונחים כמו מחיר All-on-4, השתלות שיניים בכל הפה, תותבות קבועות ושתלים קרוב אליי יכולים לעבוד, אבל צריך לסנן כדי לא לבזבז תקציב על מתעניינים לא מתאימים.",
+      ],
+      [
+        "האם כדאי להזכיר מימון? בדרך כלל כן. מסר על מימון יכול להוריד התנגדות אצל מטופלים רציניים, אבל כדאי למסגר אותו סביב בדיקת התאמה ולא כהנחת מחיר.",
+      ],
+      [
+        "מה הופך קמפיין All-on-4 לרווחי? הרווח מגיע מהזדמנויות איכותיות, שיעור הגעה, שיעור סגירה ושווי מקרה, לא מהליד הכי זול.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-full-mouth-dental-implant-leads",
+    slug: "full-mouth-dental-implant-leads",
+    title: "Full Mouth Dental Implant Leads: Why Most Campaigns Waste Budget",
+    excerpt:
+      "Full mouth dental implant leads need a different acquisition system because case value is high, research cycles are longer, and bad lead quality gets expensive fast.",
+    publishedAt: "2026-06-04T16:05:00.000Z",
+    seoImage: "/blog/images/dental-patient-acquisition.png",
+    mainImageAlt: "Full mouth dental implant lead quality dashboard for high-value case acquisition",
+    serviceLinks: [
+      "full-arch-implant-marketing",
+      "dental-implant-lead-generation",
+      "qualified-opportunity-methodology",
+    ],
+    body: body([
+      [
+        "Full mouth dental implant leads can be extremely valuable, but they can also drain budget fast when the campaign is optimized around cheap inquiries. High case value does not protect a clinic from poor targeting, weak landing pages, or slow follow-up.",
+      ],
+      ["Why full mouth implant leads are different", "h2"],
+      [
+        "A patient considering full mouth implants is often comparing treatment options, financing, dentist credibility, fear of surgery, recovery time, and whether they are a candidate. That means the campaign has to educate and qualify, not just collect contact details.",
+      ],
+      [
+        "The common mistake is treating every lead as equal. Someone asking about a single missing tooth, someone looking for the cheapest denture, and someone ready for a full-arch consult should not be valued the same in reporting.",
+      ],
+      ["Teach the campaign what quality means", "h2"],
+      [
+        "Lead filtering helps the ad system learn from the right signals. When the clinic marks which inquiries became serious opportunities, budget can move toward audiences, keywords, and creatives that produce better patient conversations.",
+      ],
+      ["Full mouth dental implant leads FAQ", "h2"],
+      [
+        "Why are full mouth implant leads expensive? The treatment is high value and competitive, so many clinics bid for the same serious patients. Better filtering helps protect the budget.",
+      ],
+      [
+        "Should campaigns use before-and-after creative? They can, but the creative must be compliant, believable, and supported by trust-building copy. Overly dramatic claims can hurt credibility.",
+      ],
+      [
+        "What should be tracked after the lead? Track reachability, qualification, booked consults, show rate, treatment acceptance, and revenue from accepted plans.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-he-full-mouth-dental-implant-leads",
+    slug: "full-mouth-dental-implant-leads-he",
+    title: "לידים להשתלות שיניים בכל הפה: למה רוב הקמפיינים מבזבזים תקציב",
+    excerpt:
+      "לידים להשתלות שיניים בכל הפה דורשים מערכת רכישת מטופלים אחרת, כי שווי המקרה גבוה ואיכות ליד נמוכה הופכת יקרה מהר.",
+    publishedAt: "2026-06-04T16:06:00.000Z",
+    seoImage: "/blog/images/dental-patient-acquisition.png",
+    mainImageAlt: "דשבורד איכות לידים להשתלות שיניים בכל הפה",
+    serviceLinks: [
+      "full-arch-implant-marketing",
+      "dental-implant-lead-generation",
+      "qualified-opportunity-methodology",
+    ],
+    body: body([
+      [
+        "לידים להשתלות שיניים בכל הפה יכולים להיות בעלי ערך גבוה מאוד, אבל הם גם יכולים לשרוף תקציב מהר אם הקמפיין מותאם ללידים זולים בלבד. שווי טיפול גבוה לא מציל קמפיין ממיקוד חלש, עמוד נחיתה לא מתאים או חזרה איטית ללידים.",
+      ],
+      ["למה לידים לשיקום מלא שונים", "h2"],
+      [
+        "מטופל שבוחן שיקום פה מלא משווה בין אפשרויות טיפול, מימון, אמינות הרופא, חשש מההליך, זמן החלמה והאם הוא בכלל מתאים. לכן הקמפיין צריך גם להסביר וגם לסנן, לא רק לאסוף פרטי קשר.",
+      ],
+      [
+        "הטעות הנפוצה היא להתייחס לכל ליד אותו דבר. אדם שמתעניין בשתל בודד, אדם שמחפש את הפתרון הזול ביותר ואדם שמוכן לפגישת ייעוץ לשיקום מלא לא צריכים להיספר באותה צורה.",
+      ],
+      ["ללמד את הקמפיין מהי איכות", "h2"],
+      [
+        "סינון לידים עוזר למערכת הפרסום ללמוד מהסימנים הנכונים. כשהמרפאה מסמנת אילו פניות הפכו להזדמנויות רציניות, התקציב יכול לזוז לקהלים, מילות מפתח וקריאייטיבים שמייצרים שיחות איכותיות יותר.",
+      ],
+      ["שאלות נפוצות על לידים לשיקום פה מלא", "h2"],
+      [
+        "למה לידים כאלה יקרים? הטיפול יקר ותחרותי, ולכן הרבה מרפאות מתחרות על אותם מטופלים רציניים. סינון טוב יותר מגן על התקציב.",
+      ],
+      [
+        "האם כדאי להשתמש בקריאייטיב לפני ואחרי? אפשר, אבל הקריאייטיב צריך להיות אמין, עומד בכללים ומגובה במסר שמייצר אמון. הבטחות מוגזמות פוגעות באמינות.",
+      ],
+      [
+        "מה צריך למדוד אחרי הליד? זמינות, התאמה, פגישות שנקבעו, הגעה לפגישה, קבלת תוכנית טיפול והכנסה מתוכניות שאושרו.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-dental-implant-cost-keywords",
+    slug: "dental-implant-cost-keywords",
+    title: "Dental Implant Cost Keywords: How to Use Them Without Attracting Bad Leads",
+    excerpt:
+      "Dental implant cost keywords can attract serious patients, but clinics need careful messaging so price traffic turns into qualified opportunities instead of bargain shopping.",
+    publishedAt: "2026-06-04T16:10:00.000Z",
+    seoImage: "/blog/images/google-ads-dentists.png",
+    mainImageAlt: "Dental implant cost keyword strategy for qualified patient acquisition",
+    serviceLinks: [
+      "google-ads-for-dental-implants",
+      "roi-methodology",
+      "dental-lead-quality-checklist",
+    ],
+    body: body([
+      [
+        "Dental implant cost keywords are tempting because patients who search price are often closer to action. They can also be risky because price-focused traffic may include shoppers who are comparing every clinic and choosing purely on cost.",
+      ],
+      ["Cost intent is not always bad intent", "h2"],
+      [
+        "A serious implant patient will usually ask about cost because implants are a meaningful financial decision. Avoiding the topic completely can make the clinic feel evasive. The better approach is to answer cost questions with context.",
+      ],
+      [
+        "Explain what affects price: number of teeth, bone condition, extractions, sedation, materials, diagnostics, and whether the treatment is single implant or full-arch. That frames cost around fit and value instead of a race to the bottom.",
+      ],
+      ["Use cost keywords with filtering", "h2"],
+      [
+        "Cost keyword landing pages should include financing cues, candidacy questions, and a next step that lets the clinic evaluate fit. If the page only says cheap implants, the campaign may attract the wrong audience.",
+      ],
+      ["Dental implant cost keywords FAQ", "h2"],
+      [
+        "Should implant pages show exact prices? Sometimes, but many clinics do better with ranges, financing language, or eligibility reviews because exact prices depend on diagnosis.",
+      ],
+      [
+        "Are cost keywords good for Google Ads? They can be strong when paired with negative keywords, qualification, and conversion tracking beyond form fills.",
+      ],
+      [
+        "How do you avoid bargain shoppers? Use copy that explains value, candidacy, financing, and treatment quality instead of positioning the clinic as the cheapest option.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-he-dental-implant-cost-keywords",
+    slug: "dental-implant-cost-keywords-he",
+    title: "מילות מפתח על מחיר שתלים: איך להשתמש בהן בלי למשוך לידים לא מתאימים",
+    excerpt:
+      "מילות מפתח על מחיר שתלים יכולות למשוך מטופלים רציניים, אבל צריך מסר נכון כדי להפוך חיפוש מחיר להזדמנות איכותית.",
+    publishedAt: "2026-06-04T16:11:00.000Z",
+    seoImage: "/blog/images/google-ads-dentists.png",
+    mainImageAlt: "אסטרטגיית מילות מפתח על מחיר שתלים למשיכת מטופלים איכותיים",
+    serviceLinks: [
+      "google-ads-for-dental-implants",
+      "roi-methodology",
+      "dental-lead-quality-checklist",
+    ],
+    body: body([
+      [
+        "מילות מפתח על מחיר שתלים מפתות כי מי שמחפש מחיר לעיתים קרובות קרוב יותר לפעולה. מצד שני, הן גם מסוכנות כי חלק מהתנועה מחפש רק את ההצעה הכי זולה.",
+      ],
+      ["כוונת מחיר היא לא בהכרח כוונה רעה", "h2"],
+      [
+        "מטופל רציני כמעט תמיד ישאל על מחיר, כי שתלים הם החלטה כלכלית משמעותית. התעלמות מוחלטת מהנושא יכולה לגרום למרפאה להיראות לא שקופה. הדרך הנכונה היא לענות עם הקשר.",
+      ],
+      [
+        "כדאי להסביר מה משפיע על המחיר: מספר שיניים, מצב עצם, עקירות, סדציה, חומרים, הדמיה והאם מדובר בשתל בודד או שיקום מלא. כך המחיר מוצג כחלק מהתאמה וערך, לא כמירוץ למחיר הכי נמוך.",
+      ],
+      ["להשתמש במילות מחיר עם סינון", "h2"],
+      [
+        "עמודי נחיתה למילות מחיר צריכים לכלול מסר על מימון, שאלות התאמה וצעד הבא שמאפשר למרפאה לבדוק התאמה. אם העמוד מדבר רק על שתלים זולים, הקמפיין ילמד למשוך קהל פחות מתאים.",
+      ],
+      ["שאלות נפוצות על מילות מחיר לשתלים", "h2"],
+      [
+        "האם כדאי להציג מחיר מדויק? לפעמים, אבל הרבה מרפאות עובדות טוב יותר עם טווחים, מימון או בדיקת התאמה כי המחיר תלוי באבחון.",
+      ],
+      [
+        "האם מילות מחיר טובות לגוגל אדס? כן, אם משלבים מילות שלילה, סינון ומדידה מעבר למילוי טופס.",
+      ],
+      [
+        "איך נמנעים מציידי מחיר? משתמשים במסר שמסביר ערך, התאמה, מימון ואיכות טיפול במקום למצב את המרפאה כהכי זולה.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-best-dental-implant-dentist-near-me",
+    slug: "best-dental-implant-dentist-near-me",
+    title: "Best Dental Implant Dentist Near Me: How Clinics Can Rank and Convert",
+    excerpt:
+      "Patients searching for the best dental implant dentist near me need local proof, clear treatment pages, reviews, and fast conversion paths.",
+    publishedAt: "2026-06-04T16:15:00.000Z",
+    seoImage: "/blog/images/lead-sources.png",
+    mainImageAlt: "Local SEO path for best dental implant dentist near me searches",
+    serviceLinks: [
+      "dental-implant-marketing",
+      "dental-implant-seo",
+      "google-business-profile-for-dentists",
+    ],
+    body: body([
+      [
+        "Best dental implant dentist near me is a powerful search because the patient is not just browsing. They are comparing local options and trying to decide who feels credible enough for a high-value treatment.",
+      ],
+      ["Local proof matters more than generic SEO copy", "h2"],
+      [
+        "A clinic trying to win this search needs strong local signals: reviews, Google Business Profile quality, treatment-specific pages, doctor credibility, photos, and a clear explanation of the consultation process. Generic service copy rarely earns trust.",
+      ],
+      [
+        "The page should answer why the clinic is qualified for implant cases, what types of cases it handles, how patients are evaluated, and what happens next. Patients need confidence before they submit information.",
+      ],
+      ["Turn local traffic into filtered opportunities", "h2"],
+      [
+        "Ranking is only half the job. The page also needs a simple conversion path that filters for treatment interest, location, urgency, and fit. Otherwise local SEO can produce traffic without patient acquisition.",
+      ],
+      ["Best dental implant dentist near me FAQ", "h2"],
+      [
+        "What helps a clinic rank for implant dentist near me? Strong service pages, local relevance, reviews, Google Business Profile quality, and consistent location signals all matter.",
+      ],
+      [
+        "Should every location have its own implant page? Multi-location clinics usually need location-specific pages, but each page should have real local content rather than duplicated filler.",
+      ],
+      [
+        "Do reviews affect conversion? Yes. Implant patients often read reviews before contacting a clinic, especially for full-arch and high-ticket treatment.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-he-best-dental-implant-dentist-near-me",
+    slug: "best-dental-implant-dentist-near-me-he",
+    title: "רופא שתלים מומלץ קרוב אליי: איך מרפאות יכולות לדרג ולהמיר",
+    excerpt:
+      "מטופלים שמחפשים רופא שתלים מומלץ קרוב אליי צריכים הוכחה מקומית, עמודי טיפול ברורים, ביקורות ומסלול פנייה מהיר.",
+    publishedAt: "2026-06-04T16:16:00.000Z",
+    seoImage: "/blog/images/lead-sources.png",
+    mainImageAlt: "מסלול SEO מקומי לחיפושי רופא שתלים מומלץ",
+    serviceLinks: [
+      "dental-implant-marketing",
+      "dental-implant-seo",
+      "google-business-profile-for-dentists",
+    ],
+    body: body([
+      [
+        "החיפוש רופא שתלים מומלץ קרוב אליי חזק כי המטופל לא רק גולש. הוא משווה אפשרויות מקומיות ומנסה להבין על מי אפשר לסמוך בטיפול יקר ומשמעותי.",
+      ],
+      ["הוכחה מקומית חשובה יותר מטקסט כללי", "h2"],
+      [
+        "מרפאה שרוצה לזכות בחיפוש כזה צריכה סימנים מקומיים חזקים: ביקורות, פרופיל גוגל איכותי, עמודי טיפול ממוקדים, אמינות של הרופא, תמונות והסבר ברור על תהליך הייעוץ. טקסט כללי על שירותים לא מספיק.",
+      ],
+      [
+        "העמוד צריך להסביר למה המרפאה מתאימה למקרי שתלים, אילו מקרים היא מטפלת, איך בודקים התאמה ומה קורה בשלב הבא. מטופלים צריכים ביטחון לפני שהם משאירים פרטים.",
+      ],
+      ["להפוך תנועה מקומית להזדמנויות מסוננות", "h2"],
+      [
+        "דירוג הוא רק חצי מהעבודה. העמוד צריך גם מסלול המרה פשוט שמסנן עניין טיפולי, מיקום, דחיפות והתאמה. אחרת SEO מקומי יכול להביא תנועה בלי רכישת מטופלים.",
+      ],
+      ["שאלות נפוצות על חיפושי רופא שתלים מקומי", "h2"],
+      [
+        "מה עוזר לדרג בחיפושי שתלים מקומיים? עמודי שירות חזקים, רלוונטיות מקומית, ביקורות, פרופיל גוגל איכותי וסימני מיקום עקביים.",
+      ],
+      [
+        "האם לכל סניף צריך עמוד שתלים משלו? במרפאות עם כמה סניפים בדרך כלל כן, אבל כל עמוד צריך תוכן מקומי אמיתי ולא שכפול טקסט.",
+      ],
+      [
+        "האם ביקורות משפיעות על המרה? כן. מטופלי שתלים קוראים ביקורות לפני פנייה, במיוחד בטיפולים יקרים כמו שיקום מלא.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-porcelain-veneers-marketing",
+    slug: "porcelain-veneers-marketing",
+    title: "Porcelain Veneers Marketing: How to Attract Serious Cosmetic Patients",
+    excerpt:
+      "Porcelain veneers marketing should attract serious smile makeover patients with premium positioning, believable proof, and qualification around treatment fit.",
+    publishedAt: "2026-06-04T16:20:00.000Z",
+    seoImage: "/blog/images/cosmetic-dentistry-growth.png",
+    mainImageAlt: "Porcelain veneers marketing strategy for serious cosmetic dentistry patients",
+    serviceLinks: [
+      "veneers-marketing",
+      "cosmetic-dentistry-marketing",
+      "cosmetic-dentist-marketing-agency",
+    ],
+    body: body([
+      [
+        "Porcelain veneers marketing works when it respects the psychology of cosmetic dentistry. Veneer patients are buying confidence, appearance, trust, and a result they will see every day. That is different from a routine dental offer.",
+      ],
+      ["Position veneers as a premium decision", "h2"],
+      [
+        "A strong veneers campaign should not sound like a clearance sale. It should show tasteful transformation, explain candidacy, address natural-looking results, and reduce fear around permanence or regret.",
+      ],
+      [
+        "The best content answers questions about shape, shade, smile design, durability, timeline, and whether veneers are the right choice compared with whitening, bonding, or orthodontics.",
+      ],
+      ["Use filtering to protect the clinic brand", "h2"],
+      [
+        "Cosmetic campaigns can attract lots of casual interest. Filtering helps identify who is serious, who understands the investment, and who is looking for the kind of result the clinic actually provides.",
+      ],
+      ["Porcelain veneers marketing FAQ", "h2"],
+      [
+        "Should veneer ads show before-and-after images? They can help, but they must be authentic, compliant, and supported by context so the result feels believable.",
+      ],
+      [
+        "What keywords matter for veneers? Porcelain veneers, veneers cost, cosmetic dentist, smile makeover, and veneers near me can all matter depending on the market.",
+      ],
+      [
+        "How do you avoid low-quality cosmetic leads? Use premium positioning, clear candidacy language, financing context, and lead filtering instead of cheap discount hooks.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-he-porcelain-veneers-marketing",
+    slug: "porcelain-veneers-marketing-he",
+    title: "שיווק ציפויי חרסינה: איך למשוך מטופלים קוסמטיים רציניים",
+    excerpt:
+      "שיווק ציפויי חרסינה צריך למשוך מטופלים רציניים בעזרת מיצוב פרימיום, הוכחה אמינה וסינון התאמה לטיפול.",
+    publishedAt: "2026-06-04T16:21:00.000Z",
+    seoImage: "/blog/images/cosmetic-dentistry-growth.png",
+    mainImageAlt: "אסטרטגיית שיווק ציפויי חרסינה למטופלים קוסמטיים רציניים",
+    serviceLinks: [
+      "veneers-marketing",
+      "cosmetic-dentistry-marketing",
+      "cosmetic-dentist-marketing-agency",
+    ],
+    body: body([
+      [
+        "שיווק ציפויי חרסינה עובד כשהוא מבין את הפסיכולוגיה של רפואת שיניים אסתטית. המטופל קונה ביטחון, מראה, אמון ותוצאה שהוא יראה כל יום. זה לא מסר של טיפול שגרתי.",
+      ],
+      ["למקם ציפויים כהחלטת פרימיום", "h2"],
+      [
+        "קמפיין חזק לציפויים לא צריך להישמע כמו מבצע חיסול. הוא צריך להראות שינוי בטעם טוב, להסביר התאמה, לענות על חשש מתוצאה לא טבעית ולהוריד פחד מהחלטה קבועה.",
+      ],
+      [
+        "התוכן הטוב ביותר עונה על שאלות לגבי צורה, גוון, עיצוב חיוך, עמידות, זמן טיפול והאם ציפויים הם הבחירה הנכונה לעומת הלבנה, בונדינג או יישור שיניים.",
+      ],
+      ["להשתמש בסינון כדי להגן על המותג", "h2"],
+      [
+        "קמפיינים קוסמטיים יכולים למשוך הרבה סקרנות לא רצינית. סינון עוזר להבין מי באמת בשל, מי מבין את ההשקעה ומי מחפש את סוג התוצאה שהמרפאה יודעת לספק.",
+      ],
+      ["שאלות נפוצות על שיווק ציפויי חרסינה", "h2"],
+      [
+        "האם כדאי להציג תמונות לפני ואחרי? כן, אם הן אותנטיות, עומדות בכללים ומוצגות עם הקשר כך שהתוצאה מרגישה אמינה.",
+      ],
+      [
+        "אילו מילות מפתח חשובות? ציפויי חרסינה, מחיר ציפויים, רופא שיניים אסתטי, עיצוב חיוך וציפויים קרוב אליי יכולים להיות רלוונטיים לפי השוק.",
+      ],
+      [
+        "איך נמנעים מלידים לא איכותיים? משתמשים במיצוב פרימיום, שפה ברורה על התאמה, הקשר על מימון וסינון לידים במקום מבצעי מחיר זולים.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-smile-makeover-marketing",
+    slug: "smile-makeover-marketing",
+    title: "Smile Makeover Marketing: From Social Interest to Qualified Consultation",
+    excerpt:
+      "Smile makeover marketing needs emotional creative, clear treatment education, and lead filtering so cosmetic interest becomes qualified patient opportunities.",
+    publishedAt: "2026-06-04T16:25:00.000Z",
+    seoImage: "/blog/images/website-conversion.png",
+    mainImageAlt: "Smile makeover marketing funnel from social ad interest to qualified consultation",
+    serviceLinks: [
+      "cosmetic-dentistry-marketing",
+      "veneers-marketing",
+      "dental-lead-filtering",
+    ],
+    body: body([
+      [
+        "Smile makeover marketing begins with emotion, but it cannot end there. Many people want a better smile. Fewer are ready, qualified, and financially aligned for cosmetic treatment. The campaign has to move from desire to fit.",
+      ],
+      ["Social creative should create recognition", "h2"],
+      [
+        "Strong smile makeover ads speak to confidence, photos, weddings, dating, professional appearance, or years of hiding a smile. The creative should feel real and specific rather than generic beauty advertising.",
+      ],
+      [
+        "The landing page then needs to shift from emotion to clarity: what treatments may be involved, who is a candidate, what affects cost, and how the clinic evaluates the smile before recommending a plan.",
+      ],
+      ["Qualification makes cosmetic campaigns scalable", "h2"],
+      [
+        "Without filtering, smile makeover campaigns often produce broad curiosity. With filtering, the clinic can separate people who want whitening from people considering veneers, bonding, orthodontics, or a larger cosmetic plan.",
+      ],
+      ["Smile makeover marketing FAQ", "h2"],
+      [
+        "Is smile makeover marketing better on Meta or Google? Meta is strong for creating demand and emotion. Google is strong when patients are already searching for cosmetic options. Many clinics need both.",
+      ],
+      [
+        "Should the campaign promote one treatment or a makeover? Use smile makeover language when the patient problem is broad, but filter the inquiry so the clinic can understand which treatment fits.",
+      ],
+      [
+        "How do you improve lead quality? Align creative, landing page, and qualification questions around treatment fit, budget reality, timeline, and desired outcome.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-he-smile-makeover-marketing",
+    slug: "smile-makeover-marketing-he",
+    title: "שיווק עיצוב חיוך: מסקרנות ברשת להזדמנות ייעוץ איכותית",
+    excerpt:
+      "שיווק עיצוב חיוך צריך קריאייטיב רגשי, הסבר טיפולי ברור וסינון לידים כדי להפוך עניין קוסמטי להזדמנויות איכותיות.",
+    publishedAt: "2026-06-04T16:26:00.000Z",
+    seoImage: "/blog/images/website-conversion.png",
+    mainImageAlt: "משפך שיווק עיצוב חיוך מסקרנות ברשת להזדמנות איכותית",
+    serviceLinks: [
+      "cosmetic-dentistry-marketing",
+      "veneers-marketing",
+      "dental-lead-filtering",
+    ],
+    body: body([
+      [
+        "שיווק עיצוב חיוך מתחיל ברגש, אבל לא יכול להסתיים שם. הרבה אנשים רוצים חיוך יפה יותר. פחות אנשים באמת מוכנים, מתאימים ומיושרים כלכלית לטיפול אסתטי. הקמפיין צריך להעביר אותם מרצון להתאמה.",
+      ],
+      ["קריאייטיב ברשת צריך ליצור הזדהות", "h2"],
+      [
+        "מודעות חזקות לעיצוב חיוך מדברות על ביטחון, תמונות, חתונה, דייטים, מראה מקצועי או שנים של הסתרת חיוך. הקריאייטיב צריך להרגיש אמיתי וספציפי, לא פרסומת יופי כללית.",
+      ],
+      [
+        "עמוד הנחיתה צריך להעביר את האדם מרגש לבהירות: אילו טיפולים יכולים להיות רלוונטיים, מי מתאים, מה משפיע על המחיר ואיך המרפאה בודקת את החיוך לפני המלצה.",
+      ],
+      ["סינון הופך קמפיינים קוסמטיים לניתנים להגדלה", "h2"],
+      [
+        "בלי סינון, קמפיינים לעיצוב חיוך מייצרים הרבה סקרנות כללית. עם סינון, המרפאה יכולה להבדיל בין מי שרוצה הלבנה לבין מי ששוקל ציפויים, בונדינג, יישור או תוכנית אסתטית רחבה.",
+      ],
+      ["שאלות נפוצות על שיווק עיצוב חיוך", "h2"],
+      [
+        "האם עדיף מטא או גוגל? מטא חזקה ביצירת ביקוש ורגש. גוגל חזקה כשאנשים כבר מחפשים אפשרויות אסתטיות. הרבה מרפאות צריכות את שתיהן.",
+      ],
+      [
+        "האם לקדם טיפול אחד או עיצוב חיוך? כדאי להשתמש בשפת עיצוב חיוך כשהבעיה רחבה, אבל לסנן את הפנייה כדי להבין איזה טיפול באמת מתאים.",
+      ],
+      [
+        "איך משפרים איכות לידים? מחברים קריאייטיב, עמוד נחיתה ושאלות סינון סביב התאמה טיפולית, יכולת כלכלית, זמן ותוצאה רצויה.",
+      ],
+    ]),
+  },
 ];
 
 export const supplementalBlogSlugs = supplementalBlogPosts.map((post) => post.slug);
