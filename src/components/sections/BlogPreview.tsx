@@ -3,12 +3,15 @@ import { ArrowRight, BookOpen, CalendarDays } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { getAllBlogPosts } from "@/lib/blog";
-import { urlFor } from "@/lib/sanity";
+import { getBlogSeoImage } from "@/lib/blog-seo-overrides";
 
 export default function BlogPreview() {
   const { t, i18n } = useTranslation();
   const { lang } = useParams();
-  const { data, isLoading, isError } = useQuery({ queryKey: ["blog-preview-posts"], queryFn: getAllBlogPosts });
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["blog-preview-posts", lang],
+    queryFn: () => getAllBlogPosts(lang),
+  });
   const featured = (data || []).slice(0, 3);
   const dateLocale = i18n.language === "he" ? "he-IL" : "en-US";
 
@@ -44,7 +47,12 @@ export default function BlogPreview() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((post) => (
               <Link key={post._id} to={`/${lang}/blog/${post.slug}`} className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-200 hover:border-primary/40 hover:bg-primary/5">
-                {post.mainImage ? <img src={urlFor(post.mainImage).width(900).height(506).fit("crop").auto("format").url()} alt={post.title} className="h-40 w-full object-cover" loading="lazy" /> : null}
+                <img
+                  src={getBlogSeoImage(post).src}
+                  alt={getBlogSeoImage(post).alt}
+                  className="h-40 w-full object-cover"
+                  loading="lazy"
+                />
                 <div className="p-6">
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                     <CalendarDays className="h-3.5 w-3.5" />

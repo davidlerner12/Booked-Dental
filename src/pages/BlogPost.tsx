@@ -1,7 +1,14 @@
 import { PortableText } from "@portabletext/react";
 import { Helmet } from "react-helmet";
 import { Link, Navigate, useLoaderData, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CalendarDays, ChevronRight } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CalendarDays,
+  CheckCircle2,
+  ChevronRight,
+  ShieldCheck,
+} from "lucide-react";
 import type { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
@@ -9,6 +16,12 @@ import type { BlogPostLoaderData } from "./blog-loaders";
 import { getBlogPostBySlug, getAllBlogPosts } from "@/lib/blog";
 import { urlFor } from "@/lib/sanity";
 import { buildLocalizedUrl } from "@/lib/seo";
+import {
+  getAbsoluteBlogImageUrl,
+  getBlogSeoImage,
+  getBlogSeoKeywords,
+  getInternalBlogLinks,
+} from "@/lib/blog-seo-overrides";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const BLOG_SEO_KEYWORDS = [
@@ -32,6 +45,21 @@ const BLOG_SEO_KEYWORDS = [
   "dental patient lead generation",
   "implant clinic marketing",
   "cosmetic dental marketing",
+];
+
+const TRUST_SOURCES = [
+  {
+    name: "Google Search Central: Helpful, reliable, people-first content",
+    url: "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+  },
+  {
+    name: "Google Search Central: E-E-A-T and quality rater guidance",
+    url: "https://developers.google.com/search/blog/2022/12/google-raters-guidelines-e-e-a-t",
+  },
+  {
+    name: "Google Search Central: Structured data guidelines",
+    url: "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+  },
 ];
 
 function toEmbedUrl(url: string) {
@@ -106,6 +134,34 @@ function estimateReadingMinutes(body: unknown) {
   return Math.max(1, Math.ceil(wordCount / 180));
 }
 
+function getTrustCopy(isHebrew: boolean) {
+  return isHebrew
+    ? {
+        label: "נבדק לפי עקרונות E-E-A-T",
+        title: "איך המדריך הזה נכתב ונבדק",
+        experience:
+          "מבוסס על ניסיון מעשי בבניית מערכות גיוס מטופלים למרפאות שתלים ואסתטיקה דנטלית.",
+        expertise:
+          "נכתב על ידי צוות Booked.Dental, שמתמקד בפרסום דנטלי, סינון לידים ומדידת כוונת לקוח.",
+        trust:
+          "התוכן מיועד לקבלת החלטות שיווקיות. הוא אינו ייעוץ רפואי, משפטי או פיננסי.",
+        updated: "עודכן ונבדק",
+        sources: "מקורות ושקיפות",
+      }
+    : {
+        label: "Reviewed for E-E-A-T signals",
+        title: "How this guide was written and checked",
+        experience:
+          "Based on hands-on patient acquisition work for implant and cosmetic dental clinics.",
+        expertise:
+          "Written by the Booked.Dental growth team, focused on dental ads, lead filtering, and customer-intent measurement.",
+        trust:
+          "This is marketing guidance for clinic owners. It is not medical, legal, or financial advice.",
+        updated: "Updated and reviewed",
+        sources: "Sources and transparency",
+      };
+}
+
 const portableTextComponents = {
   types: {
     inlineImage: ({
@@ -118,7 +174,7 @@ const portableTextComponents = {
         <figure className="my-8">
           <img
             src={imageUrl}
-            alt={value.alt || "Blog image"}
+            alt={value.alt || "Dental marketing example for patient acquisition and lead filtering"}
             className="w-full rounded-xl object-cover"
             loading="lazy"
           />
@@ -137,7 +193,7 @@ const portableTextComponents = {
         <figure className="my-8">
           <img
             src={imageUrl}
-            alt={value.alt || "Blog image"}
+            alt={value.alt || "Dental marketing example for patient acquisition and lead filtering"}
             className="w-full rounded-xl object-cover"
             loading="lazy"
           />
@@ -223,27 +279,28 @@ export default function BlogPost() {
   const { t, i18n } = useTranslation();
   const { lang, slug } = useParams();
   const dateLocale = i18n.language === "he" ? "he-IL" : "en-US";
+  const isHebrew = i18n.language === "he";
 
   // SSG loaders embed data at build time; on client-side navigation
   // useLoaderData() returns null, so we fall back to fetching directly.
   const needsClientFetch = !loaderData;
 
   const { data: clientPost, isLoading: postLoading } = useQuery({
-    queryKey: ["blog-post", slug],
-    queryFn: () => getBlogPostBySlug(slug!),
+    queryKey: ["blog-post", lang, slug],
+    queryFn: () => getBlogPostBySlug(slug!, lang),
     enabled: needsClientFetch && !!slug,
   });
 
   const { data: clientAllPosts } = useQuery({
-    queryKey: ["blog-all-posts"],
-    queryFn: getAllBlogPosts,
+    queryKey: ["blog-all-posts", lang],
+    queryFn: () => getAllBlogPosts(lang),
     enabled: needsClientFetch && !!slug,
   });
 
   const post = loaderData?.post ?? clientPost ?? null;
   const related = loaderData?.related ?? (
     post && clientAllPosts
-      ? clientAllPosts.filter((item) => item.slug !== post.slug).slice(0, 2)
+      ? clientAllPosts.filter((item) => item.slug !== post.slug)
       : []
   );
 
@@ -260,11 +317,16 @@ export default function BlogPost() {
   const postPath = `/blog/${post.slug}`;
   const postUrl = buildLocalizedUrl(lang, postPath);
   const metaTitle = `${post.title} | Booked.Dental`;
-  const ogImage = post.mainImage
-    ? urlFor(post.mainImage).width(1200).height(630).fit("crop").auto("format").url()
-    : "https://booked.dental/social-preview.png";
-  const prioritizedKeywords = BLOG_SEO_KEYWORDS.slice(0, 4);
+  const heroImage = getBlogSeoImage(post);
+  const ogImage = getAbsoluteBlogImageUrl(post);
+  const seoKeywords = Array.from(new Set([...getBlogSeoKeywords(post), ...BLOG_SEO_KEYWORDS]));
+  const prioritizedKeywords = seoKeywords.slice(0, 6);
   const readingMinutes = estimateReadingMinutes(post.body);
+  const internalLinkSlugs = getInternalBlogLinks(post.slug).filter((linkSlug) => linkSlug !== post.slug);
+  const internalLinkPosts = internalLinkSlugs
+    .map((linkSlug) => related.find((item) => item.slug === linkSlug))
+    .filter(Boolean)
+    .slice(0, 3);
   const articleStructuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -287,9 +349,29 @@ export default function BlogPost() {
         url: "https://booked.dental/social-preview.png",
       },
     },
-    keywords: BLOG_SEO_KEYWORDS.join(", "),
+    author: {
+      "@type": "Organization",
+      name: "Booked.Dental",
+      url: "https://booked.dental",
+      description:
+        "Dental marketing team specializing in implant and cosmetic patient acquisition, lead filtering, UGC creative, Google Ads, and Meta Ads.",
+    },
+    reviewedBy: {
+      "@type": "Organization",
+      name: "Booked.Dental",
+      url: "https://booked.dental",
+    },
+    isAccessibleForFree: true,
+    citation: TRUST_SOURCES.map((source) => source.url),
+    articleSection: "Dental marketing",
+    about: prioritizedKeywords.map((keyword) => ({
+      "@type": "Thing",
+      name: keyword,
+    })),
+    keywords: seoKeywords.join(", "),
     timeRequired: `PT${readingMinutes}M`,
   };
+  const trustCopy = getTrustCopy(isHebrew);
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -314,13 +396,23 @@ export default function BlogPost() {
       },
     ],
   };
+  const internalLinksStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Related dental marketing articles",
+    itemListElement: internalLinkSlugs.slice(0, 3).map((linkSlug, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: buildLocalizedUrl(lang, `/blog/${linkSlug}`),
+    })),
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
       <Helmet>
         <title>{metaTitle}</title>
         <meta name="description" content={post.excerpt} />
-        <meta name="keywords" content={BLOG_SEO_KEYWORDS.join(", ")} />
+        <meta name="keywords" content={seoKeywords.join(", ")} />
         <meta name="robots" content="index,follow,max-image-preview:large" />
         <meta property="og:site_name" content="Booked.Dental" />
         <meta property="og:locale" content={i18n.language === "he" ? "he_IL" : "en_US"} />
@@ -340,11 +432,11 @@ export default function BlogPost() {
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image" content={ogImage} />
         <link rel="canonical" href={postUrl} />
-        <link rel="alternate" hrefLang="en" href={buildLocalizedUrl("en", postPath)} />
-        <link rel="alternate" hrefLang="he" href={buildLocalizedUrl("he", postPath)} />
-        <link rel="alternate" hrefLang="x-default" href={buildLocalizedUrl("en", postPath)} />
+        <link rel="alternate" hrefLang={isHebrew ? "he" : "en"} href={postUrl} />
+        {!isHebrew && <link rel="alternate" hrefLang="x-default" href={postUrl} />}
         <script type="application/ld+json">{JSON.stringify(articleStructuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbStructuredData)}</script>
+        <script type="application/ld+json">{JSON.stringify(internalLinksStructuredData)}</script>
       </Helmet>
 
       {/* Header */}
@@ -412,6 +504,20 @@ export default function BlogPost() {
               <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl">
                 {post.title}
               </h1>
+              <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-primary">
+                  <ShieldCheck className="h-3.5 w-3.5" />
+                  {trustCopy.label}
+                </span>
+                <span>
+                  {trustCopy.updated}:{" "}
+                  {new Date(post.publishedAt).toLocaleDateString(dateLocale, {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </span>
+              </div>
             </div>
           </div>
         </section>
@@ -420,16 +526,81 @@ export default function BlogPost() {
         <article className="py-12 md:py-16">
           <div className="container">
             <div className="mx-auto max-w-3xl">
-              {post.mainImage && (
-                <figure className="mb-10">
-                  <img
-                    src={urlFor(post.mainImage).width(1200).height(680).fit("crop").auto("format").url()}
-                    alt={post.mainImageAlt || post.title}
-                    className="w-full rounded-xl object-cover"
-                    width={896}
-                    height={504}
-                  />
-                </figure>
+              <figure className="mb-10">
+                <img
+                  src={heroImage.src}
+                  alt={heroImage.alt}
+                  className="w-full rounded-xl object-cover"
+                  width={896}
+                  height={504}
+                />
+              </figure>
+              <aside className="mb-10 rounded-xl border border-border bg-card p-5 sm:p-6">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <ShieldCheck className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h2 className="font-display text-lg font-semibold text-foreground">
+                      {trustCopy.title}
+                    </h2>
+                    <div className="mt-4 grid gap-3 text-sm leading-relaxed text-muted-foreground sm:grid-cols-3">
+                      {[trustCopy.experience, trustCopy.expertise, trustCopy.trust].map((item) => (
+                        <div key={item} className="flex gap-2">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                          <p>{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-4 border-t border-border pt-4">
+                      <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                        {trustCopy.sources}
+                      </p>
+                      <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
+                        {TRUST_SOURCES.map((source) => (
+                          <li key={source.url}>
+                            <a
+                              href={source.url}
+                              target="_blank"
+                              rel="noreferrer noopener"
+                              className="underline-offset-4 transition-colors hover:text-primary hover:underline"
+                            >
+                              {source.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+              {internalLinkPosts.length > 0 && (
+                <aside className="mb-10 rounded-xl border border-primary/20 bg-primary/5 p-5 sm:p-6">
+                  <p className="text-xs font-medium uppercase tracking-[0.14em] text-primary">
+                    {isHebrew ? "קריאה מומלצת" : "Related reading"}
+                  </p>
+                  <h2 className="mt-2 font-display text-xl font-semibold text-foreground">
+                    {isHebrew
+                      ? "המשיכו לנושאים שמחזקים את אסטרטגיית השיווק"
+                      : "Keep building the patient acquisition system"}
+                  </h2>
+                  <div className="mt-4 grid gap-3">
+                    {internalLinkPosts.map((item) => (
+                      <Link
+                        key={item._id}
+                        to={`/${lang}/blog/${item.slug}`}
+                        className="group rounded-lg border border-border bg-background/70 p-4 transition-colors hover:border-primary/40 hover:bg-background"
+                      >
+                        <p className="font-display text-sm font-semibold text-foreground transition-colors group-hover:text-primary">
+                          {item.title}
+                        </p>
+                        <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
+                          {item.excerpt}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </aside>
               )}
               <PortableText value={post.body || []} components={portableTextComponents} />
 
@@ -462,7 +633,7 @@ export default function BlogPost() {
                   {t("blog_post.more_articles")}
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2">
-                  {related.map((rp) => (
+                  {related.slice(0, 2).map((rp) => (
                     <Link
                       key={rp._id}
                       to={`/${lang}/blog/${rp.slug}`}

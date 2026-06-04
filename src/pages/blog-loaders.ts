@@ -6,8 +6,8 @@ export interface BlogPostLoaderData {
   related: Awaited<ReturnType<typeof getAllBlogPosts>>;
 }
 
-export async function blogListLoader() {
-  return getAllBlogPosts();
+export async function blogListLoader({ params }: LoaderFunctionArgs) {
+  return getAllBlogPosts(params.lang);
 }
 
 export async function blogPostLoader({
@@ -18,12 +18,21 @@ export async function blogPostLoader({
     return { post: null, related: [] };
   }
 
-  const [post, allPosts] = await Promise.all([getBlogPostBySlug(slug), getAllBlogPosts()]);
-  const related = post ? allPosts.filter((item) => item.slug !== post.slug).slice(0, 2) : [];
+  const [post, allPosts] = await Promise.all([
+    getBlogPostBySlug(slug, params.lang),
+    getAllBlogPosts(params.lang),
+  ]);
+  const related = post ? allPosts.filter((item) => item.slug !== post.slug) : [];
   return { post, related };
 }
 
 export async function blogPostStaticPaths() {
-  const slugs = await getAllBlogSlugs();
-  return slugs.map((slug) => `blog/${slug}`);
+  const [englishSlugs, hebrewSlugs] = await Promise.all([
+    getAllBlogSlugs("en"),
+    getAllBlogSlugs("he"),
+  ]);
+  return [
+    ...englishSlugs.map((slug) => `en/blog/${slug}`),
+    ...hebrewSlugs.map((slug) => `he/blog/${slug}`),
+  ];
 }

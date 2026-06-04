@@ -9,23 +9,22 @@ const ROICalculator = () => {
   const { lang } = useParams();
   const isHe = i18n.language === "he";
 
-  const defaultImplant = isHe ? 40000 : 20000;
-  const defaultVeneer = isHe ? 20000 : 12000;
-  const currencySymbol = isHe ? "₪" : "$";
-  const monthlyCost = isHe ? 2500 : 1000;
+  const defaultImplant = 40000;
+  const defaultVeneer = 6000;
+  const currencySymbol = "\u20aa";
+  const monthlyCost = 2250;
 
   const [implantValue] = useState(defaultImplant);
   const [veneerValue] = useState(defaultVeneer);
   const [implantCases, setImplantCases] = useState(2);
-  const [veneerCases, setVeneerCases] = useState(2);
+  const [veneerCases, setVeneerCases] = useState(1);
 
   const implantRevenue = implantCases * implantValue;
   const veneerRevenue = veneerCases * veneerValue;
   const totalRevenue = implantRevenue + veneerRevenue;
 
   const formatCurrency = (val: number) => {
-    if (isHe) return `${currencySymbol}${val.toLocaleString("he-IL")}`;
-    return `$${val.toLocaleString()}`;
+    return `${currencySymbol}${val.toLocaleString(isHe ? "he-IL" : "en-US")}`;
   };
 
   return (
@@ -87,14 +86,14 @@ const ROICalculator = () => {
               <div className="space-y-3">
                 <div className="rounded-lg border border-border bg-card p-4">
                   <p className="mb-1 text-xs text-muted-foreground">
-                    {implantCases} {t("roi_calculator.implant")} {implantCases === 1 ? t("roi_calculator.case_label_singular") : t("roi_calculator.case_label_plural")} × {formatCurrency(implantValue)}
+                    {implantCases} {t("roi_calculator.implant")} {implantCases === 1 ? t("roi_calculator.case_label_singular") : t("roi_calculator.case_label_plural")} x {formatCurrency(implantValue)}
                   </p>
                   <div className="font-display text-2xl font-bold text-gradient-gold">{formatCurrency(implantRevenue)}</div>
                   <p className="mt-0.5 text-xs text-muted-foreground">{t("roi_calculator.additional_monthly")}</p>
                 </div>
                 <div className="rounded-lg border border-border bg-card p-4">
                   <p className="mb-1 text-xs text-muted-foreground">
-                    {veneerCases} {t("roi_calculator.veneer")} {veneerCases === 1 ? t("roi_calculator.case_label_singular") : t("roi_calculator.case_label_plural")} × {formatCurrency(veneerValue)}
+                    {veneerCases} {t("roi_calculator.veneer")} {veneerCases === 1 ? t("roi_calculator.case_label_singular") : t("roi_calculator.case_label_plural")} x {formatCurrency(veneerValue)}
                   </p>
                   <div className="font-display text-2xl font-bold text-gradient-gold">{formatCurrency(veneerRevenue)}</div>
                   <p className="mt-0.5 text-xs text-muted-foreground">{t("roi_calculator.additional_monthly")}</p>
@@ -104,7 +103,7 @@ const ROICalculator = () => {
                 <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-primary">{t("roi_calculator.total_label")}</div>
                 <div className="font-display text-4xl font-bold text-gradient-gold">{formatCurrency(totalRevenue)}</div>
                 <div className="mt-2 text-xs text-muted-foreground">
-                  {t("roi_calculator.investment_prefix")}<span className="font-semibold text-foreground">{Math.round(totalRevenue / monthlyCost)}×</span>{t("roi_calculator.investment_suffix")}
+                  {t("roi_calculator.investment_prefix")}<span className="font-semibold text-foreground">{Math.round(totalRevenue / monthlyCost)}x</span>{t("roi_calculator.investment_suffix")}
                 </div>
               </div>
             </div>

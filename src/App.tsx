@@ -14,7 +14,6 @@ import BlogPost from "./pages/BlogPost";
 import {
   blogListLoader,
   blogPostLoader,
-  blogPostStaticPaths,
 } from "./pages/blog-loaders";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -91,7 +90,6 @@ const langChildren: RouteRecord[] = [
     path: "blog/:slug",
     element: <BlogPost />,
     loader: blogPostLoader,
-    getStaticPaths: blogPostStaticPaths,
   },
   { path: "privacy", element: <PrivacyPolicy /> },
   { path: "thank-you", element: <ThankYouPage /> },

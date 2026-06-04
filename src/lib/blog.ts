@@ -1,6 +1,14 @@
 import groq from "groq";
 import type { PortableTextBlock } from "@portabletext/types";
 import { assertSanityConfig, sanityClient } from "@/lib/sanity";
+import {
+  applyBlogSeoListOverrides,
+  applyBlogSeoOverrides,
+  resolveSourceBlogSlug,
+  toCanonicalBlogSlug,
+} from "@/lib/blog-seo-overrides";
+
+export type BlogLanguage = "en" | "he";
 
 export interface BlogPostListItem {
   _id: string;
@@ -10,10 +18,24 @@ export interface BlogPostListItem {
   excerpt: string;
   mainImage?: unknown;
   mainImageAlt?: string;
+  seoImage?: string;
 }
 
 export interface BlogPostDetail extends BlogPostListItem {
   body: PortableTextBlock[];
+}
+
+function hasHebrewText(value: string) {
+  return /[\u0590-\u05FF]/.test(value);
+}
+
+function getPostLanguage(post: Pick<BlogPostListItem, "title" | "slug" | "excerpt">): BlogLanguage {
+  return hasHebrewText(`${post.title} ${post.slug} ${post.excerpt}`) ? "he" : "en";
+}
+
+function filterPostsByLanguage<T extends BlogPostListItem>(posts: T[], lang?: string) {
+  if (lang !== "en" && lang !== "he") return posts;
+  return posts.filter((post) => getPostLanguage(post) === lang);
 }
 
 export const BLOG_LIST_QUERY = groq`*[
@@ -52,19 +74,29 @@ export const BLOG_SLUGS_QUERY = groq`*[
   "slug": slug.current
 }`;
 
-export async function getAllBlogPosts() {
+export async function getAllBlogPosts(lang?: string) {
   assertSanityConfig();
   const posts = await sanityClient.fetch<BlogPostListItem[]>(BLOG_LIST_QUERY);
-  return posts || [];
+  return filterPostsByLanguage(applyBlogSeoListOverrides(posts || []), lang);
 }
 
-export async function getBlogPostBySlug(slug: string) {
+export async function getBlogPostBySlug(slug: string, lang?: string) {
   assertSanityConfig();
-  return sanityClient.fetch<BlogPostDetail | null>(BLOG_POST_QUERY, { slug });
+  const post = await sanityClient.fetch<BlogPostDetail | null>(BLOG_POST_QUERY, {
+    slug: resolveSourceBlogSlug(slug),
+  });
+  if (!post) return null;
+  const enhancedPost = applyBlogSeoOverrides(post);
+  if (lang === "en" || lang === "he") {
+    return getPostLanguage(enhancedPost) === lang ? enhancedPost : null;
+  }
+  return enhancedPost;
 }
 
-export async function getAllBlogSlugs() {
+export async function getAllBlogSlugs(lang?: string) {
   assertSanityConfig();
-  const items = await sanityClient.fetch<Array<{ slug: string }>>(BLOG_SLUGS_QUERY);
-  return items.map((item) => item.slug);
+  const posts = await sanityClient.fetch<BlogPostListItem[]>(BLOG_LIST_QUERY);
+  return filterPostsByLanguage(applyBlogSeoListOverrides(posts || []), lang).map((item) =>
+    toCanonicalBlogSlug(item.slug),
+  );
 }

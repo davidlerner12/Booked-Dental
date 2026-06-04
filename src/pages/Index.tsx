@@ -102,19 +102,19 @@ const Index = () => {
 
       <Suspense fallback={<div className="min-h-screen" />}>
         <Problem />
-        <MarketExclusivity />
-        <Services />
-        <BookedDentalDifference />
-        <AdvancedCallTracking />
         <ROICalculator />
         <HowItWorks />
+        <BookedDentalDifference />
+        <AdvancedCallTracking />
+        <MarketExclusivity />
+        <Services />
+        <CreativesVideo />
         <WhoItsFor />
         <WhoItsNotFor />
-        {i18n.language !== "he" && <CreativesVideo />}
         <Testimonials />
         <RiskFreeTrial />
-        <CTA />
         <FAQ />
+        <CTA />
         <BlogPreview />
         <Footer />
       </Suspense>

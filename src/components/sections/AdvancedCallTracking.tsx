@@ -1,4 +1,4 @@
-import { CheckCircle2, PhoneCall } from "lucide-react";
+import { BrainCircuit, CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const AdvancedCallTracking = () => {
@@ -12,7 +12,7 @@ const AdvancedCallTracking = () => {
         <div className="mx-auto max-w-4xl">
           <div className="mb-10 text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary">
-              <PhoneCall className="h-4 w-4" />
+              <BrainCircuit className="h-4 w-4" />
               {t("advanced_call_tracking.badge")}
             </div>
             <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">

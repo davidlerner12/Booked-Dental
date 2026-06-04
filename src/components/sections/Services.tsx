@@ -1,4 +1,4 @@
-import { Library, Rocket, Users, TrendingDown, PhoneCall, Bot } from "lucide-react";
+import { Bot, BrainCircuit, Library, Rocket, TrendingDown, Users } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const Services = () => {
@@ -9,7 +9,7 @@ const Services = () => {
     { icon: Rocket, title: t("services.fast_launch_title"), description: t("services.fast_launch_desc") },
     { icon: Users, title: t("services.quality_inquiries_title"), description: t("services.quality_inquiries_desc") },
     { icon: TrendingDown, title: t("services.efficient_costs_title"), description: t("services.efficient_costs_desc") },
-    { icon: PhoneCall, title: t("services.call_tracking_title"), description: t("services.call_tracking_desc") },
+    { icon: BrainCircuit, title: t("services.call_tracking_title"), description: t("services.call_tracking_desc") },
     { icon: Bot, title: t("services.ai_booking_title"), description: t("services.ai_booking_desc") },
   ];
 

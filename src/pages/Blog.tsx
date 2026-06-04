@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import type { BlogPostListItem } from "@/lib/blog";
 import { getAllBlogPosts } from "@/lib/blog";
-import { urlFor } from "@/lib/sanity";
 import { buildLocalizedUrl } from "@/lib/seo";
+import { getBlogSeoImage } from "@/lib/blog-seo-overrides";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SEO from "@/components/SEO";
 
@@ -27,8 +27,8 @@ export default function Blog() {
   // SSG loaders embed data at build time; on client-side navigation
   // useLoaderData() returns null, so we fall back to fetching directly.
   const { data: clientData, isLoading } = useQuery({
-    queryKey: ["blog-list-posts"],
-    queryFn: getAllBlogPosts,
+    queryKey: ["blog-list-posts", lang],
+    queryFn: () => getAllBlogPosts(lang),
     enabled: !loaderData,
   });
 
@@ -122,7 +122,12 @@ export default function Blog() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {data.map((post) => (
               <Link key={post._id} to={`/${lang}/blog/${post.slug}`} className="group overflow-hidden rounded-xl border border-border bg-card transition-all duration-200 hover:border-primary/40 hover:bg-primary/5">
-                {post.mainImage ? <img src={urlFor(post.mainImage).width(900).height(506).fit("crop").auto("format").url()} alt={post.mainImageAlt || post.title} className="h-44 w-full object-cover" loading="lazy" /> : null}
+                <img
+                  src={getBlogSeoImage(post).src}
+                  alt={getBlogSeoImage(post).alt}
+                  className="h-44 w-full object-cover"
+                  loading="lazy"
+                />
                 <div className="p-6">
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
                     <CalendarDays className="h-3.5 w-3.5" />

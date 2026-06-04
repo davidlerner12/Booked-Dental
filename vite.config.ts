@@ -6,6 +6,8 @@ import { componentTagger } from "lovable-tagger";
 
 interface SanityPostMeta {
   slug: string;
+  title?: string;
+  excerpt?: string;
   publishedAt?: string;
 }
 
@@ -19,7 +21,7 @@ async function getSanityBlogPosts() {
   if (!projectId || !dataset) return [] as SanityPostMeta[];
 
   const query = encodeURIComponent(
-    '*[_type == "post" && defined(slug.current)] | order(publishedAt desc){"slug": slug.current, publishedAt}',
+    '*[_type == "post" && defined(slug.current)] | order(publishedAt desc){"slug": slug.current, title, excerpt, publishedAt}',
   );
   const endpoint = `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=${query}`;
   const response = await fetch(endpoint, {
@@ -31,21 +33,38 @@ async function getSanityBlogPosts() {
   }
 
   const payload = (await response.json()) as {
-    result?: Array<{ slug?: string; publishedAt?: string }>;
+    result?: Array<{ slug?: string; title?: string; excerpt?: string; publishedAt?: string }>;
   };
   return (payload.result || [])
     .map((item) => ({
       slug: item.slug || "",
+      title: item.title,
+      excerpt: item.excerpt,
       publishedAt: item.publishedAt,
     }))
     .filter((item) => item.slug.length > 0);
 }
 
 const SUPPORTED_LANGS = ["en", "he"];
+const BLOG_CANONICAL_SLUGS: Record<string, string> = {
+  "how-cosmetic-dentists-get-more-consults": "cosmetic-dentists-high-intent-patients",
+  "how-to-get-more-cosmetic-consults-fast": "cosmetic-dentistry-patient-acquisition-fast",
+  "generate-consultation-calls-for-dentists": "dental-lead-filtering-for-dentists",
+};
+
+function canonicalBlogSlug(slug: string) {
+  return BLOG_CANONICAL_SLUGS[slug] || slug;
+}
+
+function postLanguage(post: SanityPostMeta) {
+  return /[\u0590-\u05FF]/.test(`${post.slug} ${post.title || ""} ${post.excerpt || ""}`)
+    ? "he"
+    : "en";
+}
 
 async function getBlogStaticRoutes() {
   const posts = await getSanityBlogPosts();
-  return posts.flatMap((post) => SUPPORTED_LANGS.map((lang) => `/${lang}/blog/${post.slug}`));
+  return posts.map((post) => `/${postLanguage(post)}/blog/${canonicalBlogSlug(post.slug)}`);
 }
 
 function toIsoDate(value?: string) {
@@ -109,17 +128,16 @@ async function generateSitemap(outDir: string) {
     urlNode({ loc: `${siteUrl}/${lang}/blog`, lastmod: now, changefreq: "weekly", priority: "0.9", alternates: localizedAlternates(siteUrl, "/blog") }),
   ]);
 
-  const blogUrls = posts.flatMap((post) =>
-    SUPPORTED_LANGS.map(lang => 
-      urlNode({
-        loc: `${siteUrl}/${lang}/blog/${post.slug}`,
-        lastmod: toIsoDate(post.publishedAt),
-        changefreq: "monthly",
-        priority: "0.8",
-        alternates: localizedAlternates(siteUrl, `/blog/${post.slug}`),
-      })
-    )
-  );
+  const blogUrls = posts.map((post) => {
+    const lang = postLanguage(post);
+    const slug = canonicalBlogSlug(post.slug);
+    return urlNode({
+      loc: `${siteUrl}/${lang}/blog/${slug}`,
+      lastmod: toIsoDate(post.publishedAt),
+      changefreq: "monthly",
+      priority: "0.8",
+    });
+  });
 
   const sitemapXml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
