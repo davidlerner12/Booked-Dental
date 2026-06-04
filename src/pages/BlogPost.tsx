@@ -273,6 +273,115 @@ function estimateReadingMinutes(body: unknown) {
   return Math.max(1, Math.ceil(wordCount / 180));
 }
 
+function getArticleText(body: unknown) {
+  if (!Array.isArray(body)) return "";
+  return body
+    .map((block) => {
+      if (!block || typeof block !== "object") return "";
+      const children = (block as { children?: unknown[] }).children;
+      if (!Array.isArray(children)) return "";
+      return children
+        .map((child) => {
+          if (!child || typeof child !== "object") return "";
+          return (child as { text?: string }).text || "";
+        })
+        .join("");
+    })
+    .join("\n");
+}
+
+function hasVisibleFaq(body: unknown) {
+  const articleText = getArticleText(body);
+  return /faq|frequently asked questions|שאלות נפוצות/i.test(articleText);
+}
+
+function cleanTopic(title: string) {
+  return title
+    .replace(/\s+\|\s+Booked\.Dental$/i, "")
+    .replace(/\bthat book consults?\b/gi, "that produce qualified opportunities")
+    .replace(/\bconsultation calls?\b/gi, "qualified patient opportunities")
+    .replace(/\bconsults?\b/gi, "qualified opportunities")
+    .trim();
+}
+
+function getArticleEnhancements(post: { title: string; excerpt: string; body?: unknown }, isHebrew: boolean) {
+  const topic = cleanTopic(post.title);
+  const articleText = getArticleText(post.body);
+  const wordCount = articleText.trim().split(/\s+/).filter(Boolean).length;
+  const alreadyHasFaq = hasVisibleFaq(post.body);
+
+  const takeaways = isHebrew
+    ? [
+        "המאמר צריך להיבחן לפי איכות הזדמנויות, לא לפי נפח פניות או קליקים בלבד.",
+        "הדרך הנכונה למדוד הצלחה היא לחבר בין מקור הפנייה, רמת ההתאמה, הגעה לפגישה, קבלת תוכנית טיפול ו-ROI.",
+        "אם הקמפיין לא מלמד את מערכת הפרסום מי באמת הופך למטופל, התקציב עלול לזוז לכיוון תנועה קלה אך פחות איכותית.",
+      ]
+    : [
+        "Judge the strategy by qualified opportunities, not by raw clicks, impressions, or unfiltered lead volume.",
+        "Connect the channel, creative, landing page, qualification result, show rate, treatment acceptance, and ROI before scaling.",
+        "If the campaign does not teach the ad platform which prospects become real patients, budget can drift toward easy but low-quality activity.",
+      ];
+
+  const decisionChecks = isHebrew
+    ? [
+        "האם האדם מחפש טיפול בעל ערך גבוה כמו שתלים, שיקום מלא, ציפויים או אסתטיקה?",
+        "האם יש דרך ברורה לסנן דחיפות, מיקום, התאמה טיפולית והתאמה כלכלית?",
+        "האם המרפאה יכולה לראות אילו קמפיינים יצרו הזדמנויות אמיתיות ולא רק מילוי טופס?",
+        "האם התוכן מסביר את השלב הבא בצורה שמפחיתה חשש ומעלה אמון?",
+      ]
+    : [
+        "Does the prospect show intent for a high-value treatment such as implants, full-arch care, veneers, or cosmetic dentistry?",
+        "Is there a clear way to filter urgency, location, treatment fit, and financial fit before the team spends time?",
+        "Can the clinic see which campaigns produced real patient opportunities rather than only form submissions?",
+        "Does the content explain the next step in a way that reduces fear and increases trust?",
+      ];
+
+  const faqs = alreadyHasFaq
+    ? []
+    : isHebrew
+      ? [
+          {
+            question: `איך מרפאה צריכה להשתמש במאמר על ${topic}?`,
+            answer:
+              "הדרך הטובה ביותר היא להפוך את הרעיונות לרשימת בדיקה מעשית: אילו טיפולים רוצים לגדול, אילו פניות נחשבות איכותיות, ואילו מדדים מוכיחים שהשיווק מייצר מטופלים אמיתיים.",
+          },
+          {
+            question: "מה המדד החשוב ביותר אחרי שמגיע ליד?",
+            answer:
+              "המדד החשוב הוא לא רק עלות לליד, אלא האם הפנייה הייתה זמינה, מתאימה, רצינית, הגיעה לפגישה והתקדמה לתוכנית טיפול. כך מלמדים את המערכת למצוא מטופלים ולא קליקים.",
+          },
+          {
+            question: "האם כדאי למדוד SEO, גוגל ומטא באותה צורה?",
+            answer:
+              "כן ברמת התוצאה הסופית, אבל לא ברמת הכוונה. גוגל לרוב קולט ביקוש קיים, מטא מייצרת ביקוש, ו-SEO מחזק אמון ומחקר. כולם צריכים להימדד לפי איכות הזדמנויות ו-ROI.",
+          },
+        ]
+      : [
+          {
+            question: `How should a clinic use this guide on ${topic}?`,
+            answer:
+              "Use it as a decision checklist: define which treatments you want to grow, what counts as a qualified opportunity, and which metrics prove the marketing is producing real patients instead of surface-level activity.",
+          },
+          {
+            question: "What is the most important metric after a lead comes in?",
+            answer:
+              "Cost per lead is only an early signal. The clinic should track reachability, qualification, booked appointment rate, show rate, treatment acceptance, and ROI from closed cases.",
+          },
+          {
+            question: "Should SEO, Google Ads, and Meta Ads be measured the same way?",
+            answer:
+              "They should all connect back to patient quality and ROI, but they create demand differently. Google captures active searches, Meta creates demand, and SEO supports research, trust, and local authority.",
+          },
+        ];
+
+  return {
+    wordCount,
+    takeaways,
+    decisionChecks,
+    faqs,
+  };
+}
+
 function getTrustCopy(isHebrew: boolean) {
   return isHebrew
     ? {
@@ -462,6 +571,8 @@ export default function BlogPost() {
   const seoKeywords = Array.from(new Set([...getBlogSeoKeywords(post), ...BLOG_SEO_KEYWORDS]));
   const prioritizedKeywords = seoKeywords.slice(0, 6);
   const readingMinutes = estimateReadingMinutes(post.body);
+  const enhancements = getArticleEnhancements(post, isHebrew);
+  const reviewedAt = "2026-06-04T20:45:00.000Z";
   const internalLinkSlugs = getInternalBlogLinks(post.slug).filter((linkSlug) => linkSlug !== post.slug);
   const internalLinkPosts = internalLinkSlugs
     .map((linkSlug) => related.find((item) => item.slug === linkSlug))
@@ -485,7 +596,7 @@ export default function BlogPost() {
     description: post.excerpt,
     image: [ogImage],
     datePublished: post.publishedAt,
-    dateModified: post.publishedAt,
+    dateModified: reviewedAt,
     inLanguage: i18n.language === "he" ? "he" : "en-US",
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -528,6 +639,20 @@ export default function BlogPost() {
     keywords: seoKeywords.join(", "),
     timeRequired: `PT${readingMinutes}M`,
   };
+  const faqStructuredData = enhancements.faqs.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: enhancements.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
   const trustCopy = getTrustCopy(isHebrew);
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
@@ -590,7 +715,7 @@ export default function BlogPost() {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={postUrl} />
         <meta property="article:published_time" content={post.publishedAt} />
-        <meta property="article:modified_time" content={post.publishedAt} />
+        <meta property="article:modified_time" content={reviewedAt} />
         <meta property="article:section" content="Dental Marketing" />
         {prioritizedKeywords.map((keyword) => (
           <meta key={keyword} property="article:tag" content={keyword} />
@@ -606,6 +731,9 @@ export default function BlogPost() {
         <script type="application/ld+json">{JSON.stringify(breadcrumbStructuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(internalLinksStructuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceLinksStructuredData)}</script>
+        {faqStructuredData && (
+          <script type="application/ld+json">{JSON.stringify(faqStructuredData)}</script>
+        )}
       </Head>
 
       {/* Header */}
@@ -800,6 +928,64 @@ export default function BlogPost() {
                 </aside>
               )}
               <PortableText value={post.body || []} components={portableTextComponents} />
+
+              <section className="mt-12 rounded-xl border border-primary/20 bg-primary/5 p-5 sm:p-6">
+                <p className="text-xs font-medium uppercase tracking-[0.14em] text-primary">
+                  {isHebrew ? "סיכום מעשי" : "Practical takeaways"}
+                </p>
+                <h2 className="mt-2 font-display text-2xl font-semibold text-foreground">
+                  {isHebrew
+                    ? "מה כדאי לעשות עם המידע הזה"
+                    : "What to do with this information"}
+                </h2>
+                <div className="mt-5 grid gap-3">
+                  {enhancements.takeaways.map((takeaway) => (
+                    <div key={takeaway} className="flex gap-3 rounded-lg border border-border bg-background/70 p-4">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                      <p className="text-sm leading-relaxed text-muted-foreground">{takeaway}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              <section className="mt-10">
+                <h2 className="font-display text-2xl font-semibold text-foreground">
+                  {isHebrew ? "רשימת בדיקה למרפאה" : "Clinic decision checklist"}
+                </h2>
+                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                  {isHebrew
+                    ? "לפני שמגדילים תקציב או משנים ערוץ שיווקי, כדאי לבדוק שהמערכת מודדת איכות מטופלים ולא רק פעילות שיווקית."
+                    : "Before increasing budget or changing channels, check that the system is measuring patient quality rather than marketing activity alone."}
+                </p>
+                <ul className="mt-5 grid gap-3">
+                  {enhancements.decisionChecks.map((item) => (
+                    <li key={item} className="flex gap-3 rounded-lg border border-border bg-card p-4">
+                      <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                      <span className="text-sm leading-relaxed text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              {enhancements.faqs.length > 0 && (
+                <section className="mt-12">
+                  <h2 className="font-display text-2xl font-semibold text-foreground">
+                    {isHebrew ? "שאלות נפוצות" : "Frequently asked questions"}
+                  </h2>
+                  <div className="mt-5 divide-y divide-border rounded-xl border border-border bg-card">
+                    {enhancements.faqs.map((faq) => (
+                      <div key={faq.question} className="p-5">
+                        <h3 className="font-display text-lg font-semibold text-foreground">
+                          {faq.question}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
 
               <aside className="mt-12 rounded-xl border border-border bg-card p-5 sm:p-6">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
