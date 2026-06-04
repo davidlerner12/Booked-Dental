@@ -1,5 +1,6 @@
 import type { PortableTextBlock } from "@portabletext/types";
 import { SITE_URL } from "@/lib/seo";
+import { urlFor } from "@/lib/sanity";
 
 export interface BlogSeoPost {
   slug: string;
@@ -222,7 +223,7 @@ function mapPortableText(blocks?: PortableTextBlock[]) {
   });
 }
 
-function findOverride(slug: string) {
+function findExplicitOverride(slug: string) {
   const hebrew = HEBREW_OVERRIDES[slug];
   if (hebrew) {
     return {
@@ -234,18 +235,22 @@ function findOverride(slug: string) {
     };
   }
   const sourceSlug = SOURCE_SLUG_BY_CANONICAL[slug] || slug;
-  return OVERRIDES[sourceSlug] || DEFAULT_OVERRIDE;
+  return OVERRIDES[sourceSlug];
+}
+
+function findOverride(slug: string) {
+  return findExplicitOverride(slug) || DEFAULT_OVERRIDE;
 }
 
 export function applyBlogSeoOverrides<T extends BlogSeoPost>(post: T): T {
-  const override = findOverride(post.slug);
+  const override = findExplicitOverride(post.slug);
   return {
     ...post,
-    slug: override.canonicalSlug || post.slug,
-    title: replaceText(override.title || post.title),
-    excerpt: replaceText(override.excerpt || post.excerpt),
-    mainImageAlt: override.alt,
-    seoImage: override.image,
+    slug: override?.canonicalSlug || post.slug,
+    title: replaceText(override?.title || post.title),
+    excerpt: replaceText(override?.excerpt || post.excerpt),
+    mainImageAlt: override?.alt || post.mainImageAlt,
+    seoImage: override?.image || post.seoImage,
     body: mapPortableText(post.body),
   };
 }
@@ -256,8 +261,26 @@ export function applyBlogSeoListOverrides<T extends BlogSeoPost>(posts: T[]) {
 
 export function getBlogSeoImage(post: BlogSeoPost) {
   const override = findOverride(post.slug);
+  if (post.seoImage) {
+    return {
+      src: post.seoImage,
+      alt: post.mainImageAlt || override.alt || post.title,
+    };
+  }
+
+  if (post.mainImage) {
+    try {
+      return {
+        src: urlFor(post.mainImage).width(1200).fit("max").auto("format").url(),
+        alt: post.mainImageAlt || override.alt || post.title,
+      };
+    } catch {
+      // Fall through to the default branded image if the Sanity image is malformed.
+    }
+  }
+
   return {
-    src: post.seoImage || override.image,
+    src: override.image,
     alt: post.mainImageAlt || override.alt || post.title,
   };
 }
@@ -374,5 +397,5 @@ export function resolveSourceBlogSlug(slug: string) {
 }
 
 export function toCanonicalBlogSlug(slug: string) {
-  return findOverride(slug).canonicalSlug || slug;
+  return findExplicitOverride(slug)?.canonicalSlug || slug;
 }

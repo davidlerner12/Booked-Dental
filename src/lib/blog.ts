@@ -55,7 +55,7 @@ export const BLOG_LIST_QUERY = groq`*[
 export const BLOG_POST_QUERY = groq`*[
   _type == "post" &&
   slug.current == $slug
-][0]{
+]{
   _id,
   title,
   "slug": slug.current,
@@ -82,15 +82,14 @@ export async function getAllBlogPosts(lang?: string) {
 
 export async function getBlogPostBySlug(slug: string, lang?: string) {
   assertSanityConfig();
-  const post = await sanityClient.fetch<BlogPostDetail | null>(BLOG_POST_QUERY, {
+  const posts = await sanityClient.fetch<BlogPostDetail[]>(BLOG_POST_QUERY, {
     slug: resolveSourceBlogSlug(slug),
   });
+  const post = lang === "en" || lang === "he"
+    ? (posts || []).find((item) => getPostLanguage(item) === lang)
+    : (posts || [])[0];
   if (!post) return null;
-  const enhancedPost = applyBlogSeoOverrides(post);
-  if (lang === "en" || lang === "he") {
-    return getPostLanguage(enhancedPost) === lang ? enhancedPost : null;
-  }
-  return enhancedPost;
+  return applyBlogSeoOverrides(post);
 }
 
 export async function getAllBlogSlugs(lang?: string) {
