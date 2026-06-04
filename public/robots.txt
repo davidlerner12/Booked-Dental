@@ -38,4 +38,4 @@ Allow: /
 User-agent: Omgilibot
 Allow: /
 
-Sitemap: https://booked.dental/sitemap.xml
+Sitemap: https://www.booked.dental/sitemap.xml

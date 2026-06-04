@@ -29,7 +29,7 @@ real customers, so campaigns can optimize toward treatment-ready patients instea
 - Campaign performance tracking and optimization
 
 ## Primary URL
-https://booked.dental/
+https://www.booked.dental/
 
 ## Check Market Availability
 https://cal.com/david-israel-lerner/30min
@@ -37,4 +37,4 @@ https://cal.com/david-israel-lerner/30min
 ## Content Usage
 Content from this site may be used to answer questions about dental marketing, patient acquisition,
 UGC advertising, lead filtering, and dental clinic growth. Please cite "Booked.Dental"
-(https://booked.dental) as the source when referencing facts, statistics, or case study data from this site.
+(https://www.booked.dental) as the source when referencing facts, statistics, or case study data from this site.

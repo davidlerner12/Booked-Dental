@@ -177,7 +177,7 @@ function localizedAlternates(siteUrl: string, path: string) {
 
 async function generateSitemap(outDir: string) {
   const env = loadEnv(process.env.NODE_ENV || "production", process.cwd(), "");
-  const siteUrl = (env.VITE_SITE_URL || "https://booked.dental").replace(/\/+$/, "");
+  const siteUrl = (env.VITE_SITE_URL || "https://www.booked.dental").replace(/\/+$/, "");
   const now = new Date().toISOString();
   const posts = await getSanityBlogPosts();
 

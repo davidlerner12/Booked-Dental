@@ -43,10 +43,10 @@ export default function Blog() {
     ? "מדריכים מעשיים על Google Ads, קמפיינים ב-Meta, קריאייטיב UGC, סינון לידים ומערכות גיוס מטופלים שנבנות סביב כוונת לקוח אמיתית."
     : "Practical guides on Google Ads, Meta campaigns, UGC creative, lead filtering, and patient acquisition systems built around real customer intent.";
   const pageUrl = buildLocalizedUrl(lang, "/blog");
-  const pageImage = "https://booked.dental/social-preview.png";
+  const pageImage = "https://www.booked.dental/social-preview.png";
   const blogListStructuredData = {
     "@context": "https://schema.org", "@type": "Blog", name: "Booked.Dental Marketing Blog", url: pageUrl, description: pageDescription, inLanguage: isHebrew ? "he" : "en-US",
-    publisher: { "@type": "Organization", name: "Booked.Dental", url: "https://booked.dental" },
+    publisher: { "@type": "Organization", name: "Booked.Dental", url: "https://www.booked.dental" },
     blogPost: data.slice(0, 20).map((post) => ({ "@type": "BlogPosting", headline: post.title, datePublished: post.publishedAt, url: `${pageUrl}/${post.slug}` })),
   };
   const itemListStructuredData = {

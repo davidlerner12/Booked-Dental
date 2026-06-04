@@ -64,7 +64,7 @@ const TRUST_SOURCES = [
   },
 ];
 
-const AUTHOR_IMAGE = "https://booked.dental/images/david-lerner-headshot.jpg";
+const AUTHOR_IMAGE = "https://www.booked.dental/images/david-lerner-headshot.jpg";
 
 const SERVICE_LINKS_BY_BLOG_SLUG: Record<string, string[]> = {
   "how-to-get-more-dental-implant-patients": [
@@ -493,10 +493,10 @@ export default function BlogPost() {
     publisher: {
       "@type": "Organization",
       name: "Booked.Dental",
-      url: "https://booked.dental",
+      url: "https://www.booked.dental",
       logo: {
         "@type": "ImageObject",
-        url: "https://booked.dental/social-preview.png",
+        url: "https://www.booked.dental/social-preview.png",
       },
     },
     author: {
@@ -508,7 +508,7 @@ export default function BlogPost() {
       worksFor: {
         "@type": "Organization",
         name: "Booked.Dental",
-        url: "https://booked.dental",
+        url: "https://www.booked.dental",
       },
     },
     reviewedBy: {

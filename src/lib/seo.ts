@@ -1,4 +1,4 @@
-export const SITE_URL = "https://booked.dental";
+export const SITE_URL = "https://www.booked.dental";
 export const SITE_NAME = "Booked.Dental";
 export const DEFAULT_SOCIAL_IMAGE = `${SITE_URL}/social-preview.png`;
 export const SUPPORTED_LANGS = ["en", "he"] as const;

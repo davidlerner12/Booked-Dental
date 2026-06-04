@@ -39,8 +39,8 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Booked.Dental",
-    url: "https://booked.dental",
-    logo: "https://booked.dental/favicon.png",
+    url: "https://www.booked.dental",
+    logo: "https://www.booked.dental/favicon.png",
     description:
       "Booked.Dental provides market-exclusive UGC ad campaigns, lead filtering, and AI learning loops for implant and cosmetic dental clinics.",
     areaServed: "US",
@@ -50,7 +50,7 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Dental patient acquisition for implant and cosmetic clinics",
-    provider: { "@type": "Organization", name: "Booked.Dental", url: "https://booked.dental" },
+    provider: { "@type": "Organization", name: "Booked.Dental", url: "https://www.booked.dental" },
     description:
       "Market-exclusive Meta and Google ad campaigns, UGC creative, lead filtering, and AI learning loops for implant and cosmetic dental clinics.",
     areaServed: "US",
@@ -63,7 +63,7 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Booked.Dental",
-    url: "https://booked.dental",
+    url: "https://www.booked.dental",
     inLanguage: isHebrew ? "he" : "en-US",
   };
   const faqStructuredData = {

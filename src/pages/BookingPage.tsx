@@ -70,7 +70,7 @@ const BookingPage = () => {
   const isMarketCheck = location.state?.source === "market-check";
   const isHebrew = pageLang === "he";
   const copy = isHebrew ? BOOKING_COPY.he : BOOKING_COPY.en;
-  const bookingUrl = `https://booked.dental/${pageLang}/book`;
+  const bookingUrl = `https://www.booked.dental/${pageLang}/book`;
   const bookingStructuredData = [
     {
       "@context": "https://schema.org",
@@ -86,7 +86,7 @@ const BookingPage = () => {
         provider: {
           "@type": "Organization",
           name: "Booked.Dental",
-          url: "https://booked.dental",
+          url: "https://www.booked.dental",
         },
       },
       potentialAction: {
@@ -114,7 +114,7 @@ const BookingPage = () => {
     trackBookingCTA();
   }, []);
 
-  const redirectOrigin = typeof window === "undefined" ? "https://booked.dental" : window.location.origin;
+  const redirectOrigin = typeof window === "undefined" ? "https://www.booked.dental" : window.location.origin;
   const redirectUrl = `${redirectOrigin}/${lang}/thank-you`;
 
   return (

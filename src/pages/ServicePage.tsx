@@ -93,7 +93,7 @@ export default function ServicePage() {
       provider: {
         "@type": "Organization",
         name: "Booked.Dental",
-        url: "https://booked.dental",
+        url: "https://www.booked.dental",
       },
       audience: {
         "@type": "Audience",

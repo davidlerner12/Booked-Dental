@@ -108,8 +108,8 @@ export default function AboutPage() {
   const pageLang = lang === "he" ? "he" : "en";
   const isHebrew = pageLang === "he";
   const copy = isHebrew ? COPY.he : COPY.en;
-  const pageUrl = `https://booked.dental/${pageLang}/about`;
-  const imageUrl = `https://booked.dental${HEADSHOT_SRC}`;
+  const pageUrl = `https://www.booked.dental/${pageLang}/about`;
+  const imageUrl = `https://www.booked.dental${HEADSHOT_SRC}`;
   const structuredData = [
     {
       "@context": "https://schema.org",
@@ -127,7 +127,7 @@ export default function AboutPage() {
         worksFor: {
           "@type": "Organization",
           name: "Booked.Dental",
-          url: "https://booked.dental",
+          url: "https://www.booked.dental",
         },
         knowsAbout: [
           "Dental patient acquisition",
@@ -142,7 +142,7 @@ export default function AboutPage() {
       about: {
         "@type": "Organization",
         name: "Booked.Dental",
-        url: "https://booked.dental",
+        url: "https://www.booked.dental",
         description:
           "Dental patient acquisition system focused on implant and cosmetic clinics, lead filtering, paid ads, AI-assisted intake, and customer-intent measurement.",
       },
@@ -157,7 +157,7 @@ export default function AboutPage() {
       worksFor: {
         "@type": "Organization",
         name: "Booked.Dental",
-        url: "https://booked.dental",
+        url: "https://www.booked.dental",
       },
     },
   ];
