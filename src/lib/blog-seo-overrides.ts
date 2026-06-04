@@ -38,6 +38,14 @@ const OVERRIDES: Record<string, BlogOverride> = {
     alt: "Implant marketing dashboard focused on filtered patient opportunities instead of clicks",
     keywords: ["dental implant marketing", "implant patient acquisition", "lead filtering"],
   },
+  "how-dental-clinics-get-more-implant-consultations-2026": {
+    title: "How Dental Clinics Get More Implant Patients in 2026",
+    excerpt:
+      "A practical 2026 guide to implant patient acquisition, lead filtering, campaign quality, and ROI for dental clinics.",
+    image: `${IMAGE_ROOT}/implant-marketing.png`,
+    alt: "Dental implant patient acquisition strategy for clinics using lead filtering and ROI tracking",
+    keywords: ["dental implant patients", "implant patient acquisition", "dental marketing 2026"],
+  },
   "ugc-dental-ads-examples": {
     title: "9 UGC Dental Ads Examples That Filter Better Leads",
     excerpt:
@@ -217,6 +225,8 @@ function replaceText(value: string) {
     value,
   )
     .replace(/qualified qualified/gi, "qualified")
+    .replace(/patient opportunitys/gi, "patient opportunities")
+    .replace(/opportunitys/gi, "opportunities")
     .replace(/Booked Dental/g, "Booked.Dental");
 }
 

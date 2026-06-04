@@ -413,7 +413,7 @@ export const blogPosts: BlogPost[] = [
         paragraphs: [
           "Lead vendors promise fast volume, and sometimes they deliver it. If your calendar is empty, buying leads can feel like the shortest path to activity.",
           "But this is where many practices get burned. Shared leads, weak qualification, price shoppers, and poor exclusivity often crush ROI. You may get a lot of contacts without getting many treatment starts. On paper, the cost per lead looks good. In the operatory, it often looks very different.",
-          "These marketplaces are rarely the best dental lead sources for high-value elective dentistry. They can fill gaps in some situations, but they should be treated cautiously and measured aggressively. If you cannot trace them to qualified opportunitys and accepted treatment, cut them fast.",
+          "These marketplaces are rarely the best dental lead sources for high-value elective dentistry. They can fill gaps in some situations, but they should be treated cautiously and measured aggressively. If you cannot trace them to qualified opportunities and accepted treatment, cut them fast.",
         ],
       },
       {
@@ -627,7 +627,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "",
         paragraphs: [
-          "Most agencies selling to dentists talk about visibility, branding, and \"more awareness.\" That sounds fine until the owner looks at the schedule and realizes none of it turned into real production. If you are evaluating a dentist growth agency, the real question is not whether they can get attention. It is whether they can generate qualified opportunitys for the procedures you actually want to grow.",
+          "Most agencies selling to dentists talk about visibility, branding, and \"more awareness.\" That sounds fine until the owner looks at the schedule and realizes none of it turned into real production. If you are evaluating a dentist growth agency, the real question is not whether they can get attention. It is whether they can generate qualified opportunities for the procedures you actually want to grow.",
           "That distinction matters most in high-value treatment categories. Implant filtered opportunities, veneers, smile makeovers, and other elective procedures do not behave like general dentistry. Patients do not usually book because they saw a nice logo, a polished office photo, or a generic social media post. They book when the message is credible, the offer is clear, and the path to filtered patient inquiry feels easy enough to act on now.",
           "That is why the phrase dentist growth agency should mean more than \"someone who runs ads.\" A real growth partner should be responsible for pipeline, not just promotion.",
         ],
@@ -783,7 +783,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Tracking the right metrics makes growth predictable",
         paragraphs: [
           "A lot of dental marketing reports highlight impressions, clicks, and cost per lead. Those numbers can help diagnose performance, but they do not reveal whether the campaign is profitable.",
-          "Real dentist patient growth is measured further down the funnel. The numbers that matter most include qualified opportunitys, show rate, treatment acceptance, and revenue generated from completed cases.",
+          "Real dentist patient growth is measured further down the funnel. The numbers that matter most include qualified opportunities, show rate, treatment acceptance, and revenue generated from completed cases.",
           "When a clinic tracks these metrics, it becomes much easier to see which campaigns deserve more budget and which ones should be adjusted or stopped. A channel that produces fewer leads but more accepted treatment plans may actually be the most profitable part of the entire marketing strategy.",
         ],
       },
@@ -792,7 +792,7 @@ export const blogPosts: BlogPost[] = [
         paragraphs: [
           "The clinics that grow fastest are rarely the ones doing the most marketing. They are the ones doing the most focused marketing.",
           "They build campaigns around high-value services instead of promoting everything. They use channels that match patient intent. Their creative speaks directly to real concerns. Their landing pages make booking easy. Their team responds quickly when a lead arrives.",
-          "The result is a steady flow of qualified opportunitys rather than random inquiries. Dentist patient growth does not come from chasing every marketing trend. It comes from building a patient acquisition system that consistently turns attention into appointments and appointments into treatment.",
+          "The result is a steady flow of qualified opportunities rather than random inquiries. Dentist patient growth does not come from chasing every marketing trend. It comes from building a patient acquisition system that consistently turns attention into appointments and appointments into treatment.",
           "When that system is in place, marketing stops feeling unpredictable. It starts functioning like a reliable growth engine for the practice.",
         ],
       },
