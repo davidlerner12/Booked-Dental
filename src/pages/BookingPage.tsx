@@ -113,7 +113,8 @@ const BookingPage = () => {
     trackBookingCTA();
   }, []);
 
-  const redirectUrl = `${window.location.origin}/${lang}/thank-you`;
+  const redirectOrigin = typeof window === "undefined" ? "https://booked.dental" : window.location.origin;
+  const redirectUrl = `${redirectOrigin}/${lang}/thank-you`;
 
   return (
     <div className="min-h-screen bg-background">
