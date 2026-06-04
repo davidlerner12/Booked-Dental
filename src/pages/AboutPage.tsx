@@ -103,11 +103,11 @@ const COPY = {
 } as const;
 
 export default function AboutPage() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { lang } = useParams();
-  const isHebrew = i18n.language === "he";
-  const copy = isHebrew ? COPY.he : COPY.en;
   const pageLang = lang === "he" ? "he" : "en";
+  const isHebrew = pageLang === "he";
+  const copy = isHebrew ? COPY.he : COPY.en;
   const pageUrl = `https://booked.dental/${pageLang}/about`;
   const imageUrl = `https://booked.dental${HEADSHOT_SRC}`;
   const structuredData = [
@@ -165,7 +165,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        lang={lang}
+        lang={pageLang}
         path="/about"
         title={copy.pageTitle}
         description={copy.pageDescription}

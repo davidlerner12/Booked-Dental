@@ -1,4 +1,5 @@
 ﻿import { lazy, Suspense } from "react";
+import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import SEO from "@/components/SEO";
 import Nav from "@/components/sections/Nav";
@@ -26,8 +27,10 @@ const CTA = lazy(() => import("@/components/sections/CTA"));
 const Footer = lazy(() => import("@/components/sections/Footer"));
 
 const Index = () => {
-  const { t, i18n } = useTranslation();
-  const isHebrew = i18n.language === "he";
+  const { t } = useTranslation();
+  const { lang } = useParams();
+  const pageLang = lang === "he" ? "he" : "en";
+  const isHebrew = pageLang === "he";
   const faqs = Array.from({ length: 8 }, (_, i) => ({
     question: t(`faq.q${i + 1}`),
     answer: t(`faq.a${i + 1}`),
@@ -80,7 +83,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        lang={i18n.language}
+        lang={pageLang}
         title={
           isHebrew
             ? "שיווק חכם למרפאות שתלים וציפויים | Booked.Dental"

@@ -63,13 +63,14 @@ const BOOKING_COPY = {
 } as const;
 
 const BookingPage = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { lang } = useParams();
+  const pageLang = lang === "he" ? "he" : "en";
   const location = useLocation();
   const isMarketCheck = location.state?.source === "market-check";
-  const isHebrew = i18n.language === "he";
+  const isHebrew = pageLang === "he";
   const copy = isHebrew ? BOOKING_COPY.he : BOOKING_COPY.en;
-  const bookingUrl = `https://booked.dental/${lang === "he" ? "he" : "en"}/book`;
+  const bookingUrl = `https://booked.dental/${pageLang}/book`;
   const bookingStructuredData = [
     {
       "@context": "https://schema.org",
@@ -119,7 +120,7 @@ const BookingPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        lang={lang}
+        lang={pageLang}
         path="/book"
         title={
           isHebrew

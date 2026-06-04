@@ -33,8 +33,9 @@ export default function Blog() {
   });
 
   const data = loaderData ?? clientData ?? [];
-  const dateLocale = i18n.language === "he" ? "he-IL" : "en-US";
-  const isHebrew = i18n.language === "he";
+  const pageLang = lang === "he" ? "he" : "en";
+  const dateLocale = pageLang === "he" ? "he-IL" : "en-US";
+  const isHebrew = pageLang === "he";
   const pageTitle = isHebrew
     ? "בלוג שיווק דנטלי | Booked.Dental"
     : "Dental Marketing Blog | Booked.Dental";
@@ -44,7 +45,7 @@ export default function Blog() {
   const pageUrl = buildLocalizedUrl(lang, "/blog");
   const pageImage = "https://booked.dental/social-preview.png";
   const blogListStructuredData = {
-    "@context": "https://schema.org", "@type": "Blog", name: "Booked.Dental Marketing Blog", url: pageUrl, description: pageDescription, inLanguage: i18n.language === "he" ? "he" : "en-US",
+    "@context": "https://schema.org", "@type": "Blog", name: "Booked.Dental Marketing Blog", url: pageUrl, description: pageDescription, inLanguage: isHebrew ? "he" : "en-US",
     publisher: { "@type": "Organization", name: "Booked.Dental", url: "https://booked.dental" },
     blogPost: data.slice(0, 20).map((post) => ({ "@type": "BlogPosting", headline: post.title, datePublished: post.publishedAt, url: `${pageUrl}/${post.slug}` })),
   };
@@ -74,7 +75,7 @@ export default function Blog() {
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
       <SEO
-        lang={lang}
+        lang={pageLang}
         path="/blog"
         title={pageTitle}
         description={pageDescription}
