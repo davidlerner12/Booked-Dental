@@ -9,6 +9,7 @@ export type ServicePageContent = {
   sections: Array<{ title: string; body: string }>;
   bullets: string[];
   relatedPosts: string[];
+  faqs?: Array<{ question: string; answer: string }>;
 };
 
 const enPages: ServicePageContent[] = [
@@ -253,6 +254,72 @@ const enPages: ServicePageContent[] = [
 ];
 
 const enExpansionPages: ServicePageContent[] = [
+  {
+    slug: "dental-lead-quality-checklist",
+    title: "Dental Lead Quality Checklist",
+    metaTitle: "Dental Lead Quality Checklist for Implant and Cosmetic Clinics | Booked.Dental",
+    description:
+      "A practical dental lead quality checklist for clinic owners who want to separate real patient opportunities from low-quality form fills.",
+    eyebrow: "Downloadable-style checklist",
+    h1: "Dental lead quality checklist for clinics that want real patients.",
+    intro:
+      "Use this checklist to review whether a dental lead is worth focused follow-up, whether the campaign is teaching the AI the right signal, and whether your team is measuring patient opportunities instead of raw form volume.",
+    sections: [
+      {
+        title: "1. Treatment intent",
+        body:
+          "Does the person mention implants, All-on-4, veneers, smile makeover, or another high-value service? A generic inquiry can still become useful, but treatment-specific intent should be scored higher.",
+      },
+      {
+        title: "2. Reachability",
+        body:
+          "Does the lead include a working phone number or email, and did the person respond to the first follow-up attempt? A serious opportunity needs a reachable patient path.",
+      },
+      {
+        title: "3. Timing and readiness",
+        body:
+          "Is the person actively considering treatment soon, comparing options, or asking about candidacy? Timing helps the team decide how much effort the lead deserves.",
+      },
+      {
+        title: "4. Fit and market",
+        body:
+          "Is the person in the right local market and likely to fit the clinic's treatment focus? Market fit keeps the campaign from optimizing toward irrelevant traffic.",
+      },
+      {
+        title: "5. Feedback to the campaign",
+        body:
+          "Was the lead approved, rejected, unreachable, or converted into a qualified opportunity? That outcome should feed the next round of campaign decisions.",
+      },
+    ],
+    bullets: [
+      "Score treatment intent before lead volume",
+      "Track reachable vs unreachable submissions",
+      "Separate raw leads from qualified opportunities",
+      "Use approved and rejected leads as AI feedback",
+    ],
+    relatedPosts: [
+      "dental-lead-filtering-for-dentists",
+      "dental-marketing-roi",
+      "why-dental-ads-fail",
+    ],
+    faqs: [
+      {
+        question: "What makes a dental lead high quality?",
+        answer:
+          "A high-quality dental lead shows relevant treatment interest, local market fit, reachability, and enough readiness to justify focused follow-up from the clinic.",
+      },
+      {
+        question: "Should every dental lead be treated the same?",
+        answer:
+          "No. Raw form fills should be separated from qualified opportunities so the team can prioritize serious prospects and the campaign can learn from better quality signals.",
+      },
+      {
+        question: "How does a checklist improve SEO and conversion?",
+        answer:
+          "A checklist creates a useful resource for clinic owners, supports internal links from articles and service pages, and gives prospects a clearer way to understand your lead-quality standard.",
+      },
+    ],
+  },
   {
     slug: "dental-implant-lead-generation",
     title: "Dental Implant Lead Generation",
@@ -837,6 +904,72 @@ const hePages: ServicePageContent[] = [
 ];
 
 const heExpansionPages: ServicePageContent[] = [
+  {
+    slug: "dental-lead-quality-checklist",
+    title: "צ׳קליסט איכות לידים דנטליים",
+    metaTitle: "צ׳קליסט איכות לידים דנטליים למרפאות שתלים ואסתטיקה | Booked.Dental",
+    description:
+      "צ׳קליסט מעשי לאיכות לידים דנטליים שעוזר לבעלי מרפאות להפריד בין הזדמנויות מטופלים אמיתיות לבין טפסים באיכות נמוכה.",
+    eyebrow: "צ׳קליסט שימושי",
+    h1: "צ׳קליסט איכות לידים דנטליים למרפאות שרוצות מטופלים אמיתיים.",
+    intro:
+      "השתמשו בצ׳קליסט כדי לבדוק אם ליד דנטלי שווה המשך ממוקד, אם הקמפיין מלמד את ה-AI את האות הנכון ואם הצוות מודד הזדמנויות מטופלים במקום נפח טפסים גולמי.",
+    sections: [
+      {
+        title: "1. כוונת טיפול",
+        body:
+          "האם האדם מזכיר שתלים, All-on-4, ציפויים, שיקום חיוך או טיפול בעל ערך גבוה אחר? פנייה כללית יכולה עדיין להיות שימושית, אבל כוונה טיפולית ספציפית צריכה לקבל עדיפות.",
+      },
+      {
+        title: "2. זמינות ליצירת קשר",
+        body:
+          "האם הליד כולל טלפון או אימייל תקינים, והאם האדם הגיב לניסיון ההמשך הראשון? הזדמנות רצינית צריכה דרך קשר זמינה.",
+      },
+      {
+        title: "3. תזמון ומוכנות",
+        body:
+          "האם האדם שוקל טיפול בקרוב, משווה אפשרויות או שואל על התאמה? תזמון עוזר לצוות להחליט כמה מאמץ להשקיע בליד.",
+      },
+      {
+        title: "4. התאמת אזור ומרפאה",
+        body:
+          "האם האדם נמצא באזור הנכון ומתאים למיקוד הטיפולי של המרפאה? התאמת שוק מונעת מהקמפיין להתמקד בתנועה לא רלוונטית.",
+      },
+      {
+        title: "5. פידבק לקמפיין",
+        body:
+          "האם הליד אושר, נדחה, לא היה זמין או הפך להזדמנות מתאימה? התוצאה הזו צריכה להשפיע על החלטות הקמפיין הבאות.",
+      },
+    ],
+    bullets: [
+      "דרגו כוונת טיפול לפני נפח לידים",
+      "מדדו פניות זמינות מול פניות לא זמינות",
+      "הפרידו בין לידים גולמיים להזדמנויות מתאימות",
+      "השתמשו בלידים שאושרו או נדחו כפידבק ל-AI",
+    ],
+    relatedPosts: [
+      "dental-lead-filtering-for-dentists",
+      "dental-marketing-roi",
+      "why-dental-ads-fail",
+    ],
+    faqs: [
+      {
+        question: "מה הופך ליד דנטלי לאיכותי?",
+        answer:
+          "ליד איכותי מציג עניין טיפולי רלוונטי, התאמה לאזור, זמינות ליצירת קשר ומספיק מוכנות כדי להצדיק המשך ממוקד מצד המרפאה.",
+      },
+      {
+        question: "האם צריך להתייחס לכל ליד באותה צורה?",
+        answer:
+          "לא. חשוב להפריד בין טפסים גולמיים להזדמנויות מתאימות כדי שהצוות יתעדף מתעניינים רציניים והקמפיין ילמד מאותות איכות טובים יותר.",
+      },
+      {
+        question: "איך צ׳קליסט כזה עוזר ל-SEO ולהמרה?",
+        answer:
+          "צ׳קליסט יוצר נכס שימושי לבעלי מרפאות, מחזק קישורים פנימיים ממאמרים ועמודי שירות, ומבהיר ללקוחות פוטנציאליים את סטנדרט איכות הלידים שלכם.",
+      },
+    ],
+  },
   {
     slug: "dental-implant-lead-generation",
     title: "גיוס לידים לשתלים דנטליים",

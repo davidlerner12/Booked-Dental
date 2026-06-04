@@ -31,6 +31,46 @@ const GUIDE_TITLES = {
   },
 } as const;
 
+function getPageFaqs(pageTitle: string, isHebrew: boolean) {
+  if (isHebrew) {
+    return [
+      {
+        question: `למי מתאים ${pageTitle}?`,
+        answer:
+          "העמוד מיועד למרפאות שתלים ואסתטיקה שרוצות למשוך מתעניינים עם כוונת טיפול ברורה יותר, לסנן לידים ולמדוד הזדמנויות אמיתיות במקום קליקים או טפסים גולמיים.",
+      },
+      {
+        question: "איך סינון לידים עוזר לקמפיינים להשתפר?",
+        answer:
+          "סינון יוצר פידבק על איכות הפניות. כשהמערכת יודעת אילו מתעניינים מתאימים ואילו לא, קל יותר ללמד את הקמפיין למצוא אנשים שדומים למטופלים עתידיים.",
+      },
+      {
+        question: "מה ההבדל בין ליד רגיל להזדמנות מתאימה?",
+        answer:
+          "ליד רגיל הוא רק מילוי טופס. הזדמנות מתאימה מראה עניין טיפולי, התאמה לאזור, זמינות להמשך ותמונה ברורה יותר של כוונת המטופל.",
+      },
+    ];
+  }
+
+  return [
+    {
+      question: `Who is ${pageTitle} for?`,
+      answer:
+        "It is for implant and cosmetic dental clinics that want better-qualified patient opportunities, cleaner lead filtering, and reporting focused on real treatment intent instead of clicks or raw form volume.",
+    },
+    {
+      question: "How does lead filtering improve campaign performance?",
+      answer:
+        "Filtering creates feedback about lead quality. When the system knows which prospects are approved or rejected, it can help campaigns learn toward future patients instead of easy form fills.",
+    },
+    {
+      question: "What is the difference between a lead and a qualified opportunity?",
+      answer:
+        "A lead is a form submission. A qualified opportunity shows relevant treatment interest, local market fit, reachability, and enough intent to justify focused follow-up.",
+    },
+  ];
+}
+
 export default function ServicePage() {
   const { lang, serviceSlug } = useParams();
   const { t, i18n } = useTranslation();
@@ -41,6 +81,7 @@ export default function ServicePage() {
   if (!page) return <Navigate to={`/${lang || "en"}`} replace />;
 
   const path = `/services/${page.slug}`;
+  const pageFaqs = page.faqs || getPageFaqs(page.title, isHebrew);
   const structuredData = [
     {
       "@context": "https://schema.org",
@@ -78,6 +119,19 @@ export default function ServicePage() {
           item: buildLocalizedUrl(lang, path),
         },
       ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: isHebrew ? "he" : "en-US",
+      mainEntity: pageFaqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
     },
   ];
 
@@ -171,6 +225,26 @@ export default function ServicePage() {
                   >
                     {guideTitles[slug as keyof typeof guideTitles] || slug.split("-").join(" ")}
                   </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-border py-14">
+          <div className="container">
+            <div className="mx-auto max-w-4xl">
+              <h2 className="font-display text-2xl font-semibold">
+                {isHebrew ? "שאלות נפוצות" : "Frequently asked questions"}
+              </h2>
+              <div className="mt-5 grid gap-4">
+                {pageFaqs.map((faq) => (
+                  <div key={faq.question} className="rounded-xl border border-border bg-card p-5">
+                    <h3 className="font-display text-lg font-semibold text-foreground">
+                      {faq.question}
+                    </h3>
+                    <p className="mt-2 leading-relaxed text-muted-foreground">{faq.answer}</p>
+                  </div>
                 ))}
               </div>
             </div>

@@ -165,7 +165,7 @@ const SERVICE_LINKS_BY_BLOG_SLUG: Record<string, string[]> = {
   "dental-marketing-roi": [
     "roi-methodology",
     "qualified-opportunity-methodology",
-    "dental-lead-generation-vs-patient-acquisition",
+    "dental-lead-quality-checklist",
   ],
   "google-business-profile-for-dentists": [
     "dental-lead-generation",
@@ -179,8 +179,8 @@ const SERVICE_LINKS_BY_BLOG_SLUG: Record<string, string[]> = {
   ],
   "dental-reviews-seo": [
     "qualified-opportunity-methodology",
+    "dental-lead-quality-checklist",
     "dental-lead-generation",
-    "booked-dental-vs-dental-marketing-agency",
   ],
 };
 

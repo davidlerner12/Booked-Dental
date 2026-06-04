@@ -61,6 +61,7 @@ const SUPPORTED_LANGS = ["en", "he"];
 const LOCALIZED_STATIC_PATHS = ["", "/book", "/blog", "/about", "/privacy", "/thank-you"];
 const SERVICE_STATIC_PATHS = [
   "/services/dental-implant-marketing",
+  "/services/dental-lead-quality-checklist",
   "/services/all-on-4-dental-implant-marketing",
   "/services/dental-implant-lead-generation",
   "/services/all-on-4-lead-generation",

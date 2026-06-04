@@ -67,6 +67,10 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
       [
         "Ranking for dental implant keywords is useful, but rankings alone are not the business outcome. Track which pages produce filtered patient opportunities, which queries bring serious prospects, and which content supports accepted treatment. The goal is not traffic. The goal is qualified patient acquisition.",
       ],
+      ["Dental implant SEO FAQ", "h2"],
+      ["How long does dental implant SEO take? Most clinics should expect SEO to build over months, not days. Paid campaigns can create faster demand while SEO pages, reviews, and local authority compound over time."],
+      ["Should implant SEO target cost keywords? Yes, but carefully. Cost keywords can attract serious patients, but pages should explain financing, candidacy, and value instead of racing to the cheapest price."],
+      ["Does SEO replace Google Ads for implants? Usually no. SEO supports research and trust, while Google Ads captures immediate search demand. The strongest acquisition systems use both with lead-quality tracking."],
     ]),
   },
   {
@@ -105,6 +109,10 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
       [
         "A good implant page does not treat every form fill as equal. It asks enough to help the clinic understand treatment interest, location, urgency, and fit. The campaign can then learn which leads become qualified opportunities, not just which visitors filled out a form.",
       ],
+      ["Dental implant landing page FAQ", "h2"],
+      ["What should be above the fold? The page should show the treatment focus, the core offer or next step, trust signals, and a simple way to submit interest without forcing the patient to search around."],
+      ["How many fields should the form have? Enough to filter intent, but not so many that serious patients quit. Name, contact information, city, and one or two treatment-fit questions are usually a cleaner starting point."],
+      ["Should the page include pricing? It depends on positioning and market. Financing cues often reduce hesitation, but aggressive price messaging can attract low-fit shoppers if the clinic is premium."],
     ]),
   },
   {
@@ -143,6 +151,10 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
       [
         "Average ROI is useful when it is grounded in clear definitions. It should not be used as a vague promise. It should explain what counts, what does not count, and how the system separates campaign activity from real patient acquisition.",
       ],
+      ["Dental marketing ROI FAQ", "h2"],
+      ["What is a good ROI for dental marketing? It depends on treatment mix, case value, close rate, and lead quality. For high-value procedures, a smaller number of qualified opportunities can outperform a large number of cheap leads."],
+      ["Why is cost per lead misleading? Cost per lead ignores whether the person is reachable, qualified, and likely to accept treatment. A cheap lead can still waste staff time and campaign learning."],
+      ["What should a clinic report weekly? Track qualified opportunities, show rate, treatment acceptance, revenue from closed cases, and which channels or creatives produced the best quality."],
     ]),
   },
   {
@@ -181,6 +193,10 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
       [
         "The goal is not simply to rank in the map pack. The goal is to support a system that turns attention into filtered opportunities. Google Business Profile works best when it is part of a broader funnel built around treatment intent.",
       ],
+      ["Google Business Profile FAQ for dentists", "h2"],
+      ["How often should a dental clinic update its Google Business Profile? Update it whenever hours, services, photos, offers, or important business details change. Fresh, accurate information supports trust."],
+      ["Do reviews help dental SEO? Reviews can support local visibility and conversion. More importantly, specific patient stories help high-value prospects feel safer before they submit a form."],
+      ["Should implant and cosmetic services be mentioned on the profile? Yes. The profile should reflect the treatments the clinic wants to grow, not only broad general dentistry."],
     ]),
   },
   {
@@ -219,6 +235,10 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
       [
         "If a clinic wants both treatment lines, separate the campaigns, pages, and qualification signals. That gives the AI cleaner data and gives the clinic a clearer read on which cosmetic funnel is producing real opportunities.",
       ],
+      ["Veneers vs Invisalign marketing FAQ", "h2"],
+      ["Can one campaign promote both veneers and Invisalign? It can, but separate campaigns usually produce cleaner data because the patient motivations and objections are different."],
+      ["Which treatment is better for paid social? Veneers often perform well with transformation-led creative, while Invisalign can work with educational and convenience-led messaging."],
+      ["How should a clinic choose the first cosmetic campaign? Start with the treatment that has the best combination of margin, capacity, patient demand, and ability to show a clear outcome."],
     ]),
   },
   {
@@ -257,6 +277,10 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
       [
         "Better reputation signals can improve the quality of people who submit forms because they arrive with more confidence. That makes reviews part of patient acquisition, not just brand maintenance.",
       ],
+      ["Dental reviews SEO FAQ", "h2"],
+      ["How many reviews does a dental clinic need? There is no universal number. The clinic needs enough recent, specific reviews to look credible compared with local competitors."],
+      ["Can reviews mention treatments like implants or veneers? Patients can describe their real experience, including the treatment they received. Clinics should never script or fake reviews."],
+      ["Do reviews improve paid ad conversion? Often yes. Patients frequently research the clinic after seeing an ad, so reputation can influence whether paid traffic becomes a qualified opportunity."],
     ]),
   },
 ];
