@@ -12,7 +12,6 @@ const ROICalculator = () => {
   const defaultImplant = 40000;
   const defaultVeneer = 6000;
   const currencySymbol = "\u20aa";
-  const monthlyCost = 2250;
 
   const [implantValue] = useState(defaultImplant);
   const [veneerValue] = useState(defaultVeneer);
@@ -102,9 +101,7 @@ const ROICalculator = () => {
               <div className="mt-5 rounded-xl border border-primary/30 bg-primary/5 p-6 text-center shadow-gold">
                 <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-primary">{t("roi_calculator.total_label")}</div>
                 <div className="font-display text-4xl font-bold text-gradient-gold">{formatCurrency(totalRevenue)}</div>
-                <div className="mt-2 text-xs text-muted-foreground">
-                  {t("roi_calculator.investment_prefix")}<span className="font-semibold text-foreground">{Math.round(totalRevenue / monthlyCost)}x</span>{t("roi_calculator.investment_suffix")}
-                </div>
+                <div className="mt-2 text-xs text-muted-foreground">{t("roi_calculator.impact_note")}</div>
               </div>
             </div>
             <div className="rounded-xl border-l-2 border-l-primary/50 border border-border bg-background px-6 py-5">
