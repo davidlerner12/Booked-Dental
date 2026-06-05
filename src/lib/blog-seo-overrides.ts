@@ -443,8 +443,13 @@ export function getInternalBlogLinks(slug: string) {
     ],
     "google-ads-for-dental-implants": [
       "how-to-get-more-dental-implant-patients",
+      "dental-implant-ppc",
       "google-ads-vs-facebook-ads-dentists",
-      "dental-implant-lead-generation-that-pays",
+    ],
+    "dental-implant-ppc": [
+      "google-ads-for-dental-implants",
+      "dental-implant-landing-page",
+      "dental-implant-cost-keywords",
     ],
     "dental-implant-seo": [
       "how-to-get-more-dental-implant-patients",
@@ -472,9 +477,14 @@ export function getInternalBlogLinks(slug: string) {
       "dental-marketing-roi",
     ],
     "all-on-4-marketing": [
+      "all-on-4-advertising",
       "all-on-4-vs-dentures-marketing",
       "full-mouth-dental-implant-leads",
-      "dental-implant-financing-marketing",
+    ],
+    "all-on-4-advertising": [
+      "all-on-4-marketing",
+      "full-mouth-dental-implant-leads",
+      "teeth-in-a-day-marketing",
     ],
     "full-mouth-dental-implant-leads": [
       "all-on-4-marketing",
@@ -518,8 +528,8 @@ export function getInternalBlogLinks(slug: string) {
     ],
     "dental-implant-consultation-marketing": [
       "dental-implant-second-opinion-marketing",
+      "dental-treatment-coordinator-follow-up",
       "dental-implant-cost-keywords",
-      "full-mouth-dental-implant-leads",
     ],
     "dental-implant-before-after-marketing": [
       "best-implant-ad-creatives",
@@ -537,9 +547,14 @@ export function getInternalBlogLinks(slug: string) {
       "veneers-cost-marketing",
     ],
     "veneers-vs-invisalign-marketing": [
+      "veneers-advertising",
       "cosmetic-dentists-high-intent-patients",
       "meta-ads-for-cosmetic-dentists",
-      "dental-marketing-roi",
+    ],
+    "veneers-advertising": [
+      "porcelain-veneers-marketing",
+      "smile-design-marketing",
+      "veneers-cost-marketing",
     ],
     "cosmetic-dentist-near-me-seo": [
       "porcelain-veneers-marketing",
@@ -547,9 +562,9 @@ export function getInternalBlogLinks(slug: string) {
       "google-business-profile-for-dentists",
     ],
     "porcelain-veneers-marketing": [
+      "veneers-advertising",
       "cosmetic-dentist-near-me-seo",
       "smile-makeover-marketing",
-      "veneers-vs-invisalign-marketing",
     ],
     "smile-makeover-marketing": [
       "porcelain-veneers-marketing",
@@ -607,9 +622,14 @@ export function getInternalBlogLinks(slug: string) {
       "best-dental-lead-sources",
     ],
     "dentist-patient-growth": [
+      "dental-treatment-coordinator-follow-up",
       "dental-office-marketing",
       "best-dental-lead-sources",
+    ],
+    "dental-treatment-coordinator-follow-up": [
       "dental-lead-filtering-for-dentists",
+      "dentist-patient-growth",
+      "dental-marketing-roi",
     ],
     "best-dental-lead-sources": [
       "google-ads-vs-facebook-ads-dentists",
