@@ -775,6 +775,334 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
       ],
     ]),
   },
+  {
+    _id: "supplemental-dental-implant-financing-marketing",
+    slug: "dental-implant-financing-marketing",
+    title: "Dental Implant Financing Marketing: How to Convert Cost-Conscious Patients",
+    excerpt:
+      "Dental implant financing marketing helps clinics answer the cost objection without turning high-value treatment into a race to the cheapest price.",
+    publishedAt: "2026-06-05T08:00:00.000Z",
+    seoImage: "/blog/images/implant-marketing.png",
+    mainImageAlt: "Dental implant financing marketing strategy for qualified patient acquisition",
+    serviceLinks: [
+      "dental-implant-marketing",
+      "google-ads-for-dental-implants",
+      "roi-methodology",
+    ],
+    body: body([
+      [
+        "Dental implant financing marketing matters because cost is one of the first objections patients feel, even when they do not say it directly. A patient can want implants, understand the value, and still hesitate because they are unsure whether treatment is financially realistic.",
+      ],
+      ["Financing should reduce fear, not cheapen the offer", "h2"],
+      [
+        "The strongest financing message does not position the clinic as the cheapest option. It helps patients understand that treatment may be possible through payment options, eligibility review, phased planning, or a clear explanation of what affects cost.",
+      ],
+      [
+        "That distinction matters. If the ad only says cheap dental implants, the campaign may attract price shoppers. If the ad says patients can check treatment fit and payment options, the campaign can attract people who are serious but hesitant.",
+      ],
+      ["Use financing as a qualification signal", "h2"],
+      [
+        "Financing interest can teach the system a lot. A patient asking about monthly payment options may be more serious than a patient asking for a generic price. The lead form and follow-up process should capture that signal without making the person feel judged.",
+      ],
+      ["Dental implant financing marketing FAQ", "h2"],
+      [
+        "Should implant ads mention financing? Usually yes, because financing reduces hesitation for serious patients. The key is to frame it around eligibility and planning, not discount language.",
+      ],
+      [
+        "Can financing improve lead quality? It can, when paired with treatment-fit questions. Financing language helps separate serious patients with cost concerns from casual browsers.",
+      ],
+      [
+        "Should a clinic show monthly prices? Only if the clinic can support the claim clearly and compliantly. Many clinics are better served by saying payment options may be available for qualified patients.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-he-dental-implant-financing-marketing",
+    slug: "dental-implant-financing-marketing-he",
+    title: "שיווק מימון להשתלות שיניים: איך להמיר מטופלים שחוששים מהמחיר",
+    excerpt:
+      "שיווק מימון להשתלות שיניים עוזר למרפאות לענות על התנגדות המחיר בלי להפוך טיפול יקר למירוץ למחיר הכי נמוך.",
+    publishedAt: "2026-06-05T08:01:00.000Z",
+    seoImage: "/blog/images/implant-marketing.png",
+    mainImageAlt: "אסטרטגיית שיווק מימון להשתלות שיניים למשיכת מטופלים איכותיים",
+    serviceLinks: [
+      "dental-implant-marketing",
+      "google-ads-for-dental-implants",
+      "roi-methodology",
+    ],
+    body: body([
+      [
+        "שיווק מימון להשתלות שיניים חשוב כי מחיר הוא אחת ההתנגדויות הראשונות שמטופלים מרגישים, גם אם הם לא אומרים את זה ישירות. אדם יכול לרצות שתלים, להבין את הערך ועדיין להסס כי הוא לא יודע אם הטיפול אפשרי מבחינה כלכלית.",
+      ],
+      ["מימון צריך להפחית חשש, לא להוזיל את ההצעה", "h2"],
+      [
+        "מסר חזק על מימון לא מציג את המרפאה כאופציה הכי זולה. הוא עוזר למטופל להבין שאולי יש אפשרות דרך תשלומים, בדיקת זכאות, תכנון בשלבים או הסבר ברור של מה משפיע על המחיר.",
+      ],
+      [
+        "ההבדל הזה חשוב. אם המודעה מדברת רק על שתלים זולים, הקמפיין עלול למשוך ציידי מחיר. אם המודעה מציעה לבדוק התאמה טיפולית ואפשרויות תשלום, היא יכולה למשוך אנשים רציניים שחוששים מהעלות.",
+      ],
+      ["להשתמש במימון כסימן לאיכות ליד", "h2"],
+      [
+        "עניין במימון יכול ללמד הרבה. מטופל ששואל על אפשרויות תשלום חודשיות עשוי להיות רציני יותר ממי שמבקש מחיר כללי. הטופס ותהליך החזרה צריכים לאסוף את הסימן הזה בלי לגרום לאדם להרגיש נשפט.",
+      ],
+      ["שאלות נפוצות על שיווק מימון לשתלים", "h2"],
+      [
+        "האם כדאי להזכיר מימון במודעות שתלים? בדרך כלל כן, כי מימון מפחית חשש אצל מטופלים רציניים. חשוב למסגר את זה סביב בדיקת זכאות ותכנון, לא סביב הנחה.",
+      ],
+      [
+        "האם מימון יכול לשפר איכות לידים? כן, כשהוא מחובר לשאלות התאמה טיפולית. מסר על מימון עוזר להבדיל בין מטופלים רציניים עם חשש עלות לבין סקרנות כללית.",
+      ],
+      [
+        "האם להציג מחיר חודשי? רק אם המרפאה יכולה לתמוך בטענה בצורה ברורה ותקינה. לרוב עדיף לומר שאפשרויות תשלום עשויות להיות זמינות למטופלים מתאימים.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-all-on-4-vs-dentures-marketing",
+    slug: "all-on-4-vs-dentures-marketing",
+    title: "All-on-4 vs Dentures Marketing: How to Reach Patients Who Want Fixed Teeth",
+    excerpt:
+      "All-on-4 vs dentures marketing works when clinics explain the fixed-teeth difference and filter for patients ready to compare full-arch options.",
+    publishedAt: "2026-06-05T08:05:00.000Z",
+    seoImage: "/blog/images/dental-patient-acquisition.png",
+    mainImageAlt: "All-on-4 versus dentures marketing strategy for full-arch implant patient intent",
+    serviceLinks: [
+      "all-on-4-lead-generation",
+      "full-arch-implant-marketing",
+      "dental-lead-quality-checklist",
+    ],
+    body: body([
+      [
+        "All-on-4 vs dentures is a high-intent comparison because the patient is usually not asking an abstract question. They are often tired of loose dentures, worried about chewing, embarrassed by their smile, or trying to understand whether fixed teeth are worth the investment.",
+      ],
+      ["Comparison intent needs plain language", "h2"],
+      [
+        "The campaign should not sound like a technical lecture. It should explain the practical difference: removable versus fixed, confidence while eating, maintenance, stability, treatment process, candidacy, and financing.",
+      ],
+      [
+        "Patients searching this comparison are often between options. That makes the landing page important. It should help them compare without pressuring them into a decision before the clinic understands their mouth, goals, and budget reality.",
+      ],
+      ["Filter for full-arch readiness", "h2"],
+      [
+        "A good campaign should ask whether the person currently wears dentures, has many failing teeth, has been quoted elsewhere, or wants to know if fixed teeth are possible. Those signals help separate full-arch opportunities from casual curiosity.",
+      ],
+      ["All-on-4 vs dentures marketing FAQ", "h2"],
+      [
+        "Should ads say All-on-4 is better than dentures? Be careful. A better message explains the difference and invites the patient to check candidacy rather than making a blanket claim.",
+      ],
+      [
+        "Is this a good Google Ads keyword angle? Yes. Comparison searches can show strong research intent, especially when paired with local and cost-related terms.",
+      ],
+      [
+        "What should the page convert to? A filtered eligibility or treatment-fit review is usually better than a generic form because full-arch cases need context.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-he-all-on-4-vs-dentures-marketing",
+    slug: "all-on-4-vs-dentures-marketing-he",
+    title: "שיווק All-on-4 מול תותבות: איך להגיע למטופלים שרוצים שיניים קבועות",
+    excerpt:
+      "שיווק All-on-4 מול תותבות עובד כשהמרפאה מסבירה את ההבדל בין פתרון נשלף לקבוע ומסננת מטופלים שבאמת בוחנים שיקום מלא.",
+    publishedAt: "2026-06-05T08:06:00.000Z",
+    seoImage: "/blog/images/dental-patient-acquisition.png",
+    mainImageAlt: "אסטרטגיית שיווק All-on-4 מול תותבות למטופלי שיקום מלא",
+    serviceLinks: [
+      "all-on-4-lead-generation",
+      "full-arch-implant-marketing",
+      "dental-lead-quality-checklist",
+    ],
+    body: body([
+      [
+        "All-on-4 מול תותבות הוא חיפוש עם כוונה חזקה כי המטופל בדרך כלל לא שואל שאלה תיאורטית. לרוב הוא עייף מתותבות לא יציבות, חושש מאכילה, מתבייש בחיוך או מנסה להבין אם שיניים קבועות שוות את ההשקעה.",
+      ],
+      ["כוונת השוואה צריכה שפה פשוטה", "h2"],
+      [
+        "הקמפיין לא צריך להישמע כמו הרצאה טכנית. הוא צריך להסביר את ההבדל המעשי: נשלף מול קבוע, ביטחון באכילה, תחזוקה, יציבות, תהליך טיפול, התאמה ומימון.",
+      ],
+      [
+        "אנשים שמחפשים את ההשוואה הזאת נמצאים בין אפשרויות. לכן עמוד הנחיתה חשוב. הוא צריך לעזור להם להשוות בלי ללחוץ עליהם להחליט לפני שהמרפאה מבינה את מצב הפה, המטרות והיכולת הכלכלית.",
+      ],
+      ["לסנן מוכנות לשיקום מלא", "h2"],
+      [
+        "קמפיין טוב צריך לשאול האם האדם משתמש כיום בתותבות, יש לו הרבה שיניים קורסות, קיבל הצעת מחיר במקום אחר או רוצה לדעת אם שיניים קבועות אפשריות עבורו. אלה סימנים שמבדילים הזדמנות רצינית מסקרנות כללית.",
+      ],
+      ["שאלות נפוצות על All-on-4 מול תותבות", "h2"],
+      [
+        "האם מודעות צריכות לומר ש-All-on-4 טוב יותר מתותבות? בזהירות. מסר טוב יותר מסביר את ההבדל ומזמין בדיקת התאמה במקום להבטיח הבטחה כללית.",
+      ],
+      [
+        "האם זו זווית טובה לגוגל אדס? כן. חיפושי השוואה יכולים להראות כוונת מחקר חזקה, במיוחד יחד עם מונחים מקומיים ומונחי מחיר.",
+      ],
+      [
+        "לאן העמוד צריך להמיר? בדיקת התאמה מסוננת עדיפה בדרך כלל מטופס כללי, כי מקרי שיקום מלא דורשים הקשר.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-cosmetic-dentist-near-me-seo",
+    slug: "cosmetic-dentist-near-me-seo",
+    title: "Cosmetic Dentist Near Me SEO: How to Rank for High-Intent Smile Searches",
+    excerpt:
+      "Cosmetic dentist near me SEO helps clinics turn local veneer, whitening, and smile makeover searches into better-qualified patient opportunities.",
+    publishedAt: "2026-06-05T08:10:00.000Z",
+    seoImage: "/blog/images/cosmetic-dentistry-growth.png",
+    mainImageAlt: "Cosmetic dentist near me SEO strategy for local smile makeover and veneer searches",
+    serviceLinks: [
+      "cosmetic-dentistry-marketing",
+      "veneers-marketing",
+      "dental-lead-generation",
+    ],
+    body: body([
+      [
+        "Cosmetic dentist near me is a local search with real commercial intent. The patient is usually comparing clinics, looking at reviews, checking photos, and deciding who feels credible enough for a visible, personal treatment.",
+      ],
+      ["Local cosmetic SEO needs proof, not generic service pages", "h2"],
+      [
+        "A strong cosmetic SEO page should speak to outcomes, candidacy, treatment options, smile design, financing, and trust. It should also support the clinic's Google Business Profile with consistent services, photos, reviews, and location signals.",
+      ],
+      [
+        "The page should not only rank. It should help patients decide whether they want veneers, whitening, bonding, Invisalign, or a broader smile makeover plan. That makes the content more useful and the lead data cleaner.",
+      ],
+      ["Use reviews and photos carefully", "h2"],
+      [
+        "Cosmetic patients want proof, but they also want believable proof. Reviews, doctor explanations, tasteful before-and-after examples, and clear next steps can support conversion without making the page feel exaggerated.",
+      ],
+      ["Cosmetic dentist near me SEO FAQ", "h2"],
+      [
+        "What should a cosmetic dentist page include? It should include treatment options, who each option is for, trust signals, reviews, financing context, and a clear way to check fit.",
+      ],
+      [
+        "Should one page target all cosmetic services? A main cosmetic dentistry page can work, but high-value treatments like veneers often deserve their own focused pages.",
+      ],
+      [
+        "How does local SEO support paid ads? Patients often search the clinic after seeing an ad. Strong local SEO and reviews can improve trust before they submit a form.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-he-cosmetic-dentist-near-me-seo",
+    slug: "cosmetic-dentist-near-me-seo-he",
+    title: "SEO לרופא שיניים אסתטי קרוב אליי: איך לדרג בחיפושי חיוך מקומיים",
+    excerpt:
+      "SEO לרופא שיניים אסתטי קרוב אליי עוזר למרפאות להפוך חיפושי ציפויים, הלבנה ועיצוב חיוך להזדמנויות מטופלים איכותיות יותר.",
+    publishedAt: "2026-06-05T08:11:00.000Z",
+    seoImage: "/blog/images/cosmetic-dentistry-growth.png",
+    mainImageAlt: "אסטרטגיית SEO מקומי לרופא שיניים אסתטי וחיפושי עיצוב חיוך",
+    serviceLinks: [
+      "cosmetic-dentistry-marketing",
+      "veneers-marketing",
+      "dental-lead-generation",
+    ],
+    body: body([
+      [
+        "רופא שיניים אסתטי קרוב אליי הוא חיפוש מקומי עם כוונה מסחרית אמיתית. המטופל בדרך כלל משווה מרפאות, קורא ביקורות, בודק תמונות ומחליט מי נראה אמין מספיק לטיפול אישי ובולט.",
+      ],
+      ["SEO קוסמטי מקומי צריך הוכחה, לא עמוד שירות כללי", "h2"],
+      [
+        "עמוד SEO חזק לאסתטיקה דנטלית צריך לדבר על תוצאות, התאמה, אפשרויות טיפול, עיצוב חיוך, מימון ואמון. הוא צריך גם לתמוך בפרופיל גוגל של המרפאה עם שירותים עקביים, תמונות, ביקורות וסימני מיקום.",
+      ],
+      [
+        "העמוד לא צריך רק לדרג. הוא צריך לעזור למטופל להבין אם הוא מחפש ציפויים, הלבנה, בונדינג, יישור או תוכנית רחבה של עיצוב חיוך. כך התוכן שימושי יותר והנתונים מהלידים נקיים יותר.",
+      ],
+      ["להשתמש בביקורות ותמונות בזהירות", "h2"],
+      [
+        "מטופלים קוסמטיים רוצים הוכחה, אבל הוכחה אמינה. ביקורות, הסברים של הרופא, דוגמאות לפני ואחרי בטעם טוב וצעד הבא ברור יכולים לעזור להמרה בלי לגרום לעמוד להרגיש מוגזם.",
+      ],
+      ["שאלות נפוצות על SEO לרופא שיניים אסתטי", "h2"],
+      [
+        "מה עמוד של רופא שיניים אסתטי צריך לכלול? אפשרויות טיפול, למי כל טיפול מתאים, סימני אמון, ביקורות, הקשר על מימון ודרך ברורה לבדוק התאמה.",
+      ],
+      [
+        "האם עמוד אחד יכול לכסות את כל הטיפולים האסתטיים? עמוד מרכזי יכול לעבוד, אבל טיפולים בעלי ערך גבוה כמו ציפויים לרוב צריכים עמוד ממוקד משלהם.",
+      ],
+      [
+        "איך SEO מקומי תומך בפרסום ממומן? מטופלים מחפשים את המרפאה אחרי שראו מודעה. SEO מקומי חזק וביקורות יכולים להעלות אמון לפני השארת פרטים.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-ai-search-visibility-for-dentists",
+    slug: "ai-search-visibility-for-dentists",
+    title: "AI Search Visibility for Dentists: How Clinics Should Prepare",
+    excerpt:
+      "AI search visibility for dentists depends on clear service pages, trustworthy content, local proof, and structured information that answers patient questions directly.",
+    publishedAt: "2026-06-05T08:15:00.000Z",
+    seoImage: "/blog/images/website-conversion.png",
+    mainImageAlt: "AI search visibility strategy for dentists using structured content and patient-intent pages",
+    serviceLinks: [
+      "dental-lead-generation",
+      "qualified-opportunity-methodology",
+      "dental-lead-quality-checklist",
+    ],
+    body: body([
+      [
+        "AI search visibility for dentists is not about chasing a new trick. It is about making the clinic's website easier for search systems, AI summaries, and patients to understand. Clear answers, credible service pages, local proof, and structured information matter more as search becomes more answer-driven.",
+      ],
+      ["AI search rewards clarity", "h2"],
+      [
+        "A clinic should make it obvious which treatments it provides, where it provides them, who the treatments are for, what the next step looks like, and why the clinic is trustworthy. Thin service pages and vague marketing copy are harder for both patients and search systems to use.",
+      ],
+      [
+        "This matters for implant and cosmetic dentistry because patients ask detailed questions before they act: cost, candidacy, recovery, financing, reviews, and alternatives. Pages that answer those questions clearly are more useful than pages that only repeat broad keywords.",
+      ],
+      ["Structure content around patient questions", "h2"],
+      [
+        "Strong AI-search preparation includes dedicated treatment pages, FAQ sections, author information, local signals, image alt text, internal links, and content that explains decisions rather than just selling. The goal is to become easy to cite, easy to understand, and easy to trust.",
+      ],
+      ["AI search visibility for dentists FAQ", "h2"],
+      [
+        "Do dentists need a different SEO strategy for AI search? The fundamentals are similar, but clarity matters more. Pages should answer specific patient questions and connect services, locations, reviews, and next steps.",
+      ],
+      [
+        "Does schema help AI search? Schema can help search engines understand the page, but it does not replace visible useful content. The content still needs to answer real patient questions.",
+      ],
+      [
+        "What should clinics do first? Strengthen high-value service pages, add helpful FAQs, improve local proof, and make sure the website clearly explains treatment fit and conversion paths.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-he-ai-search-visibility-for-dentists",
+    slug: "ai-search-visibility-for-dentists-he",
+    title: "נראות בחיפוש AI לרופאי שיניים: איך מרפאות צריכות להתכונן",
+    excerpt:
+      "נראות בחיפוש AI לרופאי שיניים תלויה בעמודי שירות ברורים, תוכן אמין, הוכחה מקומית ומידע מובנה שעונה ישירות על שאלות מטופלים.",
+    publishedAt: "2026-06-05T08:16:00.000Z",
+    seoImage: "/blog/images/website-conversion.png",
+    mainImageAlt: "אסטרטגיית נראות בחיפוש AI לרופאי שיניים עם תוכן מובנה ועמודי כוונת מטופל",
+    serviceLinks: [
+      "dental-lead-generation",
+      "qualified-opportunity-methodology",
+      "dental-lead-quality-checklist",
+    ],
+    body: body([
+      [
+        "נראות בחיפוש AI לרופאי שיניים היא לא טריק חדש. היא קשורה לכך שהאתר של המרפאה יהיה קל יותר להבנה עבור מערכות חיפוש, סיכומי AI ומטופלים. תשובות ברורות, עמודי שירות אמינים, הוכחה מקומית ומידע מובנה הופכים חשובים יותר כשהחיפוש נהיה מבוסס תשובות.",
+      ],
+      ["חיפוש AI מתגמל בהירות", "h2"],
+      [
+        "מרפאה צריכה להבהיר אילו טיפולים היא מספקת, איפה היא מספקת אותם, למי הטיפולים מתאימים, איך נראה השלב הבא ולמה אפשר לסמוך עליה. עמודי שירות דלים וטקסט שיווקי מעורפל קשים יותר גם למטופלים וגם למערכות חיפוש.",
+      ],
+      [
+        "זה חשוב במיוחד בשתלים ואסתטיקה דנטלית, כי מטופלים שואלים שאלות מפורטות לפני פעולה: מחיר, התאמה, החלמה, מימון, ביקורות וחלופות. עמודים שעונים בבירור על השאלות האלה שימושיים יותר מעמודים שרק חוזרים על מילות מפתח כלליות.",
+      ],
+      ["לבנות תוכן סביב שאלות מטופלים", "h2"],
+      [
+        "הכנה טובה לחיפוש AI כוללת עמודי טיפול ייעודיים, שאלות נפוצות, מידע על הכותב, סימנים מקומיים, טקסט חלופי לתמונות, קישורים פנימיים ותוכן שמסביר החלטות במקום רק למכור. המטרה היא להיות קלים לציטוט, להבנה ולאמון.",
+      ],
+      ["שאלות נפוצות על נראות AI לרופאי שיניים", "h2"],
+      [
+        "האם רופאי שיניים צריכים אסטרטגיית SEO אחרת ל-AI? היסודות דומים, אבל בהירות חשובה יותר. עמודים צריכים לענות על שאלות מטופלים ולחבר בין שירותים, מיקום, ביקורות וצעד הבא.",
+      ],
+      [
+        "האם סכימה עוזרת לחיפוש AI? סכימה יכולה לעזור למנועי חיפוש להבין את העמוד, אבל היא לא מחליפה תוכן שימושי שמופיע בפועל למשתמשים.",
+      ],
+      [
+        "מה כדאי לעשות קודם? לחזק עמודי שירות בעלי ערך גבוה, להוסיף שאלות נפוצות שימושיות, לשפר הוכחה מקומית ולהסביר בבירור התאמה טיפולית ומסלול פנייה.",
+      ],
+    ]),
+  },
 ];
 
 export const supplementalBlogSlugs = supplementalBlogPosts.map((post) => post.slug);

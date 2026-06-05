@@ -451,10 +451,35 @@ export function getInternalBlogLinks(slug: string) {
       "google-business-profile-for-dentists",
       "dental-implant-landing-page",
     ],
+    "dental-implant-financing-marketing": [
+      "dental-implant-cost-keywords",
+      "dental-marketing-roi",
+      "all-on-4-marketing",
+    ],
+    "all-on-4-vs-dentures-marketing": [
+      "all-on-4-marketing",
+      "full-mouth-dental-implant-leads",
+      "dental-implant-financing-marketing",
+    ],
     "dental-implant-landing-page": [
       "google-ads-for-dental-implants",
       "dental-implant-lead-generation-that-pays",
       "dental-marketing-roi",
+    ],
+    "dental-implant-cost-keywords": [
+      "dental-implant-financing-marketing",
+      "google-ads-for-dental-implants",
+      "dental-marketing-roi",
+    ],
+    "all-on-4-marketing": [
+      "all-on-4-vs-dentures-marketing",
+      "full-mouth-dental-implant-leads",
+      "dental-implant-financing-marketing",
+    ],
+    "full-mouth-dental-implant-leads": [
+      "all-on-4-marketing",
+      "all-on-4-vs-dentures-marketing",
+      "dental-implant-lead-generation-that-pays",
     ],
     "dental-marketing-roi": [
       "why-dental-ads-fail",
@@ -466,10 +491,30 @@ export function getInternalBlogLinks(slug: string) {
       "dental-implant-seo",
       "best-dental-lead-sources",
     ],
+    "ai-search-visibility-for-dentists": [
+      "dental-implant-seo",
+      "google-business-profile-for-dentists",
+      "dental-reviews-seo",
+    ],
     "veneers-vs-invisalign-marketing": [
       "cosmetic-dentists-high-intent-patients",
       "meta-ads-for-cosmetic-dentists",
       "dental-marketing-roi",
+    ],
+    "cosmetic-dentist-near-me-seo": [
+      "porcelain-veneers-marketing",
+      "smile-makeover-marketing",
+      "google-business-profile-for-dentists",
+    ],
+    "porcelain-veneers-marketing": [
+      "cosmetic-dentist-near-me-seo",
+      "smile-makeover-marketing",
+      "veneers-vs-invisalign-marketing",
+    ],
+    "smile-makeover-marketing": [
+      "porcelain-veneers-marketing",
+      "cosmetic-dentist-near-me-seo",
+      "veneers-vs-invisalign-marketing",
     ],
     "dental-reviews-seo": [
       "google-business-profile-for-dentists",
