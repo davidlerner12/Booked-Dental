@@ -59,11 +59,8 @@ const ThankYouPage = () => {
         <script>
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            if (!window.sessionStorage || !window.sessionStorage.getItem('bookedDentalLeadConversionSent')) {
-              try { window.sessionStorage && window.sessionStorage.setItem('bookedDentalLeadConversionSent', 'true'); } catch (error) {}
-              gtag('event', 'conversion', {'send_to': 'AW-18212559239/ksECCPr16LgcEIeztuxD'});
-            }
+            window.gtag = window.gtag || function(){dataLayer.push(arguments);}
+            gtag('event', 'conversion', {'send_to': 'AW-18212559239/ksECCPr16LgcEIeztuxD'});
           `}
         </script>
       </Head>

@@ -56,7 +56,6 @@ export const trackQualifiedLeadThankYou = () => {
 };
 
 export const trackBookingConfirmed = () => {
-  trackLeadFormConversion();
   trackQualifiedLeadThankYou();
   trackMetaEvent("Schedule");
 };
