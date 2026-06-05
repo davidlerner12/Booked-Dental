@@ -20,6 +20,30 @@ type SEOProps = {
   structuredData?: Array<Record<string, unknown>> | Record<string, unknown>;
 };
 
+const TITLE_LIMIT = 60;
+const TITLE_BRAND = " | Booked.Dental";
+
+function trimTitle(title: string) {
+  const cleanTitle = title.replace(/\s+/g, " ").trim();
+  if (cleanTitle.length <= TITLE_LIMIT) return cleanTitle;
+
+  if (cleanTitle.endsWith(TITLE_BRAND)) {
+    const baseTitle = cleanTitle.slice(0, -TITLE_BRAND.length).trim();
+    const phraseBreaks = [" That ", ": ", " for ", " Without ", " With "];
+    const phraseCandidate = phraseBreaks
+      .map((separator) => baseTitle.split(separator)[0]?.trim())
+      .find((candidate) => candidate && candidate.length >= 24 && `${candidate}${TITLE_BRAND}`.length <= TITLE_LIMIT);
+
+    if (phraseCandidate) return `${phraseCandidate}${TITLE_BRAND}`;
+
+    const maxBaseLength = TITLE_LIMIT - TITLE_BRAND.length;
+    const shortened = baseTitle.slice(0, maxBaseLength + 1).replace(/\s+\S*$/, "").trim();
+    return `${shortened || baseTitle.slice(0, maxBaseLength).trim()}${TITLE_BRAND}`;
+  }
+
+  return cleanTitle.slice(0, TITLE_LIMIT + 1).replace(/\s+\S*$/, "").trim();
+}
+
 export default function SEO({
   title,
   description,
@@ -33,6 +57,7 @@ export default function SEO({
   const currentLang = normalizeLang(lang);
   const canonical = buildLocalizedUrl(currentLang, path);
   const alternatePath = normalizePath(path);
+  const seoTitle = trimTitle(title);
   const jsonLd = Array.isArray(structuredData)
     ? structuredData
     : structuredData
@@ -42,7 +67,7 @@ export default function SEO({
   return (
     <Head>
       <html lang={currentLang} dir={currentLang === "he" ? "rtl" : "ltr"} />
-      <title>{title}</title>
+      <title>{seoTitle}</title>
       <meta name="description" content={description} />
       <meta
         name="robots"
@@ -66,7 +91,7 @@ export default function SEO({
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content={currentLang === "he" ? "he_IL" : "en_US"} />
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={seoTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
       <meta property="og:image" content={image} />
@@ -74,7 +99,7 @@ export default function SEO({
       <meta property="og:image:height" content="630" />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
+      <meta name="twitter:title" content={seoTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
 
