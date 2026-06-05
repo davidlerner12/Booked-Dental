@@ -239,6 +239,7 @@ async function generateSitemap(outDir: string) {
     urlNode({ loc: `${siteUrl}/${lang}/book`, lastmod: now, changefreq: "monthly", priority: "0.8", alternates: localizedAlternates(siteUrl, "/book") }),
     urlNode({ loc: `${siteUrl}/${lang}/blog`, lastmod: now, changefreq: "weekly", priority: "0.9", alternates: localizedAlternates(siteUrl, "/blog") }),
     urlNode({ loc: `${siteUrl}/${lang}/about`, lastmod: now, changefreq: "monthly", priority: "0.6", alternates: localizedAlternates(siteUrl, "/about") }),
+    urlNode({ loc: `${siteUrl}/${lang}/proof`, lastmod: now, changefreq: "monthly", priority: "0.7", alternates: localizedAlternates(siteUrl, "/proof") }),
     urlNode({ loc: `${siteUrl}/${lang}/privacy`, lastmod: now, changefreq: "yearly", priority: "0.2", alternates: localizedAlternates(siteUrl, "/privacy") }),
     ...SERVICE_STATIC_PATHS.map((servicePath) =>
       urlNode({
