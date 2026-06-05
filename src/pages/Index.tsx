@@ -9,6 +9,7 @@ import MarketMicroBanner from "@/components/sections/MarketMicroBanner";
 
 // Lazy load below-the-fold sections for better initial load performance
 const Problem = lazy(() => import("@/components/sections/Problem"));
+const WhyDentalMarketingFails = lazy(() => import("@/components/sections/WhyDentalMarketingFails"));
 const FounderTrustBlock = lazy(() => import("@/components/sections/FounderTrustBlock"));
 const Services = lazy(() => import("@/components/sections/Services"));
 const BookedDentalDifference = lazy(() => import("@/components/sections/BookedDentalDifference"));
@@ -113,6 +114,7 @@ const Index = () => {
 
       <Suspense fallback={<div className="min-h-screen" />}>
         <Problem />
+        <WhyDentalMarketingFails />
         <AgencyComparison />
         <ValueAnchor />
         <ROICalculator />

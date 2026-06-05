@@ -9,9 +9,11 @@ import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 const BOOKING_COPY = {
   en: {
+    diagnosticBadge: "Diagnostic market check",
     proofTitle: "What happens after you submit",
     proofItems: [
       "We check whether your market is still open.",
@@ -22,6 +24,8 @@ const BOOKING_COPY = {
     fitBody:
       "The goal is not more cheap forms. The goal is to identify which prospects look like real future patients, then use that feedback to help campaigns find customers instead of clicks.",
     qualifierTitle: "Help us check fit faster",
+    clinicLabel: "Clinic name",
+    clinicPlaceholder: "Smile Studio Dental",
     treatmentLabel: "Main growth focus",
     treatmentPlaceholder: "Select one",
     treatmentOptions: {
@@ -44,7 +48,27 @@ const BOOKING_COPY = {
       partly: "Partly, but we need a cleaner process",
       no: "Not yet",
     },
-    fitScoreLabel: "Fit score",
+    bottleneckLabel: "Biggest current bottleneck",
+    bottleneckPlaceholder: "Select one",
+    bottleneckOptions: {
+      leadQuality: "Too many low-quality leads",
+      bookedConsults: "Not enough booked consults",
+      showRate: "Consults do not show or convert",
+      tracking: "Hard to know what is producing real opportunities",
+    },
+    followUpLabel: "Typical follow-up speed",
+    followUpPlaceholder: "Select one",
+    followUpOptions: {
+      fast: "Within 5 minutes",
+      sameDay: "Same day",
+      nextDay: "Next business day",
+      inconsistent: "Inconsistent",
+    },
+    notesLabel: "Anything we should know about your market?",
+    notesPlaceholder: "Strongest treatment focus, nearby competitors, current campaign problem, or clinic capacity.",
+    proofMetricTitle: "Why we ask these questions",
+    proofMetricBody:
+      "Lead filtering gives the ad platform better feedback. Instead of optimizing toward people who only click or fill a form, the system learns which prospects are reachable, qualified, and likely to become high-value patients.",
     notFitTitle: "This is probably not a fit if",
     notFitItems: [
       "You mainly want hygiene, emergency, or low-ticket general dentistry leads.",
@@ -67,16 +91,19 @@ const BOOKING_COPY = {
     ],
   },
   he: {
+    diagnosticBadge: "בדיקת שוק ואבחון התאמה",
     proofTitle: "מה קורה אחרי שמשאירים פרטים",
     proofItems: [
       "בודקים אם האזור שלכם עדיין פנוי.",
       "בודקים אם המרפאה מתאימה למערכת גיוס מטופלים לשתלים או אסתטיקה.",
-      "אם יש התאמה, ממפים את הדרך המהירה ביותר לפניות מסוננות ואיכותיות יותר.",
+      "אם יש התאמה, ממפים את הדרך המהירה ביותר להזדמנויות מטופלים מסוננות ואיכותיות יותר.",
     ],
     fitTitle: "מיועד למרפאות שרוצות איכות, לא נפח.",
     fitBody:
       "המטרה היא לא עוד טפסים זולים. המטרה היא לזהות אילו מתעניינים נראים כמו מטופלים עתידיים אמיתיים, ואז להשתמש בפידבק הזה כדי לעזור לקמפיינים למצוא מטופלים במקום קליקים.",
     qualifierTitle: "עזרו לנו לבדוק התאמה מהר יותר",
+    clinicLabel: "שם המרפאה",
+    clinicPlaceholder: "מרפאת סמייל",
     treatmentLabel: "תחום הצמיחה המרכזי",
     treatmentPlaceholder: "בחרו אפשרות",
     treatmentOptions: {
@@ -99,7 +126,27 @@ const BOOKING_COPY = {
       partly: "חלקית, אבל צריך תהליך מסודר יותר",
       no: "עדיין לא",
     },
-    fitScoreLabel: "ציון התאמה",
+    bottleneckLabel: "החסם המרכזי כרגע",
+    bottleneckPlaceholder: "בחרו אפשרות",
+    bottleneckOptions: {
+      leadQuality: "יותר מדי פניות לא איכותיות",
+      bookedConsults: "אין מספיק פגישות ייעוץ שנקבעות בפועל",
+      showRate: "פגישות לא מגיעות או לא נסגרות",
+      tracking: "קשה לדעת מה באמת מייצר הזדמנויות איכותיות",
+    },
+    followUpLabel: "מהירות חזרה אופיינית",
+    followUpPlaceholder: "בחרו אפשרות",
+    followUpOptions: {
+      fast: "תוך 5 דקות",
+      sameDay: "באותו יום",
+      nextDay: "ביום העסקים הבא",
+      inconsistent: "לא עקבי",
+    },
+    notesLabel: "משהו שחשוב לדעת על השוק שלכם?",
+    notesPlaceholder: "תחום טיפול מרכזי, מתחרים קרובים, בעיה בקמפיינים הנוכחיים או קיבולת המרפאה.",
+    proofMetricTitle: "למה אנחנו שואלים את זה",
+    proofMetricBody:
+      "סינון פניות נותן למערכת הפרסום פידבק איכותי יותר. במקום להתאמן על אנשים שרק מקליקים או ממלאים טופס, המערכת לומדת מי זמין, מתאים ויכול להפוך למטופל בעל ערך גבוה.",
     notFitTitle: "כנראה שזה לא מתאים אם",
     notFitItems: [
       "המטרה העיקרית היא לידים לניקוי, עזרה ראשונה או טיפולים כלליים וזולים.",
@@ -126,11 +173,15 @@ const BOOKING_COPY = {
 type TreatmentFocus = "fullArch" | "veneers" | "both" | "other" | "";
 type CaseCapacity = "oneToTwo" | "threeToFive" | "sixPlus" | "";
 type TrackingReadiness = "yes" | "partly" | "no" | "";
+type Bottleneck = "leadQuality" | "bookedConsults" | "showRate" | "tracking" | "";
+type FollowUpSpeed = "fast" | "sameDay" | "nextDay" | "inconsistent" | "";
 
 function calculateFitScore(
   treatmentFocus: TreatmentFocus,
   caseCapacity: CaseCapacity,
   trackingReadiness: TrackingReadiness,
+  bottleneck: Bottleneck,
+  followUpSpeed: FollowUpSpeed,
 ) {
   let score = 0;
   if (treatmentFocus === "fullArch" || treatmentFocus === "veneers") score += 25;
@@ -141,6 +192,10 @@ function calculateFitScore(
   if (caseCapacity === "sixPlus") score += 30;
   if (trackingReadiness === "yes") score += 30;
   if (trackingReadiness === "partly") score += 18;
+  if (bottleneck === "leadQuality" || bottleneck === "bookedConsults" || bottleneck === "tracking") score += 10;
+  if (bottleneck === "showRate") score += 6;
+  if (followUpSpeed === "fast") score += 10;
+  if (followUpSpeed === "sameDay") score += 6;
   return String(score);
 }
 
@@ -155,18 +210,18 @@ const BookingPage = () => {
   const [treatmentFocus, setTreatmentFocus] = useState<TreatmentFocus>("");
   const [caseCapacity, setCaseCapacity] = useState<CaseCapacity>("");
   const [trackingReadiness, setTrackingReadiness] = useState<TrackingReadiness>("");
+  const [bottleneck, setBottleneck] = useState<Bottleneck>("");
+  const [followUpSpeed, setFollowUpSpeed] = useState<FollowUpSpeed>("");
   const fitScore = useMemo(
-    () => calculateFitScore(treatmentFocus, caseCapacity, trackingReadiness),
-    [caseCapacity, trackingReadiness, treatmentFocus],
+    () => calculateFitScore(treatmentFocus, caseCapacity, trackingReadiness, bottleneck, followUpSpeed),
+    [bottleneck, caseCapacity, followUpSpeed, trackingReadiness, treatmentFocus],
   );
   const bookingUrl = `https://www.booked.dental/${pageLang}/book`;
   const bookingStructuredData = [
     {
       "@context": "https://schema.org",
       "@type": "ContactPage",
-      name: isHebrew
-        ? "בדיקת זמינות אזור למרפאת שיניים"
-        : "Dental marketing territory availability check",
+      name: isHebrew ? "בדיקת זמינות אזור למרפאת שיניים" : "Dental marketing territory availability check",
       url: bookingUrl,
       inLanguage: isHebrew ? "he" : "en-US",
       about: {
@@ -204,7 +259,7 @@ const BookingPage = () => {
   }, [location.pathname]);
 
   const redirectOrigin = typeof window === "undefined" ? "https://www.booked.dental" : window.location.origin;
-  const redirectUrl = `${redirectOrigin}/${lang}/thank-you?focus=${encodeURIComponent(treatmentFocus || "unknown")}&fit=${encodeURIComponent(fitScore)}`;
+  const redirectUrl = `${redirectOrigin}/${pageLang}/thank-you?focus=${encodeURIComponent(treatmentFocus || "unknown")}&fit=${encodeURIComponent(fitScore)}`;
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     const formData = new FormData(event.currentTarget);
     trackMarketCheckFormSubmitted(
@@ -220,11 +275,7 @@ const BookingPage = () => {
       <SEO
         lang={pageLang}
         path="/book"
-        title={
-          isHebrew
-            ? "בדיקת זמינות אזור למרפאת שיניים | Booked.Dental"
-            : "Check Your Dental Marketing Territory | Booked.Dental"
-        }
+        title={isHebrew ? "בדיקת זמינות אזור למרפאת שיניים | Booked.Dental" : "Check Your Dental Marketing Territory | Booked.Dental"}
         description={
           isHebrew
             ? "בדקו אם האזור שלכם פנוי למערכת גיוס מטופלים בלעדית שמסננת פניות ומלמדת את ה-AI למצוא מטופלים, לא קליקים."
@@ -235,7 +286,7 @@ const BookingPage = () => {
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_at_top,hsl(42_100%_55%/0.06),transparent_55%)]" />
       <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="container flex h-16 items-center justify-between">
-          <Link to={`/${lang}`} className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <Link to={`/${pageLang}`} className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
             <ArrowLeft className="h-4 w-4" />
             {t("booking.back")}
           </Link>
@@ -247,15 +298,15 @@ const BookingPage = () => {
         </div>
       </header>
       <main className="container py-14">
-        <div className="mx-auto mb-12 max-w-2xl text-center relative z-10">
+        <div className="relative z-10 mx-auto mb-12 max-w-2xl text-center">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary">
             {isMarketCheck ? <MapPin className="h-4 w-4" /> : <Clock className="h-4 w-4" />}
-            {t("booking.badge_market")}
+            {copy.diagnosticBadge}
           </div>
           <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
             {t("booking.title_prefix")}<span className="text-gradient-gold">{t("booking.title_highlight")}</span>
           </h1>
-          <p className="text-muted-foreground mb-6">{t("booking.subtitle")}</p>
+          <p className="mb-6 text-muted-foreground">{t("booking.subtitle")}</p>
         </div>
 
         <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
@@ -291,12 +342,17 @@ const BookingPage = () => {
             </div>
           </aside>
 
-          <div className="rounded-2xl border border-border bg-card/60 p-8 shadow-gold relative z-10 backdrop-blur-sm">
+          <div className="relative z-10 rounded-2xl border border-border bg-card/60 p-8 shadow-gold backdrop-blur-sm">
             <form action="https://formsubmit.co/David@Booked.Dental" method="POST" className="space-y-6" onSubmit={handleSubmit}>
               <input type="hidden" name="_next" value={redirectUrl} />
               <input type="hidden" name="_subject" value="New Market Check Submission!" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="fit_score" value={fitScore} />
+
+              <div className="space-y-2 text-start">
+                <Label htmlFor="clinic">{copy.clinicLabel}</Label>
+                <Input id="clinic" name="clinic" required placeholder={copy.clinicPlaceholder} className="bg-background" />
+              </div>
 
               <div className="space-y-2 text-start">
                 <Label htmlFor="name">{t("booking.form_name_label")}</Label>
@@ -372,17 +428,63 @@ const BookingPage = () => {
                       <option value="no">{copy.trackingOptions.no}</option>
                     </select>
                   </div>
+
+                  <div className="space-y-2 text-start">
+                    <Label htmlFor="current_bottleneck">{copy.bottleneckLabel}</Label>
+                    <select
+                      id="current_bottleneck"
+                      name="current_bottleneck"
+                      required
+                      value={bottleneck}
+                      onChange={(event) => setBottleneck(event.target.value as Bottleneck)}
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
+                      <option value="">{copy.bottleneckPlaceholder}</option>
+                      <option value="leadQuality">{copy.bottleneckOptions.leadQuality}</option>
+                      <option value="bookedConsults">{copy.bottleneckOptions.bookedConsults}</option>
+                      <option value="showRate">{copy.bottleneckOptions.showRate}</option>
+                      <option value="tracking">{copy.bottleneckOptions.tracking}</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-2 text-start">
+                    <Label htmlFor="follow_up_speed">{copy.followUpLabel}</Label>
+                    <select
+                      id="follow_up_speed"
+                      name="follow_up_speed"
+                      required
+                      value={followUpSpeed}
+                      onChange={(event) => setFollowUpSpeed(event.target.value as FollowUpSpeed)}
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
+                      <option value="">{copy.followUpPlaceholder}</option>
+                      <option value="fast">{copy.followUpOptions.fast}</option>
+                      <option value="sameDay">{copy.followUpOptions.sameDay}</option>
+                      <option value="nextDay">{copy.followUpOptions.nextDay}</option>
+                      <option value="inconsistent">{copy.followUpOptions.inconsistent}</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-2 text-start">
+                    <Label htmlFor="market_notes">{copy.notesLabel}</Label>
+                    <Textarea id="market_notes" name="market_notes" placeholder={copy.notesPlaceholder} className="min-h-24 bg-background" />
+                  </div>
                 </div>
               </div>
 
-              <Button type="submit" size="lg" className="w-full bg-gradient-gold text-primary-foreground hover:opacity-90 shadow-gold mt-4">
+              <div className="rounded-xl border border-border bg-background p-4 text-start">
+                <div className="text-sm font-semibold text-foreground">{copy.proofMetricTitle}</div>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{copy.proofMetricBody}</p>
+              </div>
+
+              <Button type="submit" size="lg" className="mt-4 w-full bg-gradient-gold text-primary-foreground shadow-gold hover:opacity-90">
                 {t("booking.form_submit")}
               </Button>
             </form>
           </div>
         </div>
 
-        <div className="mx-auto mt-10 flex max-w-2xl flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8 relative z-10">
+        <div className="relative z-10 mx-auto mt-10 flex max-w-2xl flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Shield className="h-4 w-4 text-primary" />
             {t("booking.trust_no_contracts")}

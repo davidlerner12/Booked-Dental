@@ -21,6 +21,7 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ThankYouPage from "./pages/ThankYouPage";
 import LeadTrackerPage from "./pages/LeadTrackerPage";
+import FollowUpTemplatesPage from "./pages/FollowUpTemplatesPage";
 import ChatWidget from "./components/ChatWidget";
 import StickyMarketCTA from "./components/StickyMarketCTA";
 import ServicePage from "./pages/ServicePage";
@@ -104,6 +105,7 @@ const langChildren: RouteRecord[] = [
   { path: "privacy", element: <PrivacyPolicy /> },
   { path: "thank-you", element: <ThankYouPage /> },
   { path: "lead-tracker", element: <LeadTrackerPage /> },
+  { path: "follow-up-templates", element: <FollowUpTemplatesPage /> },
   { path: "*", element: <NotFound /> },
 ];
 
