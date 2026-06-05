@@ -12,7 +12,6 @@ const PrivacyPolicy = () => {
         path="/privacy"
         title="Privacy Policy | Booked.Dental"
         description="Read the Booked.Dental privacy policy, including how website visitor, form submission, analytics, and advertising data may be collected and used."
-        noindex
       />
     <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_at_top,hsl(42_100%_55%/0.04),transparent_55%)]" />
 

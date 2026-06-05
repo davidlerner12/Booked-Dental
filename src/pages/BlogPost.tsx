@@ -50,6 +50,7 @@ const BLOG_SEO_KEYWORDS = [
 ];
 
 const AUTHOR_IMAGE = "https://www.booked.dental/images/david-lerner-headshot.jpg";
+const TITLE_BRAND = " | Booked.Dental";
 
 const SERVICE_LINKS_BY_BLOG_SLUG: Record<string, string[]> = {
   "how-to-get-more-dental-implant-patients": [
@@ -228,6 +229,21 @@ function toEmbedUrl(url: string) {
     }
   }
   return url;
+}
+
+function buildBlogMetaTitle(title: string) {
+  const brandedLimit = 60;
+  const cleanTitle = title.replace(/\s+/g, " ").trim();
+  const beforeColon = cleanTitle.split(":")[0]?.trim();
+  const candidate = beforeColon && beforeColon.length >= 24 ? beforeColon : cleanTitle;
+
+  if (`${candidate}${TITLE_BRAND}`.length <= brandedLimit) {
+    return `${candidate}${TITLE_BRAND}`;
+  }
+
+  const maxTitleLength = brandedLimit - TITLE_BRAND.length;
+  const shortened = candidate.slice(0, maxTitleLength + 1).replace(/\s+\S*$/, "").trim();
+  return `${shortened || candidate.slice(0, maxTitleLength).trim()}${TITLE_BRAND}`;
 }
 
 function getVideoRenderData(url: string) {
@@ -525,7 +541,7 @@ export default function BlogPost() {
 
   const postPath = `/blog/${post.slug}`;
   const postUrl = buildLocalizedUrl(lang, postPath);
-  const metaTitle = `${post.title} | Booked.Dental`;
+  const metaTitle = buildBlogMetaTitle(post.title);
   const heroImage = getBlogSeoImage(post);
   const ogImage = getAbsoluteBlogImageUrl(post);
   const seoKeywords = Array.from(new Set([...getBlogSeoKeywords(post), ...BLOG_SEO_KEYWORDS]));
@@ -661,6 +677,7 @@ export default function BlogPost() {
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
       <Head>
+        <html lang={isHebrew ? "he" : "en"} dir={isHebrew ? "rtl" : "ltr"} />
         <title>{metaTitle}</title>
         <meta name="description" content={post.excerpt} />
         <meta name="keywords" content={seoKeywords.join(", ")} />
@@ -670,6 +687,8 @@ export default function BlogPost() {
         <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={postUrl} />
         <meta property="article:published_time" content={post.publishedAt} />
