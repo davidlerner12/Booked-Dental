@@ -66,9 +66,6 @@ const BOOKING_COPY = {
     },
     notesLabel: "Anything we should know about your market?",
     notesPlaceholder: "Strongest treatment focus, nearby competitors, current campaign problem, or clinic capacity.",
-    proofMetricTitle: "Why we ask these questions",
-    proofMetricBody:
-      "Lead filtering gives the ad platform better feedback. Instead of optimizing toward people who only click or fill a form, the system learns which prospects are reachable, qualified, and likely to become high-value patients.",
     notFitTitle: "This is probably not a fit if",
     notFitItems: [
       "You mainly want hygiene, emergency, or low-ticket general dentistry leads.",
@@ -144,9 +141,6 @@ const BOOKING_COPY = {
     },
     notesLabel: "משהו שחשוב לדעת על השוק שלכם?",
     notesPlaceholder: "תחום טיפול מרכזי, מתחרים קרובים, בעיה בקמפיינים הנוכחיים או קיבולת המרפאה.",
-    proofMetricTitle: "למה אנחנו שואלים את זה",
-    proofMetricBody:
-      "סינון פניות נותן למערכת הפרסום פידבק איכותי יותר. במקום להתאמן על אנשים שרק מקליקים או ממלאים טופס, המערכת לומדת מי זמין, מתאים ויכול להפוך למטופל בעל ערך גבוה.",
     notFitTitle: "כנראה שזה לא מתאים אם",
     notFitItems: [
       "המטרה העיקרית היא לידים לניקוי, עזרה ראשונה או טיפולים כלליים וזולים.",
@@ -475,11 +469,6 @@ const BookingPage = () => {
                     <Textarea id="market_notes" name="market_notes" placeholder={copy.notesPlaceholder} className="min-h-24 bg-background" />
                   </div>
                 </div>
-              </div>
-
-              <div className="rounded-xl border border-border bg-background p-4 text-start">
-                <div className="text-sm font-semibold text-foreground">{copy.proofMetricTitle}</div>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{copy.proofMetricBody}</p>
               </div>
 
               <Button type="submit" size="lg" className="mt-4 w-full bg-gradient-gold text-primary-foreground shadow-gold hover:opacity-90">
