@@ -17,7 +17,7 @@ export default function ProofPage() {
     ? "הוכחות אנונימיות למערכת גיוס מטופלים | Booked.Dental"
     : "Anonymized Dental Marketing Proof Examples | Booked.Dental";
   const description = isHebrew
-    ? "דוגמאות אנונימיות לקמפיינים של שתלים, ציפויים וסינון לידים שמודדים הזדמנויות מטופלים ולא קליקים."
+    ? "דוגמאות אנונימיות לקמפיינים של שתלים, ציפויים וסינון לידים שמודדים פניות איכותיות ולא קליקים."
     : "Anonymized proof examples showing how Booked.Dental measures implant, veneer, and lead filtering campaigns by qualified patient opportunities, not clicks.";
   const structuredData = [
     {
@@ -77,12 +77,12 @@ export default function ProofPage() {
               </span>
               <h1 className="font-display text-4xl font-bold leading-tight tracking-tight md:text-6xl">
                 {isHebrew
-                  ? "איך Booked.Dental מודדת הזדמנויות מטופלים אמיתיות."
+                  ? "איך Booked.Dental מודדת פניות עם פוטנציאל אמיתי."
                   : "How Booked.Dental measures real patient opportunities."}
               </h1>
               <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
                 {isHebrew
-                  ? "הדוגמאות כאן אנונימיות ושמרניות. הן נועדו להראות את צורת החשיבה: סינון, מעקב ולמידה סביב איכות מטופלים, לא סביב קליקים או נפח טפסים."
+                  ? "הדוגמאות כאן אנונימיות ושמרניות. הן נועדו להראות את צורת החשיבה: סינון, מעקב ולמידה סביב איכות הפניות, לא סביב קליקים או נפח טפסים."
                   : "These examples are anonymized and conservative. They show the operating principle: filter, track, and learn from patient quality instead of optimizing around clicks or raw form volume."}
               </p>
             </div>
@@ -182,19 +182,19 @@ export default function ProofPage() {
               <CheckCircle2 className="mx-auto h-8 w-8 text-primary" />
               <h2 className="mt-4 font-display text-2xl font-semibold">
                 {isHebrew
-                  ? "רוצים לבדוק אם השוק שלכם פנוי?"
+                  ? "רוצים לבדוק אם האזור שלכם פנוי?"
                   : "Want to see whether your market is open?"}
               </h2>
               <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
                 {isHebrew
-                  ? "הבדיקה מתחילה באזור, התאמת המרפאה וסוג הטיפולים שאתם רוצים לגדול בהם."
+                  ? "הבדיקה מתחילה באזור, בהתאמת המרפאה ובסוג הטיפולים שאתם רוצים להגדיל."
                   : "The check starts with your territory, clinic fit, and which high-value treatments you want to grow."}
               </p>
               <Link
                 to={`/${pageLang}/book`}
                 className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
               >
-                {isHebrew ? "בדקו את השוק שלכם" : "Check Your Market"}
+                {isHebrew ? "בדקו אם האזור פנוי" : "Check Your Market"}
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

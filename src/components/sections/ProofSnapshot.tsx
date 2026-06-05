@@ -24,12 +24,12 @@ export default function ProofSnapshot({ variant = "home" }: ProofSnapshotProps) 
             </div>
             <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
               {isHebrew
-                ? "דוגמאות שמראות איך מודדים הזדמנויות, לא קליקים."
+                ? "דוגמאות שמראות איך מודדים פניות איכותיות, לא קליקים."
                 : "Proof examples built around opportunities, not clicks."}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
               {isHebrew
-                ? "התוצאות משתנות לפי שוק, הצעה, צוות מעקב וקיבולת המרפאה. לכן אנחנו מציגים דוגמאות שמרניות ואנונימיות, לא הבטחות."
+                ? "התוצאות משתנות לפי אזור, הצעה, צוות מעקב וקיבולת המרפאה. לכן אנחנו מציגים דוגמאות שמרניות ואנונימיות, לא הבטחות."
                 : "Results vary by market, offer, follow-up, and clinic capacity. These examples are anonymized and conservative, so the proof supports trust without overpromising."}
             </p>
           </div>
