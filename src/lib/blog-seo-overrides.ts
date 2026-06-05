@@ -516,6 +516,26 @@ export function getInternalBlogLinks(slug: string) {
       "dental-marketing-roi",
       "dental-reviews-seo",
     ],
+    "dental-implant-consultation-marketing": [
+      "dental-implant-second-opinion-marketing",
+      "dental-implant-cost-keywords",
+      "full-mouth-dental-implant-leads",
+    ],
+    "dental-implant-before-after-marketing": [
+      "best-implant-ad-creatives",
+      "ugc-dental-ads-examples",
+      "dental-reviews-seo",
+    ],
+    "dental-implant-warranty-marketing": [
+      "dental-implant-financing-marketing",
+      "dental-implant-second-opinion-marketing",
+      "dental-marketing-roi",
+    ],
+    "smile-design-marketing": [
+      "smile-makeover-marketing",
+      "porcelain-veneers-marketing",
+      "veneers-cost-marketing",
+    ],
     "veneers-vs-invisalign-marketing": [
       "cosmetic-dentists-high-intent-patients",
       "meta-ads-for-cosmetic-dentists",

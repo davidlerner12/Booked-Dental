@@ -1455,6 +1455,358 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
       ],
     ]),
   },
+  {
+    _id: "supplemental-dental-implant-consultation-marketing",
+    slug: "dental-implant-consultation-marketing",
+    title: "Dental Implant Consultation Marketing: How to Turn Treatment Interest Into Qualified Opportunities",
+    excerpt:
+      "Dental implant consultation marketing works when clinics explain the evaluation, filter patient fit, and help serious prospects understand the next step.",
+    publishedAt: "2026-06-05T10:00:00.000Z",
+    seoImage: "/blog/images/implant-marketing.png",
+    mainImageAlt: "Dental implant consultation marketing funnel focused on qualified treatment opportunities",
+    serviceLinks: [
+      "dental-implant-lead-generation",
+      "dental-lead-filtering",
+      "qualified-opportunity-methodology",
+    ],
+    body: body([
+      [
+        "Dental implant consultation marketing should do more than ask people to schedule. A serious implant patient wants to know what will be evaluated, whether they may qualify, what questions they should ask, and whether the clinic can explain a clear path forward.",
+      ],
+      ["The consultation is part of the offer", "h2"],
+      [
+        "Many implant campaigns treat the consultation as the final step, but patients often see it as the beginning of the decision. The page should explain what happens during the evaluation, what records may be reviewed, and how the clinic discusses options like single implants, All-on-4, full-arch treatment, financing, and timing.",
+      ],
+      [
+        "This helps conversion because the patient understands the value of the next step before submitting a form. It also improves lead quality because the form can ask about missing teeth, dentures, current discomfort, timeline, and whether the patient has already received another treatment plan.",
+      ],
+      ["How consultation campaigns teach the AI", "h2"],
+      [
+        "If every form submission is treated equally, ad platforms may optimize toward the easiest people to convert. Consultation marketing should feed back which inquiries became serious opportunities, which were not a treatment fit, and which were only gathering general information.",
+      ],
+      [
+        "That feedback helps the campaign learn from real patient intent instead of raw form volume. The best consultation campaigns connect the ad, landing page, form questions, and follow-up notes into one learning loop.",
+      ],
+      ["Dental implant consultation marketing FAQ", "h2"],
+      [
+        "What should an implant consultation page include? It should explain the evaluation, common treatment paths, candidacy factors, financing discussion, and the information patients should bring.",
+      ],
+      [
+        "Should clinics use free consultation messaging? It can work in some markets, but the page still needs filtering. Free alone may attract people who are not ready for treatment.",
+      ],
+      [
+        "What should be measured? Track qualified opportunities, appointment quality, show rate, treatment-plan acceptance, and which campaigns produce serious patient conversations.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-he-dental-implant-consultation-marketing",
+    slug: "dental-implant-consultation-marketing-he",
+    title: "שיווק ייעוץ לשתלים: איך להפוך עניין בטיפול להזדמנויות איכותיות",
+    excerpt:
+      "שיווק ייעוץ לשתלים עובד כאשר המרפאה מסבירה את הבדיקה, מסננת התאמה ועוזרת למטופלים רציניים להבין את הצעד הבא.",
+    publishedAt: "2026-06-05T10:01:00.000Z",
+    seoImage: "/blog/images/implant-marketing.png",
+    mainImageAlt: "משפך שיווק ייעוץ לשתלים שמתמקד בהזדמנויות טיפול איכותיות",
+    serviceLinks: [
+      "dental-implant-lead-generation",
+      "dental-lead-filtering",
+      "qualified-opportunity-methodology",
+    ],
+    body: body([
+      [
+        "שיווק ייעוץ לשתלים צריך לעשות יותר מלהזמין אנשים לקבוע פגישה. מטופל רציני רוצה לדעת מה בודקים, האם הוא עשוי להתאים, אילו שאלות כדאי לשאול והאם המרפאה יכולה להסביר לו דרך ברורה קדימה.",
+      ],
+      ["הייעוץ הוא חלק מההצעה", "h2"],
+      [
+        "הרבה קמפיינים לשתלים מתייחסים לייעוץ כאל הצעד האחרון, אבל עבור המטופל זו תחילת ההחלטה. העמוד צריך להסביר מה קורה בבדיקה, אילו נתונים נבדקים ואיך המרפאה מדברת על אפשרויות כמו שתל בודד, All-on-4, שיקום פה מלא, מימון ותזמון.",
+      ],
+      [
+        "זה עוזר להמרה כי המטופל מבין את הערך של הצעד הבא לפני שהוא משאיר פרטים. זה גם משפר את איכות הפניות כי הטופס יכול לשאול על שיניים חסרות, תותבות, אי נוחות, לוח זמנים והאם המטופל כבר קיבל תוכנית טיפול אחרת.",
+      ],
+      ["איך קמפיין ייעוץ מלמד את ה-AI", "h2"],
+      [
+        "אם כל מילוי טופס נחשב אותו דבר, פלטפורמות הפרסום עשויות להתמקד באנשים שהכי קל לגרום להם להשאיר פרטים. שיווק ייעוץ צריך להחזיר מידע על אילו פניות הפכו להזדמנויות רציניות, מי לא התאים ומי רק אסף מידע כללי.",
+      ],
+      [
+        "הפידבק הזה עוזר לקמפיין ללמוד מכוונת מטופל אמיתית ולא מנפח טפסים. הקמפיינים הטובים מחברים מודעה, עמוד נחיתה, שאלות בטופס והערות מעקב ללולאת למידה אחת.",
+      ],
+      ["שאלות נפוצות על שיווק ייעוץ לשתלים", "h2"],
+      [
+        "מה צריך לכלול עמוד ייעוץ לשתלים? הסבר על הבדיקה, מסלולי טיפול נפוצים, גורמי התאמה, שיחה על מימון והמידע שכדאי למטופל להביא.",
+      ],
+      [
+        "האם כדאי להשתמש במסר של ייעוץ חינם? זה יכול לעבוד בחלק מהשווקים, אבל העמוד עדיין צריך סינון. מסר חינם בלבד עלול למשוך אנשים שלא מוכנים לטיפול.",
+      ],
+      [
+        "מה כדאי למדוד? הזדמנויות איכותיות, איכות הפגישות, שיעור הגעה, קבלת תוכנית טיפול ואילו קמפיינים מייצרים שיחות מטופל רציניות.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-dental-implant-before-after-marketing",
+    slug: "dental-implant-before-after-marketing",
+    title: "Dental Implant Before and After Marketing: How to Use Proof Without Overpromising",
+    excerpt:
+      "Dental implant before and after marketing helps patients trust the process when proof is specific, compliant, realistic, and connected to treatment fit.",
+    publishedAt: "2026-06-05T10:02:00.000Z",
+    seoImage: "/blog/images/ugc-dental-ads.png",
+    mainImageAlt: "Dental implant before and after marketing proof used to support patient trust",
+    serviceLinks: [
+      "ugc-dental-ads",
+      "dental-implant-marketing",
+      "dental-lead-quality-checklist",
+    ],
+    body: body([
+      [
+        "Dental implant before and after marketing can be powerful because patients need proof before they trust a high-value treatment. But before and after content has to be handled carefully. It should build confidence without implying that every patient will get the same result.",
+      ],
+      ["Proof works when it explains context", "h2"],
+      [
+        "Strong proof is not just a dramatic image. It explains the patient situation in a careful way: missing teeth, failing teeth, denture discomfort, treatment goal, and the general type of solution used. The point is to help prospects understand what is possible and what must be evaluated.",
+      ],
+      [
+        "This is especially important for implants because outcome depends on diagnosis, bone condition, oral health, treatment planning, and patient expectations. Good marketing makes the result feel believable instead of exaggerated.",
+      ],
+      ["How proof improves lead quality", "h2"],
+      [
+        "Before and after content can also filter better leads. Someone who reacts to realistic treatment stories may be more serious than someone who only clicks because of a discount. Pairing proof with questions about goals, timeline, and current dental condition helps the AI learn which prospects have stronger intent.",
+      ],
+      [
+        "The best approach is to use proof as part of a larger trust system: doctor explanation, patient education, reviews, FAQs, and a form that asks enough to understand the case. That keeps the campaign focused on future patients instead of vanity engagement.",
+      ],
+      ["Dental implant before and after marketing FAQ", "h2"],
+      [
+        "Can implant clinics use before and after photos? Often yes, but they should follow platform rules, local regulations, consent requirements, and avoid unrealistic claims.",
+      ],
+      [
+        "What makes before and after content better? Context, realistic language, clear disclaimers, and a connection to the evaluation process.",
+      ],
+      [
+        "Should before and after images be used in ads or landing pages? Both can work, but landing pages usually allow more explanation and can build trust with less risk of oversimplifying the result.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-he-dental-implant-before-after-marketing",
+    slug: "dental-implant-before-after-marketing-he",
+    title: "שיווק לפני ואחרי לשתלים: איך להשתמש בהוכחה בלי להבטיח יותר מדי",
+    excerpt:
+      "שיווק לפני ואחרי לשתלים עוזר למטופלים לסמוך על התהליך כאשר ההוכחה ספציפית, ריאלית ומחוברת להתאמת הטיפול.",
+    publishedAt: "2026-06-05T10:03:00.000Z",
+    seoImage: "/blog/images/ugc-dental-ads.png",
+    mainImageAlt: "הוכחת לפני ואחרי בשיווק שתלים כדי לחזק אמון מטופלים",
+    serviceLinks: [
+      "ugc-dental-ads",
+      "dental-implant-marketing",
+      "dental-lead-quality-checklist",
+    ],
+    body: body([
+      [
+        "שיווק לפני ואחרי לשתלים יכול להיות חזק מאוד כי מטופלים צריכים הוכחה לפני שהם סומכים על טיפול בעל ערך גבוה. אבל תוכן כזה חייב להיות מדויק וזהיר. הוא צריך לבנות ביטחון בלי לרמוז שכל מטופל יקבל את אותה תוצאה.",
+      ],
+      ["הוכחה עובדת כשהיא מסבירה הקשר", "h2"],
+      [
+        "הוכחה טובה היא לא רק תמונה דרמטית. היא מסבירה בזהירות את מצב המטופל: שיניים חסרות, שיניים שנכשלו, חוסר נוחות עם תותבות, מטרת הטיפול וסוג הפתרון הכללי. המטרה היא לעזור למתעניינים להבין מה אפשרי ומה צריך לבדוק.",
+      ],
+      [
+        "זה חשוב במיוחד בשתלים כי התוצאה תלויה באבחון, מצב העצם, בריאות הפה, תכנון הטיפול וציפיות המטופל. שיווק טוב גורם לתוצאה להרגיש אמינה ולא מוגזמת.",
+      ],
+      ["איך הוכחה משפרת איכות לידים", "h2"],
+      [
+        "תוכן לפני ואחרי יכול גם לסנן פניות טוב יותר. אדם שמגיב לסיפורי טיפול ריאליים עשוי להיות רציני יותר ממי שלוחץ רק בגלל הנחה. שילוב הוכחה עם שאלות על מטרות, לוח זמנים ומצב דנטלי עוזר ל-AI ללמוד אילו מתעניינים מראים כוונה חזקה יותר.",
+      ],
+      [
+        "הגישה הטובה ביותר היא להשתמש בהוכחה כחלק ממערכת אמון רחבה יותר: הסבר של הרופא, תוכן חינוכי, ביקורות, שאלות נפוצות וטופס ששואל מספיק כדי להבין את המקרה. כך הקמפיין נשאר ממוקד במטופלים עתידיים ולא במעורבות שטחית.",
+      ],
+      ["שאלות נפוצות על שיווק לפני ואחרי לשתלים", "h2"],
+      [
+        "האם מרפאות שתלים יכולות להשתמש בתמונות לפני ואחרי? לרוב כן, אבל צריך לעמוד בכללי הפלטפורמות, רגולציה מקומית, הסכמת מטופל ולהימנע מהבטחות לא ריאליות.",
+      ],
+      [
+        "מה הופך תוכן לפני ואחרי לטוב יותר? הקשר, שפה ריאלית, הבהרות מתאימות וחיבור לתהליך הבדיקה.",
+      ],
+      [
+        "האם עדיף להשתמש בתמונות לפני ואחרי במודעות או בעמוד נחיתה? שניהם יכולים לעבוד, אבל בעמוד נחיתה יש יותר מקום להסביר ולבנות אמון בלי לפשט יותר מדי את התוצאה.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-dental-implant-warranty-marketing",
+    slug: "dental-implant-warranty-marketing",
+    title: "Dental Implant Warranty Marketing: How to Build Confidence Around Long-Term Treatment Value",
+    excerpt:
+      "Dental implant warranty marketing can support trust when clinics explain long-term value, maintenance expectations, and realistic patient responsibilities.",
+    publishedAt: "2026-06-05T10:04:00.000Z",
+    seoImage: "/blog/images/agency-selection.png",
+    mainImageAlt: "Dental implant warranty marketing message focused on long-term patient confidence",
+    serviceLinks: [
+      "dental-implant-marketing",
+      "roi-methodology",
+      "qualified-opportunity-methodology",
+    ],
+    body: body([
+      [
+        "Dental implant warranty marketing speaks to a real patient concern: if someone is considering a major investment, they want to know what happens after treatment. The message should build confidence without turning the treatment into a simple guarantee.",
+      ],
+      ["Patients want to understand long-term value", "h2"],
+      [
+        "Implant patients often compare clinics by price, materials, reviews, doctor experience, and perceived safety. A warranty or long-term protection message can help, but only if it explains what is covered, what depends on maintenance, and why ongoing care matters.",
+      ],
+      [
+        "This kind of content works best when it avoids vague promises. Patients should understand that implant success depends on diagnosis, planning, home care, hygiene visits, health factors, and following the clinic's instructions.",
+      ],
+      ["Use confidence messaging to filter better prospects", "h2"],
+      [
+        "A patient who cares about long-term value may be more serious than someone who only asks for the lowest price. Campaigns can use this signal by asking about treatment goals, comparison stage, budget readiness, and what matters most in choosing a clinic.",
+      ],
+      [
+        "When the clinic tracks which value-focused inquiries become qualified opportunities, the AI gets a better signal. The campaign can move toward people who care about treatment fit and confidence, not only quick discounts.",
+      ],
+      ["Dental implant warranty marketing FAQ", "h2"],
+      [
+        "Should implant clinics advertise a warranty? Only if the clinic truly offers one and can explain the terms clearly. Vague warranty claims can create trust problems.",
+      ],
+      [
+        "What should warranty messaging include? Explain coverage, limits, maintenance expectations, follow-up care, and what the patient is responsible for.",
+      ],
+      [
+        "Can warranty messaging improve lead quality? It can, because it attracts patients who are thinking about long-term value rather than only immediate price.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-he-dental-implant-warranty-marketing",
+    slug: "dental-implant-warranty-marketing-he",
+    title: "שיווק אחריות לשתלים: איך לבנות ביטחון סביב ערך טיפולי לטווח ארוך",
+    excerpt:
+      "שיווק אחריות לשתלים יכול לחזק אמון כאשר המרפאה מסבירה ערך לטווח ארוך, ציפיות תחזוקה ואחריות ריאלית של המטופל.",
+    publishedAt: "2026-06-05T10:05:00.000Z",
+    seoImage: "/blog/images/agency-selection.png",
+    mainImageAlt: "מסר שיווק אחריות לשתלים שמחזק ביטחון מטופלים לטווח ארוך",
+    serviceLinks: [
+      "dental-implant-marketing",
+      "roi-methodology",
+      "qualified-opportunity-methodology",
+    ],
+    body: body([
+      [
+        "שיווק אחריות לשתלים נוגע בחשש אמיתי של מטופלים: אם הם שוקלים השקעה משמעותית, הם רוצים לדעת מה קורה אחרי הטיפול. המסר צריך לבנות ביטחון בלי להפוך את הטיפול להבטחה פשוטה מדי.",
+      ],
+      ["מטופלים רוצים להבין ערך לטווח ארוך", "h2"],
+      [
+        "מטופלי שתלים משווים בין מרפאות לפי מחיר, חומרים, ביקורות, ניסיון הרופא ותחושת ביטחון. מסר של אחריות או הגנה לטווח ארוך יכול לעזור, אבל רק אם הוא מסביר מה כלול, מה תלוי בתחזוקה ולמה מעקב חשוב.",
+      ],
+      [
+        "תוכן כזה עובד הכי טוב כשהוא נמנע מהבטחות מעורפלות. מטופלים צריכים להבין שהצלחת שתלים תלויה באבחון, תכנון, שמירה בבית, ביקורי היגיינה, מצב בריאותי ועמידה בהנחיות המרפאה.",
+      ],
+      ["להשתמש במסרי ביטחון כדי לסנן טוב יותר", "h2"],
+      [
+        "מטופל שאכפת לו מערך לטווח ארוך עשוי להיות רציני יותר ממי שמחפש רק את המחיר הנמוך ביותר. קמפיינים יכולים להשתמש בסימן הזה ולשאול על מטרות טיפול, שלב השוואה, מוכנות תקציבית ומה הכי חשוב בבחירת מרפאה.",
+      ],
+      [
+        "כאשר המרפאה מודדת אילו פניות סביב ערך וביטחון הופכות להזדמנויות איכותיות, ה-AI מקבל סימן טוב יותר. הקמפיין יכול לזוז לכיוון אנשים שאכפת להם מהתאמה וביטחון, לא רק מהנחה מהירה.",
+      ],
+      ["שאלות נפוצות על שיווק אחריות לשתלים", "h2"],
+      [
+        "האם כדאי למרפאות לפרסם אחריות לשתלים? רק אם המרפאה באמת מציעה אחריות ויכולה להסביר את התנאים בצורה ברורה. טענות מעורפלות עלולות לפגוע באמון.",
+      ],
+      [
+        "מה צריך לכלול מסר אחריות? הסבר על כיסוי, מגבלות, ציפיות תחזוקה, מעקב ומה נמצא באחריות המטופל.",
+      ],
+      [
+        "האם מסר אחריות יכול לשפר איכות לידים? כן, כי הוא מושך מטופלים שחושבים על ערך לטווח ארוך ולא רק על מחיר מיידי.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-smile-design-marketing",
+    slug: "smile-design-marketing",
+    title: "Smile Design Marketing: How Cosmetic Clinics Sell the Plan, Not Just the Procedure",
+    excerpt:
+      "Smile design marketing helps cosmetic clinics attract patients who want a planned outcome, not just a single veneer, whitening, or cosmetic procedure.",
+    publishedAt: "2026-06-05T10:06:00.000Z",
+    seoImage: "/blog/images/cosmetic-dentistry-growth.png",
+    mainImageAlt: "Smile design marketing plan for cosmetic dentistry patients comparing treatment outcomes",
+    serviceLinks: [
+      "cosmetic-dentistry-marketing",
+      "veneers-marketing",
+      "cosmetic-dentist-marketing-agency",
+    ],
+    body: body([
+      [
+        "Smile design marketing is useful because many cosmetic patients are not only shopping for a procedure. They are trying to picture an outcome. They want to know what their smile could look like, what changes are realistic, and whether the clinic understands aesthetics, face shape, confidence, and long-term fit.",
+      ],
+      ["Sell the plan before the procedure", "h2"],
+      [
+        "A patient may search for veneers, bonding, whitening, gum contouring, or a smile makeover, but the deeper desire is often a planned transformation. Smile design content gives the clinic a way to explain the thought process behind treatment instead of competing only on procedure names.",
+      ],
+      [
+        "This can improve conversion because the page helps patients feel understood before they submit a form. It can also improve filtering because the form can ask about the main smile concern, desired timeline, previous dental work, and whether the patient is comparing cosmetic options.",
+      ],
+      ["How smile design content supports SEO", "h2"],
+      [
+        "Smile design pages can connect several cosmetic keywords naturally: veneers, smile makeover, cosmetic dentist near me, digital smile design, and cosmetic consultation. The page should not stuff keywords. It should explain how the clinic evaluates the smile and chooses the right treatment path.",
+      ],
+      [
+        "For paid campaigns, smile design messaging helps the AI learn from patients who care about outcome quality. That is often a better signal than cheap clicks from people looking for one isolated service.",
+      ],
+      ["Smile design marketing FAQ", "h2"],
+      [
+        "Is smile design the same as veneers? Not always. Veneers may be part of a smile design plan, but the plan can also involve whitening, bonding, gum contouring, orthodontic considerations, or other cosmetic steps.",
+      ],
+      [
+        "What should a smile design page include? Explain the evaluation, aesthetic planning, treatment options, proof, common questions, and what happens at the next step.",
+      ],
+      [
+        "Why is smile design good for marketing? It lets the clinic sell a thoughtful outcome instead of a commodity procedure.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-he-smile-design-marketing",
+    slug: "smile-design-marketing-he",
+    title: "שיווק עיצוב חיוך: איך מרפאות אסתטיקה מוכרות תוכנית ולא רק טיפול",
+    excerpt:
+      "שיווק עיצוב חיוך עוזר למרפאות אסתטיקה למשוך מטופלים שרוצים תוצאה מתוכננת, לא רק ציפוי, הלבנה או טיפול בודד.",
+    publishedAt: "2026-06-05T10:07:00.000Z",
+    seoImage: "/blog/images/cosmetic-dentistry-growth.png",
+    mainImageAlt: "תוכנית שיווק עיצוב חיוך למטופלי אסתטיקה שמשווים תוצאות טיפול",
+    serviceLinks: [
+      "cosmetic-dentistry-marketing",
+      "veneers-marketing",
+      "cosmetic-dentist-marketing-agency",
+    ],
+    body: body([
+      [
+        "שיווק עיצוב חיוך חשוב כי הרבה מטופלים אסתטיים לא מחפשים רק טיפול אחד. הם מנסים לדמיין תוצאה. הם רוצים לדעת איך החיוך שלהם יכול להיראות, אילו שינויים ריאליים והאם המרפאה מבינה אסתטיקה, מבנה פנים, ביטחון עצמי והתאמה לטווח ארוך.",
+      ],
+      ["למכור את התוכנית לפני הטיפול", "h2"],
+      [
+        "מטופל יכול לחפש ציפויים, בונדינג, הלבנה, עיצוב חניכיים או שיקום חיוך, אבל הרצון העמוק יותר הוא לרוב שינוי מתוכנן. תוכן על עיצוב חיוך מאפשר למרפאה להסביר את החשיבה מאחורי הטיפול במקום להתחרות רק על שמות טיפולים.",
+      ],
+      [
+        "זה יכול לשפר המרה כי העמוד גורם למטופלים להרגיש שמבינים אותם לפני שהם משאירים פרטים. זה גם יכול לשפר סינון כי הטופס יכול לשאול על הבעיה המרכזית בחיוך, לוח זמנים רצוי, טיפולים קודמים והאם המטופל משווה אפשרויות אסתטיות.",
+      ],
+      ["איך תוכן עיצוב חיוך תומך ב-SEO", "h2"],
+      [
+        "עמודי עיצוב חיוך יכולים לחבר באופן טבעי כמה מילות מפתח אסתטיות: ציפויים, שיקום חיוך, רופא שיניים אסתטי קרוב אליי, עיצוב חיוך דיגיטלי וייעוץ אסתטי. העמוד לא צריך לדחוס מילות מפתח. הוא צריך להסביר איך המרפאה בודקת את החיוך ובוחרת מסלול טיפול נכון.",
+      ],
+      [
+        "בקמפיינים ממומנים, מסר של עיצוב חיוך עוזר ל-AI ללמוד ממטופלים שאכפת להם מאיכות התוצאה. זה בדרך כלל סימן טוב יותר מקליקים זולים של אנשים שמחפשים שירות בודד.",
+      ],
+      ["שאלות נפוצות על שיווק עיצוב חיוך", "h2"],
+      [
+        "האם עיצוב חיוך זה אותו דבר כמו ציפויים? לא תמיד. ציפויים יכולים להיות חלק מתוכנית עיצוב חיוך, אבל התוכנית יכולה לכלול גם הלבנה, בונדינג, עיצוב חניכיים, שיקולים אורתודונטיים או צעדים אסתטיים אחרים.",
+      ],
+      [
+        "מה צריך לכלול עמוד עיצוב חיוך? הסבר על הבדיקה, תכנון אסתטי, אפשרויות טיפול, הוכחות, שאלות נפוצות ומה קורה בשלב הבא.",
+      ],
+      [
+        "למה עיצוב חיוך טוב לשיווק? הוא מאפשר למרפאה למכור תוצאה מחושבת ולא טיפול שנתפס כמוצר מדף.",
+      ],
+    ]),
+  },
 ];
 
 export const supplementalBlogSlugs = supplementalBlogPosts.map((post) => post.slug);
