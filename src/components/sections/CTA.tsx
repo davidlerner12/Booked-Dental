@@ -6,6 +6,18 @@ import { Button } from "@/components/ui/button";
 const CTA = () => {
   const { t } = useTranslation();
   const { lang } = useParams();
+  const isHebrew = lang === "he";
+  const proofItems = isHebrew
+    ? [
+        { value: "38x", label: "ROI ממוצע מעוגל בדוגמת קמפיין" },
+        { value: "7 ימים", label: "זמן טיפוסי להזדמנות ראשונה" },
+        { value: "1", label: "מרפאה אחת בכל אזור" },
+      ]
+    : [
+        { value: "38x", label: "Rounded average ROI example" },
+        { value: "7 days", label: "Typical time to first opportunity" },
+        { value: "1", label: "Clinic per market" },
+      ];
   return (
     <section id="cta" className="relative border-t border-border py-24">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(42_100%_55%/0.08),transparent_60%)]" />
@@ -16,6 +28,14 @@ const CTA = () => {
             {t("cta.title_prefix")}<span className="text-gradient-gold">{t("cta.title_highlight")}</span>
           </h2>
           <p className="mb-8 text-muted-foreground">{t("cta.subtitle")}</p>
+          <div className="mb-8 grid gap-3 sm:grid-cols-3">
+            {proofItems.map((item) => (
+              <div key={item.label} className="rounded-lg border border-primary/20 bg-primary/5 p-4">
+                <div className="text-2xl font-bold text-primary">{item.value}</div>
+                <div className="mt-1 text-xs leading-snug text-muted-foreground">{item.label}</div>
+              </div>
+            ))}
+          </div>
           <Button
             variant="hero"
             size="lg"

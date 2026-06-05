@@ -35,13 +35,20 @@ export const trackMarketCheckStarted = (path?: string) => {
   });
 };
 
-export const trackMarketCheckFormSubmitted = (cityState: string, email: string) => {
+export const trackMarketCheckFormSubmitted = (
+  cityState: string,
+  email: string,
+  qualityScore?: string,
+  treatmentFocus?: string,
+) => {
   window.gtag?.("event", "market_check_form_submitted", {
     event_category: "Form",
     event_label: cityState || "Market availability",
     email,
+    quality_score: qualityScore,
+    treatment_focus: treatmentFocus,
   });
-  trackMetaEvent("Lead", { city_state: cityState, email });
+  trackMetaEvent("Lead", { city_state: cityState, email, quality_score: qualityScore, treatment_focus: treatmentFocus });
 };
 
 export const trackQualifiedLeadThankYou = () => {

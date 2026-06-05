@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { FormEvent } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { ArrowLeft, CheckCircle2, Clock, MapPin, SearchCheck, Shield, Users } from "lucide-react";
@@ -21,6 +21,30 @@ const BOOKING_COPY = {
     fitTitle: "This is for clinics that want quality over volume.",
     fitBody:
       "The goal is not more cheap forms. The goal is to identify which prospects look like real future patients, then use that feedback to help campaigns find customers instead of clicks.",
+    qualifierTitle: "Help us check fit faster",
+    treatmentLabel: "Main growth focus",
+    treatmentPlaceholder: "Select one",
+    treatmentOptions: {
+      fullArch: "Full-arch implants / All-on-4",
+      veneers: "Veneers / cosmetic dentistry",
+      both: "Both implant and cosmetic cases",
+      other: "Other high-value dentistry",
+    },
+    capacityLabel: "Monthly capacity for new high-value cases",
+    capacityPlaceholder: "Select capacity",
+    capacityOptions: {
+      oneToTwo: "1-2 cases",
+      threeToFive: "3-5 cases",
+      sixPlus: "6+ cases",
+    },
+    trackingLabel: "Can your team give feedback on lead quality?",
+    trackingPlaceholder: "Select one",
+    trackingOptions: {
+      yes: "Yes, we can track qualified vs unqualified leads",
+      partly: "Partly, but we need a cleaner process",
+      no: "Not yet",
+    },
+    fitScoreLabel: "Fit score",
     faq: [
       {
         q: "Is this a sales call request?",
@@ -46,6 +70,30 @@ const BOOKING_COPY = {
     fitTitle: "מיועד למרפאות שרוצות איכות, לא נפח.",
     fitBody:
       "המטרה היא לא עוד טפסים זולים. המטרה היא לזהות אילו מתעניינים נראים כמו מטופלים עתידיים אמיתיים, ואז להשתמש בפידבק הזה כדי לעזור לקמפיינים למצוא מטופלים במקום קליקים.",
+    qualifierTitle: "עזרו לנו לבדוק התאמה מהר יותר",
+    treatmentLabel: "תחום הצמיחה המרכזי",
+    treatmentPlaceholder: "בחרו אפשרות",
+    treatmentOptions: {
+      fullArch: "שיקום מלא / All-on-4",
+      veneers: "ציפויים / אסתטיקה דנטלית",
+      both: "גם שתלים וגם אסתטיקה",
+      other: "טיפולים דנטליים בעלי ערך גבוה",
+    },
+    capacityLabel: "קיבולת חודשית למקרים חדשים בעלי ערך גבוה",
+    capacityPlaceholder: "בחרו קיבולת",
+    capacityOptions: {
+      oneToTwo: "1-2 מקרים",
+      threeToFive: "3-5 מקרים",
+      sixPlus: "6+ מקרים",
+    },
+    trackingLabel: "האם הצוות יכול לתת פידבק על איכות הפניות?",
+    trackingPlaceholder: "בחרו אפשרות",
+    trackingOptions: {
+      yes: "כן, אפשר למדוד פניות מתאימות ולא מתאימות",
+      partly: "חלקית, אבל צריך תהליך מסודר יותר",
+      no: "עדיין לא",
+    },
+    fitScoreLabel: "ציון התאמה",
     faq: [
       {
         q: "האם זו בקשה לשיחת מכירה?",
@@ -63,6 +111,27 @@ const BOOKING_COPY = {
   },
 } as const;
 
+type TreatmentFocus = "fullArch" | "veneers" | "both" | "other" | "";
+type CaseCapacity = "oneToTwo" | "threeToFive" | "sixPlus" | "";
+type TrackingReadiness = "yes" | "partly" | "no" | "";
+
+function calculateFitScore(
+  treatmentFocus: TreatmentFocus,
+  caseCapacity: CaseCapacity,
+  trackingReadiness: TrackingReadiness,
+) {
+  let score = 0;
+  if (treatmentFocus === "fullArch" || treatmentFocus === "veneers") score += 25;
+  if (treatmentFocus === "both") score += 30;
+  if (treatmentFocus === "other") score += 12;
+  if (caseCapacity === "oneToTwo") score += 15;
+  if (caseCapacity === "threeToFive") score += 25;
+  if (caseCapacity === "sixPlus") score += 30;
+  if (trackingReadiness === "yes") score += 30;
+  if (trackingReadiness === "partly") score += 18;
+  return String(score);
+}
+
 const BookingPage = () => {
   const { t } = useTranslation();
   const { lang } = useParams();
@@ -71,6 +140,13 @@ const BookingPage = () => {
   const isMarketCheck = location.state?.source === "market-check";
   const isHebrew = pageLang === "he";
   const copy = isHebrew ? BOOKING_COPY.he : BOOKING_COPY.en;
+  const [treatmentFocus, setTreatmentFocus] = useState<TreatmentFocus>("");
+  const [caseCapacity, setCaseCapacity] = useState<CaseCapacity>("");
+  const [trackingReadiness, setTrackingReadiness] = useState<TrackingReadiness>("");
+  const fitScore = useMemo(
+    () => calculateFitScore(treatmentFocus, caseCapacity, trackingReadiness),
+    [caseCapacity, trackingReadiness, treatmentFocus],
+  );
   const bookingUrl = `https://www.booked.dental/${pageLang}/book`;
   const bookingStructuredData = [
     {
@@ -116,12 +192,14 @@ const BookingPage = () => {
   }, [location.pathname]);
 
   const redirectOrigin = typeof window === "undefined" ? "https://www.booked.dental" : window.location.origin;
-  const redirectUrl = `${redirectOrigin}/${lang}/thank-you`;
+  const redirectUrl = `${redirectOrigin}/${lang}/thank-you?focus=${encodeURIComponent(treatmentFocus || "unknown")}&fit=${encodeURIComponent(fitScore)}`;
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     const formData = new FormData(event.currentTarget);
     trackMarketCheckFormSubmitted(
       String(formData.get("city") || ""),
       String(formData.get("email") || ""),
+      fitScore,
+      treatmentFocus,
     );
   };
 
@@ -195,6 +273,7 @@ const BookingPage = () => {
               <input type="hidden" name="_next" value={redirectUrl} />
               <input type="hidden" name="_subject" value="New Market Check Submission!" />
               <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="fit_score" value={fitScore} />
 
               <div className="space-y-2 text-start">
                 <Label htmlFor="name">{t("booking.form_name_label")}</Label>
@@ -214,6 +293,63 @@ const BookingPage = () => {
               <div className="space-y-2 text-start">
                 <Label htmlFor="city">{t("booking.form_city_label")}</Label>
                 <Input id="city" name="city" required placeholder={t("booking.form_city_placeholder")} className="bg-background" />
+              </div>
+
+              <div className="rounded-xl border border-primary/20 bg-primary/5 p-4">
+                <h2 className="mb-4 font-display text-lg font-semibold">{copy.qualifierTitle}</h2>
+                <div className="grid gap-4">
+                  <div className="space-y-2 text-start">
+                    <Label htmlFor="treatment_focus">{copy.treatmentLabel}</Label>
+                    <select
+                      id="treatment_focus"
+                      name="treatment_focus"
+                      required
+                      value={treatmentFocus}
+                      onChange={(event) => setTreatmentFocus(event.target.value as TreatmentFocus)}
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
+                      <option value="">{copy.treatmentPlaceholder}</option>
+                      <option value="fullArch">{copy.treatmentOptions.fullArch}</option>
+                      <option value="veneers">{copy.treatmentOptions.veneers}</option>
+                      <option value="both">{copy.treatmentOptions.both}</option>
+                      <option value="other">{copy.treatmentOptions.other}</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-2 text-start">
+                    <Label htmlFor="monthly_case_capacity">{copy.capacityLabel}</Label>
+                    <select
+                      id="monthly_case_capacity"
+                      name="monthly_case_capacity"
+                      required
+                      value={caseCapacity}
+                      onChange={(event) => setCaseCapacity(event.target.value as CaseCapacity)}
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
+                      <option value="">{copy.capacityPlaceholder}</option>
+                      <option value="oneToTwo">{copy.capacityOptions.oneToTwo}</option>
+                      <option value="threeToFive">{copy.capacityOptions.threeToFive}</option>
+                      <option value="sixPlus">{copy.capacityOptions.sixPlus}</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-2 text-start">
+                    <Label htmlFor="tracking_readiness">{copy.trackingLabel}</Label>
+                    <select
+                      id="tracking_readiness"
+                      name="tracking_readiness"
+                      required
+                      value={trackingReadiness}
+                      onChange={(event) => setTrackingReadiness(event.target.value as TrackingReadiness)}
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
+                      <option value="">{copy.trackingPlaceholder}</option>
+                      <option value="yes">{copy.trackingOptions.yes}</option>
+                      <option value="partly">{copy.trackingOptions.partly}</option>
+                      <option value="no">{copy.trackingOptions.no}</option>
+                    </select>
+                  </div>
+                </div>
               </div>
 
               <Button type="submit" size="lg" className="w-full bg-gradient-gold text-primary-foreground hover:opacity-90 shadow-gold mt-4">

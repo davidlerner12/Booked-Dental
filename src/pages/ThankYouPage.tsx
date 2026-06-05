@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { Head } from "vite-react-ssg";
 import { CheckCircle2, ArrowLeft } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -11,6 +11,36 @@ import SEO from "@/components/SEO";
 const ThankYouPage = () => {
   const { t } = useTranslation();
   const { lang } = useParams();
+  const location = useLocation();
+  const isHebrew = lang === "he";
+  const searchParams = new URLSearchParams(location.search);
+  const focus = searchParams.get("focus") || "";
+  const fit = Number(searchParams.get("fit") || "0");
+  const focusCopy = isHebrew
+    ? {
+        fullArch: "נבדוק את האזור שלכם סביב שיקום מלא ו-All-on-4.",
+        veneers: "נבדוק את האזור שלכם סביב ציפויים ואסתטיקה דנטלית.",
+        both: "נבדוק את האזור שלכם סביב שתלים, ציפויים ואסתטיקה דנטלית.",
+        other: "נבדוק את האזור שלכם סביב הטיפולים בעלי הערך הגבוה שציינתם.",
+      }
+    : {
+        fullArch: "We will review your market around full-arch implants and All-on-4 demand.",
+        veneers: "We will review your market around veneers and cosmetic dentistry demand.",
+        both: "We will review your market around implant, veneer, and cosmetic dentistry demand.",
+        other: "We will review your market around the high-value treatments you selected.",
+      };
+  const scoreCopy = isHebrew
+    ? fit >= 75
+      ? "הפרטים הראשוניים מצביעים על התאמה חזקה לבדיקה."
+      : fit >= 45
+        ? "נבדוק את ההתאמה ונראה איפה צריך תהליך מדידה מסודר יותר."
+        : "נבדוק את הפרטים בזהירות ונחזור עם תמונה ברורה יותר."
+    : fit >= 75
+      ? "The initial details point to a strong fit for review."
+      : fit >= 45
+        ? "We will review the fit and identify where a cleaner measurement process may be needed."
+        : "We will review the details carefully and come back with a clearer picture.";
+  const focusMessage = focusCopy[focus as keyof typeof focusCopy] || "";
 
   useEffect(() => {
     trackBookingConfirmed();
@@ -64,6 +94,17 @@ const ThankYouPage = () => {
           <p className="mb-8 text-lg text-muted-foreground">
             {t("booking.thankyou_subtitle")}
           </p>
+          {(focusMessage || fit > 0) && (
+            <div className="mb-8 rounded-xl border border-primary/20 bg-primary/5 p-5 text-start">
+              <h2 className="font-display text-lg font-semibold">
+                {isHebrew ? "מה נבדוק עכשיו" : "What we will review next"}
+              </h2>
+              <div className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
+                {focusMessage && <p>{focusMessage}</p>}
+                {fit > 0 && <p>{scoreCopy}</p>}
+              </div>
+            </div>
+          )}
           <Button asChild size="lg" className="bg-gradient-gold text-primary-foreground hover:opacity-90 shadow-gold">
             <Link to={`/${lang}`}>
               {t("booking.return_home")}
