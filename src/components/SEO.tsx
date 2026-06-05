@@ -29,7 +29,7 @@ function trimTitle(title: string) {
 
   if (cleanTitle.endsWith(TITLE_BRAND)) {
     const baseTitle = cleanTitle.slice(0, -TITLE_BRAND.length).trim();
-    const phraseBreaks = [" That ", ": ", " for ", " Without ", " With "];
+    const phraseBreaks = [", Not ", " That ", ": ", " for ", " Without ", " With "];
     const phraseCandidate = phraseBreaks
       .map((separator) => baseTitle.split(separator)[0]?.trim())
       .find((candidate) => candidate && candidate.length >= 24 && `${candidate}${TITLE_BRAND}`.length <= TITLE_LIMIT);
