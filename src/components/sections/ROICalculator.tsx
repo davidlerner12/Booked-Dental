@@ -10,7 +10,7 @@ const ROICalculator = () => {
   const isHe = i18n.language === "he";
 
   const implantValue = isHe ? 40000 : 30000;
-  const veneerValue = isHe ? 6000 : 12000;
+  const veneerValue = isHe ? 30000 : 12000;
   const currencySymbol = isHe ? "\u20aa" : "$";
   const currencyCode = isHe ? "ILS" : "USD";
   const [implantCases, setImplantCases] = useState(2);
