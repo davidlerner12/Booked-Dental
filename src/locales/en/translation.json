@@ -4,11 +4,11 @@
     "dental": ".Dental"
   },
   "hero": {
-    "badge_mobile": "Meta Ads -> Filtered Patients",
-    "badge_desktop": "Meta Ads -> Lead Filtering -> Booked Treatment Plans",
-    "title_line1": "Teach Your Ads to Find ",
+    "badge_mobile": "Dental Lead Generation -> Filtered Patients",
+    "badge_desktop": "Dental Implant Marketing -> Lead Filtering -> Booked Treatment Plans",
+    "title_line1": "Dental Marketing That Finds ",
     "title_highlight": "Real Implant and Veneer Patients",
-    "subtitle": "Booked.Dental helps implant and veneer clinics turn ad traffic into filtered patient opportunities. Every form answer teaches the AI which people are ready for treatment, so campaigns optimize toward customers instead of clicks.",
+    "subtitle": "Booked.Dental helps implant and cosmetic dentistry clinics turn Meta and Google ad traffic into filtered patient opportunities. Every form answer teaches the AI which people are ready for treatment, so campaigns optimize toward customers instead of clicks.",
     "cta": "Check Your Market",
     "trusted": "Built for implant and cosmetic clinics that want serious patients, not vanity metrics.",
     "trial_line": "14-day trial · No long-term contract · See lead quality before committing."
@@ -26,7 +26,7 @@
   "problem": {
     "title_line1": "Most Dental Ads Optimize for ",
     "title_highlight": "Clicks, Not Customers",
-    "description": "Generic campaigns chase cheap clicks and unqualified forms. Booked.Dental adds a filtering layer that learns who is serious about implants or veneers, then feeds that signal back into the AI so your budget moves toward people who can become patients.",
+    "description": "Generic dental lead generation campaigns chase cheap clicks and unqualified forms. Booked.Dental adds a filtering layer for dental implant marketing, veneer patient acquisition, and cosmetic dentist marketing, then feeds that signal back into the AI so your budget moves toward people who can become patients.",
     "bullet1": "No more boosted-post guessing",
     "bullet2": "No more paying for empty traffic",
     "bullet3": "No more reports full of vanity metrics"
@@ -34,13 +34,13 @@
   "services": {
     "title_prefix": "What We ",
     "title_highlight": "Build For Your Practice",
-    "subtitle": "A patient acquisition system that filters intent, trains the AI, and sends your team better opportunities.",
+    "subtitle": "A dental patient acquisition system for implant and cosmetic clinics that filters intent, trains the AI, and sends your team better opportunities.",
     "creative_library_title": "Proven UGC Creative Library",
     "creative_library_desc": "We use high-performing UGC-style ads built for implant and cosmetic dentistry. The creative attracts attention from people already thinking about treatment.",
     "fast_launch_title": "Fast Campaign Launch",
     "fast_launch_desc": "Because the creative foundation and funnel are already built, your campaign can go live quickly without months of testing from scratch.",
     "quality_inquiries_title": "Lead Filtering Before Your Team Sees It",
-    "quality_inquiries_desc": "Prospects answer intent-based questions before they reach your clinic. The system filters out poor fits and gives the AI cleaner data about who is actually ready for treatment.",
+    "quality_inquiries_desc": "Prospects answer intent-based questions before they reach your clinic. The dental lead filtering system removes poor fits and gives the AI cleaner data about who is actually ready for implants, veneers, or cosmetic treatment.",
     "efficient_costs_title": "Budget Focused on Customers",
     "efficient_costs_desc": "Instead of optimizing around clicks or form fills alone, the campaign learns from filtered lead quality so spend moves toward people more likely to become patients.",
     "call_tracking_title": "AI Learning Loop",
@@ -175,7 +175,7 @@
     "title_highlight": "Smarter Growth",
     "para1": "Most campaigns optimize around surface-level activity: clicks, impressions, and basic form fills.",
     "para2": "Booked.Dental adds a filtering layer that captures intent, treatment fit, and readiness before your team spends time on a prospect.",
-    "para3": "That feedback teaches the AI what a real customer looks like for your clinic, so the campaign gets smarter over time.",
+    "para3": "That feedback teaches the AI what a real implant, veneer, or cosmetic dentistry customer looks like for your clinic, so the campaign gets smarter over time.",
     "callout": "The goal is simple: spend less budget on curiosity and more budget on people with real treatment potential.",
     "footer": "Booked.Dental combines proven creative, filtering, and AI learning so your acquisition system improves as it gathers better data."
   },
@@ -191,7 +191,7 @@
   "cta": {
     "title_prefix": "Ready to Find More ",
     "title_highlight": "Implant and Veneer Patients?",
-    "subtitle": "If your clinic has capacity for more high-value treatment plans, check whether your market is still available. Booked.Dental partners with only one clinic per local market.",
+    "subtitle": "If your clinic has capacity for more high-value treatment plans, check whether your market is still available. Booked.Dental is built for dental implant marketing, cosmetic dentistry marketing, and qualified dental lead generation in one local market at a time.",
     "button": "Check Your Market",
     "footer": "No long-term contract. No pressure. Just a clear look at whether the system fits your clinic."
   },
@@ -224,7 +224,7 @@
     "badge": "From the Blog",
     "title_prefix": "Dental Marketing ",
     "title_highlight": "Insights",
-    "subtitle": "Practical guides on ads, lead filtering, and patient acquisition for implant and cosmetic clinics.",
+    "subtitle": "Practical guides on dental implant marketing, cosmetic dentistry marketing, Google Ads, Meta Ads, lead filtering, and patient acquisition for implant and veneer clinics.",
     "loading": "Loading latest blog posts...",
     "error": "Unable to load blog posts right now.",
     "error_hint": "If this continues, make sure Sanity dataset read access is enabled.",

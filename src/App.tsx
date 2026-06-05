@@ -45,15 +45,16 @@ function ScrollToTop() {
 function LanguageSync() {
   const { lang } = useParams<{ lang: string }>();
   const { i18n } = useTranslation();
+  const validLang = lang === "he" ? "he" : "en";
+
+  if (i18n.language !== validLang) {
+    void i18n.changeLanguage(validLang);
+  }
 
   useEffect(() => {
-    const validLang = lang === "he" ? "he" : "en";
-    if (i18n.language !== validLang) {
-      i18n.changeLanguage(validLang);
-    }
     document.documentElement.lang = validLang;
     document.documentElement.dir = validLang === "he" ? "rtl" : "ltr";
-  }, [lang, i18n]);
+  }, [validLang]);
 
   return null;
 }

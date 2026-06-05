@@ -213,6 +213,21 @@ function localizedAlternates(siteUrl: string, path: string) {
   };
 }
 
+const SUPPLEMENTAL_BLOG_SLUGS = new Set(supplementalBlogPosts.map((post) => post.slug));
+
+function supplementalBlogAlternates(siteUrl: string, slug: string) {
+  const isHebrew = slug.endsWith("-he");
+  const alternateSlug = isHebrew ? slug.replace(/-he$/, "") : `${slug}-he`;
+  if (!SUPPLEMENTAL_BLOG_SLUGS.has(alternateSlug)) return undefined;
+  const englishSlug = isHebrew ? alternateSlug : slug;
+  const hebrewSlug = isHebrew ? slug : alternateSlug;
+  return {
+    en: `${siteUrl}/en/blog/${englishSlug}`,
+    he: `${siteUrl}/he/blog/${hebrewSlug}`,
+    "x-default": `${siteUrl}/en/blog/${englishSlug}`,
+  };
+}
+
 async function generateSitemap(outDir: string) {
   const env = loadEnv(process.env.NODE_ENV || "production", process.cwd(), "");
   const siteUrl = (env.VITE_SITE_URL || "https://www.booked.dental").replace(/\/+$/, "");
@@ -266,6 +281,7 @@ async function generateSitemap(outDir: string) {
       lastmod: toIsoDate(post.publishedAt),
       changefreq: "monthly",
       priority: "0.8",
+      alternates: supplementalBlogAlternates(siteUrl, post.slug),
       image: post.seoImage
         ? {
             loc: post.seoImage.startsWith("http") ? post.seoImage : `${siteUrl}${post.seoImage}`,

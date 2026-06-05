@@ -24,6 +24,7 @@ import {
   getInternalBlogLinks,
 } from "@/lib/blog-seo-overrides";
 import { SERVICE_PAGES } from "@/lib/service-pages";
+import { supplementalBlogPosts } from "@/data/supplemental-blog-posts";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const BLOG_SEO_KEYWORDS = [
@@ -51,6 +52,7 @@ const BLOG_SEO_KEYWORDS = [
 
 const AUTHOR_IMAGE = "https://www.booked.dental/images/david-lerner-headshot.jpg";
 const TITLE_BRAND = " | Booked.Dental";
+const SUPPLEMENTAL_BLOG_SLUGS = new Set(supplementalBlogPosts.map((post) => post.slug));
 
 const SERVICE_LINKS_BY_BLOG_SLUG: Record<string, string[]> = {
   "how-to-get-more-dental-implant-patients": [
@@ -541,6 +543,11 @@ export default function BlogPost() {
 
   const postPath = `/blog/${post.slug}`;
   const postUrl = buildLocalizedUrl(lang, postPath);
+  const alternateBlogSlug = isHebrew ? post.slug.replace(/-he$/, "") : `${post.slug}-he`;
+  const hasAlternateBlogPost = SUPPLEMENTAL_BLOG_SLUGS.has(alternateBlogSlug);
+  const alternateBlogUrl = hasAlternateBlogPost
+    ? buildLocalizedUrl(isHebrew ? "en" : "he", `/blog/${alternateBlogSlug}`)
+    : null;
   const metaTitle = buildBlogMetaTitle(post.title);
   const heroImage = getBlogSeoImage(post);
   const ogImage = getAbsoluteBlogImageUrl(post);
@@ -703,7 +710,10 @@ export default function BlogPost() {
         <meta name="twitter:image" content={ogImage} />
         <link rel="canonical" href={postUrl} />
         <link rel="alternate" hrefLang={isHebrew ? "he" : "en"} href={postUrl} />
-        {!isHebrew && <link rel="alternate" hrefLang="x-default" href={postUrl} />}
+        {alternateBlogUrl && (
+          <link rel="alternate" hrefLang={isHebrew ? "en" : "he"} href={alternateBlogUrl} />
+        )}
+        <link rel="alternate" hrefLang="x-default" href={isHebrew ? alternateBlogUrl || postUrl : postUrl} />
         <script type="application/ld+json">{JSON.stringify(articleStructuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbStructuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(internalLinksStructuredData)}</script>
