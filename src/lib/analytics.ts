@@ -1,4 +1,5 @@
 const LEAD_FORM_CONVERSION_TAG = "AW-18212559239/ksECCPr16LgcEIeztuxD";
+const LEAD_FORM_CONVERSION_KEY = "bookedDentalLeadConversionSent";
 
 declare global {
   interface Window {
@@ -13,8 +14,11 @@ export const trackPageView = (page: string) =>
 export const trackEvent = (category: string, action: string, label?: string) =>
   window.gtag?.("event", action, { event_category: category, event_label: label });
 
-export const trackLeadFormConversion = () =>
+export const trackLeadFormConversion = () => {
+  if (window.sessionStorage?.getItem(LEAD_FORM_CONVERSION_KEY)) return;
+  window.sessionStorage?.setItem(LEAD_FORM_CONVERSION_KEY, "true");
   window.gtag?.("event", "conversion", { send_to: LEAD_FORM_CONVERSION_TAG });
+};
 
 export const trackMetaEvent = (event: string, params?: Record<string, unknown>) =>
   window.fbq?.("track", event, params);

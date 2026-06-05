@@ -59,6 +59,7 @@ async function getSanityBlogPosts() {
 
 const SUPPORTED_LANGS = ["en", "he"];
 const LOCALIZED_STATIC_PATHS = ["", "/book", "/blog", "/about", "/privacy"];
+const SSG_ONLY_STATIC_PATHS = ["/thank-you"];
 const SERVICE_STATIC_PATHS = [
   "/services/dental-implant-marketing",
   "/services/dental-lead-quality-checklist",
@@ -307,7 +308,7 @@ export default defineConfig(({ mode }) => ({
     dirStyle: "nested",
     includedRoutes: async () => {
       const staticRoutes = SUPPORTED_LANGS.flatMap((lang) =>
-        [...LOCALIZED_STATIC_PATHS, ...SERVICE_STATIC_PATHS].map((route) => `/${lang}${route}`),
+        [...LOCALIZED_STATIC_PATHS, ...SSG_ONLY_STATIC_PATHS, ...SERVICE_STATIC_PATHS].map((route) => `/${lang}${route}`),
       );
       const blogPostRoutes = await getBlogStaticRoutes();
       return Array.from(new Set(["/", ...staticRoutes, ...blogPostRoutes]));
