@@ -38,8 +38,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Dental implant SEO works best when content, local signals, reviews, and conversion pages are built around treatment intent instead of generic dental traffic.",
     publishedAt: "2026-06-04T15:00:00.000Z",
-    seoImage: "/blog/images/generated/dental-implant-seo.jpg",
-    mainImageAlt: "Dental Implant SEO: How Clinics Rank for High-Value Patients blog image showing local dental SEO, map visibility, and clinic search intent",
+    seoImage: "/blog/images/varied/implant-seo-local-map.webp",
+    mainImageAlt: "Dental implant SEO article image showing a clinic laptop with local map visibility, search intent, and implant planning props",
     serviceLinks: [
       "dental-implant-marketing",
       "dental-implant-lead-generation",
@@ -80,8 +80,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "A dental implant landing page should turn expensive traffic into filtered opportunities by answering fear, cost, trust, and next-step questions fast.",
     publishedAt: "2026-06-04T15:05:00.000Z",
-    seoImage: "/blog/images/generated/dental-implant-landing-page.jpg",
-    mainImageAlt: "Dental Implant Landing Page: What Converts Paid Traffic blog image showing dental implant landing page analytics and qualified lead flow",
+    seoImage: "/blog/images/varied/implant-landing-page-tablet.webp",
+    mainImageAlt: "Dental implant landing page article image showing a tablet wireframe, implant model, and consultation clipboard",
     serviceLinks: [
       "dental-implant-marketing",
       "google-ads-for-dental-implants",
@@ -122,8 +122,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Dental marketing ROI is clearer when clinics track filtered opportunities, show rate, treatment acceptance, and revenue quality instead of cheap lead volume.",
     publishedAt: "2026-06-04T15:10:00.000Z",
-    seoImage: "/blog/images/generated/dental-marketing-roi.jpg",
-    mainImageAlt: "Dental Marketing ROI: Metrics That Matter Beyond Cost Per Lead blog image showing dental implant value planning, ROI, and patient acquisition metrics",
+    seoImage: "/blog/images/varied/marketing-roi-report.webp",
+    mainImageAlt: "Dental marketing ROI article image showing a clinic owner reviewing revenue metrics, calculator, and treatment plan report",
     serviceLinks: [
       "roi-methodology",
       "qualified-opportunity-methodology",
@@ -164,8 +164,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Google Business Profile helps dentists support local SEO, reviews, trust, and implant or cosmetic patient acquisition when it is maintained strategically.",
     publishedAt: "2026-06-04T15:15:00.000Z",
-    seoImage: "/blog/images/generated/google-business-profile-for-dentists.jpg",
-    mainImageAlt: "Google Business Profile for Dentists: How It Supports Patient Growth blog image showing local dental SEO, map visibility, and clinic search intent",
+    seoImage: "/blog/images/varied/google-business-profile-map.webp",
+    mainImageAlt: "Google Business Profile for dentists article image showing a local map search concept beside a dental clinic storefront",
     serviceLinks: [
       "dental-implant-marketing",
       "cosmetic-dentistry-marketing",
@@ -206,8 +206,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Veneers and Invisalign patients have different motivations, objections, and funnel needs. Cosmetic campaigns work better when the strategy matches intent.",
     publishedAt: "2026-06-04T15:20:00.000Z",
-    seoImage: "/blog/images/generated/veneers-vs-invisalign-marketing.jpg",
-    mainImageAlt: "Veneers vs Invisalign Marketing: Match the Campaign to Intent blog image showing cosmetic dentistry smile design planning and patient intent",
+    seoImage: "/blog/images/varied/veneers-vs-invisalign-consult.webp",
+    mainImageAlt: "Veneers vs Invisalign marketing article image showing veneer shade tabs and clear aligners during a cosmetic consultation",
     serviceLinks: [
       "veneers-marketing",
       "cosmetic-dentistry-marketing",
@@ -248,8 +248,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Dental reviews support SEO and conversion by helping implant and cosmetic patients trust the clinic before they submit a form.",
     publishedAt: "2026-06-04T15:25:00.000Z",
-    seoImage: "/blog/images/generated/dental-reviews-seo.jpg",
-    mainImageAlt: "Dental Reviews and SEO: Why Reputation Supports High-Value Cases blog image showing clinic review dashboard and reputation signals",
+    seoImage: "/blog/images/varied/reviews-reputation-desk.webp",
+    mainImageAlt: "Dental reviews SEO article image showing a reputation dashboard, patient feedback cards, and dental office desk",
     serviceLinks: [
       "dental-lead-generation",
       "qualified-opportunity-methodology",
@@ -290,8 +290,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "All-on-4 marketing works best when campaigns filter for treatment intent, financing readiness, and full-arch case fit instead of chasing cheap leads.",
     publishedAt: "2026-06-04T16:00:00.000Z",
-    seoImage: "/blog/images/generated/all-on-4-marketing.jpg",
-    mainImageAlt: "All-on-4 Marketing: How to Attract Full-Arch Implant Patients blog image showing full-arch dental implant consultation and serious patient demand",
+    seoImage: "/blog/images/varied/full-arch-consultation.webp",
+    mainImageAlt: "All-on-4 marketing article image showing full-arch implant consultation planning with a dentist, patient, and scan review",
     serviceLinks: [
       "all-on-4-lead-generation",
       "full-arch-implant-marketing",
@@ -331,8 +331,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "שיווק All-on-4 עובד טוב יותר כשמסננים כוונת טיפול, התאמה כלכלית והתאמה למקרה מלא, במקום לרדוף אחרי לידים זולים.",
     publishedAt: "2026-06-04T16:01:00.000Z",
-    seoImage: "/blog/images/generated/all-on-4-marketing-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור שיווק All-on-4: איך למשוך מטופלי שתלים רציניים, המציגה ייעוץ לשיקום פה מלא וביקוש ממטופלי שתלים רציניים",
+    seoImage: "/blog/images/varied/full-arch-consultation.webp",
+    mainImageAlt: "????? ???? ?????? All-on-4 ?????? ????? ?????? ?? ???, ???? ????? ?????? ????? ?? ?????",
     serviceLinks: [
       "all-on-4-lead-generation",
       "full-arch-implant-marketing",
@@ -372,8 +372,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Full mouth dental implant leads need a different acquisition system because case value is high, research cycles are longer, and bad lead quality gets expensive fast.",
     publishedAt: "2026-06-04T16:05:00.000Z",
-    seoImage: "/blog/images/generated/full-mouth-dental-implant-leads.jpg",
-    mainImageAlt: "Full Mouth Dental Implant Leads: Why Most Campaigns Waste Budget blog image showing full-arch dental implant consultation and serious patient demand",
+    seoImage: "/blog/images/varied/full-arch-consultation.webp",
+    mainImageAlt: "Full mouth dental implant leads article image showing full-arch treatment planning and serious patient consultation",
     serviceLinks: [
       "full-arch-implant-marketing",
       "dental-implant-lead-generation",
@@ -413,8 +413,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "לידים להשתלות שיניים בכל הפה דורשים מערכת רכישת מטופלים אחרת, כי שווי המקרה גבוה ואיכות ליד נמוכה הופכת יקרה מהר.",
     publishedAt: "2026-06-04T16:06:00.000Z",
-    seoImage: "/blog/images/generated/full-mouth-dental-implant-leads-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור לידים להשתלות שיניים בכל הפה: למה רוב הקמפיינים מבזבזים תקציב, המציגה ייעוץ לשיקום פה מלא וביקוש ממטופלי שתלים רציניים",
+    seoImage: "/blog/images/varied/full-arch-consultation.webp",
+    mainImageAlt: "????? ???? ?????? ??????? ?????? ??? ??? ?? ????? ?????? ?? ??? ?????? ????? ??????",
     serviceLinks: [
       "full-arch-implant-marketing",
       "dental-implant-lead-generation",
@@ -454,8 +454,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Dental implant cost keywords can attract serious patients, but clinics need careful messaging so price traffic turns into qualified opportunities instead of bargain shopping.",
     publishedAt: "2026-06-04T16:10:00.000Z",
-    seoImage: "/blog/images/generated/dental-implant-cost-keywords.jpg",
-    mainImageAlt: "Dental Implant Cost Keywords: How to Use Them Without Attracting Bad Leads blog image showing dental implant value planning, ROI, and patient acquisition metrics",
+    seoImage: "/blog/images/varied/implant-financing-options.webp",
+    mainImageAlt: "Dental implant cost keywords article image showing financing options, implant model, and patient payment discussion",
     serviceLinks: [
       "google-ads-for-dental-implants",
       "roi-methodology",
@@ -495,8 +495,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "מילות מפתח על מחיר שתלים יכולות למשוך מטופלים רציניים, אבל צריך מסר נכון כדי להפוך חיפוש מחיר להזדמנות איכותית.",
     publishedAt: "2026-06-04T16:11:00.000Z",
-    seoImage: "/blog/images/generated/dental-implant-cost-keywords-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור מילות מפתח על מחיר שתלים: איך להשתמש בהן בלי למשוך לידים לא מתאימים, המציגה תכנון ערך, ROI ומדדי רכישת מטופלים להשתלות שיניים",
+    seoImage: "/blog/images/varied/implant-financing-options.webp",
+    mainImageAlt: "????? ???? ?????? ???? ?? ???? ????? ?????? ???????? ?????, ???? ??? ????? ???? ?? ?????",
     serviceLinks: [
       "google-ads-for-dental-implants",
       "roi-methodology",
@@ -536,8 +536,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Patients searching for the best dental implant dentist near me need local proof, clear treatment pages, reviews, and fast conversion paths.",
     publishedAt: "2026-06-04T16:15:00.000Z",
-    seoImage: "/blog/images/generated/best-dental-implant-dentist-near-me.jpg",
-    mainImageAlt: "Best Dental Implant Dentist Near Me: How Clinics Can Rank and Convert blog image showing local dental SEO, map visibility, and clinic search intent",
+    seoImage: "/blog/images/varied/implant-seo-local-map.webp",
+    mainImageAlt: "Best dental implant dentist near me article image showing local SEO map visibility and implant clinic search intent",
     serviceLinks: [
       "dental-implant-marketing",
       "dental-implant-lead-generation",
@@ -577,8 +577,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "מטופלים שמחפשים רופא שתלים מומלץ קרוב אליי צריכים הוכחה מקומית, עמודי טיפול ברורים, ביקורות ומסלול פנייה מהיר.",
     publishedAt: "2026-06-04T16:16:00.000Z",
-    seoImage: "/blog/images/generated/best-dental-implant-dentist-near-me-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור רופא שתלים מומלץ קרוב אליי: איך מרפאות יכולות לדרג ולהמיר, המציגה קידום מקומי לרופאי שיניים, נראות במפה וכוונת חיפוש",
+    seoImage: "/blog/images/varied/implant-seo-local-map.webp",
+    mainImageAlt: "????? ???? ????? ????? ????? ???? ???? ?????? ????? ????, ????? ????? ?????? ?????",
     serviceLinks: [
       "dental-implant-marketing",
       "dental-implant-lead-generation",
@@ -618,8 +618,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Porcelain veneers marketing should attract serious smile makeover patients with premium positioning, believable proof, and qualification around treatment fit.",
     publishedAt: "2026-06-04T16:20:00.000Z",
-    seoImage: "/blog/images/generated/porcelain-veneers-marketing.jpg",
-    mainImageAlt: "Porcelain Veneers Marketing: How to Attract Serious Cosmetic Patients blog image showing cosmetic dentistry smile design planning and patient intent",
+    seoImage: "/blog/images/varied/cosmetic-smile-design.webp",
+    mainImageAlt: "Porcelain veneers marketing article image showing veneer shade selection and cosmetic smile design consultation",
     serviceLinks: [
       "veneers-marketing",
       "cosmetic-dentistry-marketing",
@@ -659,8 +659,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "שיווק ציפויי חרסינה צריך למשוך מטופלים רציניים בעזרת מיצוב פרימיום, הוכחה אמינה וסינון התאמה לטיפול.",
     publishedAt: "2026-06-04T16:21:00.000Z",
-    seoImage: "/blog/images/generated/porcelain-veneers-marketing-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור שיווק ציפויי חרסינה: איך למשוך מטופלים קוסמטיים רציניים, המציגה תכנון עיצוב חיוך ושיווק רפואת שיניים אסתטית",
+    seoImage: "/blog/images/varied/cosmetic-smile-design.webp",
+    mainImageAlt: "????? ???? ?????? ?????? ?????? ?????? ????? ????, ????? ???? ?????? ????? ??????",
     serviceLinks: [
       "veneers-marketing",
       "cosmetic-dentistry-marketing",
@@ -700,8 +700,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Smile makeover marketing needs emotional creative, clear treatment education, and lead filtering so cosmetic interest becomes qualified patient opportunities.",
     publishedAt: "2026-06-04T16:25:00.000Z",
-    seoImage: "/blog/images/generated/smile-makeover-marketing.jpg",
-    mainImageAlt: "Smile Makeover Marketing: From Social Interest to Qualified Consultation blog image showing cosmetic dentistry smile design planning and patient intent",
+    seoImage: "/blog/images/varied/cosmetic-smile-design.webp",
+    mainImageAlt: "Smile makeover marketing article image showing a cosmetic dentistry smile design tablet and veneer samples",
     serviceLinks: [
       "cosmetic-dentistry-marketing",
       "veneers-marketing",
@@ -741,8 +741,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "שיווק עיצוב חיוך צריך קריאייטיב רגשי, הסבר טיפולי ברור וסינון לידים כדי להפוך עניין קוסמטי להזדמנויות איכותיות.",
     publishedAt: "2026-06-04T16:26:00.000Z",
-    seoImage: "/blog/images/generated/smile-makeover-marketing-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור שיווק עיצוב חיוך: מסקרנות ברשת להזדמנות ייעוץ איכותית, המציגה תכנון עיצוב חיוך ושיווק רפואת שיניים אסתטית",
+    seoImage: "/blog/images/varied/cosmetic-smile-design.webp",
+    mainImageAlt: "????? ???? ?????? ????? ???? ?? ????? ?????? ?????, ??????? ??????? ?????? ????",
     serviceLinks: [
       "cosmetic-dentistry-marketing",
       "veneers-marketing",
@@ -782,8 +782,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Dental implant financing marketing helps clinics answer the cost objection without turning high-value treatment into a race to the cheapest price.",
     publishedAt: "2026-06-05T08:00:00.000Z",
-    seoImage: "/blog/images/generated/dental-implant-financing-marketing.jpg",
-    mainImageAlt: "Dental Implant Financing Marketing: How to Convert Cost-Conscious Patients blog image showing dental implant value planning, ROI, and patient acquisition metrics",
+    seoImage: "/blog/images/varied/implant-financing-options.webp",
+    mainImageAlt: "Dental implant financing marketing article image showing a finance coordinator explaining payment options to a patient",
     serviceLinks: [
       "dental-implant-marketing",
       "google-ads-for-dental-implants",
@@ -823,8 +823,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "שיווק מימון להשתלות שיניים עוזר למרפאות לענות על התנגדות המחיר בלי להפוך טיפול יקר למירוץ למחיר הכי נמוך.",
     publishedAt: "2026-06-05T08:01:00.000Z",
-    seoImage: "/blog/images/generated/dental-implant-financing-marketing-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור שיווק מימון להשתלות שיניים: איך להמיר מטופלים שחוששים מהמחיר, המציגה תכנון ערך, ROI ומדדי רכישת מטופלים להשתלות שיניים",
+    seoImage: "/blog/images/varied/implant-financing-options.webp",
+    mainImageAlt: "????? ???? ?????? ????? ????? ?????? ???? ????? ??????? ???????? ????? ??????",
     serviceLinks: [
       "dental-implant-marketing",
       "google-ads-for-dental-implants",
@@ -864,8 +864,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "All-on-4 vs dentures marketing works when clinics explain the fixed-teeth difference and filter for patients ready to compare full-arch options.",
     publishedAt: "2026-06-05T08:05:00.000Z",
-    seoImage: "/blog/images/generated/all-on-4-vs-dentures-marketing.jpg",
-    mainImageAlt: "All-on-4 vs Dentures Marketing: How to Reach Patients Who Want Fixed Teeth blog image showing full-arch dental implant consultation and serious patient demand",
+    seoImage: "/blog/images/varied/all-on-4-vs-dentures-consult.webp",
+    mainImageAlt: "All-on-4 vs dentures marketing article image showing a patient comparing removable dentures with a fixed full-arch implant model",
     serviceLinks: [
       "all-on-4-lead-generation",
       "full-arch-implant-marketing",
@@ -905,8 +905,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "שיווק All-on-4 מול תותבות עובד כשהמרפאה מסבירה את ההבדל בין פתרון נשלף לקבוע ומסננת מטופלים שבאמת בוחנים שיקום מלא.",
     publishedAt: "2026-06-05T08:06:00.000Z",
-    seoImage: "/blog/images/generated/all-on-4-vs-dentures-marketing-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור שיווק All-on-4 מול תותבות: איך להגיע למטופלים שרוצים שיניים קבועות, המציגה ייעוץ לשיקום פה מלא וביקוש ממטופלי שתלים רציניים",
+    seoImage: "/blog/images/varied/all-on-4-vs-dentures-consult.webp",
+    mainImageAlt: "????? ???? ?????? All-on-4 ??? ?????? ?????? ?????? ??? ?????? ?????? ????? ????? ????",
     serviceLinks: [
       "all-on-4-lead-generation",
       "full-arch-implant-marketing",
@@ -946,8 +946,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Cosmetic dentist near me SEO helps clinics turn local veneer, whitening, and smile makeover searches into better-qualified patient opportunities.",
     publishedAt: "2026-06-05T08:10:00.000Z",
-    seoImage: "/blog/images/generated/cosmetic-dentist-near-me-seo.jpg",
-    mainImageAlt: "Cosmetic Dentist Near Me SEO: How to Rank for High-Intent Smile Searches blog image showing local dental SEO, map visibility, and clinic search intent",
+    seoImage: "/blog/images/varied/google-business-profile-map.webp",
+    mainImageAlt: "Cosmetic dentist near me SEO article image showing local map visibility for a cosmetic dental clinic",
     serviceLinks: [
       "cosmetic-dentistry-marketing",
       "veneers-marketing",
@@ -987,8 +987,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "SEO לרופא שיניים אסתטי קרוב אליי עוזר למרפאות להפוך חיפושי ציפויים, הלבנה ועיצוב חיוך להזדמנויות מטופלים איכותיות יותר.",
     publishedAt: "2026-06-05T08:11:00.000Z",
-    seoImage: "/blog/images/generated/cosmetic-dentist-near-me-seo-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור SEO לרופא שיניים אסתטי קרוב אליי: איך לדרג בחיפושי חיוך מקומיים, המציגה קידום מקומי לרופאי שיניים, נראות במפה וכוונת חיפוש",
+    seoImage: "/blog/images/varied/google-business-profile-map.webp",
+    mainImageAlt: "????? ???? ?-SEO ????? ?????? ????? ???? ???? ?? ????? ?????? ???? ?????? ?????? ????",
     serviceLinks: [
       "cosmetic-dentistry-marketing",
       "veneers-marketing",
@@ -1028,8 +1028,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "AI search visibility for dentists depends on clear service pages, trustworthy content, local proof, and structured information that answers patient questions directly.",
     publishedAt: "2026-06-05T08:15:00.000Z",
-    seoImage: "/blog/images/generated/ai-search-visibility-for-dentists.jpg",
-    mainImageAlt: "AI Search Visibility for Dentists: How Clinics Should Prepare blog image showing AI-assisted dental patient follow-up and lead filtering",
+    seoImage: "/blog/images/varied/ai-search-visibility.webp",
+    mainImageAlt: "AI search visibility for dentists article image showing abstract answer cards, FAQ nodes, and dental treatment search content",
     serviceLinks: [
       "dental-lead-generation",
       "qualified-opportunity-methodology",
@@ -1069,8 +1069,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "נראות בחיפוש AI לרופאי שיניים תלויה בעמודי שירות ברורים, תוכן אמין, הוכחה מקומית ומידע מובנה שעונה ישירות על שאלות מטופלים.",
     publishedAt: "2026-06-05T08:16:00.000Z",
-    seoImage: "/blog/images/generated/ai-search-visibility-for-dentists-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור נראות בחיפוש AI לרופאי שיניים: איך מרפאות צריכות להתכונן, המציגה מעקב חכם אחרי פניות וסינון לידים למרפאות שיניים",
+    seoImage: "/blog/images/varied/ai-search-visibility.webp",
+    mainImageAlt: "????? ???? ?????? ?????? AI ?????? ?????? ?? ?????? ?????, ????? ???????? ????? ????",
     serviceLinks: [
       "dental-lead-generation",
       "qualified-opportunity-methodology",
@@ -1110,8 +1110,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Dental implant second opinion marketing helps clinics reach patients who already know they may need treatment and are comparing trust, fit, timing, and value.",
     publishedAt: "2026-06-05T09:00:00.000Z",
-    seoImage: "/blog/images/generated/dental-implant-second-opinion-marketing.jpg",
-    mainImageAlt: "Dental Implant Second Opinion Marketing: How to Reach Patients Already Comparing Options blog image showing dental implant consultation planning and treatment-intent filtering",
+    seoImage: "/blog/images/varied/implant-second-opinion-review.webp",
+    mainImageAlt: "Dental implant second opinion marketing article image showing a patient comparing treatment plans with a dentist and 3D jaw scan",
     serviceLinks: [
       "dental-implant-marketing",
       "full-arch-implant-marketing",
@@ -1154,8 +1154,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "שיווק חוות דעת שנייה לשתלים עוזר למרפאות להגיע למטופלים שכבר מבינים שאולי יש צורך בטיפול, ומשווים אמון, התאמה, זמן וערך.",
     publishedAt: "2026-06-05T09:01:00.000Z",
-    seoImage: "/blog/images/generated/dental-implant-second-opinion-marketing-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור שיווק חוות דעת שנייה לשתלים: איך להגיע למטופלים שכבר משווים אפשרויות, המציגה ייעוץ להשתלות שיניים וסינון כוונת טיפול",
+    seoImage: "/blog/images/varied/implant-second-opinion-review.webp",
+    mainImageAlt: "????? ???? ?????? ???? ??? ????? ?????? ?? ?????? ??????? ????? ?????? ????? ???",
     serviceLinks: [
       "dental-implant-marketing",
       "full-arch-implant-marketing",
@@ -1198,8 +1198,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Teeth-in-a-Day marketing works when clinics explain speed, eligibility, expectations, and next steps without overpromising instant outcomes.",
     publishedAt: "2026-06-05T09:02:00.000Z",
-    seoImage: "/blog/images/generated/teeth-in-a-day-marketing.jpg",
-    mainImageAlt: "Teeth-in-a-Day Marketing: How to Attract Patients Looking for Faster Implant Solutions blog image showing full-arch dental implant consultation and serious patient demand",
+    seoImage: "/blog/images/varied/teeth-in-a-day-planning.webp",
+    mainImageAlt: "Teeth-in-a-Day marketing article image showing same-day implant planning with a surgical guide, model, and clinic calendar",
     serviceLinks: [
       "all-on-4-lead-generation",
       "full-arch-implant-marketing",
@@ -1242,8 +1242,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "שיווק שיניים ביום אחד עובד כאשר המרפאה מסבירה מהירות, התאמה, ציפיות והשלב הבא בלי להבטיח תוצאות מיידיות בצורה מוגזמת.",
     publishedAt: "2026-06-05T09:03:00.000Z",
-    seoImage: "/blog/images/generated/teeth-in-a-day-marketing-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור שיווק שיניים ביום אחד: איך למשוך מטופלים שמחפשים פתרון שתלים מהיר יותר, המציגה ייעוץ לשיקום פה מלא וביקוש ממטופלי שתלים רציניים",
+    seoImage: "/blog/images/varied/teeth-in-a-day-planning.webp",
+    mainImageAlt: "????? ???? ?????? ?????? ???? ??? ?? ????? ????? ????, ????? ??????? ???? ????? ??????",
     serviceLinks: [
       "all-on-4-lead-generation",
       "full-arch-implant-marketing",
@@ -1286,8 +1286,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Veneers cost marketing should answer patient price questions while filtering for cosmetic intent, treatment goals, and realistic expectations.",
     publishedAt: "2026-06-05T09:04:00.000Z",
-    seoImage: "/blog/images/generated/veneers-cost-marketing.jpg",
-    mainImageAlt: "Veneers Cost Marketing: How to Answer Price Questions Without Attracting Bad Leads blog image showing dental implant value planning, ROI, and patient acquisition metrics",
+    seoImage: "/blog/images/varied/marketing-roi-report.webp",
+    mainImageAlt: "Veneers cost marketing article image showing cosmetic treatment planning, pricing context, and clinic ROI review",
     serviceLinks: [
       "veneers-marketing",
       "cosmetic-dentistry-marketing",
@@ -1330,8 +1330,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "שיווק מחיר ציפויי שיניים צריך לענות על שאלות מחיר של מטופלים, ובמקביל לסנן לפי כוונה אסתטית, מטרות טיפול וציפיות ריאליות.",
     publishedAt: "2026-06-05T09:05:00.000Z",
-    seoImage: "/blog/images/generated/veneers-cost-marketing-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור שיווק מחיר ציפויי שיניים: איך לענות על שאלות מחיר בלי למשוך לידים לא מתאימים, המציגה תכנון ערך, ROI ומדדי רכישת מטופלים להשתלות שיניים",
+    seoImage: "/blog/images/varied/marketing-roi-report.webp",
+    mainImageAlt: "????? ???? ?????? ???? ??????? ?? ????? ????? ?????, ???? ????? ?????? ???? ?????",
     serviceLinks: [
       "veneers-marketing",
       "cosmetic-dentistry-marketing",
@@ -1374,8 +1374,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Dental patient reactivation helps clinics revisit old implant and cosmetic inquiries with better timing, filtering, and intent-based follow-up.",
     publishedAt: "2026-06-05T09:06:00.000Z",
-    seoImage: "/blog/images/generated/dental-patient-reactivation.jpg",
-    mainImageAlt: "Dental Patient Reactivation: How to Turn Old Implant and Cosmetic Inquiries Into New Opportunities blog image showing AI-assisted dental patient follow-up and lead filtering",
+    seoImage: "/blog/images/varied/ai-follow-up-workstation.webp",
+    mainImageAlt: "Dental patient reactivation article image showing a treatment coordinator workstation with follow-up cards and patient pipeline",
     serviceLinks: [
       "dental-lead-generation",
       "dental-lead-filtering",
@@ -1418,8 +1418,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "ריאקטיבציה למטופלי שיניים עוזרת למרפאות לחזור לפניות ישנות של שתלים ואסתטיקה עם תזמון טוב יותר, סינון ומעקב לפי כוונה.",
     publishedAt: "2026-06-05T09:07:00.000Z",
-    seoImage: "/blog/images/generated/dental-patient-reactivation-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור ריאקטיבציה למטופלי שיניים: איך להפוך פניות ישנות להזדמנויות חדשות, המציגה מעקב חכם אחרי פניות וסינון לידים למרפאות שיניים",
+    seoImage: "/blog/images/varied/ai-follow-up-workstation.webp",
+    mainImageAlt: "????? ???? ??????????? ?? ?????? ?????? ?? ???? ????? ?????, ???? ????? ????? ???????",
     serviceLinks: [
       "dental-lead-generation",
       "dental-lead-filtering",
@@ -1462,8 +1462,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Dental implant consultation marketing works when clinics explain the evaluation, filter patient fit, and help serious prospects understand the next step.",
     publishedAt: "2026-06-05T10:00:00.000Z",
-    seoImage: "/blog/images/generated/dental-implant-consultation-marketing.jpg",
-    mainImageAlt: "Dental Implant Consultation Marketing: How to Turn Treatment Interest Into Qualified Opportunities blog image showing dental implant consultation planning and treatment-intent filtering",
+    seoImage: "/blog/images/varied/implant-second-opinion-review.webp",
+    mainImageAlt: "Dental implant consultation marketing article image showing treatment-intent filtering during an implant plan review",
     serviceLinks: [
       "dental-implant-lead-generation",
       "dental-lead-filtering",
@@ -1506,8 +1506,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "שיווק ייעוץ לשתלים עובד כאשר המרפאה מסבירה את הבדיקה, מסננת התאמה ועוזרת למטופלים רציניים להבין את הצעד הבא.",
     publishedAt: "2026-06-05T10:01:00.000Z",
-    seoImage: "/blog/images/generated/dental-implant-consultation-marketing-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור שיווק ייעוץ לשתלים: איך להפוך עניין בטיפול להזדמנויות איכותיות, המציגה ייעוץ להשתלות שיניים וסינון כוונת טיפול",
+    seoImage: "/blog/images/varied/implant-second-opinion-review.webp",
+    mainImageAlt: "????? ???? ?????? ????? ?????? ?????? ????? ????? ????? ?????? ?????? ????? ?? ?????",
     serviceLinks: [
       "dental-implant-lead-generation",
       "dental-lead-filtering",
@@ -1550,8 +1550,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Dental implant before and after marketing helps patients trust the process when proof is specific, compliant, realistic, and connected to treatment fit.",
     publishedAt: "2026-06-05T10:02:00.000Z",
-    seoImage: "/blog/images/generated/dental-implant-before-after-marketing.jpg",
-    mainImageAlt: "Dental Implant Before and After Marketing: How to Use Proof Without Overpromising blog image showing dental before-and-after proof review without overpromising",
+    seoImage: "/blog/images/varied/before-after-proof-review.webp",
+    mainImageAlt: "Dental implant before and after marketing article image showing ethical proof review on a tablet with consent documents",
     serviceLinks: [
       "ugc-dental-ads",
       "dental-implant-marketing",
@@ -1594,8 +1594,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "שיווק לפני ואחרי לשתלים עוזר למטופלים לסמוך על התהליך כאשר ההוכחה ספציפית, ריאלית ומחוברת להתאמת הטיפול.",
     publishedAt: "2026-06-05T10:03:00.000Z",
-    seoImage: "/blog/images/generated/dental-implant-before-after-marketing-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור שיווק לפני ואחרי לשתלים: איך להשתמש בהוכחה בלי להבטיח יותר מדי, המציגה בחינת הוכחות לפני ואחרי בלי הבטחות יתר",
+    seoImage: "/blog/images/varied/before-after-proof-review.webp",
+    mainImageAlt: "????? ???? ?????? ???? ????? ?????? ?? ????? ????? ?????? ?????? ?????",
     serviceLinks: [
       "ugc-dental-ads",
       "dental-implant-marketing",
@@ -1638,8 +1638,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Dental implant warranty marketing can support trust when clinics explain long-term value, maintenance expectations, and realistic patient responsibilities.",
     publishedAt: "2026-06-05T10:04:00.000Z",
-    seoImage: "/blog/images/generated/dental-implant-warranty-marketing.jpg",
-    mainImageAlt: "Dental Implant Warranty Marketing: How to Build Confidence Around Long-Term Treatment Value blog image showing dental implant value planning, ROI, and patient acquisition metrics",
+    seoImage: "/blog/images/varied/implant-warranty-care-plan.webp",
+    mainImageAlt: "Dental implant warranty marketing article image showing a long-term implant care plan, maintenance checklist, and hygiene tools",
     serviceLinks: [
       "dental-implant-marketing",
       "roi-methodology",
@@ -1682,8 +1682,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "שיווק אחריות לשתלים יכול לחזק אמון כאשר המרפאה מסבירה ערך לטווח ארוך, ציפיות תחזוקה ואחריות ריאלית של המטופל.",
     publishedAt: "2026-06-05T10:05:00.000Z",
-    seoImage: "/blog/images/generated/dental-implant-warranty-marketing-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור שיווק אחריות לשתלים: איך לבנות ביטחון סביב ערך טיפולי לטווח ארוך, המציגה תכנון ערך, ROI ומדדי רכישת מטופלים להשתלות שיניים",
+    seoImage: "/blog/images/varied/implant-warranty-care-plan.webp",
+    mainImageAlt: "????? ???? ?????? ?????? ?????? ?? ?????? ?????? ????? ????, ????? ???? ???? ???????",
     serviceLinks: [
       "dental-implant-marketing",
       "roi-methodology",
@@ -1726,8 +1726,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "Smile design marketing helps cosmetic clinics attract patients who want a planned outcome, not just a single veneer, whitening, or cosmetic procedure.",
     publishedAt: "2026-06-05T10:06:00.000Z",
-    seoImage: "/blog/images/generated/smile-design-marketing.jpg",
-    mainImageAlt: "Smile Design Marketing: How Cosmetic Clinics Sell the Plan, Not Just the Procedure blog image showing cosmetic dentistry smile design planning and patient intent",
+    seoImage: "/blog/images/varied/cosmetic-smile-design.webp",
+    mainImageAlt: "Smile design marketing article image showing cosmetic treatment planning with shade tabs, tablet preview, and veneer samples",
     serviceLinks: [
       "cosmetic-dentistry-marketing",
       "veneers-marketing",
@@ -1770,8 +1770,8 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
     excerpt:
       "שיווק עיצוב חיוך עוזר למרפאות אסתטיקה למשוך מטופלים שרוצים תוצאה מתוכננת, לא רק ציפוי, הלבנה או טיפול בודד.",
     publishedAt: "2026-06-05T10:07:00.000Z",
-    seoImage: "/blog/images/generated/smile-design-marketing-he.jpg",
-    mainImageAlt: "תמונת בלוג עבור שיווק עיצוב חיוך: איך מרפאות אסתטיקה מוכרות תוכנית ולא רק טיפול, המציגה תכנון עיצוב חיוך ושיווק רפואת שיניים אסתטית",
+    seoImage: "/blog/images/varied/cosmetic-smile-design.webp",
+    mainImageAlt: "????? ???? ?????? ????? ???? ?? ????? ????? ?????, ??????? ???? ?????? ?????",
     serviceLinks: [
       "cosmetic-dentistry-marketing",
       "veneers-marketing",

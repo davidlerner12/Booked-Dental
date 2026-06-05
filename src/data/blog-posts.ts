@@ -26,8 +26,8 @@ export const blogPosts: BlogPost[] = [
       "Most implant marketing fails because practices ask low-intent patients to make a high-ticket decision too early. Here's the focused system that changes that.",
     publishDate: "2026-03-09",
     readTime: "7 min read",
-    image: "/blog/images/1.png",
-    imageAlt: "Implant marketing dashboard focused on filtered patient opportunities instead of clicks.",
+    image: "/blog/images/implant-marketing.png",
+    imageAlt: "Dental implant marketing article image showing treatment planning and filtered patient acquisition for implant clinics",
     caption: "Implant marketing dashboard focused on filtered patient opportunities instead of clicks.",
     sections: [
       {
@@ -119,8 +119,8 @@ export const blogPosts: BlogPost[] = [
       "UGC dental ads work because they feel like recommendations, not campaigns. These 9 formats lower resistance and get the right patients to raise their hand.",
     publishDate: "2026-03-09",
     readTime: "8 min read",
-    image: "/blog/images/3.png",
-    imageAlt: "UGC dental ads strategy board showing creative hooks and qualified lead filtering.",
+    image: "/blog/images/ugc-dental-ads.png",
+    imageAlt: "UGC dental ads article image showing creative hooks for implant and cosmetic patient lead filtering",
     caption: "UGC dental ads strategy board showing creative hooks and qualified lead filtering.",
     sections: [
       {
@@ -239,8 +239,8 @@ export const blogPosts: BlogPost[] = [
       "A practice spends $4,000 on ads, gets a pile of leads, and books almost no high-value cases. The problem usually isn't that ads don't work — it's that the campaign was built wrong.",
     publishDate: "2026-03-09",
     readTime: "7 min read",
-    image: "/blog/images/2.png",
-    imageAlt: "Dental ad performance dashboard comparing clicks with filtered patient opportunities.",
+    image: "/blog/images/website-conversion.png",
+    imageAlt: "Dental ads failure article image showing conversion leaks between clicks, form fills, and qualified patient opportunities",
     caption: "Dental ad performance dashboard comparing clicks with filtered patient opportunities.",
     sections: [
       {
@@ -339,8 +339,8 @@ export const blogPosts: BlogPost[] = [
       "A full qualified opportunity calendar can still underperform if the wrong patients are booking. Here are the lead sources that actually produce qualified implant and cosmetic cases.",
     publishDate: "2026-03-09",
     readTime: "8 min read",
-    image: "/blog/images/5.png",
-    imageAlt: "Dental marketing dashboard comparing lead sources by patient intent and ROI.",
+    image: "/blog/images/lead-sources.png",
+    imageAlt: "Dental lead sources article image comparing paid search, Meta ads, local SEO, and referral channels by patient intent",
     caption: "Dental marketing dashboard comparing lead sources by patient intent and ROI.",
     sections: [
       {
@@ -444,8 +444,8 @@ export const blogPosts: BlogPost[] = [
       "Which channel puts filtered opportunities on the schedule fast enough to justify the spend? The answer depends on what you're selling and how your team handles leads.",
     publishDate: "2026-03-09",
     readTime: "9 min read",
-    image: "/blog/images/7.png",
-    imageAlt: "Google Ads dashboard for dental implants focused on high-intent patient searches.",
+    image: "/blog/images/google-ads-dentists.png",
+    imageAlt: "Google Ads vs Facebook Ads for dentists article image showing high-intent search and paid social patient acquisition channels",
     caption: "Google Ads dashboard for dental implants focused on high-intent patient searches.",
     sections: [
       {
@@ -533,8 +533,8 @@ export const blogPosts: BlogPost[] = [
       "Cosmetic patients don't book because they stumbled across a generic dental ad. They book when the offer is clear, the before-and-after feels believable, and the path to filtered patient inquiry is easy.",
     publishDate: "2026-03-09",
     readTime: "8 min read",
-    image: "/blog/images/6.png",
-    imageAlt: "Cosmetic dentistry growth dashboard for veneers and smile makeover patient acquisition.",
+    image: "/blog/images/cosmetic-dentistry-growth.png",
+    imageAlt: "Cosmetic dentistry growth article image showing veneer and smile makeover patient acquisition strategy",
     caption: "Cosmetic dentistry growth dashboard for veneers and smile makeover patient acquisition.",
     sections: [
       {
@@ -620,8 +620,8 @@ export const blogPosts: BlogPost[] = [
       "Most agencies selling to dentists talk about visibility and branding. A real growth partner is responsible for pipeline — not just promotion.",
     publishDate: "2026-03-09",
     readTime: "9 min read",
-    image: "/blog/images/4.png",
-    imageAlt: "Dentist reviewing a 3D CT scan on a monitor for dental implant treatment planning in a modern dental office.",
+    image: "/blog/images/agency-selection.png",
+    imageAlt: "Dentist growth agency article image showing clinic owner reviewing patient acquisition strategy and performance data",
     caption: "Dentist reviewing a 3D CT scan on a monitor for dental implant treatment planning in a modern dental office.",
     sections: [
       {
@@ -713,8 +713,8 @@ export const blogPosts: BlogPost[] = [
       "Real dentist patient growth happens when the clinic builds a system that consistently turns interest into filtered patient inquiries and filtered patient inquiries into treatment starts.",
     publishDate: "2026-03-09",
     readTime: "8 min read",
-    image: "/blog/images/8.png",
-    imageAlt: "Patient leaving a dental clinic after a successful dental implant filtered patient inquiry, representing the start of the treatment journey.",
+    image: "/blog/images/dental-patient-acquisition.png",
+    imageAlt: "Dentist patient growth article image showing clinic growth through qualified implant and cosmetic patient opportunities",
     caption: "Patient leaving a dental clinic after a successful dental implant filtered patient inquiry, representing the start of the treatment journey.",
     sections: [
       {
@@ -807,8 +807,8 @@ export const blogPosts: BlogPost[] = [
       "Most dental office marketing creates activity, not growth. If your goal is more implant and cosmetic filtered opportunities, you need a system built around qualified patient acquisition.",
     publishDate: "2026-03-09",
     readTime: "9 min read",
-    image: "/blog/images/9.png",
-    imageAlt: "Dentist and dental assistant reviewing implant treatment planning on clinical software in a collaborative dental office setting.",
+    image: "/blog/images/meta-ads-dentists.png",
+    imageAlt: "Dental office marketing article image showing paid media and local patient acquisition planning for a dental clinic",
     caption: "Dentist and dental assistant reviewing implant treatment planning on clinical software in a collaborative dental office setting.",
     sections: [
       {
