@@ -24,6 +24,7 @@ import {
   getInternalBlogLinks,
 } from "@/lib/blog-seo-overrides";
 import { SERVICE_PAGES } from "@/lib/service-pages";
+import { getProofForBlogSlug } from "@/lib/proof";
 import { supplementalBlogPosts } from "@/data/supplemental-blog-posts";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
@@ -571,6 +572,7 @@ export default function BlogPost() {
     .map((serviceSlug) => SERVICE_PAGES[pageLang].find((service) => service.slug === serviceSlug))
     .filter(Boolean)
     .slice(0, 3);
+  const proofExample = getProofForBlogSlug(post.slug, lang);
   const authorCopy = isHebrew ? AUTHOR_COPY.he : AUTHOR_COPY.en;
   const articleStructuredData = {
     "@context": "https://schema.org",
@@ -873,6 +875,36 @@ export default function BlogPost() {
                       </Link>
                     ))}
                   </div>
+                </aside>
+              )}
+              {proofExample && (
+                <aside className="mb-10 rounded-xl border border-primary/20 bg-primary/5 p-5 sm:p-6">
+                  <p className="text-xs font-medium uppercase tracking-[0.14em] text-primary">
+                    {isHebrew ? "הוכחה קשורה" : "Related proof"}
+                  </p>
+                  <h2 className="mt-2 font-display text-xl font-semibold text-foreground">
+                    {isHebrew
+                      ? "ראו דוגמה אנונימית מאחורי האסטרטגיה הזו"
+                      : "See an anonymized example behind this strategy"}
+                  </h2>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {proofExample.result}
+                  </p>
+                  <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                    {proofExample.metrics.map((metric) => (
+                      <div key={metric.label} className="rounded-lg border border-border bg-background/70 p-4">
+                        <div className="text-xl font-bold text-primary">{metric.value}</div>
+                        <div className="mt-1 text-xs text-muted-foreground">{metric.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <Link
+                    to={`/${lang}/proof`}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                  >
+                    {isHebrew ? "פתחו את עמוד ההוכחות" : "Open the proof page"}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </aside>
               )}
               <PortableText value={post.body || []} components={portableTextComponents} />

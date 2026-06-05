@@ -1,8 +1,9 @@
 import { useEffect } from "react";
+import type { FormEvent } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { ArrowLeft, CheckCircle2, Clock, MapPin, SearchCheck, Shield, Users } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { trackBookingCTA } from "@/lib/analytics";
+import { trackMarketCheckFormSubmitted, trackMarketCheckStarted } from "@/lib/analytics";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
@@ -111,11 +112,18 @@ const BookingPage = () => {
   ];
 
   useEffect(() => {
-    trackBookingCTA();
-  }, []);
+    trackMarketCheckStarted(location.pathname);
+  }, [location.pathname]);
 
   const redirectOrigin = typeof window === "undefined" ? "https://www.booked.dental" : window.location.origin;
   const redirectUrl = `${redirectOrigin}/${lang}/thank-you`;
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const formData = new FormData(event.currentTarget);
+    trackMarketCheckFormSubmitted(
+      String(formData.get("city") || ""),
+      String(formData.get("email") || ""),
+    );
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -183,7 +191,7 @@ const BookingPage = () => {
           </aside>
 
           <div className="rounded-2xl border border-border bg-card/60 p-8 shadow-gold relative z-10 backdrop-blur-sm">
-            <form action="https://formsubmit.co/David@Booked.Dental" method="POST" className="space-y-6">
+            <form action="https://formsubmit.co/David@Booked.Dental" method="POST" className="space-y-6" onSubmit={handleSubmit}>
               <input type="hidden" name="_next" value={redirectUrl} />
               <input type="hidden" name="_subject" value="New Market Check Submission!" />
               <input type="hidden" name="_captcha" value="false" />

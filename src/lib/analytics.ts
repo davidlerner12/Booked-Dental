@@ -28,9 +28,29 @@ export const trackBookingCTA = () => {
   trackMetaEvent("Lead");
 };
 
+export const trackMarketCheckStarted = (path?: string) => {
+  window.gtag?.("event", "market_check_started", {
+    event_category: "Form",
+    event_label: path || "Market availability",
+  });
+};
+
+export const trackMarketCheckFormSubmitted = (cityState: string, email: string) => {
+  window.gtag?.("event", "market_check_form_submitted", {
+    event_category: "Form",
+    event_label: cityState || "Market availability",
+    email,
+  });
+  trackMetaEvent("Lead", { city_state: cityState, email });
+};
+
+export const trackQualifiedLeadThankYou = () => {
+  trackEvent("Conversion", "qualified_lead_thank_you", "Market availability");
+};
+
 export const trackBookingConfirmed = () => {
   trackLeadFormConversion();
-  trackEvent("Conversion", "booking_confirmed", "Market availability");
+  trackQualifiedLeadThankYou();
   trackMetaEvent("Schedule");
 };
 

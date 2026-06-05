@@ -2015,6 +2015,300 @@ export const supplementalBlogPosts: SupplementalBlogPost[] = [
       ],
     ]),
   },
+  {
+    _id: "supplemental-dental-implant-marketing-agency",
+    slug: "dental-implant-marketing-agency",
+    title: "Dental Implant Marketing Agency: What Clinics Should Look For",
+    excerpt:
+      "A dental implant marketing agency should prove lead quality, treatment intent, follow-up fit, and ROI instead of only reporting clicks, impressions, and form fills.",
+    publishedAt: "2026-06-05T19:00:00.000Z",
+    seoImage: "/blog/images/varied/full-arch-consultation.webp",
+    mainImageAlt: "Dental implant marketing agency article image showing full-arch treatment planning, lead filtering, and campaign review materials",
+    serviceLinks: [
+      "dental-implant-marketing",
+      "booked-dental-vs-dental-marketing-agency",
+      "dental-implant-lead-generation",
+    ],
+    body: body([
+      [
+        "Choosing a dental implant marketing agency is not really about who can launch ads. Most agencies can do that. The better question is whether the agency can help the clinic attract serious implant candidates, filter low-fit inquiries, and show which campaigns produce real patient opportunities.",
+      ],
+      ["What a strong implant agency should understand", "h2"],
+      [
+        "Implant patients are making a high-trust, high-value decision. A good agency should understand full-arch treatment, All-on-4, financing concerns, fear, second opinions, denture frustration, and the difference between curiosity and readiness.",
+      ],
+      [
+        "That understanding should show up in the ads, landing pages, forms, and reporting. If every campaign is judged by cost per lead alone, the clinic may accidentally buy the cheapest form fillers instead of the strongest future patients.",
+      ],
+      ["Questions to ask before hiring", "h2"],
+      [
+        "Ask how the agency defines a qualified implant opportunity. Ask whether they separate full-arch, single implant, denture, emergency, and price-shopper inquiries. Ask how rejected leads are fed back into the campaign so the system learns who is worth pursuing.",
+      ],
+      [
+        "Also ask what the clinic team must do. Implant marketing depends on fast follow-up, good qualification, treatment coordinator discipline, and clear notes about which leads were serious. The agency cannot fix a broken front desk with prettier ads.",
+      ],
+      ["Agency red flags", "h2"],
+      [
+        "Be careful with agencies that promise guaranteed patients, hide search terms, report only impressions, or push generic dental funnels for full-arch treatment. Implant acquisition needs a tighter system than broad dental traffic.",
+      ],
+      [
+        "The best partner should be comfortable discussing both marketing and clinic operations: show rate, financing conversations, case presentation, and ROI from accepted treatment.",
+      ],
+      ["Dental implant marketing agency FAQ", "h2"],
+      [
+        "How much should an implant agency focus on SEO? SEO matters for trust and research, but paid media often creates faster demand. The strongest system uses both and measures qualified opportunities.",
+      ],
+      [
+        "Should the agency specialize in implants? For serious full-arch growth, specialization helps because the funnel, messaging, and qualification logic are different from general dentistry.",
+      ],
+      [
+        "What metric matters most? Qualified patient opportunities and ROI matter more than raw lead count.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-all-on-4-marketing-agency",
+    slug: "all-on-4-marketing-agency",
+    title: "All-on-4 Marketing Agency: How to Evaluate a Growth Partner",
+    excerpt:
+      "All-on-4 marketing needs specific creative, financing context, lead filtering, and follow-up feedback so clinics do not scale noisy full-arch inquiries.",
+    publishedAt: "2026-06-05T19:05:00.000Z",
+    seoImage: "/blog/images/varied/all-on-4-vs-dentures-consult.webp",
+    mainImageAlt: "All-on-4 marketing agency article image showing fixed implant bridge planning and campaign qualification notes",
+    serviceLinks: [
+      "all-on-4-dental-implant-marketing",
+      "all-on-4-lead-generation",
+      "full-arch-implant-marketing",
+    ],
+    body: body([
+      [
+        "An All-on-4 marketing agency should do more than generate full-arch leads. The real job is to help the clinic find people who are actively considering fixed teeth, understand the investment, and are likely to respond to follow-up.",
+      ],
+      ["All-on-4 demand is different", "h2"],
+      [
+        "Many All-on-4 prospects are dealing with failing teeth, dentures, embarrassment, or fear of long dental work. That means the message has to be specific. Generic smile ads usually do not explain enough trust, timeline, financing, or candidacy.",
+      ],
+      [
+        "The agency should be able to build separate angles for denture wearers, second opinions, full-mouth implant cost, teeth-in-a-day searches, and patients who need a clear next step before they act.",
+      ],
+      ["What the agency should track", "h2"],
+      [
+        "Track source, treatment interest, reachability, timeline, financing comfort, appointment status, show rate, and accepted treatment value. Those signals tell the clinic whether the campaign is creating business value or only activity.",
+      ],
+      [
+        "The best agencies use rejected leads as learning data. If a certain audience sends unqualified inquiries, the system should know. If a creative angle produces serious full-arch candidates, that signal should guide budget.",
+      ],
+      ["What clinics should provide", "h2"],
+      [
+        "The clinic should provide fast follow-up, clear qualification notes, treatment coordinator feedback, and realistic capacity. Without that loop, even strong campaigns can drift toward low-quality conversions.",
+      ],
+      ["All-on-4 agency FAQ", "h2"],
+      [
+        "Should All-on-4 ads mention pricing? They can mention financing or investment context, but the funnel should avoid training the market to shop only on price.",
+      ],
+      [
+        "Is Google or Meta better? Google captures active searches while Meta creates demand. Many clinics need both with strong filtering.",
+      ],
+      [
+        "What is the biggest red flag? Reporting leads without showing whether those leads became qualified full-arch opportunities.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-dental-implant-google-ads-cost",
+    slug: "dental-implant-google-ads-cost",
+    title: "Dental Implant Google Ads Cost: What Clinics Should Actually Measure",
+    excerpt:
+      "Dental implant Google Ads cost should be judged by qualified opportunity cost and ROI, not by cheaper clicks or cheaper unfiltered forms.",
+    publishedAt: "2026-06-05T19:10:00.000Z",
+    seoImage: "/blog/images/varied/marketing-roi-report.webp",
+    mainImageAlt: "Dental implant Google Ads cost article image showing ROI report, keyword notes, and filtered opportunity tracking",
+    serviceLinks: [
+      "google-ads-for-dental-implants",
+      "roi-methodology",
+      "dental-implant-lead-generation",
+    ],
+    body: body([
+      [
+        "Dental implant Google Ads cost varies widely by market, competition, keywords, landing page quality, and how aggressively the clinic filters leads. The mistake is trying to judge the channel by cost per click alone.",
+      ],
+      ["Why implant clicks can be expensive", "h2"],
+      [
+        "Implant keywords are valuable because one accepted case can be worth thousands of dollars. Competitors know this, so searches like dental implants near me, full mouth dental implants, All-on-4 cost, and implant dentist can become expensive quickly.",
+      ],
+      [
+        "Expensive does not automatically mean bad. A high-cost click can be profitable if it becomes a qualified opportunity. A cheap click can be wasteful if it creates noise for the team.",
+      ],
+      ["Measure cost per qualified opportunity", "h2"],
+      [
+        "The cleaner metric is cost per qualified opportunity. That means the prospect was reachable, local, interested in a relevant treatment, and worth real follow-up. From there, measure booked appointment rate, show rate, treatment acceptance, and ROI.",
+      ],
+      [
+        "This is where lead filtering changes the economics. If Google only sees form submissions, it learns to get forms. If the clinic feeds back which forms became serious opportunities, the campaign can learn toward better patient intent.",
+      ],
+      ["Budget tradeoffs", "h2"],
+      [
+        "A clinic with a small budget should not target every implant term at once. Start with the highest-intent services, protect the search terms, use strong negative keywords, and send traffic to treatment-specific landing pages.",
+      ],
+      ["Dental implant Google Ads cost FAQ", "h2"],
+      [
+        "What is a good cost per lead? It depends on quality. A higher-cost qualified implant opportunity can be better than many cheap low-fit leads.",
+      ],
+      [
+        "Should clinics bid on cost keywords? Often yes, but the page must explain value, financing, candidacy, and next steps.",
+      ],
+      [
+        "What improves Google Ads cost over time? Better landing pages, better lead filtering, cleaner conversion data, and follow-up feedback.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-veneers-lead-generation",
+    slug: "veneers-lead-generation",
+    title: "Veneers Lead Generation: How to Attract Premium Smile Cases",
+    excerpt:
+      "Veneers lead generation works when cosmetic clinics sell smile design, filter readiness, and avoid filling the schedule with low-budget cosmetic shoppers.",
+    publishedAt: "2026-06-05T19:15:00.000Z",
+    seoImage: "/blog/images/varied/cosmetic-smile-design.webp",
+    mainImageAlt: "Veneers lead generation article image showing smile design planning, veneer shade tabs, and cosmetic case review",
+    serviceLinks: [
+      "veneers-marketing",
+      "cosmetic-dentistry-marketing",
+      "qualified-opportunity-methodology",
+    ],
+    body: body([
+      [
+        "Veneers lead generation is not about collecting anyone who likes a nice smile photo. The better goal is to attract people who want a premium cosmetic outcome and are ready to consider a full smile evaluation.",
+      ],
+      ["Why veneer leads need filtering", "h2"],
+      [
+        "Veneers are a significant investment in the US, especially when the patient is considering multiple teeth, smile design, whitening, gum contouring, or replacement of older cosmetic work. A form submission does not prove the person understands that investment.",
+      ],
+      [
+        "Filtering should identify goals, timeline, location, whether the patient has had cosmetic work before, and whether they are open to a comprehensive plan instead of a single quick fix.",
+      ],
+      ["The offer should sell the plan", "h2"],
+      [
+        "Many cosmetic campaigns fail because they sell the procedure too early. Strong veneer funnels sell the planning process: smile goals, shade, shape, facial balance, natural-looking results, and what the evaluation includes.",
+      ],
+      [
+        "This attracts better-fit prospects because the patient starts thinking like someone buying an outcome, not a discounted product.",
+      ],
+      ["Creative that supports premium intent", "h2"],
+      [
+        "Use real-looking education, patient story angles, doctor explanation videos, smile design visuals, and before-after context where compliant. Avoid over-polished content that feels unbelievable or cheap price hooks that attract the wrong segment.",
+      ],
+      ["Veneers lead generation FAQ", "h2"],
+      [
+        "Are veneer leads usually high intent? Some are, but many are casual unless the funnel filters goals, timeline, and investment readiness.",
+      ],
+      [
+        "Should veneer ads include prices? Use investment context carefully. For US clinics, the campaign should usually frame premium planning and financing rather than a low price.",
+      ],
+      [
+        "What should the clinic measure? Qualified cosmetic opportunities, booked evaluations, case size, acceptance rate, and ROI.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-cosmetic-dentist-facebook-ads",
+    slug: "cosmetic-dentist-facebook-ads",
+    title: "Cosmetic Dentist Facebook Ads: How to Create Demand Without Bad Leads",
+    excerpt:
+      "Cosmetic dentist Facebook ads work best when creative creates desire, forms filter intent, and the clinic measures qualified smile makeover opportunities.",
+    publishedAt: "2026-06-05T19:20:00.000Z",
+    seoImage: "/blog/images/varied/veneers-vs-invisalign-consult.webp",
+    mainImageAlt: "Cosmetic dentist Facebook ads article image showing veneer planning, aligner comparison, and social ad creative notes",
+    serviceLinks: [
+      "facebook-ads-for-dentists",
+      "cosmetic-dentistry-marketing",
+      "veneers-marketing",
+    ],
+    body: body([
+      [
+        "Cosmetic dentist Facebook ads are powerful because they can create demand before a patient searches Google. The risk is that visual ads can also attract people who like the idea of a new smile but are not ready for a premium treatment plan.",
+      ],
+      ["Facebook creates interest before search", "h2"],
+      [
+        "A person may not search for veneers until a strong ad makes the outcome feel possible. That is why cosmetic creative matters so much. The ad needs to connect with embarrassment, confidence, photos, weddings, career moments, or long-standing smile concerns.",
+      ],
+      [
+        "But interest is not enough. The form and follow-up process must identify whether the person is local, reachable, interested in the right treatment, and realistic about the investment.",
+      ],
+      ["Use creative angles with intent built in", "h2"],
+      [
+        "Good angles include smile design education, veneer candidacy, fixing old dental work, natural-looking results, financing context, and patient story formats. Weak angles rely only on perfect stock smiles or vague confidence copy.",
+      ],
+      [
+        "The goal is to attract people who relate to the problem and want a serious evaluation, not people who tap because the image is attractive.",
+      ],
+      ["How to avoid bad cosmetic leads", "h2"],
+      [
+        "Use qualifying questions, clear expectation setting, and source tracking. Then give Meta better feedback by separating serious cosmetic opportunities from casual inquiries. That loop is what teaches the AI to find better future prospects.",
+      ],
+      ["Cosmetic dentist Facebook ads FAQ", "h2"],
+      [
+        "Do Facebook ads work for veneers? Yes, especially when creative is specific and lead filtering measures intent.",
+      ],
+      [
+        "Are Facebook leads lower quality than Google leads? They can be colder, but strong creative and filtering can turn demand generation into profitable opportunities.",
+      ],
+      [
+        "What should ads avoid? Cheap-price hooks, unrealistic before-after claims, and generic smile images with no qualification logic.",
+      ],
+    ]),
+  },
+  {
+    _id: "supplemental-dental-lead-qualification-system",
+    slug: "dental-lead-qualification-system",
+    title: "Dental Lead Qualification System: How to Teach AI to Find Patients",
+    excerpt:
+      "A dental lead qualification system turns raw forms into useful feedback so campaigns optimize toward real patients instead of easy clicks.",
+    publishedAt: "2026-06-05T19:25:00.000Z",
+    seoImage: "/blog/images/varied/ai-follow-up-workstation.webp",
+    mainImageAlt: "Dental lead qualification system article image showing AI-assisted intake, patient pipeline cards, and clinic CRM tracking",
+    serviceLinks: [
+      "dental-lead-filtering",
+      "qualified-opportunity-methodology",
+      "dental-lead-quality-checklist",
+    ],
+    body: body([
+      [
+        "A dental lead qualification system is the difference between buying forms and building a learning loop. Without qualification, campaigns optimize for people who submit. With qualification, campaigns can learn which prospects actually look like future patients.",
+      ],
+      ["What qualification should capture", "h2"],
+      [
+        "For implant and cosmetic clinics, qualification should capture treatment interest, location, urgency, reachability, timeline, financial readiness, prior treatment context, and whether the person is a fit for the clinic's offer.",
+      ],
+      [
+        "The system should be simple enough that patients complete it and structured enough that the clinic can act on it. Too many questions create friction. Too few questions create noise.",
+      ],
+      ["How the AI learning loop works", "h2"],
+      [
+        "When a lead is approved, rejected, booked, shown, or closed, that status becomes valuable data. The campaign can compare which keywords, audiences, creative angles, and landing pages produce better outcomes.",
+      ],
+      [
+        "This is how lead filtering teaches AI to find customers instead of clicks. The signal changes from form completion to patient quality.",
+      ],
+      ["What clinics should review weekly", "h2"],
+      [
+        "Review qualified opportunity rate, rejected lead reasons, speed to lead, appointment booked rate, show rate, treatment acceptance, and ROI. Then adjust creative, targeting, landing page copy, and follow-up scripts based on the actual bottleneck.",
+      ],
+      [
+        "A clinic that does this consistently can make smarter budget decisions than a clinic that only asks whether leads are going up or down.",
+      ],
+      ["Dental lead qualification FAQ", "h2"],
+      [
+        "Is qualification the same as a long form? No. Qualification is about asking the few questions that predict fit and follow-up priority.",
+      ],
+      [
+        "Should rejected leads be tracked? Yes. Rejections are useful because they show the campaign what not to chase.",
+      ],
+      [
+        "Does this help SEO? Indirectly, yes. Qualification data shows which topics and pages attract better prospects, so content can be improved around real clinic outcomes.",
+      ],
+    ]),
+  },
 ];
 
 export const supplementalBlogSlugs = supplementalBlogPosts.map((post) => post.slug);

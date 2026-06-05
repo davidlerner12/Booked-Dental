@@ -13,6 +13,7 @@ const Services = lazy(() => import("@/components/sections/Services"));
 const BookedDentalDifference = lazy(() => import("@/components/sections/BookedDentalDifference"));
 const AdvancedCallTracking = lazy(() => import("@/components/sections/AdvancedCallTracking"));
 const ROICalculator = lazy(() => import("@/components/sections/ROICalculator"));
+const ProofSnapshot = lazy(() => import("@/components/sections/ProofSnapshot"));
 const HowItWorks = lazy(() => import("@/components/sections/HowItWorks"));
 const WhoItsFor = lazy(() => import("@/components/sections/WhoItsFor"));
 const WhoItsNotFor = lazy(() => import("@/components/sections/WhoItsNotFor"));
@@ -108,6 +109,7 @@ const Index = () => {
       <Suspense fallback={<div className="min-h-screen" />}>
         <Problem />
         <ROICalculator />
+        <ProofSnapshot />
         <FounderTrustBlock />
         <HowItWorks />
         <BookedDentalDifference />

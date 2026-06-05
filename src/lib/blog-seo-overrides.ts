@@ -449,7 +449,17 @@ export function getInternalBlogLinks(slug: string) {
     "dental-implant-ppc": [
       "google-ads-for-dental-implants",
       "dental-implant-landing-page",
-      "dental-implant-cost-keywords",
+      "dental-implant-google-ads-cost",
+    ],
+    "dental-implant-marketing-agency": [
+      "dental-implant-ppc",
+      "dental-implant-landing-page",
+      "booked-dental-vs-dental-marketing-agency",
+    ],
+    "dental-implant-google-ads-cost": [
+      "dental-implant-ppc",
+      "google-ads-for-dental-implants",
+      "dental-marketing-roi",
     ],
     "dental-implant-seo": [
       "how-to-get-more-dental-implant-patients",
@@ -484,7 +494,12 @@ export function getInternalBlogLinks(slug: string) {
     "all-on-4-advertising": [
       "all-on-4-marketing",
       "full-mouth-dental-implant-leads",
-      "teeth-in-a-day-marketing",
+      "all-on-4-marketing-agency",
+    ],
+    "all-on-4-marketing-agency": [
+      "all-on-4-advertising",
+      "all-on-4-marketing",
+      "full-mouth-dental-implant-leads",
     ],
     "full-mouth-dental-implant-leads": [
       "all-on-4-marketing",
@@ -554,7 +569,17 @@ export function getInternalBlogLinks(slug: string) {
     "veneers-advertising": [
       "porcelain-veneers-marketing",
       "smile-design-marketing",
+      "veneers-lead-generation",
+    ],
+    "veneers-lead-generation": [
+      "veneers-advertising",
+      "porcelain-veneers-marketing",
       "veneers-cost-marketing",
+    ],
+    "cosmetic-dentist-facebook-ads": [
+      "meta-ads-for-cosmetic-dentists",
+      "ugc-dental-ads-examples",
+      "veneers-advertising",
     ],
     "cosmetic-dentist-near-me-seo": [
       "porcelain-veneers-marketing",
@@ -629,6 +654,11 @@ export function getInternalBlogLinks(slug: string) {
     "dental-treatment-coordinator-follow-up": [
       "dental-lead-filtering-for-dentists",
       "dentist-patient-growth",
+      "dental-lead-qualification-system",
+    ],
+    "dental-lead-qualification-system": [
+      "dental-treatment-coordinator-follow-up",
+      "dental-lead-filtering-for-dentists",
       "dental-marketing-roi",
     ],
     "best-dental-lead-sources": [

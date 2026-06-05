@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { getServicePage } from "@/lib/service-pages";
 import { buildLocalizedUrl } from "@/lib/seo";
+import { getProofForService } from "@/lib/proof";
 
 const GUIDE_TITLES = {
   en: {
@@ -82,6 +83,7 @@ export default function ServicePage() {
 
   const path = `/services/${page.slug}`;
   const pageFaqs = page.faqs || getPageFaqs(page.title, isHebrew);
+  const proofExample = getProofForService(page.slug, lang);
   const structuredData = [
     {
       "@context": "https://schema.org",
@@ -181,6 +183,41 @@ export default function ServicePage() {
             </div>
           </div>
         </section>
+
+        {proofExample && (
+          <section className="border-b border-border bg-card/30 py-12">
+            <div className="container">
+              <div className="mx-auto grid max-w-6xl gap-8 rounded-xl border border-primary/20 bg-background p-6 md:grid-cols-[1fr_0.8fr] md:p-8">
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-[0.14em] text-primary">
+                    {isHebrew ? "דוגמת הוכחה אנונימית" : "Anonymized proof example"}
+                  </p>
+                  <h2 className="mt-3 font-display text-2xl font-semibold md:text-3xl">
+                    {proofExample.title}
+                  </h2>
+                  <p className="mt-3 leading-relaxed text-muted-foreground">
+                    {proofExample.result}
+                  </p>
+                  <Link
+                    to={`/${lang}/proof`}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                  >
+                    {isHebrew ? "ראו את עמוד ההוכחות" : "View the proof page"}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-3 md:grid-cols-1">
+                  {proofExample.metrics.map((metric) => (
+                    <div key={metric.label} className="rounded-lg border border-border bg-card p-4">
+                      <div className="text-2xl font-bold text-primary">{metric.value}</div>
+                      <div className="mt-1 text-xs text-muted-foreground">{metric.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="py-14 md:py-20">
           <div className="container">

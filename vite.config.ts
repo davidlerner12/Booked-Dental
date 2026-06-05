@@ -58,7 +58,7 @@ async function getSanityBlogPosts() {
 }
 
 const SUPPORTED_LANGS = ["en", "he"];
-const LOCALIZED_STATIC_PATHS = ["", "/book", "/blog", "/about", "/privacy"];
+const LOCALIZED_STATIC_PATHS = ["", "/book", "/blog", "/about", "/proof", "/privacy"];
 const SSG_ONLY_STATIC_PATHS = ["/thank-you"];
 const SERVICE_STATIC_PATHS = [
   "/services/dental-implant-marketing",
