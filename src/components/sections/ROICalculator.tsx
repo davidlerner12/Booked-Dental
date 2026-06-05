@@ -9,12 +9,10 @@ const ROICalculator = () => {
   const { lang } = useParams();
   const isHe = i18n.language === "he";
 
-  const defaultImplant = 40000;
-  const defaultVeneer = 6000;
-  const currencySymbol = "\u20aa";
-
-  const [implantValue] = useState(defaultImplant);
-  const [veneerValue] = useState(defaultVeneer);
+  const implantValue = isHe ? 40000 : 30000;
+  const veneerValue = isHe ? 6000 : 12000;
+  const currencySymbol = isHe ? "\u20aa" : "$";
+  const currencyCode = isHe ? "ILS" : "USD";
   const [implantCases, setImplantCases] = useState(2);
   const [veneerCases, setVeneerCases] = useState(1);
 
@@ -23,7 +21,11 @@ const ROICalculator = () => {
   const totalRevenue = implantRevenue + veneerRevenue;
 
   const formatCurrency = (val: number) => {
-    return `${currencySymbol}${val.toLocaleString(isHe ? "he-IL" : "en-US")}`;
+    return new Intl.NumberFormat(isHe ? "he-IL" : "en-US", {
+      style: "currency",
+      currency: currencyCode,
+      maximumFractionDigits: 0,
+    }).format(val);
   };
 
   return (
