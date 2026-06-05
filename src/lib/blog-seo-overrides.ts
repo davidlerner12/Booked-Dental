@@ -496,6 +496,26 @@ export function getInternalBlogLinks(slug: string) {
       "google-business-profile-for-dentists",
       "dental-reviews-seo",
     ],
+    "dental-implant-second-opinion-marketing": [
+      "dental-implant-cost-keywords",
+      "dental-implant-financing-marketing",
+      "full-mouth-dental-implant-leads",
+    ],
+    "teeth-in-a-day-marketing": [
+      "all-on-4-vs-dentures-marketing",
+      "full-mouth-dental-implant-leads",
+      "all-on-4-marketing",
+    ],
+    "veneers-cost-marketing": [
+      "porcelain-veneers-marketing",
+      "cosmetic-dentist-near-me-seo",
+      "smile-makeover-marketing",
+    ],
+    "dental-patient-reactivation": [
+      "best-dental-lead-sources",
+      "dental-marketing-roi",
+      "dental-reviews-seo",
+    ],
     "veneers-vs-invisalign-marketing": [
       "cosmetic-dentists-high-intent-patients",
       "meta-ads-for-cosmetic-dentists",
