@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { Head } from "vite-react-ssg";
 import { ArrowLeft, ArrowRight, CheckCircle2, ClipboardCheck, ShieldCheck, TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { trackBookingConfirmed } from "@/lib/analytics";
@@ -92,15 +91,6 @@ const ThankYouPage = () => {
         description={isHebrew ? "תודה שפניתם אל Booked.Dental." : "Thank you for contacting Booked.Dental."}
         noindex
       />
-      <Head>
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = window.gtag || function(){dataLayer.push(arguments);}
-            gtag('event', 'conversion', {'send_to': 'AW-18212559239/ksECCPr16LgcEIeztuxD'});
-          `}
-        </script>
-      </Head>
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_at_top,hsl(42_100%_55%/0.06),transparent_55%)]" />
       <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="container flex h-16 items-center justify-between">

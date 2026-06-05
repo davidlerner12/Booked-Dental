@@ -14,10 +14,28 @@ export const trackPageView = (page: string) =>
 export const trackEvent = (category: string, action: string, label?: string) =>
   window.gtag?.("event", action, { event_category: category, event_label: label });
 
-export const trackLeadFormConversion = () => {
-  if (window.sessionStorage?.getItem(LEAD_FORM_CONVERSION_KEY)) return;
+export const trackLeadFormConversion = (callback?: () => void) => {
+  if (window.sessionStorage?.getItem(LEAD_FORM_CONVERSION_KEY)) {
+    callback?.();
+    return;
+  }
   window.sessionStorage?.setItem(LEAD_FORM_CONVERSION_KEY, "true");
-  window.gtag?.("event", "conversion", { send_to: LEAD_FORM_CONVERSION_TAG });
+  let callbackCalled = false;
+  const finish = () => {
+    if (callbackCalled) return;
+    callbackCalled = true;
+    callback?.();
+  };
+
+  window.gtag?.("event", "conversion", {
+    send_to: LEAD_FORM_CONVERSION_TAG,
+    event_category: "Form",
+    event_label: "Submit lead form",
+    event_callback: finish,
+    event_timeout: 800,
+  });
+
+  window.setTimeout(finish, 900);
 };
 
 export const trackMetaEvent = (event: string, params?: Record<string, unknown>) =>
@@ -48,6 +66,12 @@ export const trackMarketCheckFormSubmitted = (
     quality_score: qualityScore,
     treatment_focus: treatmentFocus,
   });
+  window.gtag?.("event", "generate_lead", {
+    event_category: "Form",
+    event_label: cityState || "Market availability",
+    value: qualityScore ? Number(qualityScore) || undefined : undefined,
+    treatment_focus: treatmentFocus,
+  });
   trackMetaEvent("Lead", { city_state: cityState, email, quality_score: qualityScore, treatment_focus: treatmentFocus });
 };
 
@@ -56,6 +80,7 @@ export const trackQualifiedLeadThankYou = () => {
 };
 
 export const trackBookingConfirmed = () => {
+  trackLeadFormConversion();
   trackQualifiedLeadThankYou();
   trackMetaEvent("Schedule");
 };

@@ -3,7 +3,7 @@ import type { FormEvent } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { ArrowLeft, CheckCircle2, Clock, MapPin, SearchCheck, Shield, Users } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { trackMarketCheckFormSubmitted, trackMarketCheckStarted } from "@/lib/analytics";
+import { trackLeadFormConversion, trackMarketCheckFormSubmitted, trackMarketCheckStarted } from "@/lib/analytics";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
@@ -261,6 +261,8 @@ const BookingPage = () => {
   const redirectOrigin = typeof window === "undefined" ? "https://www.booked.dental" : window.location.origin;
   const redirectUrl = `${redirectOrigin}/${pageLang}/thank-you?focus=${encodeURIComponent(treatmentFocus || "unknown")}&fit=${encodeURIComponent(fitScore)}`;
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
     const formData = new FormData(event.currentTarget);
     trackMarketCheckFormSubmitted(
       String(formData.get("city") || ""),
@@ -268,6 +270,9 @@ const BookingPage = () => {
       fitScore,
       treatmentFocus,
     );
+    trackLeadFormConversion(() => {
+      form.submit();
+    });
   };
 
   return (
