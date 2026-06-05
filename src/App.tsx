@@ -20,6 +20,7 @@ import {
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ThankYouPage from "./pages/ThankYouPage";
+import LeadTrackerPage from "./pages/LeadTrackerPage";
 import ChatWidget from "./components/ChatWidget";
 import StickyMarketCTA from "./components/StickyMarketCTA";
 import ServicePage from "./pages/ServicePage";
@@ -102,6 +103,7 @@ const langChildren: RouteRecord[] = [
   { path: "proof", element: <ProofPage /> },
   { path: "privacy", element: <PrivacyPolicy /> },
   { path: "thank-you", element: <ThankYouPage /> },
+  { path: "lead-tracker", element: <LeadTrackerPage /> },
   { path: "*", element: <NotFound /> },
 ];
 
