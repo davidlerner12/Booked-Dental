@@ -9,7 +9,7 @@
     "title_line1": "Dental Marketing That Finds ",
     "title_highlight": "Real Implant and Veneer Patients",
     "subtitle": "Booked.Dental helps implant and cosmetic dentistry clinics turn Meta and Google ad traffic into filtered patient opportunities. Every form answer teaches the AI which people are ready for treatment, so campaigns optimize toward customers instead of clicks.",
-    "cta": "Check Your Market",
+    "cta": "Check Clinic Fit",
     "trusted": "Built for implant and cosmetic clinics that want serious patients, not vanity metrics.",
     "trial_line": "14-day trial · No long-term contract · See lead quality before committing."
   },
@@ -92,7 +92,7 @@
     "point1_desc": "When your market is secured, no competing practice in your area gets access to the same campaign system.",
     "point2_title": "Market availability is confirmed first.",
     "point2_desc": "If your area is open, you can secure it before another clinic nearby does.",
-    "cta": "Check Your Market"
+    "cta": "Check Clinic Fit"
   },
   "testimonials": {
     "badge": "From the practice",
@@ -125,7 +125,7 @@
     "investment_suffix": "",
     "insight_bold": "The point is not cheaper leads. It is better training data.",
     "insight_rest": " When lead filtering shows the AI which prospects become real customers, spend can move toward people with higher treatment intent.",
-    "cta": "Check Your Market",
+    "cta": "Check Clinic Fit",
     "impact_note": "Modeled with US treatment values, from filtered patient opportunities, not raw clicks."
   },
   "who_its_for": {
@@ -192,7 +192,7 @@
     "title_prefix": "Ready to Find More ",
     "title_highlight": "Implant and Veneer Patients?",
     "subtitle": "If your clinic has capacity for more high-value treatment plans, check whether your market is still available. Booked.Dental is built for dental implant marketing, cosmetic dentistry marketing, and qualified dental lead generation in one local market at a time.",
-    "button": "Check Your Market",
+    "button": "Check Clinic Fit",
     "footer": "No long-term contract. No pressure. Just a clear look at whether the system fits your clinic."
   },
   "faq": {
@@ -238,7 +238,7 @@
     "privacy": "Privacy Policy"
   },
   "floating_cta": {
-    "title": "Check Your Market",
+    "title": "Check Clinic Fit",
     "subtitle": "One clinic per city.",
     "button": "Check Now"
   },
@@ -272,14 +272,14 @@
     "form_phone_placeholder": "050-123-4567",
     "form_city_label": "City / Market",
     "form_city_placeholder": "Tel Aviv",
-    "form_submit": "Check Availability",
+    "form_submit": "Check Clinic Fit",
     "thankyou_title": "Thank You",
     "thankyou_subtitle": "We received your information and will review your market availability shortly.",
     "return_home": "Return Home"
   },
   "blog_page": {
     "back": "Back to home",
-    "cta_button": "Check Your Market",
+    "cta_button": "Check Clinic Fit",
     "badge": "Dental Marketing Blog",
     "title_prefix": "Strategies for ",
     "title_highlight": "Implant & Cosmetic",
@@ -291,7 +291,7 @@
   },
   "blog_post": {
     "all_articles": "All articles",
-    "check_market": "Check Your Market",
+    "check_market": "Check Clinic Fit",
     "home": "Home",
     "blog": "Blog",
     "ready_title": "Ready to check if your market is available?",

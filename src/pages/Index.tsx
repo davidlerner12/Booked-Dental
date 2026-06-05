@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import Nav from "@/components/sections/Nav";
 import Hero from "@/components/sections/Hero";
 import Stats from "@/components/sections/Stats";
+import MarketMicroBanner from "@/components/sections/MarketMicroBanner";
 
 // Lazy load below-the-fold sections for better initial load performance
 const Problem = lazy(() => import("@/components/sections/Problem"));
@@ -14,6 +15,9 @@ const BookedDentalDifference = lazy(() => import("@/components/sections/BookedDe
 const AdvancedCallTracking = lazy(() => import("@/components/sections/AdvancedCallTracking"));
 const ROICalculator = lazy(() => import("@/components/sections/ROICalculator"));
 const ProofSnapshot = lazy(() => import("@/components/sections/ProofSnapshot"));
+const ValueAnchor = lazy(() => import("@/components/sections/ValueAnchor"));
+const AgencyComparison = lazy(() => import("@/components/sections/AgencyComparison"));
+const LeadQualityChecklist = lazy(() => import("@/components/sections/LeadQualityChecklist"));
 const HowItWorks = lazy(() => import("@/components/sections/HowItWorks"));
 const WhoItsFor = lazy(() => import("@/components/sections/WhoItsFor"));
 const WhoItsNotFor = lazy(() => import("@/components/sections/WhoItsNotFor"));
@@ -103,11 +107,14 @@ const Index = () => {
         ]}
       />
       <Nav />
+      <MarketMicroBanner />
       <Hero />
       <Stats />
 
       <Suspense fallback={<div className="min-h-screen" />}>
         <Problem />
+        <AgencyComparison />
+        <ValueAnchor />
         <ROICalculator />
         <ProofSnapshot />
         <FounderTrustBlock />
@@ -119,6 +126,7 @@ const Index = () => {
         <CreativesVideo />
         <WhoItsFor />
         <WhoItsNotFor />
+        <LeadQualityChecklist />
         <Testimonials />
         <RiskFreeTrial />
         <FAQ />

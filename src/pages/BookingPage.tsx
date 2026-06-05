@@ -45,6 +45,12 @@ const BOOKING_COPY = {
       no: "Not yet",
     },
     fitScoreLabel: "Fit score",
+    notFitTitle: "This is probably not a fit if",
+    notFitItems: [
+      "You mainly want hygiene, emergency, or low-ticket general dentistry leads.",
+      "You are looking for the cheapest possible form fills.",
+      "Your team cannot follow up with high-value treatment prospects quickly.",
+    ],
     faq: [
       {
         q: "Is this a sales call request?",
@@ -94,6 +100,12 @@ const BOOKING_COPY = {
       no: "עדיין לא",
     },
     fitScoreLabel: "ציון התאמה",
+    notFitTitle: "כנראה שזה לא מתאים אם",
+    notFitItems: [
+      "המטרה העיקרית היא לידים לניקוי, עזרה ראשונה או טיפולים כלליים וזולים.",
+      "אתם מחפשים את הטפסים הכי זולים שאפשר.",
+      "אין לצוות יכולת לחזור מהר למתעניינים בטיפולים בעלי ערך גבוה.",
+    ],
     faq: [
       {
         q: "האם זו בקשה לשיחת מכירה?",
@@ -265,6 +277,17 @@ const BookingPage = () => {
             <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6">
               <h2 className="font-display text-xl font-semibold">{copy.fitTitle}</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{copy.fitBody}</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm">
+              <h2 className="font-display text-xl font-semibold">{copy.notFitTitle}</h2>
+              <ul className="mt-4 space-y-3">
+                {copy.notFitItems.map((item) => (
+                  <li key={item} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                    <Shield className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </aside>
 

@@ -660,6 +660,159 @@ const enExpansionPages: ServicePageContent[] = [
       "why-dental-ads-fail",
     ],
   },
+  {
+    slug: "full-arch-implant-growth",
+    title: "Full-Arch Implant Growth",
+    metaTitle: "Full-Arch Implant Growth System | Booked.Dental",
+    description:
+      "A focused patient acquisition page for clinics that want more qualified full-arch, All-on-4, and All-on-6 opportunities.",
+    eyebrow: "Paid traffic landing page",
+    h1: "A focused growth system for full-arch implant clinics.",
+    intro:
+      "Full-arch growth depends on more than ad traffic. Booked.Dental combines treatment-specific creative, filtered forms, and AI learning loops so campaigns can move toward serious full-arch opportunities instead of casual implant curiosity.",
+    sections: [
+      {
+        title: "Built for high-value treatment decisions",
+        body:
+          "Full-arch prospects often compare cost, financing, fear, current dental condition, and trust. The funnel needs to answer those concerns before the clinic team spends time on follow-up.",
+      },
+      {
+        title: "Better filtering improves budget quality",
+        body:
+          "The system separates denture frustration, failing teeth, second-opinion interest, timeline, and financing comfort so the clinic can prioritize the strongest opportunities and teach the campaign what quality looks like.",
+      },
+    ],
+    bullets: [
+      "Full-arch and All-on-4 creative strategy",
+      "Landing-page copy around trust, candidacy, and financing",
+      "Filtering for readiness and treatment fit",
+      "Proof and ROI framing tied to qualified opportunities",
+    ],
+    relatedPosts: [
+      "all-on-4-advertising",
+      "dental-implant-ppc",
+      "dental-implant-google-ads-cost",
+    ],
+    faqs: [
+      {
+        question: "Who is this full-arch growth page for?",
+        answer:
+          "It is for implant clinics that have capacity for more full-arch, All-on-4, or All-on-6 cases and want filtered opportunities instead of broad implant leads.",
+      },
+      {
+        question: "Why not send paid traffic to the homepage?",
+        answer:
+          "A focused landing page can match the ad, treatment, patient objections, and filtering questions more tightly than a general homepage.",
+      },
+      {
+        question: "What should full-arch campaigns measure?",
+        answer:
+          "Measure qualified opportunities, booked evaluations, show rate, treatment acceptance, and ROI rather than clicks or raw forms alone.",
+      },
+    ],
+  },
+  {
+    slug: "veneer-case-growth",
+    title: "Veneer Case Growth",
+    metaTitle: "Veneer Case Growth for Cosmetic Dental Clinics | Booked.Dental",
+    description:
+      "A focused patient acquisition page for cosmetic clinics that want better-qualified veneer and smile makeover opportunities.",
+    eyebrow: "Paid traffic landing page",
+    h1: "A focused growth system for premium veneer cases.",
+    intro:
+      "Veneer campaigns need to attract people who value smile design, aesthetics, and outcome quality. Booked.Dental helps cosmetic clinics filter for serious smile makeover intent rather than low-budget cosmetic curiosity.",
+    sections: [
+      {
+        title: "Sell the plan, not only the procedure",
+        body:
+          "Strong veneer acquisition explains smile goals, shade, number of teeth, natural-looking outcomes, and the evaluation process so the patient understands the value before submitting the form.",
+      },
+      {
+        title: "Filter for readiness and case quality",
+        body:
+          "The funnel asks about goals, timeline, prior cosmetic work, and openness to a comprehensive smile evaluation so the clinic can focus on better-fit prospects.",
+      },
+    ],
+    bullets: [
+      "Veneer and smile makeover ad angles",
+      "Premium value framing without cheap-price hooks",
+      "Filtering for goals, timeline, and treatment fit",
+      "Internal links to cosmetic and ROI proof pages",
+    ],
+    relatedPosts: [
+      "veneers-advertising",
+      "veneers-lead-generation",
+      "cosmetic-dentist-facebook-ads",
+    ],
+    faqs: [
+      {
+        question: "Who is veneer case growth for?",
+        answer:
+          "It is for cosmetic dental clinics that want more premium veneer or smile makeover evaluations, not broad low-intent cosmetic form fills.",
+      },
+      {
+        question: "Should veneer campaigns mention price?",
+        answer:
+          "They can provide investment context, but the main message should usually focus on planning, result quality, and fit rather than the cheapest price.",
+      },
+      {
+        question: "What should veneer campaigns measure?",
+        answer:
+          "Measure qualified cosmetic opportunities, booked evaluations, case size, acceptance rate, and ROI.",
+      },
+    ],
+  },
+  {
+    slug: "cosmetic-dental-growth",
+    title: "Cosmetic Dental Growth",
+    metaTitle: "Cosmetic Dental Growth System | Booked.Dental",
+    description:
+      "A focused acquisition page for cosmetic dentists who want filtered opportunities for veneers, smile makeovers, and aesthetic treatment.",
+    eyebrow: "Paid traffic landing page",
+    h1: "Cosmetic dental growth built around qualified patient intent.",
+    intro:
+      "Cosmetic dentistry growth works when the campaign creates desire, filters readiness, and gives the clinic useful context before follow-up. Booked.Dental helps cosmetic clinics move from broad interest to qualified aesthetic opportunities.",
+    sections: [
+      {
+        title: "Demand creation needs qualification",
+        body:
+          "Meta and visual creative can create interest quickly, but interest alone is not enough. The system needs to identify who is local, reachable, treatment-fit, and ready to discuss a real plan.",
+      },
+      {
+        title: "Different treatments need different messaging",
+        body:
+          "Veneers, smile design, bonding, whitening, and full cosmetic plans have different motivations. The page and form should guide patients into the right path rather than treating all cosmetic clicks the same.",
+      },
+    ],
+    bullets: [
+      "Meta and Google funnel strategy for cosmetic dentistry",
+      "UGC creative for desire, trust, and treatment clarity",
+      "Lead filters that separate curiosity from patient potential",
+      "Proof framing around case value and average ROI",
+    ],
+    relatedPosts: [
+      "cosmetic-dentist-facebook-ads",
+      "veneers-lead-generation",
+      "meta-ads-for-cosmetic-dentists",
+    ],
+    faqs: [
+      {
+        question: "Who is cosmetic dental growth for?",
+        answer:
+          "It is for cosmetic clinics that want better-qualified opportunities for veneers, smile makeovers, and aesthetic treatment plans.",
+      },
+      {
+        question: "Why does cosmetic growth need filtering?",
+        answer:
+          "Beautiful ads can attract casual attention. Filtering helps separate serious prospects from people who are only browsing.",
+      },
+      {
+        question: "What channels work best?",
+        answer:
+          "Meta is useful for demand creation, Google captures active search intent, and SEO supports trust. The best mix depends on the market and treatment focus.",
+      },
+    ],
+  },
 ];
 
 const hePages: ServicePageContent[] = [
@@ -1308,6 +1461,108 @@ const heExpansionPages: ServicePageContent[] = [
       "best-dental-lead-sources",
       "dental-lead-filtering-for-dentists",
       "why-dental-ads-fail",
+    ],
+  },
+  {
+    slug: "full-arch-implant-growth",
+    title: "צמיחת מקרי Full-Arch",
+    metaTitle: "מערכת צמיחה למקרי Full-Arch | Booked.Dental",
+    description:
+      "עמוד ממוקד למרפאות שרוצות יותר פניות מסוננות לשיקום מלא, All-on-4 ו-All-on-6.",
+    eyebrow: "עמוד נחיתה לקמפיינים",
+    h1: "מערכת צמיחה ממוקדת למרפאות Full-Arch.",
+    intro:
+      "צמיחה במקרי Full-Arch דורשת יותר מתנועה פרסומית. Booked.Dental משלבת קריאייטיב ייעודי, טפסים מסננים ולמידת AI כדי להזיז את הקמפיין לכיוון פניות רציניות יותר.",
+    sections: [
+      {
+        title: "בנוי להחלטות טיפול בעלות ערך גבוה",
+        body:
+          "מטופלי Full-Arch משווים עלות, מימון, פחד, מצב דנטלי ואמון. המשפך צריך לענות על החששות האלה לפני שהצוות משקיע זמן במעקב.",
+      },
+      {
+        title: "סינון טוב יותר משפר את איכות התקציב",
+        body:
+          "המערכת מזהה תסכול מתותבות, שיניים כושלות, עניין בחוות דעת שנייה, לוח זמנים והתאמה כלכלית כדי לעזור למרפאה לתעדף פניות חזקות יותר.",
+      },
+    ],
+    bullets: [
+      "אסטרטגיית קריאייטיב ל-Full-Arch ו-All-on-4",
+      "מסר סביב אמון, התאמה ומימון",
+      "סינון לפי מוכנות והתאמה טיפולית",
+      "מסגור ROI סביב פניות איכותיות",
+    ],
+    relatedPosts: [
+      "all-on-4-advertising",
+      "dental-implant-ppc",
+      "dental-implant-google-ads-cost",
+    ],
+  },
+  {
+    slug: "veneer-case-growth",
+    title: "צמיחת מקרי ציפויים",
+    metaTitle: "צמיחת מקרי ציפויים למרפאות אסתטיקה | Booked.Dental",
+    description:
+      "עמוד ממוקד למרפאות אסתטיקה שרוצות פניות איכותיות יותר לציפויים ועיצוב חיוך.",
+    eyebrow: "עמוד נחיתה לקמפיינים",
+    h1: "מערכת צמיחה ממוקדת למקרי ציפויים פרימיום.",
+    intro:
+      "קמפיינים לציפויים צריכים למשוך אנשים שמעריכים תכנון חיוך, אסתטיקה ואיכות תוצאה. Booked.Dental עוזרת לסנן כוונה אמיתית במקום סקרנות קוסמטית זולה.",
+    sections: [
+      {
+        title: "מוכרים את התכנון, לא רק את הטיפול",
+        body:
+          "משפך חזק לציפויים מסביר מטרות חיוך, גוון, מספר שיניים, תוצאה טבעית ותהליך הערכה כדי שהמטופל יבין את הערך לפני מילוי הטופס.",
+      },
+      {
+        title: "מסננים מוכנות ואיכות מקרה",
+        body:
+          "המשפך שואל על מטרות, לוח זמנים, טיפולים קוסמטיים קודמים ונכונות לתהליך מקיף, כדי שהמרפאה תתמקד במתעניינים שמתאימים יותר.",
+      },
+    ],
+    bullets: [
+      "זוויות פרסום לציפויים ועיצוב חיוך",
+      "מסגור ערך פרימיום בלי הוק זול של מחיר",
+      "סינון לפי מטרות, זמן והתאמה",
+      "קישור לעמודי הוכחה ו-ROI",
+    ],
+    relatedPosts: [
+      "veneers-advertising",
+      "veneers-lead-generation",
+      "cosmetic-dentist-facebook-ads",
+    ],
+  },
+  {
+    slug: "cosmetic-dental-growth",
+    title: "צמיחה למרפאות אסתטיקה דנטלית",
+    metaTitle: "מערכת צמיחה למרפאות אסתטיקה דנטלית | Booked.Dental",
+    description:
+      "עמוד ממוקד למרפאות אסתטיקה שרוצות פניות מסוננות לציפויים, עיצוב חיוך וטיפולים אסתטיים.",
+    eyebrow: "עמוד נחיתה לקמפיינים",
+    h1: "צמיחה לאסתטיקה דנטלית סביב כוונת מטופל אמיתית.",
+    intro:
+      "צמיחה באסתטיקה דנטלית עובדת כשהקמפיין יוצר רצון, מסנן מוכנות ונותן לצוות הקשר ברור לפני מעקב. Booked.Dental עוזרת לעבור מעניין כללי לפניות אסתטיות מתאימות יותר.",
+    sections: [
+      {
+        title: "יצירת ביקוש חייבת לכלול סינון",
+        body:
+          "Meta וקריאייטיב ויזואלי יכולים ליצור עניין מהר, אבל עניין לבדו לא מספיק. צריך לזהות מי מקומי, זמין, מתאים טיפולית ומוכן לדבר על תוכנית אמיתית.",
+      },
+      {
+        title: "טיפולים שונים צריכים מסר שונה",
+        body:
+          "ציפויים, עיצוב חיוך, בונדינג, הלבנה ותוכניות אסתטיות מלאות מגיעים ממניעים שונים. העמוד והטופס צריכים לכוון את המטופל למסלול הנכון.",
+      },
+    ],
+    bullets: [
+      "אסטרטגיית Meta ו-Google לאסתטיקה דנטלית",
+      "קריאייטיב UGC סביב רצון, אמון ובהירות",
+      "סינון שמפריד בין סקרנות לפוטנציאל טיפול",
+      "מסגור הוכחה סביב ערך מקרה ו-ROI",
+    ],
+    relatedPosts: [
+      "cosmetic-dentist-facebook-ads",
+      "veneers-lead-generation",
+      "meta-ads-for-cosmetic-dentists",
     ],
   },
 ];

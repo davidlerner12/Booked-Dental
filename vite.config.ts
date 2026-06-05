@@ -79,6 +79,9 @@ const SERVICE_STATIC_PATHS = [
   "/services/qualified-opportunity-methodology",
   "/services/booked-dental-vs-dental-marketing-agency",
   "/services/dental-lead-generation-vs-patient-acquisition",
+  "/services/full-arch-implant-growth",
+  "/services/veneer-case-growth",
+  "/services/cosmetic-dental-growth",
 ];
 const BLOG_CANONICAL_SLUGS: Record<string, string> = {
   "how-cosmetic-dentists-get-more-consults": "cosmetic-dentists-high-intent-patients",

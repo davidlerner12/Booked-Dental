@@ -18,6 +18,19 @@ const CTA = () => {
         { value: "7 days", label: "Typical time to first opportunity" },
         { value: "1", label: "Clinic per market" },
       ];
+  const objectionItems = isHebrew
+    ? [
+        "בלי חוזה ארוך טווח",
+        "מרפאה אחת בלבד בכל אזור",
+        "בודקים איכות פניות לפני שמתחייבים",
+        "בנוי לשתלים, Full-Arch, ציפויים ואסתטיקה",
+      ]
+    : [
+        "No long-term contract",
+        "One clinic per local market",
+        "See lead quality before committing",
+        "Built for implants, full-arch, veneers, and cosmetics",
+      ];
   return (
     <section id="cta" className="relative border-t border-border py-24">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(42_100%_55%/0.08),transparent_60%)]" />
@@ -33,6 +46,13 @@ const CTA = () => {
               <div key={item.label} className="rounded-lg border border-primary/20 bg-primary/5 p-4">
                 <div className="text-2xl font-bold text-primary">{item.value}</div>
                 <div className="mt-1 text-xs leading-snug text-muted-foreground">{item.label}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mb-8 grid gap-2 text-start sm:grid-cols-2">
+            {objectionItems.map((item) => (
+              <div key={item} className="rounded-lg border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
+                {item}
               </div>
             ))}
           </div>
